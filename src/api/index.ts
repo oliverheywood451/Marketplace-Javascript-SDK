@@ -6,7 +6,6 @@ import Suppliers from './Suppliers';
 import Products from './Products';
 import Files from './Files';
 import SupplierCategoryConfigs from './SupplierCategoryConfigs';
-import Integrations from './Integrations';
 import TaxCodes from './TaxCodes';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
@@ -23,7 +22,6 @@ export {
     Products,
     Files,
     SupplierCategoryConfigs,
-    Integrations,
     TaxCodes,
     MePayments,
     MeCreditCardAuthorizations,
