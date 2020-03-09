@@ -1,5 +1,7 @@
+import { SpecOptionXp } from './SpecOptionXp';
 
-export interface SpecOption {
+export interface MarketplaceSpecOption<TMarketplaceSpecOptionXp = any> {
+    xp?: TMarketplaceSpecOptionXp
     ID?: string
     Value?: string
     ListOrder?: number

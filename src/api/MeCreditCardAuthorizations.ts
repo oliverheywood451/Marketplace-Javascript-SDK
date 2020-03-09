@@ -1,10 +1,11 @@
-import { MarketplaceBuyer } from '../models/MarketplaceBuyer';
+import { CreditCardToken } from '../models/CreditCardToken';
+import { BuyerCreditCard } from '../models/BuyerCreditCard';
 import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { Filters } from '../models/Filters';
 import httpClient from '../utils/HttpClient';
 
-class Buyers {
+class MeCreditCardAuthorizations {
     private impersonating:boolean = false;
 
     /**
@@ -12,17 +13,17 @@ class Buyers {
     * not part of public api, don't include in generated docs
     */
     constructor() {
-        this.Create = this.Create.bind(this);
+        this.MePost = this.MePost.bind(this);
     }
 
    /**
-    * @param marketplaceBuyer 
+    * @param creditCardToken Required fields: ExpirationDate
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create<TMarketplaceBuyer extends MarketplaceBuyer>(marketplaceBuyer: MarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<TMarketplaceBuyer>> {
+    public async MePost<TBuyerCreditCard extends BuyerCreditCard>(creditCardToken: CreditCardToken, accessToken?: string ): Promise<RequiredDeep<TBuyerCreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyer`, marketplaceBuyer, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/me/creditcards`, creditCardToken, { params: {  accessToken, impersonating } } );
     }
 
     /**
@@ -30,7 +31,7 @@ class Buyers {
      * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
-     * Buyers.As().List() // lists Buyers using the impersonated users' token
+     * MeCreditCardAuthorizations.As().List() // lists MeCreditCardAuthorizations using the impersonated users' token
      */
     public As(): this {
         this.impersonating = true;
@@ -38,4 +39,4 @@ class Buyers {
     }
 }
 
-export default new Buyers();
+export default new MeCreditCardAuthorizations();

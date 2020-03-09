@@ -1,10 +1,11 @@
-import { MarketplaceBuyer } from '../models/MarketplaceBuyer';
+import { CreditCardPayment } from '../models/CreditCardPayment';
+import { Payment } from '../models/Payment';
 import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { Filters } from '../models/Filters';
 import httpClient from '../utils/HttpClient';
 
-class Buyers {
+class MePayments {
     private impersonating:boolean = false;
 
     /**
@@ -12,17 +13,17 @@ class Buyers {
     * not part of public api, don't include in generated docs
     */
     constructor() {
-        this.Create = this.Create.bind(this);
+        this.Post = this.Post.bind(this);
     }
 
    /**
-    * @param marketplaceBuyer 
+    * @param creditCardPayment Required fields: OrderID, Currency, MerchantID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create<TMarketplaceBuyer extends MarketplaceBuyer>(marketplaceBuyer: MarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<TMarketplaceBuyer>> {
+    public async Post<TPayment extends Payment>(creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<TPayment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyer`, marketplaceBuyer, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/me/payments`, creditCardPayment, { params: {  accessToken, impersonating } } );
     }
 
     /**
@@ -30,7 +31,7 @@ class Buyers {
      * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
-     * Buyers.As().List() // lists Buyers using the impersonated users' token
+     * MePayments.As().List() // lists MePayments using the impersonated users' token
      */
     public As(): this {
         this.impersonating = true;
@@ -38,4 +39,4 @@ class Buyers {
     }
 }
 
-export default new Buyers();
+export default new MePayments();

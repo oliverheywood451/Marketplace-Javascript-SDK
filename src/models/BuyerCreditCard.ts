@@ -1,12 +1,11 @@
 
-export interface BuyerCreditCard<TBuyerCreditCardXp = any> {
-    readonly ID?: string
-    readonly Editable?: boolean
+export interface BuyerCreditCard {
+    ID?: string
+    Editable?: boolean
     Token?: string
-    readonly DateCreated?: string
+    DateCreated?: string
     CardType?: string
     PartialAccountNumber?: string
     CardholderName?: string
     ExpirationDate?: string
-    xp?: TBuyerCreditCardXp
 }

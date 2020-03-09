@@ -1,11 +1,10 @@
 
-export interface CreditCard<TCreditCardXp = any> {
+export interface CreditCard {
     ID?: string
     Token?: string
-    readonly DateCreated?: string
+    DateCreated?: string
     CardType?: string
     PartialAccountNumber?: string
     CardholderName?: string
-    ExpirationDate?: string
-    xp?: TCreditCardXp
+    ExpirationDate: string
 }

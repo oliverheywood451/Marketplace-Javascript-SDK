@@ -1,5 +1,5 @@
 
-export interface PaymentTransaction<TPaymentTransactionXp = any> {
+export interface PaymentTransaction {
     ID?: string
     Type?: string
     DateExecuted?: string
@@ -7,5 +7,4 @@ export interface PaymentTransaction<TPaymentTransactionXp = any> {
     Succeeded?: boolean
     ResultCode?: string
     ResultMessage?: string
-    xp?: TPaymentTransactionXp
 }
