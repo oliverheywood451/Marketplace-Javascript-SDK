@@ -24,6 +24,7 @@ export * from './MarketplaceSpec';
 export * from './MarketplaceSpecOption';
 export * from './MarketplaceSpecProductAssignment';
 export * from './MarketplaceSupplier';
+export * from './MarketplaceTaxCode';
 export * from './MarketplaceUser';
 export * from './MarketplaceUserGroup';
 export * from './MarketplaceUserGroupAssignment';
