@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Suppliers | ordercloud-javascript-sdk</title>
+	<title>CreditCardAuthorizations | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="suppliers.html">Suppliers</a>
+					<a href="creditcardauthorizations.html">CreditCardAuthorizations</a>
 				</li>
 			</ul>
 		</div>
@@ -50,9 +50,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="suppliers.html#as" class="tsd-kind-icon">As</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="suppliers.html#create" class="tsd-kind-icon">Create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="suppliers.html#getmysupplier" class="tsd-kind-icon">Get<wbr>MySupplier</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="creditcardauthorizations.html#as" class="tsd-kind-icon">As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="creditcardauthorizations.html#post" class="tsd-kind-icon">Post</a></li>
 							</ul>
 						</section>
 					</div>
@@ -76,7 +75,7 @@
 									<dd><p>enables impersonation by calling the subsequent method with the stored impersonation token</p>
 									</dd>
 									<dt>example</dt>
-									<dd><p>Suppliers.As().List() // lists Suppliers using the impersonated users&#39; token</p>
+									<dd><p>CreditCardAuthorizations.As().List() // lists CreditCardAuthorizations using the impersonated users&#39; token</p>
 									</dd>
 								</dl>
 							</div>
@@ -85,10 +84,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="create" class="tsd-anchor"></a>
-					<h3>Create</h3>
+					<a name="post" class="tsd-anchor"></a>
+					<h3>Post</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">Create&lt;TMarketplaceSupplier&gt;<span class="tsd-signature-symbol">(</span>marketplaceSupplier<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacesupplier.html" class="tsd-signature-type">MarketplaceSupplier</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TMarketplaceSupplier</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post&lt;TCreditCard&gt;<span class="tsd-signature-symbol">(</span>buyerID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TCreditCard</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -99,13 +98,16 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>TMarketplaceSupplier<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacesupplier.html" class="tsd-signature-type">MarketplaceSupplier</a></h4>
+									<h4>TCreditCard<span class="tsd-signature-symbol">: </span><a href="../interfaces/creditcard.html" class="tsd-signature-type">CreditCard</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>marketplaceSupplier: <a href="../interfaces/marketplacesupplier.html" class="tsd-signature-type">MarketplaceSupplier</a></h5>
+									<h5>buyerID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the buyer.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -114,49 +116,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TMarketplaceSupplier</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="getmysupplier" class="tsd-anchor"></a>
-					<h3>Get<wbr>MySupplier</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">Get<wbr>MySupplier&lt;TMarketplaceSupplier&gt;<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>supplierID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TMarketplaceSupplier</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>TMarketplaceSupplier<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacesupplier.html" class="tsd-signature-type">MarketplaceSupplier</a></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-symbol">{ </span>supplierID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = {}</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> supplierID<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
-											<div class="tsd-comment tsd-typography">
-												<p>ID of the supplier.</p>
-											</div>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TMarketplaceSupplier</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TCreditCard</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -172,16 +132,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="suppliers.html" class="tsd-kind-icon">Suppliers</a>
+						<a href="creditcardauthorizations.html" class="tsd-kind-icon">Credit<wbr>Card<wbr>Authorizations</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="suppliers.html#as" class="tsd-kind-icon">As</a>
+								<a href="creditcardauthorizations.html#as" class="tsd-kind-icon">As</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="suppliers.html#create" class="tsd-kind-icon">Create</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="suppliers.html#getmysupplier" class="tsd-kind-icon">Get<wbr>MySupplier</a>
+								<a href="creditcardauthorizations.html#post" class="tsd-kind-icon">Post</a>
 							</li>
 						</ul>
 					</li>
