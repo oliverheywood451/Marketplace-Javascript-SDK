@@ -2,7 +2,7 @@ import { SdkConfiguration } from './models'
 
 class Configuration {
   private config: SdkConfiguration = {
-    baseApiUrl: 'https://api.ordercloud.io/v1',
+    baseApiUrl: 'https://marketplace-api-qa.azurewebsites.net',
     baseAuthUrl: 'https://auth.ordercloud.io/oauth/token',
     timeoutInMilliseconds: 10 * 1000,
     clientID: null,

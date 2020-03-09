@@ -31,7 +31,7 @@ export interface DecodedToken {
 
   /**
    * the audience - who should be consuming this token
-   * this should always be https://api.ordercloud.io (the ordercloud api)
+   * this should always be https://marketplace-api-qa.azurewebsites.net (the ordercloud api)
    */
   aud: string
 

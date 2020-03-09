@@ -14,7 +14,7 @@ The objective of this guide is to document the breaking changes and updates requ
     const defaultClient = OrderCloud.Sdk.instance;
 
     // configuring baseApiPath and baseAuthUrl
-    defaultClient.baseApiPath = 'https://api.ordercloud.io/v1';
+    defaultClient.baseApiPath = 'https://marketplace-api-qa.azurewebsites.net';
     defaultClient.baseAuthPath = 'https://auth.ordercloud.io/oauth/token';
 
     // setting the token
@@ -25,7 +25,7 @@ The objective of this guide is to document the breaking changes and updates requ
 
     ```javascript
     Configuration.Set({
-        baseApiUrl: 'https://api.ordercloud.io/v1',
+        baseApiUrl: 'https://marketplace-api-qa.azurewebsites.net',
         baseAuthUrl: 'https://auth.ordercloud.io/oauth/token'
     })
 
