@@ -1,7 +1,7 @@
 import { ListFacet } from './ListFacet';
 
-export interface MetaWithFacets<TFacetsXp = any> {
-    Facets?: ListFacet<TFacetsXp>[]
+export interface MetaWithFacets {
+    Facets?: ListFacet[]
     Page?: number
     PageSize?: number
     TotalCount?: number

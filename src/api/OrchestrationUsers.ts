@@ -5,9 +5,8 @@ import { MarketplaceUser } from '../models/MarketplaceUser';
 import { MarketplaceUserGroup } from '../models/MarketplaceUserGroup';
 import { MarketplaceUserGroupAssignment } from '../models/MarketplaceUserGroupAssignment';
 import { MarketplaceBuyer } from '../models/MarketplaceBuyer';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class OrchestrationUsers {
@@ -32,7 +31,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace address buyer.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostAddress<TMarketplaceAddressBuyer extends MarketplaceAddressBuyer>(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceAddressBuyer>> {
+    public async PostAddress(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/${buyerId}/address`, { params: {  accessToken, impersonating } } );
@@ -43,7 +42,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace address assignment.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostAddressAssignment<TMarketplaceAddressAssignment extends MarketplaceAddressAssignment>(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceAddressAssignment>> {
+    public async PostAddressAssignment(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/${buyerId}/addressassignment`, { params: {  accessToken, impersonating } } );
@@ -54,7 +53,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace cost center.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostCostCenter<TMarketplaceCostCenter extends MarketplaceCostCenter>(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceCostCenter>> {
+    public async PostCostCenter(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceCostCenter>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/${buyerId}/costcenter`, { params: {  accessToken, impersonating } } );
@@ -65,7 +64,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace user.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostUser<TMarketplaceUser extends MarketplaceUser>(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceUser>> {
+    public async PostUser(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceUser>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/${buyerId}/user`, { params: {  accessToken, impersonating } } );
@@ -76,7 +75,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace user group.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostUserGroup<TMarketplaceUserGroup extends MarketplaceUserGroup>(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceUserGroup>> {
+    public async PostUserGroup(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/${buyerId}/usergroup`, { params: {  accessToken, impersonating } } );
@@ -87,7 +86,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace user group assignment.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostUserGroupAssignment<TMarketplaceUserGroupAssignment extends MarketplaceUserGroupAssignment>(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceUserGroupAssignment>> {
+    public async PostUserGroupAssignment(buyerId: string, clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroupAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/${buyerId}/usergroupassignment`, { params: {  accessToken, impersonating } } );
@@ -97,7 +96,7 @@ class OrchestrationUsers {
     * @param clientId Client id of the marketplace buyer.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostBuyer<TMarketplaceBuyer extends MarketplaceBuyer>(clientId: string,  accessToken?: string ): Promise<RequiredDeep<TMarketplaceBuyer>> {
+    public async PostBuyer(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/buyer`, { params: {  accessToken, impersonating } } );

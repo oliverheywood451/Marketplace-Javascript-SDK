@@ -1,8 +1,8 @@
 import { PriceScheduleXp } from './PriceScheduleXp';
 import { PriceBreak } from './PriceBreak';
 
-export interface MarketplacePriceSchedule<TMarketplacePriceScheduleXp = any> {
-    xp?: TMarketplacePriceScheduleXp
+export interface MarketplacePriceSchedule {
+    xp?: PriceScheduleXp
     ID?: string
     Name?: string
     ApplyTax?: boolean

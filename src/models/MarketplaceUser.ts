@@ -1,7 +1,7 @@
 import { UserXp } from './UserXp';
 
-export interface MarketplaceUser<TMarketplaceUserXp = any> {
-    xp?: TMarketplaceUserXp
+export interface MarketplaceUser {
+    xp?: UserXp
     ID?: string
     Username?: string
     Password?: string

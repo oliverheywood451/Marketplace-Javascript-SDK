@@ -1,6 +1,6 @@
 import { MetaWithFacets } from './MetaWithFacets'
 
-export interface ListPageFacet<TItem, TFacetsXp = any> {
+export interface ListPageFacet<TItem> {
   Items?: TItem[]
-  Meta?: MetaWithFacets<TFacetsXp>
+  Meta?: MetaWithFacets
 }

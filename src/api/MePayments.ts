@@ -1,8 +1,7 @@
 import { CreditCardPayment } from '../models/CreditCardPayment';
 import { Payment } from '../models/Payment';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class MePayments {
@@ -20,7 +19,7 @@ class MePayments {
     * @param creditCardPayment Required fields: OrderID, Currency, MerchantID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post<TPayment extends Payment>(creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<TPayment>> {
+    public async Post(creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/me/payments`, creditCardPayment, { params: {  accessToken, impersonating } } );

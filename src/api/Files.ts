@@ -1,7 +1,6 @@
 import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class Files {
@@ -22,7 +21,7 @@ class Files {
     * @param options.file File of the super marketplace product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post<TSuperMarketplaceProduct extends SuperMarketplaceProduct>(marketplaceID: string, productID: string,  options: { file?: any } = {}, accessToken?: string ): Promise<RequiredDeep<TSuperMarketplaceProduct>> {
+    public async Post(marketplaceID: string, productID: string,  options: ListArgs<SuperMarketplaceProduct> = {}, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/${marketplaceID}/images/product/${productID}`, { params: { ...options,  accessToken, impersonating } } );
@@ -34,7 +33,7 @@ class Files {
     * @param fileName File name of the super marketplace product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Delete<TSuperMarketplaceProduct extends SuperMarketplaceProduct>(marketplaceID: string, productID: string, fileName: string,  accessToken?: string ): Promise<RequiredDeep<TSuperMarketplaceProduct>> {
+    public async Delete(marketplaceID: string, productID: string, fileName: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/${marketplaceID}/images/product/${productID}/${fileName}`, { params: {  accessToken, impersonating } } );

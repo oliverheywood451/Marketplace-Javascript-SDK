@@ -1,7 +1,6 @@
 import { MarketplaceSupplier } from '../models/MarketplaceSupplier';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class Suppliers {
@@ -12,28 +11,28 @@ class Suppliers {
     * not part of public api, don't include in generated docs
     */
     constructor() {
-        this.GetMySupplier = this.GetMySupplier.bind(this);
         this.Create = this.Create.bind(this);
-    }
-
-   /**
-    * @param options.supplierID ID of the supplier.
-    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
-    */
-    public async GetMySupplier<TMarketplaceSupplier extends MarketplaceSupplier>( options: { supplierID?: string } = {}, accessToken?: string ): Promise<RequiredDeep<TMarketplaceSupplier>> {
-        const impersonating = this.impersonating;
-        this.impersonating = false;
-        return await httpClient.get(`/supplier`, { params: { ...options,  accessToken, impersonating } } );
+        this.GetMySupplier = this.GetMySupplier.bind(this);
     }
 
    /**
     * @param marketplaceSupplier 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create<TMarketplaceSupplier extends MarketplaceSupplier>(marketplaceSupplier: MarketplaceSupplier, accessToken?: string ): Promise<RequiredDeep<TMarketplaceSupplier>> {
+    public async Create(marketplaceSupplier: MarketplaceSupplier, accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/supplier`, marketplaceSupplier, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param supplierID ID of the supplier.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetMySupplier(supplierID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/supplier/me/${supplierID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

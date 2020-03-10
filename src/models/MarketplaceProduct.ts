@@ -1,8 +1,8 @@
 import { ProductXp } from './ProductXp';
 import { Inventory } from './Inventory';
 
-export interface MarketplaceProduct<TMarketplaceProductXp = any> {
-    xp?: TMarketplaceProductXp
+export interface MarketplaceProduct {
+    xp?: ProductXp
     OwnerID?: string
     DefaultPriceScheduleID?: string
     AutoForward?: boolean

@@ -1,7 +1,6 @@
 import { CreditCard } from '../models/CreditCard';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class CreditCardAuthorizations {
@@ -19,7 +18,7 @@ class CreditCardAuthorizations {
     * @param buyerID ID of the buyer.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post<TCreditCard extends CreditCard>(buyerID: string,  accessToken?: string ): Promise<RequiredDeep<TCreditCard>> {
+    public async Post(buyerID: string,  accessToken?: string ): Promise<RequiredDeep<CreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/buyers/${buyerID}/creditcards`, { params: {  accessToken, impersonating } } );

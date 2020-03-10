@@ -1,7 +1,7 @@
 import { CostCenterXp } from './CostCenterXp';
 
-export interface MarketplaceCostCenter<TMarketplaceCostCenterXp = any> {
-    xp?: TMarketplaceCostCenterXp
+export interface MarketplaceCostCenter {
+    xp?: CostCenterXp
     ID?: string
     Name?: string
     Description?: string

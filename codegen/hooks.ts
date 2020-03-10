@@ -97,7 +97,7 @@ function findTypeForOperationProps(prop: Param, operation: Operation) {
     // we will now expect { xp: { color: 'red' } }
     prop.description =
       'An object whose keys match the model, and the values are the values to filter by'
-    return `Filters<Required<T${operation.baseType}>>`
+    return `Filters<Required<${operation.baseType}>>`
   }
 
   if (prop.isEnum) {
@@ -123,9 +123,9 @@ function findTypeForModelProps(prop: Param, model: Model) {
     return 'void'
   }
 
-  if (prop.name === 'xp') {
-    return `T${model.name}Xp`
-  }
+  // if (prop.name === 'xp') {
+  //   return `T${model.name}Xp`
+  // }
 
   if (model.isList && prop.name === 'Items') {
     return `T${model.baseType}[]`
@@ -166,25 +166,25 @@ function inspectModelForTypeParams(
     if (!prop['typeParams']) {
       prop['typeParams'] = []
     }
-    if (prop.isXp) {
-      if (!rootProp) {
-        const typeParam = `T${inspectModel.name}Xp`
-        rootModel['typeParams'].unshift(typeParam)
-        prop['typeParams'].unshift(typeParam)
-      } else {
-        let typeParam = parentProp
-          ? `T${parentProp.name}Xp`
-          : `T${rootProp.name}Xp`
-        if (typeParam === 'TItemsXp') {
-          typeParam = `T${rootProp.type}Xp`
-          rootModel['typeParams'].unshift(typeParam)
-          rootProp['typeParams'].unshift(typeParam)
-        } else {
-          rootModel['typeParams'].push(typeParam)
-          rootProp['typeParams'].push(typeParam)
-        }
-      }
-    }
+    // if (prop.isXp) {
+    //   if (!rootProp) {
+    //     const typeParam = `T${inspectModel.name}Xp`
+    //     rootModel['typeParams'].unshift(typeParam)
+    //     prop['typeParams'].unshift(typeParam)
+    //   } else {
+    //     let typeParam = parentProp
+    //       ? `T${parentProp.name}Xp`
+    //       : `T${rootProp.name}Xp`
+    //     if (typeParam === 'TItemsXp') {
+    //       typeParam = `T${rootProp.type}Xp`
+    //       rootModel['typeParams'].unshift(typeParam)
+    //       rootProp['typeParams'].unshift(typeParam)
+    //     } else {
+    //       rootModel['typeParams'].push(typeParam)
+    //       rootProp['typeParams'].push(typeParam)
+    //     }
+    //   }
+    // }
     if (prop.isCustomType) {
       const toInspect = allModels.find(model => {
         return model.name === prop.type || model.type === prop.type

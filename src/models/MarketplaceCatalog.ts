@@ -1,7 +1,7 @@
 import { CatalogXp } from './CatalogXp';
 
-export interface MarketplaceCatalog<TMarketplaceCatalogXp = any> {
-    xp?: TMarketplaceCatalogXp
+export interface MarketplaceCatalog {
+    xp?: CatalogXp
     ID?: string
     OwnerID?: string
     Name?: string

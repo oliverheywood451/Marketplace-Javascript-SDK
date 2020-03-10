@@ -1,8 +1,7 @@
 import { ListPage } from '../models/ListPage';
 import { OrchestrationLog } from '../models/OrchestrationLog';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class OrchestrationLogs {
@@ -25,7 +24,7 @@ class OrchestrationLogs {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List<TOrchestrationLog extends OrchestrationLog>( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: Filters<Required<TOrchestrationLog>> } = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<TOrchestrationLog>>> {
+    public async List( options: ListArgs<OrchestrationLog> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<OrchestrationLog>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/orchestration/logs`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );

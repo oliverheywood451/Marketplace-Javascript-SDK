@@ -1,8 +1,7 @@
 import { CreditCardToken } from '../models/CreditCardToken';
 import { BuyerCreditCard } from '../models/BuyerCreditCard';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class MeCreditCardAuthorizations {
@@ -20,7 +19,7 @@ class MeCreditCardAuthorizations {
     * @param creditCardToken Required fields: ExpirationDate
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async MePost<TBuyerCreditCard extends BuyerCreditCard>(creditCardToken: CreditCardToken, accessToken?: string ): Promise<RequiredDeep<TBuyerCreditCard>> {
+    public async MePost(creditCardToken: CreditCardToken, accessToken?: string ): Promise<RequiredDeep<BuyerCreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/me/creditcards`, creditCardToken, { params: {  accessToken, impersonating } } );

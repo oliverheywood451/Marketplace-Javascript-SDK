@@ -1,7 +1,7 @@
 import { BuyerAddressXP } from './BuyerAddressXP';
 
-export interface MarketplaceAddressBuyer<TMarketplaceAddressBuyerXp = any> {
-    xp?: TMarketplaceAddressBuyerXp
+export interface MarketplaceAddressBuyer {
+    xp?: BuyerAddressXP
     ID?: string
     DateCreated?: string
     CompanyName?: string

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SuperMarketplaceProduct | ordercloud-javascript-sdk</title>
+	<title>ListArgs | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="supermarketplaceproduct.html">SuperMarketplaceProduct</a>
+					<a href="listargs.html">ListArgs</a>
 				</li>
 			</ul>
 		</div>
@@ -43,6 +43,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>API Reference</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -50,9 +58,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="supermarketplaceproduct.html#id" class="tsd-kind-icon">ID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="supermarketplaceproduct.html#priceschedule" class="tsd-kind-icon">Price<wbr>Schedule</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="supermarketplaceproduct.html#product" class="tsd-kind-icon">Product</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listargs.html#filters" class="tsd-kind-icon">filters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listargs.html#page" class="tsd-kind-icon">page</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listargs.html#pagesize" class="tsd-kind-icon">page<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listargs.html#search" class="tsd-kind-icon">search</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listargs.html#searchon" class="tsd-kind-icon">search<wbr>On</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="listargs.html#sortby" class="tsd-kind-icon">sort<wbr>By</a></li>
 							</ul>
 						</section>
 					</div>
@@ -61,23 +72,44 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ID</h3>
-					<div class="tsd-signature tsd-kind-icon">ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="filters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> filters</h3>
+					<div class="tsd-signature tsd-kind-icon">filters<span class="tsd-signature-symbol">:</span> <a href="suppliercategoryconfig.html#filters" class="tsd-signature-type">Filters</a><span class="tsd-signature-symbol">&lt;</span><a href="marketplacespec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="priceschedule" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Price<wbr>Schedule</h3>
-					<div class="tsd-signature tsd-kind-icon">Price<wbr>Schedule<span class="tsd-signature-symbol">:</span> <a href="priceschedule.html" class="tsd-signature-type">PriceSchedule</a></div>
+					<a name="page" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page</h3>
+					<div class="tsd-signature tsd-kind-icon">page<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="product" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Product</h3>
-					<div class="tsd-signature tsd-kind-icon">Product<span class="tsd-signature-symbol">:</span> <a href="marketplaceproduct.html" class="tsd-signature-type">MarketplaceProduct</a></div>
+					<a name="pagesize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> page<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">page<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="search" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> search</h3>
+					<div class="tsd-signature tsd-kind-icon">search<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="searchon" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> search<wbr>On</h3>
+					<div class="tsd-signature tsd-kind-icon">search<wbr>On<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sortby" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sort<wbr>By</h3>
+					<div class="tsd-signature tsd-kind-icon">sort<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -92,17 +124,26 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="supermarketplaceproduct.html" class="tsd-kind-icon">Super<wbr>Marketplace<wbr>Product</a>
+					<li class="current tsd-kind-interface tsd-has-type-parameter">
+						<a href="listargs.html" class="tsd-kind-icon">List<wbr>Args</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="supermarketplaceproduct.html#id" class="tsd-kind-icon">ID</a>
+								<a href="listargs.html#filters" class="tsd-kind-icon">filters</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="supermarketplaceproduct.html#priceschedule" class="tsd-kind-icon">Price<wbr>Schedule</a>
+								<a href="listargs.html#page" class="tsd-kind-icon">page</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="supermarketplaceproduct.html#product" class="tsd-kind-icon">Product</a>
+								<a href="listargs.html#pagesize" class="tsd-kind-icon">page<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="listargs.html#search" class="tsd-kind-icon">search</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="listargs.html#searchon" class="tsd-kind-icon">search<wbr>On</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="listargs.html#sortby" class="tsd-kind-icon">sort<wbr>By</a>
 							</li>
 						</ul>
 					</li>

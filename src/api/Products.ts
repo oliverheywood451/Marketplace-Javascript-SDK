@@ -1,8 +1,7 @@
 import { ListPage } from '../models/ListPage';
 import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class Products {
@@ -29,7 +28,7 @@ class Products {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List<TSuperMarketplaceProduct extends SuperMarketplaceProduct>( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: Filters<Required<TSuperMarketplaceProduct>> } = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<TSuperMarketplaceProduct>>> {
+    public async List( options: ListArgs<SuperMarketplaceProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<SuperMarketplaceProduct>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/products`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
@@ -39,7 +38,7 @@ class Products {
     * @param superMarketplaceProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post<TSuperMarketplaceProduct extends SuperMarketplaceProduct>(superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<TSuperMarketplaceProduct>> {
+    public async Post(superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/products`, superMarketplaceProduct, { params: {  accessToken, impersonating } } );
@@ -49,7 +48,7 @@ class Products {
     * @param id Id of the super marketplace product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get<TSuperMarketplaceProduct extends SuperMarketplaceProduct>(id: string,  accessToken?: string ): Promise<RequiredDeep<TSuperMarketplaceProduct>> {
+    public async Get(id: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/products/${id}`, { params: {  accessToken, impersonating } } );
@@ -59,7 +58,7 @@ class Products {
     * @param id Id of the super marketplace product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Put<TSuperMarketplaceProduct extends SuperMarketplaceProduct>(id: string,  accessToken?: string ): Promise<RequiredDeep<TSuperMarketplaceProduct>> {
+    public async Put(id: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/products/${id}`, { params: {  accessToken, impersonating } } );

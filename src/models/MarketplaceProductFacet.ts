@@ -1,7 +1,7 @@
 import { ProductFacetXp } from './ProductFacetXp';
 
-export interface MarketplaceProductFacet<TMarketplaceProductFacetXp = any> {
-    xp?: TMarketplaceProductFacetXp
+export interface MarketplaceProductFacet {
+    xp?: ProductFacetXp
     ID?: string
     Name?: string
     XpPath?: string

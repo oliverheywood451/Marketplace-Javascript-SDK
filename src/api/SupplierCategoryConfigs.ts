@@ -1,7 +1,6 @@
 import { SupplierCategoryConfig } from '../models/SupplierCategoryConfig';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class SupplierCategoryConfigs {
@@ -19,7 +18,7 @@ class SupplierCategoryConfigs {
     * @param marketplaceID ID of the marketplace.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get<TSupplierCategoryConfig extends SupplierCategoryConfig>(marketplaceID: string,  accessToken?: string ): Promise<RequiredDeep<TSupplierCategoryConfig>> {
+    public async Get(marketplaceID: string,  accessToken?: string ): Promise<RequiredDeep<SupplierCategoryConfig>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/marketplace/${marketplaceID}/supplier/category/config`, { params: {  accessToken, impersonating } } );

@@ -1,8 +1,7 @@
 import { ListPage } from '../models/ListPage';
 import { MarketplaceTaxCode } from '../models/MarketplaceTaxCode';
-import { PartialDeep } from '../models/PartialDeep';
 import { RequiredDeep } from '../models/RequiredDeep';
-import { Filters } from '../models/Filters';
+import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
 class TaxCodes {
@@ -25,7 +24,7 @@ class TaxCodes {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetTaxCodes<TMarketplaceTaxCode extends MarketplaceTaxCode>( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: Filters<Required<TMarketplaceTaxCode>> } = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<TMarketplaceTaxCode>>> {
+    public async GetTaxCodes( options: ListArgs<MarketplaceTaxCode> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceTaxCode>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/taxcodes`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );

@@ -1,7 +1,7 @@
 
 export interface OrchestrationLog {
-    timeStamp?: string
     id?: string
+    timeStamp?: string
     ErrorType?: 'WorkItemDefinition' | 'QueuedGetError' | 'CachedGetError' | 'DiffCalculationError' | 'ActionEvaluationError' | 'CacheUpdateError' | 'QueueCleanupError' | 'SyncCommandError' | 'CreateExistsError' | 'CreateGeneralError' | 'UpdateGeneralError' | 'PatchGeneralError' | 'GetGeneralError'
     Message?: string
     Level?: 'Progress' | 'Error' | 'Warn' | 'Success'
