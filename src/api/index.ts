@@ -13,7 +13,9 @@ import CreditCardAuthorizations from './CreditCardAuthorizations';
 import Auth from './Auth';
 import Tokens from './Tokens';
 
-export {
+export { MarketplaceSDK }
+
+const MarketplaceSDK: any = {
     OrchestrationProducts,
     OrchestrationUsers,
     OrchestrationLogs,
