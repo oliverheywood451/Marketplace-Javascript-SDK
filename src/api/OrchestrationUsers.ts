@@ -9,7 +9,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class OrchestrationUsers {
+export default class OrchestrationUsers {
     private impersonating:boolean = false;
 
     /**
@@ -114,5 +114,3 @@ class OrchestrationUsers {
         return this;
     }
 }
-
-export default new OrchestrationUsers();

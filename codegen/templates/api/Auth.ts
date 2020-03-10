@@ -4,7 +4,7 @@ import Configuration from '../Configuration'
 import { SecurityProfile } from '../models/SecurityProfile'
 import serialize from '../utils/ParamsSerializer'
 
-class Auth {
+export default class Auth {
   private _http: AxiosInstance
   constructor() {
     // create a new instance so we avoid clashes with any
@@ -200,5 +200,3 @@ class Auth {
     return response.data
   }
 }
-
-export default new Auth()

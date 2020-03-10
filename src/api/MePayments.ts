@@ -4,7 +4,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class MePayments {
+export default class MePayments {
     private impersonating:boolean = false;
 
     /**
@@ -37,5 +37,3 @@ class MePayments {
         return this;
     }
 }
-
-export default new MePayments();

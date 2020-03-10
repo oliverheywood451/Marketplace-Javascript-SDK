@@ -3,7 +3,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class SupplierCategoryConfigs {
+export default class SupplierCategoryConfigs {
     private impersonating:boolean = false;
 
     /**
@@ -36,5 +36,3 @@ class SupplierCategoryConfigs {
         return this;
     }
 }
-
-export default new SupplierCategoryConfigs();

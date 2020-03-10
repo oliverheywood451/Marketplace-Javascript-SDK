@@ -3,7 +3,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class Suppliers {
+export default class Suppliers {
     private impersonating:boolean = false;
 
     /**
@@ -47,5 +47,3 @@ class Suppliers {
         return this;
     }
 }
-
-export default new Suppliers();

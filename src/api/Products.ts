@@ -4,7 +4,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class Products {
+export default class Products {
     private impersonating:boolean = false;
 
     /**
@@ -86,5 +86,3 @@ class Products {
         return this;
     }
 }
-
-export default new Products();

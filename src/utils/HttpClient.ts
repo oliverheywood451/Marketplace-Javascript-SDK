@@ -11,6 +11,8 @@ import parseJwt from './ParseJwt'
  */
 class HttpClient {
   private _session: AxiosInstance
+  private _auth = new Auth()
+  private _token = new tokenService()
 
   constructor() {
     // create a new instance so we avoid clashes with any
@@ -117,9 +119,9 @@ class HttpClient {
     if (config.params.accessToken) {
       token = config.params.accessToken
     } else if (config.params.impersonating) {
-      token = tokenService.GetImpersonationToken()
+      token = this._token.GetImpersonationToken()
     } else {
-      token = tokenService.GetAccessToken()
+      token = this._token.GetAccessToken()
     }
 
     // strip out axios params that we'vee hijacked for our own nefarious purposes
@@ -139,7 +141,7 @@ class HttpClient {
   }
 
   private async _tryRefreshToken(accessToken: string): Promise<string> {
-    const refreshToken = tokenService.GetRefreshToken()
+    const refreshToken = this._token.GetRefreshToken()
     if (!refreshToken) {
       return accessToken || ''
     }
@@ -155,7 +157,7 @@ class HttpClient {
     if (sdkConfig.clientID) {
       clientID = sdkConfig.clientID
     }
-    const refreshRequest = await Auth.RefreshToken(refreshToken, clientID)
+    const refreshRequest = await this._auth.RefreshToken(refreshToken, clientID)
     return refreshRequest.access_token
   }
 

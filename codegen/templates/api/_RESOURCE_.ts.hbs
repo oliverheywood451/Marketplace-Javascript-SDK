@@ -5,7 +5,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class {{resource.id}} {
+export default class {{resource.id}} {
     private impersonating:boolean = false;
 
     /**
@@ -42,5 +42,3 @@ class {{resource.id}} {
         return this;
     }
 }
-
-export default new {{resource.id}}();

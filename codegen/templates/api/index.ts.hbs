@@ -6,10 +6,18 @@ import Tokens from './Tokens';
 
 export { MarketplaceSDK }
 
-const MarketplaceSDK: any = {
+const MarketplaceSDK: MarketplaceSDK = {
     {{#resources}}
-    {{this.id}},
+    {{this.id}} : new {{this.id}}(),
     {{/resources}}
-    Auth,
-    Tokens
+    Auth: new Auth(),
+    Tokens: new Tokens()
+}
+
+interface MarketplaceSDK {
+    {{#resources}}
+    {{this.id}} : {{this.id}},
+    {{/resources}}
+    Auth: Auth,
+    Tokens: Tokens
 }

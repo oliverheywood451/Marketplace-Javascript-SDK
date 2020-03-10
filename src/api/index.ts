@@ -15,19 +15,36 @@ import Tokens from './Tokens';
 
 export { MarketplaceSDK }
 
-const MarketplaceSDK: any = {
-    OrchestrationProducts,
-    OrchestrationUsers,
-    OrchestrationLogs,
-    Buyers,
-    Suppliers,
-    Products,
-    Files,
-    SupplierCategoryConfigs,
-    TaxCodes,
-    MePayments,
-    MeCreditCardAuthorizations,
-    CreditCardAuthorizations,
-    Auth,
-    Tokens
+const MarketplaceSDK: MarketplaceSDK = {
+    OrchestrationProducts : new OrchestrationProducts(),
+    OrchestrationUsers : new OrchestrationUsers(),
+    OrchestrationLogs : new OrchestrationLogs(),
+    Buyers : new Buyers(),
+    Suppliers : new Suppliers(),
+    Products : new Products(),
+    Files : new Files(),
+    SupplierCategoryConfigs : new SupplierCategoryConfigs(),
+    TaxCodes : new TaxCodes(),
+    MePayments : new MePayments(),
+    MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
+    CreditCardAuthorizations : new CreditCardAuthorizations(),
+    Auth: new Auth(),
+    Tokens: new Tokens()
+}
+
+interface MarketplaceSDK {
+    OrchestrationProducts : OrchestrationProducts,
+    OrchestrationUsers : OrchestrationUsers,
+    OrchestrationLogs : OrchestrationLogs,
+    Buyers : Buyers,
+    Suppliers : Suppliers,
+    Products : Products,
+    Files : Files,
+    SupplierCategoryConfigs : SupplierCategoryConfigs,
+    TaxCodes : TaxCodes,
+    MePayments : MePayments,
+    MeCreditCardAuthorizations : MeCreditCardAuthorizations,
+    CreditCardAuthorizations : CreditCardAuthorizations,
+    Auth: Auth,
+    Tokens: Tokens
 }

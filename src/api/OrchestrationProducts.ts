@@ -11,7 +11,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class OrchestrationProducts {
+export default class OrchestrationProducts {
     private impersonating:boolean = false;
 
     /**
@@ -132,5 +132,3 @@ class OrchestrationProducts {
         return this;
     }
 }
-
-export default new OrchestrationProducts();

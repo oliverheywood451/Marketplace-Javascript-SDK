@@ -4,7 +4,7 @@ import parseJwt from '../utils/ParseJwt'
 const isNode = new Function(
   'try {return this===global;}catch(e){return false;}'
 )
-class Tokens {
+export default class Tokens {
   private accessTokenCookieName = `ordercloud.access-token`
   private impersonationTokenCookieName = 'ordercloud.impersonation-token'
   private refreshTokenCookieName = 'ordercloud.refresh-token'
@@ -95,5 +95,3 @@ class Tokens {
       : cookies.remove(this.refreshTokenCookieName)
   }
 }
-
-export default new Tokens()

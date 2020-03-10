@@ -3,7 +3,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class Files {
+export default class Files {
     private impersonating:boolean = false;
 
     /**
@@ -51,5 +51,3 @@ class Files {
         return this;
     }
 }
-
-export default new Files();

@@ -4,7 +4,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class TaxCodes {
+export default class TaxCodes {
     private impersonating:boolean = false;
 
     /**
@@ -42,5 +42,3 @@ class TaxCodes {
         return this;
     }
 }
-
-export default new TaxCodes();

@@ -4,7 +4,7 @@ import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
 
-class MeCreditCardAuthorizations {
+export default class MeCreditCardAuthorizations {
     private impersonating:boolean = false;
 
     /**
@@ -37,5 +37,3 @@ class MeCreditCardAuthorizations {
         return this;
     }
 }
-
-export default new MeCreditCardAuthorizations();
