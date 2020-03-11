@@ -6,6 +6,7 @@ import Suppliers from './Suppliers';
 import Products from './Products';
 import Files from './Files';
 import SupplierCategoryConfigs from './SupplierCategoryConfigs';
+import BuyerLocations from './BuyerLocations';
 import TaxCodes from './TaxCodes';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
@@ -24,6 +25,7 @@ const MarketplaceSDK: MarketplaceSDK = {
     Products : new Products(),
     Files : new Files(),
     SupplierCategoryConfigs : new SupplierCategoryConfigs(),
+    BuyerLocations : new BuyerLocations(),
     TaxCodes : new TaxCodes(),
     MePayments : new MePayments(),
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
@@ -41,6 +43,7 @@ interface MarketplaceSDK {
     Products : Products,
     Files : Files,
     SupplierCategoryConfigs : SupplierCategoryConfigs,
+    BuyerLocations : BuyerLocations,
     TaxCodes : TaxCodes,
     MePayments : MePayments,
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,

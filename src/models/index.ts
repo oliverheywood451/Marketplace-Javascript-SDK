@@ -13,6 +13,7 @@ export * from './ListFacetValue';
 export * from './MarketplaceAddressAssignment';
 export * from './MarketplaceAddressBuyer';
 export * from './MarketplaceBuyer';
+export * from './MarketplaceBuyerLocation';
 export * from './MarketplaceCatalog';
 export * from './MarketplaceCatalogAssignment';
 export * from './MarketplaceCostCenter';
