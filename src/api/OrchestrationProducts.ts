@@ -32,92 +32,101 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace catalog.
+    * @param marketplaceCatalog 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostCatalog(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+    public async PostCatalog(clientId: string, marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/catalog`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/catalog`, marketplaceCatalog, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace catalog assignment.
+    * @param marketplaceCatalogAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostCatalogProductAssignment(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalogAssignment>> {
+    public async PostCatalogProductAssignment(clientId: string, marketplaceCatalogAssignment: MarketplaceCatalogAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalogAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/catalogproductassignment`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/catalogproductassignment`, marketplaceCatalogAssignment, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace price schedule.
+    * @param marketplacePriceSchedule 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostPriceSchedule(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+    public async PostPriceSchedule(clientId: string, marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/priceschedule`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/priceschedule`, marketplacePriceSchedule, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace product.
+    * @param marketplaceProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostProduct(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceProduct>> {
+    public async PostProduct(clientId: string, marketplaceProduct: MarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/product`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/product`, marketplaceProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace product assignment.
+    * @param marketplaceProductAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostProductAssignment(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceProductAssignment>> {
+    public async PostProductAssignment(clientId: string, marketplaceProductAssignment: MarketplaceProductAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceProductAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/productassignment`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/productassignment`, marketplaceProductAssignment, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace product facet.
+    * @param marketplaceProductFacet 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostProductFacet(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceProductFacet>> {
+    public async PostProductFacet(clientId: string, marketplaceProductFacet: MarketplaceProductFacet, accessToken?: string ): Promise<RequiredDeep<MarketplaceProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/productfacet`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/productfacet`, marketplaceProductFacet, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace spec.
+    * @param marketplaceSpec 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostSpec(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSpec>> {
+    public async PostSpec(clientId: string, marketplaceSpec: MarketplaceSpec, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/spec`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/spec`, marketplaceSpec, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace spec option.
+    * @param marketplaceSpecOption 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostSpecOption(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecOption>> {
+    public async PostSpecOption(clientId: string, marketplaceSpecOption: MarketplaceSpecOption, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/specoption`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/specoption`, marketplaceSpecOption, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param clientId Client id of the marketplace spec product assignment.
+    * @param marketplaceSpecProductAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostSpecProductAssignment(clientId: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecProductAssignment>> {
+    public async PostSpecProductAssignment(clientId: string, marketplaceSpecProductAssignment: MarketplaceSpecProductAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecProductAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/specproductassignment`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${clientId}/specproductassignment`, marketplaceSpecProductAssignment, { params: {  accessToken, impersonating } } );
     }
 
     /**

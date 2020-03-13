@@ -56,12 +56,13 @@ export default class Products {
 
    /**
     * @param id Id of the super marketplace product.
+    * @param superMarketplaceProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Put(id: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+    public async Put(id: string, superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/products/${id}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/products/${id}`, superMarketplaceProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**

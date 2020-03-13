@@ -19,12 +19,13 @@ export default class BuyerLocations {
 
    /**
     * @param buyerID ID of the buyer.
+    * @param marketplaceBuyerLocation 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create(buyerID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
+    public async Create(buyerID: string, marketplaceBuyerLocation: MarketplaceBuyerLocation, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyerlocations/${buyerID}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyerlocations/${buyerID}`, marketplaceBuyerLocation, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -41,12 +42,13 @@ export default class BuyerLocations {
    /**
     * @param buyerLocationID ID of the buyer location.
     * @param buyerID ID of the buyer.
+    * @param marketplaceBuyerLocation 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Update(buyerLocationID: string, buyerID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
+    public async Update(buyerLocationID: string, buyerID: string, marketplaceBuyerLocation: MarketplaceBuyerLocation, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/buyerlocations/${buyerID}/${buyerLocationID}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/buyerlocations/${buyerID}/${buyerLocationID}`, marketplaceBuyerLocation, { params: {  accessToken, impersonating } } );
     }
 
    /**

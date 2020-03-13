@@ -21,10 +21,10 @@ export default class Files {
     * @param options.file File of the super marketplace product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(marketplaceID: string, productID: string,  options: ListArgs<SuperMarketplaceProduct> = {}, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+    public async Post(marketplaceID: string, productID: string,  file: any, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/${marketplaceID}/images/product/${productID}`, { params: { ...options,  accessToken, impersonating } } );
+        return await httpClient.post(`/${marketplaceID}/images/product/${productID}`, { params: { file,  accessToken, impersonating } } );
     }
 
    /**
