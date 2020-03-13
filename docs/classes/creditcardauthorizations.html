@@ -87,7 +87,7 @@
 					<a name="post" class="tsd-anchor"></a>
 					<h3>Post</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<span class="tsd-signature-symbol">(</span>buyerID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/creditcard.html" class="tsd-signature-type">CreditCard</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<span class="tsd-signature-symbol">(</span>buyerID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, creditCardToken<span class="tsd-signature-symbol">: </span><a href="../interfaces/creditcardtoken.html" class="tsd-signature-type">CreditCardToken</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/creditcard.html" class="tsd-signature-type">CreditCard</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -101,6 +101,12 @@
 									<h5>buyerID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>ID of the buyer.</p>
+									</div>
+								</li>
+								<li>
+									<h5>creditCardToken: <a href="../interfaces/creditcardtoken.html" class="tsd-signature-type">CreditCardToken</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: ExpirationDate</p>
 									</div>
 								</li>
 								<li>
