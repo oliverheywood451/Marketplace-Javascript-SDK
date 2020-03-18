@@ -4,7 +4,7 @@ class Configuration {
   private config: SdkConfiguration = {
     baseApiUrl: 'https://marketplace-api-qa.azurewebsites.net',
     baseAuthUrl: 'https://auth.ordercloud.io/oauth/token',
-    timeoutInMilliseconds: 30 * 1000,
+    timeoutInMilliseconds: 120 * 1000,
     clientID: null,
     cookieOptions: {
       samesite: 'lax', // browser default
