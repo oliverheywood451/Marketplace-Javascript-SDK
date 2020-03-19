@@ -1,6 +1,7 @@
 import { ProductImage } from './ProductImage';
 import { TaxProperties } from './TaxProperties';
 import { UnitOfMeasure } from './UnitOfMeasure';
+import { StaticContent } from './StaticContent';
 
 export interface ProductXp {
     Images?: ProductImage[]
@@ -10,4 +11,5 @@ export interface ProductXp {
     Tax?: TaxProperties
     UnitOfMeasure?: UnitOfMeasure
     ProductType?: 'Standard' | 'Quote'
+    StaticContent?: StaticContent[]
 }

@@ -1,8 +1,8 @@
-import { VariantXp } from './VariantXp';
+import { MarketplaceVariantXp } from './MarketplaceVariantXp';
 import { VariantInventory } from './VariantInventory';
 
 export interface MarketplaceVariant {
-    xp?: VariantXp
+    xp?: MarketplaceVariantXp
     ID?: string
     Name?: string
     Description?: string

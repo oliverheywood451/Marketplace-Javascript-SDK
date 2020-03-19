@@ -4,7 +4,7 @@ import OrchestrationLogs from './OrchestrationLogs';
 import Buyers from './Buyers';
 import Suppliers from './Suppliers';
 import Products from './Products';
-import Files from './Files';
+import ContentManagements from './ContentManagements';
 import SupplierCategoryConfigs from './SupplierCategoryConfigs';
 import BuyerLocations from './BuyerLocations';
 import TaxCodes from './TaxCodes';
@@ -23,7 +23,7 @@ const MarketplaceSDK: MarketplaceSDK = {
     Buyers : new Buyers(),
     Suppliers : new Suppliers(),
     Products : new Products(),
-    Files : new Files(),
+    ContentManagements : new ContentManagements(),
     SupplierCategoryConfigs : new SupplierCategoryConfigs(),
     BuyerLocations : new BuyerLocations(),
     TaxCodes : new TaxCodes(),
@@ -41,7 +41,7 @@ interface MarketplaceSDK {
     Buyers : Buyers,
     Suppliers : Suppliers,
     Products : Products,
-    Files : Files,
+    ContentManagements : ContentManagements,
     SupplierCategoryConfigs : SupplierCategoryConfigs,
     BuyerLocations : BuyerLocations,
     TaxCodes : TaxCodes,
