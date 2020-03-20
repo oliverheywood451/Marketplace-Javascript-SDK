@@ -12,4 +12,5 @@ export interface ProductXp {
     UnitOfMeasure?: UnitOfMeasure
     ProductType?: 'Standard' | 'Quote'
     StaticContent?: StaticContent[]
+    IsResale?: boolean
 }
