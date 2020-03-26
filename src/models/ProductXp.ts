@@ -13,4 +13,5 @@ export interface ProductXp {
     ProductType?: 'Standard' | 'Quote'
     StaticContent?: StaticContent[]
     IsResale?: boolean
+    Accessorials?: 'Freezable' | 'Hazmat' | 'KeepFromFreezing'
 }

@@ -52,12 +52,14 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#action" class="tsd-kind-icon">Action</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#errortype" class="tsd-kind-icon">Error<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#id" class="tsd-kind-icon">ID</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#level" class="tsd-kind-icon">Level</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#message" class="tsd-kind-icon">Message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#orderclouderrors" class="tsd-kind-icon">Order<wbr>Cloud<wbr>Errors</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#recordid" class="tsd-kind-icon">Record<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#recordtype" class="tsd-kind-icon">Record<wbr>Type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#resourceid" class="tsd-kind-icon">Resource<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#id-1" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#timestamp" class="tsd-kind-icon">time<wbr>Stamp</a></li>
 							</ul>
 						</section>
@@ -69,14 +71,21 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="action" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Action</h3>
-					<div class="tsd-signature tsd-kind-icon">Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Ignore"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Create"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Update"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Patch"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Delete"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Get"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Ignore"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Create"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Update"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Patch"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Delete"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Get"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SyncShipments"</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="errortype" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Error<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Error<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"WorkItemDefinition"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"QueuedGetError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CachedGetError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DiffCalculationError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ActionEvaluationError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CacheUpdateError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"QueueCleanupError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SyncCommandError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateExistsError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UpdateGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PatchGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"GetGeneralError"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Error<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"WorkItemDefinition"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"QueuedGetError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CachedGetError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DiffCalculationError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ActionEvaluationError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CacheUpdateError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"QueueCleanupError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SyncCommandError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateExistsError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UpdateGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PatchGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"GetGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AuthenticateSupplierError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"GetOrdersNeedingShipmentError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"GetShipmentSyncOrders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"GetShipmentDetailsForShipmentSyncOrders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateShipmentsInOrderCloudIfNeeded"</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ID</h3>
+					<div class="tsd-signature tsd-kind-icon">ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -95,6 +104,13 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="orderclouderrors" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Order<wbr>Cloud<wbr>Errors</h3>
+					<div class="tsd-signature tsd-kind-icon">Order<wbr>Cloud<wbr>Errors<span class="tsd-signature-symbol">:</span> <a href="apierror.html" class="tsd-signature-type">ApiError</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="recordid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Record<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">Record<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
@@ -104,7 +120,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="recordtype" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Record<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Record<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Product"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedule"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Spec"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpecOption"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpecProductAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacet"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyer"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"User"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroup"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Address"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenter"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroupAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AddressAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CatalogAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Catalog"</span></div>
+					<div class="tsd-signature tsd-kind-icon">Record<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Product"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedule"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Spec"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpecOption"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpecProductAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacet"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyer"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"User"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroup"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Address"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenter"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroupAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AddressAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CatalogAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Catalog"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Supplier"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Order"</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -116,7 +132,7 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
+					<a name="id-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
@@ -150,10 +166,16 @@
 								<a href="orchestrationlog.html#errortype" class="tsd-kind-icon">Error<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="orchestrationlog.html#id" class="tsd-kind-icon">ID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="orchestrationlog.html#level" class="tsd-kind-icon">Level</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="orchestrationlog.html#message" class="tsd-kind-icon">Message</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="orchestrationlog.html#orderclouderrors" class="tsd-kind-icon">Order<wbr>Cloud<wbr>Errors</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="orchestrationlog.html#recordid" class="tsd-kind-icon">Record<wbr>Id</a>
@@ -165,7 +187,7 @@
 								<a href="orchestrationlog.html#resourceid" class="tsd-kind-icon">Resource<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#id" class="tsd-kind-icon">id</a>
+								<a href="orchestrationlog.html#id-1" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="orchestrationlog.html#timestamp" class="tsd-kind-icon">time<wbr>Stamp</a>

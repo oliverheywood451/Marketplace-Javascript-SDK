@@ -5,4 +5,6 @@ export interface SupplierXp {
     Description?: string
     Images?: ProductImage[]
     SupportContact?: Contact
+    SyncFreightPop?: boolean
+    ApiClientID?: string
 }

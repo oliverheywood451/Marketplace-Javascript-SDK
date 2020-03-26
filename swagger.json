@@ -58,7 +58,7 @@
       "x-section-id": "Marketplace"
     },
     {
-      "name": "Files",
+      "name": "Content Managements",
       "description": "\"Files\" represents files for Marketplace content management control",
       "x-section-id": "Marketplace"
     },
@@ -78,8 +78,8 @@
       "x-id": "Integration"
     },
     {
-      "name": "Tax Codes",
-      "description": "\"Integration\" represents Tax Codes for Marketplace",
+      "name": "Avalaras",
+      "description": "\"Integration\" represents Avalara Tax Functionality",
       "x-section-id": "Integration"
     },
     {
@@ -267,13 +267,29 @@
       }
     },
     "schemas": {
+      "ApiError": {
+        "type": "object",
+        "example": {
+          "ErrorCode": "",
+          "Message": ""
+        },
+        "properties": {
+          "ErrorCode": {
+            "type": "string"
+          },
+          "Message": {
+            "type": "string"
+          }
+        }
+      },
       "BuyerAddressXP": {
         "type": "object",
         "example": {
           "Accessorials": [
             "DestinationInsideDelivery"
           ],
-          "Email": ""
+          "Email": "",
+          "AvalaraCertificateID": 0
         },
         "properties": {
           "Accessorials": {
@@ -290,6 +306,10 @@
           },
           "Email": {
             "type": "string"
+          },
+          "AvalaraCertificateID": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -540,20 +560,6 @@
           }
         }
       },
-      "ListMarketplaceTaxCode": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MarketplaceTaxCode"
-            }
-          },
-          "Meta": {
-            "$ref": "#/components/schemas/Meta"
-          }
-        }
-      },
       "ListOrchestrationLog": {
         "type": "object",
         "properties": {
@@ -575,6 +581,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SuperMarketplaceProduct"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListTaxCode": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TaxCode"
             }
           },
           "Meta": {
@@ -620,7 +640,8 @@
             "Accessorials": [
               "DestinationInsideDelivery"
             ],
-            "Email": ""
+            "Email": "",
+            "AvalaraCertificateID": 0
           },
           "ID": "",
           "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -733,7 +754,8 @@
               "Accessorials": [
                 "DestinationInsideDelivery"
               ],
-              "Email": ""
+              "Email": "",
+              "AvalaraCertificateID": 0
             },
             "ID": "",
             "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -949,7 +971,19 @@
               "Qty": 0,
               "Unit": ""
             },
-            "ProductType": "Standard"
+            "ProductType": "Standard",
+            "StaticContent": [
+              {
+                "URL": "",
+                "Title": "",
+                "Active": false,
+                "Filename": ""
+              }
+            ],
+            "IsResale": false,
+            "Accessorials": [
+              "Freezable"
+            ]
           },
           "OwnerID": "",
           "DefaultPriceScheduleID": "",
@@ -1287,7 +1321,9 @@
               "Name": "",
               "Email": "",
               "Phone": ""
-            }
+            },
+            "SyncFreightPop": false,
+            "ApiClientID": ""
           },
           "ID": "",
           "Name": "",
@@ -1309,25 +1345,6 @@
           },
           "Active": {
             "type": "boolean"
-          }
-        }
-      },
-      "MarketplaceTaxCode": {
-        "type": "object",
-        "example": {
-          "Category": "",
-          "Code": "",
-          "Description": ""
-        },
-        "properties": {
-          "Category": {
-            "type": "string"
-          },
-          "Code": {
-            "type": "string"
-          },
-          "Description": {
-            "type": "string"
           }
         }
       },
@@ -1481,7 +1498,7 @@
           "xp": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/VariantXp"
+                "$ref": "#/components/schemas/MarketplaceVariantXp"
               }
             ]
           },
@@ -1519,6 +1536,30 @@
                 "$ref": "#/components/schemas/VariantInventory"
               }
             ]
+          }
+        }
+      },
+      "MarketplaceVariantXp": {
+        "type": "object",
+        "example": {
+          "SpecValues": [
+            {
+              "SpecName": "",
+              "SpecOptionValue": "",
+              "PriceMarkup": ""
+            }
+          ],
+          "NewID": ""
+        },
+        "properties": {
+          "SpecValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpecValue"
+            }
+          },
+          "NewID": {
+            "type": "string"
           }
         }
       },
@@ -1588,6 +1629,7 @@
         "type": "object",
         "example": {
           "id": "",
+          "ID": "",
           "timeStamp": "2018-01-01T00:00:00-06:00",
           "ErrorType": "WorkItemDefinition",
           "Message": "",
@@ -1595,10 +1637,19 @@
           "ResourceId": "",
           "RecordId": "",
           "RecordType": "Product",
-          "Action": "Ignore"
+          "Action": "Ignore",
+          "OrderCloudErrors": [
+            {
+              "ErrorCode": "",
+              "Message": ""
+            }
+          ]
         },
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "ID": {
             "type": "string"
           },
           "timeStamp": {
@@ -1619,7 +1670,12 @@
               "CreateGeneralError",
               "UpdateGeneralError",
               "PatchGeneralError",
-              "GetGeneralError"
+              "GetGeneralError",
+              "AuthenticateSupplierError",
+              "GetOrdersNeedingShipmentError",
+              "GetShipmentSyncOrders",
+              "GetShipmentDetailsForShipmentSyncOrders",
+              "CreateShipmentsInOrderCloudIfNeeded"
             ],
             "type": "string"
           },
@@ -1657,7 +1713,9 @@
               "UserGroupAssignment",
               "AddressAssignment",
               "CatalogAssignment",
-              "Catalog"
+              "Catalog",
+              "Supplier",
+              "Order"
             ],
             "type": "string"
           },
@@ -1668,9 +1726,16 @@
               "Update",
               "Patch",
               "Delete",
-              "Get"
+              "Get",
+              "SyncShipments"
             ],
             "type": "string"
+          },
+          "OrderCloudErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiError"
+            }
           }
         }
       },
@@ -1919,7 +1984,19 @@
             "Qty": 0,
             "Unit": ""
           },
-          "ProductType": "Standard"
+          "ProductType": "Standard",
+          "StaticContent": [
+            {
+              "URL": "",
+              "Title": "",
+              "Active": false,
+              "Filename": ""
+            }
+          ],
+          "IsResale": false,
+          "Accessorials": [
+            "Freezable"
+          ]
         },
         "properties": {
           "Images": {
@@ -1962,6 +2039,26 @@
               "Quote"
             ],
             "type": "string"
+          },
+          "StaticContent": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StaticContent"
+            }
+          },
+          "IsResale": {
+            "type": "boolean"
+          },
+          "Accessorials": {
+            "type": "string",
+            "enum": [
+              "Freezable",
+              "Hazmat",
+              "KeepFromFreezing"
+            ],
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2133,6 +2230,29 @@
           }
         }
       },
+      "StaticContent": {
+        "type": "object",
+        "example": {
+          "URL": "",
+          "Title": "",
+          "Active": false,
+          "Filename": ""
+        },
+        "properties": {
+          "URL": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string"
+          },
+          "Active": {
+            "type": "boolean"
+          },
+          "Filename": {
+            "type": "string"
+          }
+        }
+      },
       "SuperMarketplaceProduct": {
         "type": "object",
         "example": {
@@ -2161,7 +2281,19 @@
                 "Qty": 0,
                 "Unit": ""
               },
-              "ProductType": "Standard"
+              "ProductType": "Standard",
+              "StaticContent": [
+                {
+                  "URL": "",
+                  "Title": "",
+                  "Active": false,
+                  "Filename": ""
+                }
+              ],
+              "IsResale": false,
+              "Accessorials": [
+                "Freezable"
+              ]
             },
             "OwnerID": "",
             "DefaultPriceScheduleID": "",
@@ -2204,6 +2336,7 @@
               }
             ]
           },
+          "ID": "",
           "Specs": [
             {
               "ID": "",
@@ -2252,8 +2385,7 @@
                 "LastUpdated": "2018-01-01T00:00:00-06:00"
               }
             }
-          ],
-          "ID": ""
+          ]
         },
         "properties": {
           "Product": {
@@ -2270,6 +2402,9 @@
               }
             ]
           },
+          "ID": {
+            "type": "string"
+          },
           "Specs": {
             "type": "array",
             "items": {
@@ -2281,9 +2416,6 @@
             "items": {
               "$ref": "#/components/schemas/MarketplaceVariant"
             }
-          },
-          "ID": {
-            "type": "string"
           }
         }
       },
@@ -2365,7 +2497,9 @@
             "Name": "",
             "Email": "",
             "Phone": ""
-          }
+          },
+          "SyncFreightPop": false,
+          "ApiClientID": ""
         },
         "properties": {
           "Description": {
@@ -2383,6 +2517,12 @@
                 "$ref": "#/components/schemas/Contact"
               }
             ]
+          },
+          "SyncFreightPop": {
+            "type": "boolean"
+          },
+          "ApiClientID": {
+            "type": "string"
           }
         }
       },
@@ -2403,6 +2543,75 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "TaxCertificate": {
+        "type": "object",
+        "example": {
+          "ID": 0,
+          "SignedDate": "2018-01-01T00:00:00-06:00",
+          "ExpirationDate": "2018-01-01T00:00:00-06:00",
+          "ExposureZoneName": "",
+          "Base64UrlEncodedPDF": "",
+          "FileName": "",
+          "ExemptionNumber": "",
+          "Expired": false,
+          "PDFUrl": ""
+        },
+        "properties": {
+          "ID": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "SignedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ExposureZoneName": {
+            "type": "string"
+          },
+          "Base64UrlEncodedPDF": {
+            "type": "string"
+          },
+          "FileName": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ExemptionNumber": {
+            "type": "string"
+          },
+          "Expired": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "PDFUrl": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "TaxCode": {
+        "type": "object",
+        "example": {
+          "Category": "",
+          "Code": "",
+          "Description": ""
+        },
+        "properties": {
+          "Category": {
+            "type": "string"
+          },
+          "Code": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
           }
         }
       },
@@ -2475,30 +2684,6 @@
           }
         }
       },
-      "VariantXp": {
-        "type": "object",
-        "example": {
-          "SpecValues": [
-            {
-              "SpecName": "",
-              "SpecOptionValue": "",
-              "PriceMarkup": ""
-            }
-          ],
-          "NewID": ""
-        },
-        "properties": {
-          "SpecValues": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SpecValue"
-            }
-          },
-          "NewID": {
-            "type": "string"
-          }
-        }
-      },
       "Authentication": {
         "type": "object",
         "properties": {
@@ -2524,9 +2709,9 @@
             }
           }
         },
-        "operationId": "Files.Post",
+        "operationId": "ContentManagements.PostImage",
         "tags": [
-          "Files"
+          "Content Managements"
         ],
         "parameters": [
           {
@@ -2583,9 +2768,9 @@
             }
           }
         },
-        "operationId": "Files.Delete",
+        "operationId": "ContentManagements.DeleteImage",
         "tags": [
-          "Files"
+          "Content Managements"
         ],
         "parameters": [
           {
@@ -2617,6 +2802,448 @@
           }
         ],
         "summary": "DELETE Product Images",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/{marketplaceID}/static-content/{productID}/{fileName}": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "ContentManagements.PostStaticContent",
+        "tags": [
+          "Content Managements"
+        ],
+        "parameters": [
+          {
+            "name": "marketplaceID",
+            "in": "path",
+            "description": "ID of the marketplace.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "file",
+            "in": "path",
+            "description": "File of the super marketplace product.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "File name of the super marketplace product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "POST Static Content",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "ContentManagements.DeleteStaticContent",
+        "tags": [
+          "Content Managements"
+        ],
+        "parameters": [
+          {
+            "name": "marketplaceID",
+            "in": "path",
+            "description": "ID of the marketplace.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "File name of the super marketplace product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "DELETE Static Content",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/avalara/{companyID}/certificate": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCertificate"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Avalaras.CreateCertificate",
+        "tags": [
+          "Avalaras"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/TaxCertificate"
+                  }
+                ],
+                "required": [
+                  "SignedDate",
+                  "ExpirationDate",
+                  "ExposureZoneName",
+                  "Base64UrlEncodedPDF"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "ID of the company.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Create tax exeption certificate",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/avalara/{companyID}/certificate/{certificateID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCertificate"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Avalaras.GetCertificate",
+        "tags": [
+          "Avalaras"
+        ],
+        "parameters": [
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "ID of the company.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "certificateID",
+            "in": "path",
+            "description": "ID of the certificate.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Get tax exeption certificate details",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCertificate"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Avalaras.UpdateCertificate",
+        "tags": [
+          "Avalaras"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/TaxCertificate"
+                  }
+                ],
+                "required": [
+                  "SignedDate",
+                  "ExpirationDate",
+                  "ExposureZoneName",
+                  "Base64UrlEncodedPDF"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "ID of the company.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "certificateID",
+            "in": "path",
+            "description": "ID of the certificate.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Update tax exeption certificate",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/avalara/{companyID}/certificate/{certificateID}/pdf": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Authentication"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Avalaras.DownloadCertificate",
+        "tags": [
+          "Avalaras"
+        ],
+        "parameters": [
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "ID of the company.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "certificateID",
+            "in": "path",
+            "description": "ID of the certificate.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Download a certificate.",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/avalara/code": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListTaxCode"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Avalaras.ListTaxCodes",
+        "tags": [
+          "Avalaras"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Tax Codes",
         "description": "",
         "security": [
           {
@@ -2814,18 +3441,18 @@
         },
         "parameters": [
           {
-            "name": "buyerLocationID",
+            "name": "buyerID",
             "in": "path",
-            "description": "ID of the buyer location.",
+            "description": "ID of the buyer.",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "buyerID",
+            "name": "buyerLocationID",
             "in": "path",
-            "description": "ID of the buyer.",
+            "description": "ID of the buyer location.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2856,18 +3483,18 @@
         ],
         "parameters": [
           {
-            "name": "buyerLocationID",
+            "name": "buyerID",
             "in": "path",
-            "description": "ID of the buyer location.",
+            "description": "ID of the buyer.",
             "required": true,
             "schema": {
               "type": "string"
             }
           },
           {
-            "name": "buyerID",
+            "name": "buyerLocationID",
             "in": "path",
-            "description": "ID of the buyer.",
+            "description": "ID of the buyer location.",
             "required": true,
             "schema": {
               "type": "string"
@@ -4481,104 +5108,6 @@
             "OAuth2": [
               "SupplierAdmin",
               "SupplierReader",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/taxcodes": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListMarketplaceTaxCode"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "TaxCodes.GetTaxCodes",
-        "tags": [
-          "Tax Codes"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "description": "Word or phrase to search for.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "searchOn",
-            "in": "query",
-            "description": "Comma-delimited list of fields to search on.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Comma-delimited list of fields to sort by.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page of results to return. Default: 1",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of results to return per page. Default: 20, max: 100.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "filters",
-            "in": "query",
-            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "summary": "LIST Tax Codes",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "ProductAdmin",
               "FullAccess"
             ]
           }
