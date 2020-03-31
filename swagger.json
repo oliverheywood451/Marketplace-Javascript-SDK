@@ -267,6 +267,66 @@
       }
     },
     "schemas": {
+      "Address": {
+        "type": "object",
+        "example": {
+          "ID": "",
+          "DateCreated": "2018-01-01T00:00:00-06:00",
+          "CompanyName": "",
+          "FirstName": "",
+          "LastName": "",
+          "Street1": "",
+          "Street2": "",
+          "City": "",
+          "State": "",
+          "Zip": "",
+          "Country": "",
+          "Phone": "",
+          "AddressName": ""
+        },
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "DateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "CompanyName": {
+            "type": "string"
+          },
+          "FirstName": {
+            "type": "string"
+          },
+          "LastName": {
+            "type": "string"
+          },
+          "Street1": {
+            "type": "string"
+          },
+          "Street2": {
+            "type": "string"
+          },
+          "City": {
+            "type": "string"
+          },
+          "State": {
+            "type": "string"
+          },
+          "Zip": {
+            "type": "string"
+          },
+          "Country": {
+            "type": "string"
+          },
+          "Phone": {
+            "type": "string"
+          },
+          "AddressName": {
+            "type": "string"
+          }
+        }
+      },
       "ApiError": {
         "type": "object",
         "example": {
@@ -289,7 +349,8 @@
             "DestinationInsideDelivery"
           ],
           "Email": "",
-          "AvalaraCertificateID": 0
+          "AvalaraCertificateID": 0,
+          "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
         },
         "properties": {
           "Accessorials": {
@@ -310,6 +371,10 @@
           "AvalaraCertificateID": {
             "type": "integer",
             "format": "int32"
+          },
+          "AvalaraCertificateExpiration": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -434,7 +499,22 @@
             "AccountNumber": "",
             "ExpirationDate": "",
             "CardholderName": "",
-            "CardType": ""
+            "CardType": "",
+            "CCBilingAddress": {
+              "ID": "",
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "CompanyName": "",
+              "FirstName": "",
+              "LastName": "",
+              "Street1": "",
+              "Street2": "",
+              "City": "",
+              "State": "",
+              "Zip": "",
+              "Country": "",
+              "Phone": "",
+              "AddressName": ""
+            }
           },
           "Currency": "",
           "CVV": "",
@@ -475,7 +555,22 @@
           "AccountNumber": "",
           "ExpirationDate": "",
           "CardholderName": "",
-          "CardType": ""
+          "CardType": "",
+          "CCBilingAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          }
         },
         "properties": {
           "AccountNumber": {
@@ -491,6 +586,13 @@
           },
           "CardType": {
             "type": "string"
+          },
+          "CCBilingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
           }
         }
       },
@@ -641,7 +743,8 @@
               "DestinationInsideDelivery"
             ],
             "Email": "",
-            "AvalaraCertificateID": 0
+            "AvalaraCertificateID": 0,
+            "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
           },
           "ID": "",
           "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -755,7 +858,8 @@
                 "DestinationInsideDelivery"
               ],
               "Email": "",
-              "AvalaraCertificateID": 0
+              "AvalaraCertificateID": 0,
+              "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
             },
             "ID": "",
             "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -1629,7 +1733,6 @@
         "type": "object",
         "example": {
           "id": "",
-          "ID": "",
           "timeStamp": "2018-01-01T00:00:00-06:00",
           "ErrorType": "WorkItemDefinition",
           "Message": "",
@@ -1647,9 +1750,6 @@
         },
         "properties": {
           "id": {
-            "type": "string"
-          },
-          "ID": {
             "type": "string"
           },
           "timeStamp": {
@@ -2992,7 +3092,10 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "AddressAdmin",
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -3039,7 +3142,10 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
           }
         ]
       },
@@ -3105,7 +3211,10 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "AddressAdmin",
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -3663,7 +3772,7 @@
         ]
       }
     },
-    "/me/payments": {
+    "/me/payments/{paymentID}": {
       "post": {
         "responses": {
           "201": {
@@ -3701,6 +3810,17 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "paymentID",
+            "in": "path",
+            "description": "ID of the payment.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "summary": "POST Payment",
         "description": "",
         "security": [

@@ -2,7 +2,6 @@ import { ApiError } from './ApiError';
 
 export interface OrchestrationLog {
     id?: string
-    ID?: string
     timeStamp?: string
     ErrorType?: 'WorkItemDefinition' | 'QueuedGetError' | 'CachedGetError' | 'DiffCalculationError' | 'ActionEvaluationError' | 'CacheUpdateError' | 'QueueCleanupError' | 'SyncCommandError' | 'CreateExistsError' | 'CreateGeneralError' | 'UpdateGeneralError' | 'PatchGeneralError' | 'GetGeneralError' | 'AuthenticateSupplierError' | 'GetOrdersNeedingShipmentError' | 'GetShipmentSyncOrders' | 'GetShipmentDetailsForShipmentSyncOrders' | 'CreateShipmentsInOrderCloudIfNeeded'
     Message?: string

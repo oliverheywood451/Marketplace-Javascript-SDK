@@ -1,3 +1,4 @@
+export * from './Address';
 export * from './ApiError';
 export * from './BuyerAddressXP';
 export * from './BuyerCreditCard';

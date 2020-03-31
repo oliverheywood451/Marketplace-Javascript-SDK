@@ -16,13 +16,14 @@ export default class MePayments {
     }
 
    /**
+    * @param paymentID ID of the payment.
     * @param creditCardPayment Required fields: OrderID, Currency, MerchantID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<Payment>> {
+    public async Post(paymentID: string, creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/me/payments`, creditCardPayment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/me/payments/${paymentID}`, creditCardPayment, { params: {  accessToken, impersonating } } );
     }
 
     /**
