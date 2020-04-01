@@ -494,6 +494,7 @@
         "type": "object",
         "example": {
           "OrderID": "",
+          "PaymentID": "",
           "CreditCardID": "",
           "CreditCardDetails": {
             "AccountNumber": "",
@@ -522,6 +523,9 @@
         },
         "properties": {
           "OrderID": {
+            "type": "string"
+          },
+          "PaymentID": {
             "type": "string"
           },
           "CreditCardID": {
@@ -3653,7 +3657,8 @@
                   }
                 ],
                 "required": [
-                  "ExpirationDate"
+                  "ExpirationDate",
+                  "CCBilingAddress"
                 ]
               }
             }
@@ -3753,7 +3758,8 @@
                   }
                 ],
                 "required": [
-                  "ExpirationDate"
+                  "ExpirationDate",
+                  "CCBilingAddress"
                 ]
               }
             }
@@ -3772,7 +3778,7 @@
         ]
       }
     },
-    "/me/payments/{paymentID}": {
+    "/me/payments": {
       "post": {
         "responses": {
           "201": {
@@ -3803,6 +3809,7 @@
                 ],
                 "required": [
                   "OrderID",
+                  "PaymentID",
                   "Currency",
                   "MerchantID"
                 ]
@@ -3810,17 +3817,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "paymentID",
-            "in": "path",
-            "description": "ID of the payment.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "summary": "POST Payment",
         "description": "",
         "security": [
