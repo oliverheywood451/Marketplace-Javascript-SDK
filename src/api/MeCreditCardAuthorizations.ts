@@ -16,7 +16,7 @@ export default class MeCreditCardAuthorizations {
     }
 
    /**
-    * @param creditCardToken Required fields: ExpirationDate, CCBilingAddress
+    * @param creditCardToken Required fields: ExpirationDate, CCBillingAddress
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async MePost(creditCardToken: CreditCardToken, accessToken?: string ): Promise<RequiredDeep<BuyerCreditCard>> {

@@ -5,5 +5,5 @@ export interface CreditCardToken {
     ExpirationDate?: string
     CardholderName?: string
     CardType?: string
-    CCBilingAddress?: Address
+    CCBillingAddress?: Address
 }
