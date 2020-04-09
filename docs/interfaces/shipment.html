@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CreditCardPayment | ordercloud-javascript-sdk</title>
+	<title>Shipment | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="creditcardpayment.html">CreditCardPayment</a>
+					<a href="shipment.html">Shipment</a>
 				</li>
 			</ul>
 		</div>
@@ -50,12 +50,18 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="creditcardpayment.html#cvv" class="tsd-kind-icon">CVV</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="creditcardpayment.html#creditcarddetails" class="tsd-kind-icon">Credit<wbr>Card<wbr>Details</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="creditcardpayment.html#creditcardid" class="tsd-kind-icon">Credit<wbr>CardID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="creditcardpayment.html#currency" class="tsd-kind-icon">Currency</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="creditcardpayment.html#merchantid" class="tsd-kind-icon">MerchantID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="creditcardpayment.html#orderid" class="tsd-kind-icon">OrderID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#account" class="tsd-kind-icon">Account</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#buyerid" class="tsd-kind-icon">BuyerID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#cost" class="tsd-kind-icon">Cost</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#datedelivered" class="tsd-kind-icon">Date<wbr>Delivered</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#dateshipped" class="tsd-kind-icon">Date<wbr>Shipped</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#fromaddress" class="tsd-kind-icon">From<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#fromaddressid" class="tsd-kind-icon">From<wbr>AddressID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#id" class="tsd-kind-icon">ID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#shipper" class="tsd-kind-icon">Shipper</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#toaddress" class="tsd-kind-icon">To<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#toaddressid" class="tsd-kind-icon">To<wbr>AddressID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipment.html#trackingnumber" class="tsd-kind-icon">Tracking<wbr>Number</a></li>
 							</ul>
 						</section>
 					</div>
@@ -64,44 +70,86 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="cvv" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> CVV</h3>
-					<div class="tsd-signature tsd-kind-icon">CVV<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="account" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Account</h3>
+					<div class="tsd-signature tsd-kind-icon">Account<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="creditcarddetails" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Credit<wbr>Card<wbr>Details</h3>
-					<div class="tsd-signature tsd-kind-icon">Credit<wbr>Card<wbr>Details<span class="tsd-signature-symbol">:</span> <a href="creditcardtoken.html" class="tsd-signature-type">CreditCardToken</a></div>
+					<a name="buyerid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> BuyerID</h3>
+					<div class="tsd-signature tsd-kind-icon">BuyerID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="creditcardid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Credit<wbr>CardID</h3>
-					<div class="tsd-signature tsd-kind-icon">Credit<wbr>CardID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="cost" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Cost</h3>
+					<div class="tsd-signature tsd-kind-icon">Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="currency" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Currency</h3>
-					<div class="tsd-signature tsd-kind-icon">Currency<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="datedelivered" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Date<wbr>Delivered</h3>
+					<div class="tsd-signature tsd-kind-icon">Date<wbr>Delivered<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="merchantid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> MerchantID</h3>
-					<div class="tsd-signature tsd-kind-icon">MerchantID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="dateshipped" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Date<wbr>Shipped</h3>
+					<div class="tsd-signature tsd-kind-icon">Date<wbr>Shipped<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="orderid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> OrderID</h3>
-					<div class="tsd-signature tsd-kind-icon">OrderID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="fromaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> From<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">From<wbr>Address<span class="tsd-signature-symbol">:</span> <a href="address.html" class="tsd-signature-type">Address</a></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fromaddressid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> From<wbr>AddressID</h3>
+					<div class="tsd-signature tsd-kind-icon">From<wbr>AddressID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ID</h3>
+					<div class="tsd-signature tsd-kind-icon">ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="shipper" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Shipper</h3>
+					<div class="tsd-signature tsd-kind-icon">Shipper<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="toaddress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> To<wbr>Address</h3>
+					<div class="tsd-signature tsd-kind-icon">To<wbr>Address<span class="tsd-signature-symbol">:</span> <a href="address.html" class="tsd-signature-type">Address</a></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="toaddressid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> To<wbr>AddressID</h3>
+					<div class="tsd-signature tsd-kind-icon">To<wbr>AddressID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="trackingnumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Tracking<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Tracking<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -117,25 +165,43 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="creditcardpayment.html" class="tsd-kind-icon">Credit<wbr>Card<wbr>Payment</a>
+						<a href="shipment.html" class="tsd-kind-icon">Shipment</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="creditcardpayment.html#cvv" class="tsd-kind-icon">CVV</a>
+								<a href="shipment.html#account" class="tsd-kind-icon">Account</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="creditcardpayment.html#creditcarddetails" class="tsd-kind-icon">Credit<wbr>Card<wbr>Details</a>
+								<a href="shipment.html#buyerid" class="tsd-kind-icon">BuyerID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="creditcardpayment.html#creditcardid" class="tsd-kind-icon">Credit<wbr>CardID</a>
+								<a href="shipment.html#cost" class="tsd-kind-icon">Cost</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="creditcardpayment.html#currency" class="tsd-kind-icon">Currency</a>
+								<a href="shipment.html#datedelivered" class="tsd-kind-icon">Date<wbr>Delivered</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="creditcardpayment.html#merchantid" class="tsd-kind-icon">MerchantID</a>
+								<a href="shipment.html#dateshipped" class="tsd-kind-icon">Date<wbr>Shipped</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="creditcardpayment.html#orderid" class="tsd-kind-icon">OrderID</a>
+								<a href="shipment.html#fromaddress" class="tsd-kind-icon">From<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipment.html#fromaddressid" class="tsd-kind-icon">From<wbr>AddressID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipment.html#id" class="tsd-kind-icon">ID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipment.html#shipper" class="tsd-kind-icon">Shipper</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipment.html#toaddress" class="tsd-kind-icon">To<wbr>Address</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipment.html#toaddressid" class="tsd-kind-icon">To<wbr>AddressID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipment.html#trackingnumber" class="tsd-kind-icon">Tracking<wbr>Number</a>
 							</li>
 						</ul>
 					</li>
