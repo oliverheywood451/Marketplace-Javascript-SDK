@@ -3,11 +3,11 @@ import { PaymentTransaction } from './PaymentTransaction';
 export interface Payment {
     ID?: string
     Type?: 'PurchaseOrder' | 'CreditCard' | 'SpendingAccount'
-    DateCreated?: string
+    readonly DateCreated?: string
     CreditCardID?: string
     SpendingAccountID?: string
     Description?: string
     Amount?: number
     Accepted?: boolean
-    Transactions?: PaymentTransaction[]
+    readonly Transactions?: PaymentTransaction[]
 }

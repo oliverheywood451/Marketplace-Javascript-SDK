@@ -3,7 +3,7 @@ import { Inventory } from './Inventory';
 
 export interface MarketplaceProduct {
     xp?: ProductXp
-    OwnerID?: string
+    readonly OwnerID?: string
     DefaultPriceScheduleID?: string
     AutoForward?: boolean
     ID?: string
@@ -15,8 +15,8 @@ export interface MarketplaceProduct {
     ShipWidth?: number
     ShipLength?: number
     Active?: boolean
-    SpecCount?: number
-    VariantCount?: number
+    readonly SpecCount?: number
+    readonly VariantCount?: number
     ShipFromAddressID?: string
     Inventory?: Inventory
     DefaultSupplierID?: string

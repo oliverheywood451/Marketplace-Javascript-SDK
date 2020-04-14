@@ -6,10 +6,10 @@ export interface ShipmentItem {
     OrderID?: string
     LineItemID?: string
     QuantityShipped?: number
-    UnitPrice?: number
-    CostCenter?: string
-    DateNeeded?: string
-    Product?: LineItemProduct
-    Variant?: LineItemVariant
-    Specs?: LineItemSpec[]
+    readonly UnitPrice?: number
+    readonly CostCenter?: string
+    readonly DateNeeded?: string
+    readonly Product?: LineItemProduct
+    readonly Variant?: LineItemVariant
+    readonly Specs?: LineItemSpec[]
 }

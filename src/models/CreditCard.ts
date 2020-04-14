@@ -2,9 +2,9 @@
 export interface CreditCard {
     ID?: string
     Token?: string
-    DateCreated?: string
+    readonly DateCreated?: string
     CardType?: string
     PartialAccountNumber?: string
     CardholderName?: string
-    ExpirationDate: string
+    ExpirationDate?: string
 }

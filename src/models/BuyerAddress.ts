@@ -1,10 +1,10 @@
 
 export interface BuyerAddress {
-    ID?: string
+    readonly ID?: string
     Shipping?: boolean
     Billing?: boolean
-    Editable?: boolean
-    DateCreated?: string
+    readonly Editable?: boolean
+    readonly DateCreated?: string
     CompanyName?: string
     FirstName?: string
     LastName?: string

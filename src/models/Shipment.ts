@@ -11,6 +11,6 @@ export interface Shipment {
     Account?: string
     FromAddressID?: string
     ToAddressID?: string
-    FromAddress?: Address
-    ToAddress?: Address
+    readonly FromAddress?: Address
+    readonly ToAddress?: Address
 }

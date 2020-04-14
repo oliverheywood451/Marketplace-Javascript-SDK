@@ -1,9 +1,9 @@
 
 export interface BuyerCreditCard {
-    ID?: string
-    Editable?: boolean
+    readonly ID?: string
+    readonly Editable?: boolean
     Token?: string
-    DateCreated?: string
+    readonly DateCreated?: string
     CardType?: string
     PartialAccountNumber?: string
     CardholderName?: string

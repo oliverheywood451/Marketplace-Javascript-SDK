@@ -1,5 +1,6 @@
 import { MarketplaceVariantXp } from './MarketplaceVariantXp';
 import { VariantInventory } from './VariantInventory';
+import { VariantSpec } from './VariantSpec';
 
 export interface MarketplaceVariant {
     xp?: MarketplaceVariantXp
@@ -12,4 +13,5 @@ export interface MarketplaceVariant {
     ShipWidth?: number
     ShipLength?: number
     Inventory?: VariantInventory
+    readonly Specs?: VariantSpec[]
 }

@@ -5,5 +5,5 @@ export interface Inventory {
     VariantLevelTracking?: boolean
     OrderCanExceed?: boolean
     QuantityAvailable?: number
-    LastUpdated?: string
+    readonly LastUpdated?: string
 }

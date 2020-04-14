@@ -9,6 +9,6 @@ export interface Spec {
     AllowOpenText?: boolean
     DefaultOptionID?: string
     DefinesVariant?: boolean
-    OptionCount?: number
-    Options?: SpecOption[]
+    readonly OptionCount?: number
+    readonly Options?: SpecOption[]
 }

@@ -9,7 +9,7 @@ export interface User {
     Phone?: string
     TermsAccepted?: string
     Active?: boolean
-    AvailableRoles?: string[]
-    DateCreated?: string
-    PasswordLastSetDate?: string
+    readonly AvailableRoles?: string[]
+    readonly DateCreated?: string
+    readonly PasswordLastSetDate?: string
 }

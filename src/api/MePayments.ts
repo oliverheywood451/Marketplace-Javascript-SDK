@@ -16,7 +16,7 @@ export default class MePayments {
     }
 
    /**
-    * @param creditCardPayment Required fields: OrderID, Currency, MerchantID
+    * @param creditCardPayment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async Post(creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<Payment>> {

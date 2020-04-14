@@ -32,7 +32,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace catalog.
-    * @param marketplaceCatalog 
+    * @param marketplaceCatalog Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostCatalog(clientId: string, marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
@@ -43,7 +43,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace catalog assignment.
-    * @param marketplaceCatalogAssignment 
+    * @param marketplaceCatalogAssignment Required fields: CatalogID, BuyerID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostCatalogProductAssignment(clientId: string, marketplaceCatalogAssignment: MarketplaceCatalogAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalogAssignment>> {
@@ -54,7 +54,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace price schedule.
-    * @param marketplacePriceSchedule 
+    * @param marketplacePriceSchedule Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostPriceSchedule(clientId: string, marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
@@ -65,7 +65,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace product.
-    * @param marketplaceProduct 
+    * @param marketplaceProduct Required fields: Name, QuantityMultiplier
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostProduct(clientId: string, marketplaceProduct: MarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceProduct>> {
@@ -76,7 +76,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace product assignment.
-    * @param marketplaceProductAssignment 
+    * @param marketplaceProductAssignment Required fields: ProductID, BuyerID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostProductAssignment(clientId: string, marketplaceProductAssignment: MarketplaceProductAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceProductAssignment>> {
@@ -87,7 +87,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace product facet.
-    * @param marketplaceProductFacet 
+    * @param marketplaceProductFacet Required fields: Name, MinCount
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostProductFacet(clientId: string, marketplaceProductFacet: MarketplaceProductFacet, accessToken?: string ): Promise<RequiredDeep<MarketplaceProductFacet>> {
@@ -98,7 +98,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace spec.
-    * @param marketplaceSpec 
+    * @param marketplaceSpec Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostSpec(clientId: string, marketplaceSpec: MarketplaceSpec, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpec>> {
@@ -109,7 +109,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace spec option.
-    * @param marketplaceSpecOption 
+    * @param marketplaceSpecOption Required fields: Value
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostSpecOption(clientId: string, marketplaceSpecOption: MarketplaceSpecOption, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecOption>> {

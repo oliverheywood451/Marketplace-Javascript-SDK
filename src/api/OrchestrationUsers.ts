@@ -29,7 +29,7 @@ export default class OrchestrationUsers {
    /**
     * @param buyerId Buyer id of the marketplace address buyer.
     * @param clientId Client id of the marketplace address buyer.
-    * @param marketplaceAddressBuyer 
+    * @param marketplaceAddressBuyer Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostAddress(buyerId: string, clientId: string, marketplaceAddressBuyer: MarketplaceAddressBuyer, accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressBuyer>> {
@@ -41,7 +41,7 @@ export default class OrchestrationUsers {
    /**
     * @param buyerId Buyer id of the marketplace address assignment.
     * @param clientId Client id of the marketplace address assignment.
-    * @param marketplaceAddressAssignment 
+    * @param marketplaceAddressAssignment Required fields: AddressID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostAddressAssignment(buyerId: string, clientId: string, marketplaceAddressAssignment: MarketplaceAddressAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressAssignment>> {
@@ -53,7 +53,7 @@ export default class OrchestrationUsers {
    /**
     * @param buyerId Buyer id of the marketplace cost center.
     * @param clientId Client id of the marketplace cost center.
-    * @param marketplaceCostCenter 
+    * @param marketplaceCostCenter Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostCostCenter(buyerId: string, clientId: string, marketplaceCostCenter: MarketplaceCostCenter, accessToken?: string ): Promise<RequiredDeep<MarketplaceCostCenter>> {
@@ -65,7 +65,7 @@ export default class OrchestrationUsers {
    /**
     * @param buyerId Buyer id of the marketplace user.
     * @param clientId Client id of the marketplace user.
-    * @param marketplaceUser 
+    * @param marketplaceUser Required fields: Username, FirstName, LastName, Email, Active
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostUser(buyerId: string, clientId: string, marketplaceUser: MarketplaceUser, accessToken?: string ): Promise<RequiredDeep<MarketplaceUser>> {
@@ -77,7 +77,7 @@ export default class OrchestrationUsers {
    /**
     * @param buyerId Buyer id of the marketplace user group.
     * @param clientId Client id of the marketplace user group.
-    * @param marketplaceUserGroup 
+    * @param marketplaceUserGroup Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostUserGroup(buyerId: string, clientId: string, marketplaceUserGroup: MarketplaceUserGroup, accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroup>> {
@@ -100,7 +100,7 @@ export default class OrchestrationUsers {
 
    /**
     * @param clientId Client id of the marketplace buyer.
-    * @param marketplaceBuyer 
+    * @param marketplaceBuyer Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostBuyer(clientId: string, marketplaceBuyer: MarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyer>> {

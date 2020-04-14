@@ -16,7 +16,7 @@ export default class Suppliers {
     }
 
    /**
-    * @param marketplaceSupplier 
+    * @param marketplaceSupplier Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async Create(marketplaceSupplier: MarketplaceSupplier, accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {

@@ -3,26 +3,26 @@ import { Address } from './Address';
 
 export interface Order {
     ID?: string
-    FromUser?: User
+    readonly FromUser?: User
     FromCompanyID?: string
     ToCompanyID?: string
     FromUserID?: string
     BillingAddressID?: string
-    BillingAddress?: Address
+    readonly BillingAddress?: Address
     ShippingAddressID?: string
     Comments?: string
-    LineItemCount?: number
-    Status?: 'Unsubmitted' | 'AwaitingApproval' | 'Declined' | 'Open' | 'Completed' | 'Canceled'
-    DateCreated?: string
-    DateSubmitted?: string
-    DateApproved?: string
-    DateDeclined?: string
-    DateCanceled?: string
-    DateCompleted?: string
-    Subtotal?: number
+    readonly LineItemCount?: number
+    readonly Status?: 'Unsubmitted' | 'AwaitingApproval' | 'Declined' | 'Open' | 'Completed' | 'Canceled'
+    readonly DateCreated?: string
+    readonly DateSubmitted?: string
+    readonly DateApproved?: string
+    readonly DateDeclined?: string
+    readonly DateCanceled?: string
+    readonly DateCompleted?: string
+    readonly Subtotal?: number
     ShippingCost?: number
     TaxCost?: number
-    PromotionDiscount?: number
-    Total?: number
-    IsSubmitted?: boolean
+    readonly PromotionDiscount?: number
+    readonly Total?: number
+    readonly IsSubmitted?: boolean
 }

@@ -1,5 +1,5 @@
 
-export interface LineItemSpec {
+export interface VariantSpec {
     SpecID?: string
     readonly Name?: string
     OptionID?: string

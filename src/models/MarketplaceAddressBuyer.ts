@@ -3,7 +3,7 @@ import { BuyerAddressXP } from './BuyerAddressXP';
 export interface MarketplaceAddressBuyer {
     xp?: BuyerAddressXP
     ID?: string
-    DateCreated?: string
+    readonly DateCreated?: string
     CompanyName?: string
     FirstName?: string
     LastName?: string

@@ -30,7 +30,7 @@ export default class ValidatedAddresses {
     }
 
    /**
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async CreateAdminAddress(address: Address, accessToken?: string ): Promise<RequiredDeep<Address>> {
@@ -41,7 +41,7 @@ export default class ValidatedAddresses {
 
    /**
     * @param addressID ID of the address.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAdminAddress(addressID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Address>> {
@@ -63,7 +63,7 @@ export default class ValidatedAddresses {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async CreateBuyerAddress(buyerID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Address>> {
@@ -75,7 +75,7 @@ export default class ValidatedAddresses {
    /**
     * @param buyerID ID of the buyer.
     * @param addressID ID of the address.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveBuyerAddress(buyerID: string, addressID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Address>> {
@@ -97,7 +97,7 @@ export default class ValidatedAddresses {
     }
 
    /**
-    * @param buyerAddress 
+    * @param buyerAddress Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async CreateMeAddress(buyerAddress: BuyerAddress, accessToken?: string ): Promise<RequiredDeep<BuyerAddress>> {
@@ -108,7 +108,7 @@ export default class ValidatedAddresses {
 
    /**
     * @param addressID ID of the address.
-    * @param buyerAddress 
+    * @param buyerAddress Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveMeAddress(addressID: string, buyerAddress: BuyerAddress, accessToken?: string ): Promise<RequiredDeep<BuyerAddress>> {
@@ -131,7 +131,7 @@ export default class ValidatedAddresses {
    /**
     * @param direction Direction of the address. Possible values: Incoming, Outgoing.
     * @param orderID ID of the order.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SetBillingAddress(direction: 'Incoming' | 'Outgoing', orderID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Order>> {
@@ -143,7 +143,7 @@ export default class ValidatedAddresses {
    /**
     * @param direction Direction of the address. Possible values: Incoming, Outgoing.
     * @param orderID ID of the order.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SetShippingAddress(direction: 'Incoming' | 'Outgoing', orderID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Order>> {
@@ -154,7 +154,7 @@ export default class ValidatedAddresses {
 
    /**
     * @param supplierID ID of the supplier.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async CreateSupplierAddress(supplierID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Address>> {
@@ -166,7 +166,7 @@ export default class ValidatedAddresses {
    /**
     * @param supplierID ID of the supplier.
     * @param addressID ID of the address.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveSupplierAddress(supplierID: string, addressID: string, address: Address, accessToken?: string ): Promise<RequiredDeep<Address>> {
