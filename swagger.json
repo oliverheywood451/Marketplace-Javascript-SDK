@@ -116,6 +116,16 @@
       "name": "Validated Addresses",
       "description": "\"Integration\" represents Validated Addresses with suggestions",
       "x-section-id": "Integration"
+    },
+    {
+      "name": "Asset Containers",
+      "description": "\"Integration\" represents asset containers",
+      "x-section-id": "Integration"
+    },
+    {
+      "name": "Assets",
+      "description": "\"Integration\" represents Assets",
+      "x-section-id": "Integration"
     }
   ],
   "components": {
@@ -367,6 +377,255 @@
           }
         }
       },
+      "Asset": {
+        "type": "object",
+        "example": {
+          "InteropID": "",
+          "ContainerID": "",
+          "Title": "",
+          "Active": false,
+          "Url": "",
+          "UrlPathOveride": "",
+          "Type": "Image",
+          "Tags": [
+            ""
+          ],
+          "FileName": "",
+          "Metadata": {
+            "ContentType": "",
+            "SizeBytes": 0,
+            "ImageHeight": 0,
+            "ImageWidth": 0,
+            "ImageVerticalResolution": 0,
+            "ImageHorizontalResolution": 0
+          },
+          "id": "",
+          "timeStamp": "2018-01-01T00:00:00-06:00"
+        },
+        "properties": {
+          "InteropID": {
+            "type": "string"
+          },
+          "ContainerID": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string"
+          },
+          "Active": {
+            "type": "boolean"
+          },
+          "Url": {
+            "type": "string",
+            "readOnly": true
+          },
+          "UrlPathOveride": {
+            "type": "string"
+          },
+          "Type": {
+            "enum": [
+              "Image",
+              "Theme",
+              "Attachment",
+              "StructuredData"
+            ],
+            "type": "string"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "FileName": {
+            "type": "string"
+          },
+          "Metadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssetMetadata"
+              }
+            ],
+            "readOnly": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "AssetAssignment": {
+        "type": "object",
+        "example": {
+          "ContainerID": "",
+          "ResourceType": "Products",
+          "ResourceID": "",
+          "ResourceParentID": "",
+          "AssetID": "",
+          "AssetListOrder": 0,
+          "Asset": {
+            "InteropID": "",
+            "ContainerID": "",
+            "Title": "",
+            "Active": false,
+            "Url": "",
+            "UrlPathOveride": "",
+            "Type": "Image",
+            "Tags": [
+              ""
+            ],
+            "FileName": "",
+            "Metadata": {
+              "ContentType": "",
+              "SizeBytes": 0,
+              "ImageHeight": 0,
+              "ImageWidth": 0,
+              "ImageVerticalResolution": 0,
+              "ImageHorizontalResolution": 0
+            },
+            "id": "",
+            "timeStamp": "2018-01-01T00:00:00-06:00"
+          },
+          "id": "",
+          "timeStamp": "2018-01-01T00:00:00-06:00"
+        },
+        "properties": {
+          "ContainerID": {
+            "type": "string"
+          },
+          "ResourceType": {
+            "enum": [
+              "Products",
+              "Categories",
+              "Catalogs",
+              "Promotions",
+              "Suppliers",
+              "Buyers",
+              "Addresses",
+              "SupplierAddrresses",
+              "AdminAddresses",
+              "UserGrousp",
+              "SupplierUserGroups",
+              "AdminUserGroups",
+              "ProductFacets"
+            ],
+            "type": "string"
+          },
+          "ResourceID": {
+            "type": "string"
+          },
+          "ResourceParentID": {
+            "type": "string"
+          },
+          "AssetID": {
+            "type": "string"
+          },
+          "AssetListOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Asset": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Asset"
+              }
+            ],
+            "readOnly": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "AssetContainer": {
+        "type": "object",
+        "example": {
+          "SinglePartitionID": "",
+          "InteropID": "",
+          "Name": "",
+          "HostUrlOverride": "",
+          "StorageAccount": {
+            "Connected": false,
+            "Type": "DefaultBlob",
+            "HostUrl": "",
+            "ConnectionString": ""
+          },
+          "id": "",
+          "timeStamp": "2018-01-01T00:00:00-06:00"
+        },
+        "properties": {
+          "SinglePartitionID": {
+            "type": "string"
+          },
+          "InteropID": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "HostUrlOverride": {
+            "type": "string"
+          },
+          "StorageAccount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/StorageAccount"
+              }
+            ],
+            "readOnly": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "AssetMetadata": {
+        "type": "object",
+        "example": {
+          "ContentType": "",
+          "SizeBytes": 0,
+          "ImageHeight": 0,
+          "ImageWidth": 0,
+          "ImageVerticalResolution": 0,
+          "ImageHorizontalResolution": 0
+        },
+        "properties": {
+          "ContentType": {
+            "type": "string"
+          },
+          "SizeBytes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ImageHeight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ImageWidth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ImageVerticalResolution": {
+            "type": "number",
+            "format": "float"
+          },
+          "ImageHorizontalResolution": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
       "BuyerAddress": {
         "type": "object",
         "example": {
@@ -449,6 +708,7 @@
             "DestinationInsideDelivery"
           ],
           "Email": "",
+          "LocationID": "",
           "AvalaraCertificateID": 0,
           "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
         },
@@ -466,6 +726,9 @@
             }
           },
           "Email": {
+            "type": "string"
+          },
+          "LocationID": {
             "type": "string"
           },
           "AvalaraCertificateID": {
@@ -710,10 +973,7 @@
           "id": "",
           "timeStamp": "2018-01-01T00:00:00-06:00",
           "URL": "",
-          "ListOrder": 0,
-          "Tags": [
-            ""
-          ]
+          "ListOrder": 0
         },
         "properties": {
           "id": {
@@ -729,12 +989,6 @@
           "ListOrder": {
             "type": "integer",
             "format": "int32"
-          },
-          "Tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
@@ -895,6 +1149,48 @@
           }
         }
       },
+      "ListAsset": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Asset"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListAssetAssignment": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssetAssignment"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListAssetContainer": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssetContainer"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
       "ListFacet": {
         "type": "object",
         "properties": {
@@ -1022,6 +1318,7 @@
               "DestinationInsideDelivery"
             ],
             "Email": "",
+            "LocationID": "",
             "AvalaraCertificateID": 0,
             "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
           },
@@ -1138,6 +1435,7 @@
                 "DestinationInsideDelivery"
               ],
               "Email": "",
+              "LocationID": "",
               "AvalaraCertificateID": 0,
               "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
             },
@@ -1543,11 +1841,6 @@
       "MarketplaceSpec": {
         "type": "object",
         "example": {
-          "xp": {
-            "UI": {
-              "ControlType": "Text"
-            }
-          },
           "ID": "",
           "ListOrder": 0,
           "Name": "",
@@ -1569,13 +1862,6 @@
           ]
         },
         "properties": {
-          "xp": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SpecXp"
-              }
-            ]
-          },
           "ID": {
             "type": "string"
           },
@@ -1866,6 +2152,7 @@
         "type": "object",
         "example": {
           "xp": {
+            "SpecCombo": "",
             "SpecValues": [
               {
                 "SpecName": "",
@@ -1953,6 +2240,7 @@
       "MarketplaceVariantXp": {
         "type": "object",
         "example": {
+          "SpecCombo": "",
           "SpecValues": [
             {
               "SpecName": "",
@@ -1963,6 +2251,9 @@
           "NewID": ""
         },
         "properties": {
+          "SpecCombo": {
+            "type": "string"
+          },
           "SpecValues": {
             "type": "array",
             "items": {
@@ -3044,23 +3335,6 @@
           }
         }
       },
-      "SpecUI": {
-        "type": "object",
-        "example": {
-          "ControlType": "Text"
-        },
-        "properties": {
-          "ControlType": {
-            "enum": [
-              "Text",
-              "DropDown",
-              "Checkbox",
-              "Range"
-            ],
-            "type": "string"
-          }
-        }
-      },
       "SpecValue": {
         "type": "object",
         "example": {
@@ -3077,23 +3351,6 @@
           },
           "PriceMarkup": {
             "type": "string"
-          }
-        }
-      },
-      "SpecXp": {
-        "type": "object",
-        "example": {
-          "UI": {
-            "ControlType": "Text"
-          }
-        },
-        "properties": {
-          "UI": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SpecUI"
-              }
-            ]
           }
         }
       },
@@ -3116,6 +3373,32 @@
             "type": "boolean"
           },
           "Filename": {
+            "type": "string"
+          }
+        }
+      },
+      "StorageAccount": {
+        "type": "object",
+        "example": {
+          "Connected": false,
+          "Type": "DefaultBlob",
+          "HostUrl": "",
+          "ConnectionString": ""
+        },
+        "properties": {
+          "Connected": {
+            "type": "boolean"
+          },
+          "Type": {
+            "enum": [
+              "DefaultBlob"
+            ],
+            "type": "string"
+          },
+          "HostUrl": {
+            "type": "string"
+          },
+          "ConnectionString": {
             "type": "string"
           }
         }
@@ -3230,6 +3513,7 @@
           "Variants": [
             {
               "xp": {
+                "SpecCombo": "",
                 "SpecValues": [
                   {
                     "SpecName": "",
@@ -3268,10 +3552,7 @@
               "id": "",
               "timeStamp": "2018-01-01T00:00:00-06:00",
               "URL": "",
-              "ListOrder": 0,
-              "Tags": [
-                ""
-              ]
+              "ListOrder": 0
             }
           ]
         },
@@ -5045,6 +5326,745 @@
           {
             "OAuth2": [
               "CreditCardAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/containers": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetContainer"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "AssetContainers.List",
+        "tags": [
+          "Asset Containers"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Asset Containers",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetContainer"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "AssetContainers.Create",
+        "tags": [
+          "Asset Containers"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AssetContainer"
+                  }
+                ],
+                "required": [
+                  "Name"
+                ]
+              }
+            }
+          }
+        },
+        "summary": "Create an Asset Container",
+        "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/containers/{containerID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetContainer"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "AssetContainers.Get",
+        "tags": [
+          "Asset Containers"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get an Asset Container",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetContainer"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "AssetContainers.Update",
+        "tags": [
+          "Asset Containers"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AssetContainer"
+                  }
+                ],
+                "required": [
+                  "Name"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Update an Asset Container",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "AssetContainers.Delete",
+        "tags": [
+          "Asset Containers"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete an Asset Container",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/containers/{containerID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAsset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.List",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Assets",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/containers/{containerID}/assets/{assetID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.Get",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get an Asset",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.Update",
+        "tags": [
+          "Assets"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Asset"
+                  }
+                ],
+                "required": [
+                  "ContainerID"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Update an Asset",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Assets.Delete",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete an Asset",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/containers/{containerID}/assets/{assetID}/assignments/{resourceType}/{resourceID}": {
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Assets.DeleteAssignment",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resourceType",
+            "in": "path",
+            "description": "Resource type of the asset. Possible values: Products, Categories, Catalogs, Promotions, Suppliers, Buyers, Addresses, SupplierAddrresses, AdminAddresses, UserGrousp, SupplierUserGroups, AdminUserGroups, ProductFacets.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Products",
+                "Categories",
+                "Catalogs",
+                "Promotions",
+                "Suppliers",
+                "Buyers",
+                "Addresses",
+                "SupplierAddrresses",
+                "AdminAddresses",
+                "UserGrousp",
+                "SupplierUserGroups",
+                "AdminUserGroups",
+                "ProductFacets"
+              ]
+            }
+          },
+          {
+            "name": "resourceID",
+            "in": "path",
+            "description": "ID of the resource.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/containers/{containerID}/assets/assignments": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetAssignment"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.ListAssignments",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Asset Assignments",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Assets.SaveAssignment",
+        "tags": [
+          "Assets"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AssetAssignment"
+                  }
+                ],
+                "required": [
+                  "ResourceType",
+                  "ResourceID",
+                  "AssetID"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "containerID",
+            "in": "path",
+            "description": "ID of the container.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Save Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
               "FullAccess"
             ]
           }

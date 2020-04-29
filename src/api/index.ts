@@ -15,6 +15,8 @@ import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
 import CreditCardAuthorizations from './CreditCardAuthorizations';
 import ValidatedAddresses from './ValidatedAddresses';
+import AssetContainers from './AssetContainers';
+import Assets from './Assets';
 import Auth from './Auth';
 import Tokens from './Tokens';
 
@@ -38,6 +40,8 @@ const MarketplaceSDK: MarketplaceSDK = {
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
     CreditCardAuthorizations : new CreditCardAuthorizations(),
     ValidatedAddresses : new ValidatedAddresses(),
+    AssetContainers : new AssetContainers(),
+    Assets : new Assets(),
     Auth: new Auth(),
     Tokens: new Tokens()
 }
@@ -60,6 +64,8 @@ interface MarketplaceSDK {
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,
     CreditCardAuthorizations : CreditCardAuthorizations,
     ValidatedAddresses : ValidatedAddresses,
+    AssetContainers : AssetContainers,
+    Assets : Assets,
     Auth: Auth,
     Tokens: Tokens
 }
