@@ -13,6 +13,7 @@ export default class Auth {
     asset: AssetUpload,
     accessToken?: string
   ): Promise<RequiredDeep<Asset>> {
+    asset.Tags = asset.Tags.join(",") as any;
     const form = new FormData()
     for (const prop in asset) {
       if (asset.hasOwnProperty(prop)) {
