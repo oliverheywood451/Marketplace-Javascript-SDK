@@ -1,10 +1,10 @@
 export interface AssetUpload {
-  ID: string
-  Title: string
-  Active: boolean
+  ID?: string
+  Title?: string
+  Active?: boolean
   File: File
-  UrlPathOveride: string
+  UrlPathOveride?: string
   Type: 'Image' | 'Theme' | 'Attachment' | 'StructuredData'
-  Tags: string[]
-  FileName: string
+  Tags?: string[]
+  FileName?: string
 }
