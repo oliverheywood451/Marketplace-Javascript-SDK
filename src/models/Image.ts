@@ -4,4 +4,5 @@ export interface Image {
     timeStamp?: string
     URL?: string
     ListOrder?: number
+    Tags?: string[]
 }

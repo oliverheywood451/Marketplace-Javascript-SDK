@@ -3,12 +3,12 @@ import { AssetUpload } from '../models/AssetUpload'
 import { Asset } from '../models/Asset'
 import { RequiredDeep } from '../models/RequiredDeep'
 
-export default class Auth {
+export default class Upload {
   constructor() {
-    this.Upload = this.Upload.bind(this)
+    this.UploadAsset = this.UploadAsset.bind(this)
   }
 
-  async Upload(
+  async UploadAsset(
     containerID: string,
     asset: AssetUpload,
     accessToken?: string

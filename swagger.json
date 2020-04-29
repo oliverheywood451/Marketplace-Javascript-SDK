@@ -973,7 +973,10 @@
           "id": "",
           "timeStamp": "2018-01-01T00:00:00-06:00",
           "URL": "",
-          "ListOrder": 0
+          "ListOrder": 0,
+          "Tags": [
+            ""
+          ]
         },
         "properties": {
           "id": {
@@ -989,6 +992,12 @@
           "ListOrder": {
             "type": "integer",
             "format": "int32"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3552,7 +3561,10 @@
               "id": "",
               "timeStamp": "2018-01-01T00:00:00-06:00",
               "URL": "",
-              "ListOrder": 0
+              "ListOrder": 0,
+              "Tags": [
+                ""
+              ]
             }
           ]
         },

@@ -3,6 +3,7 @@ import {{this.id}} from './{{this.id}}';
 {{/resources}}
 import Auth from './Auth';
 import Tokens from './Tokens';
+import Upload from './Upload';
 
 export { MarketplaceSDK }
 
@@ -11,7 +12,8 @@ const MarketplaceSDK: MarketplaceSDK = {
     {{this.id}} : new {{this.id}}(),
     {{/resources}}
     Auth: new Auth(),
-    Tokens: new Tokens()
+    Tokens: new Tokens(),
+    Upload: new Upload()
 }
 
 interface MarketplaceSDK {
@@ -19,5 +21,6 @@ interface MarketplaceSDK {
     {{this.id}} : {{this.id}},
     {{/resources}}
     Auth: Auth,
-    Tokens: Tokens
+    Tokens: Tokens,
+    Upload: Upload
 }

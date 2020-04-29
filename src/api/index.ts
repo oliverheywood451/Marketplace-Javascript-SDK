@@ -19,6 +19,7 @@ import AssetContainers from './AssetContainers';
 import Assets from './Assets';
 import Auth from './Auth';
 import Tokens from './Tokens';
+import Upload from './Upload';
 
 export { MarketplaceSDK }
 
@@ -43,7 +44,8 @@ const MarketplaceSDK: MarketplaceSDK = {
     AssetContainers : new AssetContainers(),
     Assets : new Assets(),
     Auth: new Auth(),
-    Tokens: new Tokens()
+    Tokens: new Tokens(),
+    Upload: new Upload()
 }
 
 interface MarketplaceSDK {
@@ -67,5 +69,6 @@ interface MarketplaceSDK {
     AssetContainers : AssetContainers,
     Assets : Assets,
     Auth: Auth,
-    Tokens: Tokens
+    Tokens: Tokens,
+    Upload: Upload
 }
