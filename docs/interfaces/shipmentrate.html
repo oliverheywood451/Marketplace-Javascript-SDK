@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SuperShipment | ordercloud-javascript-sdk</title>
+	<title>ShipmentRate | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="supershipment.html">SuperShipment</a>
+					<a href="shipmentrate.html">ShipmentRate</a>
 				</li>
 			</ul>
 		</div>
@@ -50,8 +50,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="supershipment.html#shipment" class="tsd-kind-icon">Shipment</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="supershipment.html#shipmentitems" class="tsd-kind-icon">Shipment<wbr>Items</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipmentrate.html#currency" class="tsd-kind-icon">Currency</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipmentrate.html#discountedcost" class="tsd-kind-icon">Discounted<wbr>Cost</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipmentrate.html#id" class="tsd-kind-icon">Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipmentrate.html#listcost" class="tsd-kind-icon">List<wbr>Cost</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipmentrate.html#service" class="tsd-kind-icon">Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shipmentrate.html#transitdays" class="tsd-kind-icon">Transit<wbr>Days</a></li>
 							</ul>
 						</section>
 					</div>
@@ -60,16 +64,44 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="shipment" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Shipment</h3>
-					<div class="tsd-signature tsd-kind-icon">Shipment<span class="tsd-signature-symbol">:</span> <a href="marketplaceshipment.html" class="tsd-signature-type">MarketplaceShipment</a></div>
+					<a name="currency" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Currency</h3>
+					<div class="tsd-signature tsd-kind-icon">Currency<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="shipmentitems" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Shipment<wbr>Items</h3>
-					<div class="tsd-signature tsd-kind-icon">Shipment<wbr>Items<span class="tsd-signature-symbol">:</span> <a href="shipmentitem.html" class="tsd-signature-type">ShipmentItem</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="discountedcost" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Discounted<wbr>Cost</h3>
+					<div class="tsd-signature tsd-kind-icon">Discounted<wbr>Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="listcost" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> List<wbr>Cost</h3>
+					<div class="tsd-signature tsd-kind-icon">List<wbr>Cost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="service" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Service</h3>
+					<div class="tsd-signature tsd-kind-icon">Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="transitdays" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Transit<wbr>Days</h3>
+					<div class="tsd-signature tsd-kind-icon">Transit<wbr>Days<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -85,13 +117,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="supershipment.html" class="tsd-kind-icon">Super<wbr>Shipment</a>
+						<a href="shipmentrate.html" class="tsd-kind-icon">Shipment<wbr>Rate</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="supershipment.html#shipment" class="tsd-kind-icon">Shipment</a>
+								<a href="shipmentrate.html#currency" class="tsd-kind-icon">Currency</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="supershipment.html#shipmentitems" class="tsd-kind-icon">Shipment<wbr>Items</a>
+								<a href="shipmentrate.html#discountedcost" class="tsd-kind-icon">Discounted<wbr>Cost</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipmentrate.html#id" class="tsd-kind-icon">Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipmentrate.html#listcost" class="tsd-kind-icon">List<wbr>Cost</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipmentrate.html#service" class="tsd-kind-icon">Service</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="shipmentrate.html#transitdays" class="tsd-kind-icon">Transit<wbr>Days</a>
 							</li>
 						</ul>
 					</li>

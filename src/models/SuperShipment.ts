@@ -1,7 +1,7 @@
-import { Shipment } from './Shipment';
+import { MarketplaceShipment } from './MarketplaceShipment';
 import { ShipmentItem } from './ShipmentItem';
 
 export interface SuperShipment {
-    Shipment?: Shipment
+    Shipment?: MarketplaceShipment
     ShipmentItems?: ShipmentItem[]
 }

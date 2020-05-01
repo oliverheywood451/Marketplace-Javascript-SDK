@@ -1396,6 +1396,79 @@
           }
         }
       },
+      "MarketplaceAddressSupplier": {
+        "type": "object",
+        "example": {
+          "xp": {
+            "Accessorials": [
+              "LimitedAccessPickup"
+            ]
+          },
+          "ID": "",
+          "DateCreated": "2018-01-01T00:00:00-06:00",
+          "CompanyName": "",
+          "FirstName": "",
+          "LastName": "",
+          "Street1": "",
+          "Street2": "",
+          "City": "",
+          "State": "",
+          "Zip": "",
+          "Country": "",
+          "Phone": "",
+          "AddressName": ""
+        },
+        "properties": {
+          "xp": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SupplierAddressXP"
+              }
+            ]
+          },
+          "ID": {
+            "type": "string"
+          },
+          "DateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "CompanyName": {
+            "type": "string"
+          },
+          "FirstName": {
+            "type": "string"
+          },
+          "LastName": {
+            "type": "string"
+          },
+          "Street1": {
+            "type": "string"
+          },
+          "Street2": {
+            "type": "string"
+          },
+          "City": {
+            "type": "string"
+          },
+          "State": {
+            "type": "string"
+          },
+          "Zip": {
+            "type": "string"
+          },
+          "Country": {
+            "type": "string"
+          },
+          "Phone": {
+            "type": "string"
+          },
+          "AddressName": {
+            "type": "string"
+          }
+        }
+      },
       "MarketplaceBuyer": {
         "type": "object",
         "example": {
@@ -1844,6 +1917,134 @@
           "MinCount": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "MarketplaceShipment": {
+        "type": "object",
+        "example": {
+          "xp": {
+            "FreightPopShipmentRate": {
+              "Id": "",
+              "Currency": "",
+              "DiscountedCost": 0,
+              "ListCost": 0,
+              "Service": "",
+              "TransitDays": ""
+            },
+            "Service": ""
+          },
+          "FromAddress": {
+            "xp": {
+              "Accessorials": [
+                "LimitedAccessPickup"
+              ]
+            },
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ToAddress": {
+            "xp": {
+              "Accessorials": [
+                "DestinationInsideDelivery"
+              ],
+              "Email": "",
+              "LocationID": "",
+              "AvalaraCertificateID": 0,
+              "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+            },
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ID": "",
+          "BuyerID": "",
+          "Shipper": "",
+          "DateShipped": "2018-01-01T00:00:00-06:00",
+          "DateDelivered": "2018-01-01T00:00:00-06:00",
+          "TrackingNumber": "",
+          "Cost": 0,
+          "Account": "",
+          "FromAddressID": "",
+          "ToAddressID": ""
+        },
+        "properties": {
+          "xp": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShipmentXp"
+              }
+            ]
+          },
+          "FromAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceAddressSupplier"
+              }
+            ],
+            "readOnly": true
+          },
+          "ToAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceAddressBuyer"
+              }
+            ],
+            "readOnly": true
+          },
+          "ID": {
+            "type": "string"
+          },
+          "BuyerID": {
+            "type": "string"
+          },
+          "Shipper": {
+            "type": "string"
+          },
+          "DateShipped": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DateDelivered": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TrackingNumber": {
+            "type": "string"
+          },
+          "Cost": {
+            "type": "number",
+            "format": "float"
+          },
+          "Account": {
+            "type": "string"
+          },
+          "FromAddressID": {
+            "type": "string"
+          },
+          "ToAddressID": {
+            "type": "string"
           }
         }
       },
@@ -2375,7 +2576,9 @@
               "GetOrdersNeedingShipmentError",
               "GetShipmentSyncOrders",
               "GetShipmentDetailsForShipmentSyncOrders",
-              "CreateShipmentsInOrderCloudIfNeeded"
+              "CreateShipmentsInOrderCloudIfNeeded",
+              "GetFreightPopShipments",
+              "NoRelatedOrderCloudOrderFound"
             ],
             "type": "string"
           },
@@ -2941,117 +3144,27 @@
           }
         }
       },
-      "Shipment": {
-        "type": "object",
-        "example": {
-          "ID": "",
-          "BuyerID": "",
-          "Shipper": "",
-          "DateShipped": "2018-01-01T00:00:00-06:00",
-          "DateDelivered": "2018-01-01T00:00:00-06:00",
-          "TrackingNumber": "",
-          "Cost": 0,
-          "Account": "",
-          "FromAddressID": "",
-          "ToAddressID": "",
-          "FromAddress": {
-            "ID": "",
-            "DateCreated": "2018-01-01T00:00:00-06:00",
-            "CompanyName": "",
-            "FirstName": "",
-            "LastName": "",
-            "Street1": "",
-            "Street2": "",
-            "City": "",
-            "State": "",
-            "Zip": "",
-            "Country": "",
-            "Phone": "",
-            "AddressName": ""
-          },
-          "ToAddress": {
-            "ID": "",
-            "DateCreated": "2018-01-01T00:00:00-06:00",
-            "CompanyName": "",
-            "FirstName": "",
-            "LastName": "",
-            "Street1": "",
-            "Street2": "",
-            "City": "",
-            "State": "",
-            "Zip": "",
-            "Country": "",
-            "Phone": "",
-            "AddressName": ""
-          }
-        },
-        "properties": {
-          "ID": {
-            "type": "string"
-          },
-          "BuyerID": {
-            "type": "string"
-          },
-          "Shipper": {
-            "type": "string"
-          },
-          "DateShipped": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "DateDelivered": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "TrackingNumber": {
-            "type": "string"
-          },
-          "Cost": {
-            "type": "number",
-            "format": "float"
-          },
-          "Account": {
-            "type": "string"
-          },
-          "FromAddressID": {
-            "type": "string"
-          },
-          "ToAddressID": {
-            "type": "string"
-          },
-          "FromAddress": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Address"
-              }
-            ],
-            "readOnly": true
-          },
-          "ToAddress": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Address"
-              }
-            ],
-            "readOnly": true
-          }
-        }
-      },
       "ShipmentCreateResponse": {
         "type": "object",
         "example": {
           "Shipment": {
-            "ID": "",
-            "BuyerID": "",
-            "Shipper": "",
-            "DateShipped": "2018-01-01T00:00:00-06:00",
-            "DateDelivered": "2018-01-01T00:00:00-06:00",
-            "TrackingNumber": "",
-            "Cost": 0,
-            "Account": "",
-            "FromAddressID": "",
-            "ToAddressID": "",
+            "xp": {
+              "FreightPopShipmentRate": {
+                "Id": "",
+                "Currency": "",
+                "DiscountedCost": 0,
+                "ListCost": 0,
+                "Service": "",
+                "TransitDays": ""
+              },
+              "Service": ""
+            },
             "FromAddress": {
+              "xp": {
+                "Accessorials": [
+                  "LimitedAccessPickup"
+                ]
+              },
               "ID": "",
               "DateCreated": "2018-01-01T00:00:00-06:00",
               "CompanyName": "",
@@ -3067,6 +3180,15 @@
               "AddressName": ""
             },
             "ToAddress": {
+              "xp": {
+                "Accessorials": [
+                  "DestinationInsideDelivery"
+                ],
+                "Email": "",
+                "LocationID": "",
+                "AvalaraCertificateID": 0,
+                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+              },
               "ID": "",
               "DateCreated": "2018-01-01T00:00:00-06:00",
               "CompanyName": "",
@@ -3080,7 +3202,17 @@
               "Country": "",
               "Phone": "",
               "AddressName": ""
-            }
+            },
+            "ID": "",
+            "BuyerID": "",
+            "Shipper": "",
+            "DateShipped": "2018-01-01T00:00:00-06:00",
+            "DateDelivered": "2018-01-01T00:00:00-06:00",
+            "TrackingNumber": "",
+            "Cost": 0,
+            "Account": "",
+            "FromAddressID": "",
+            "ToAddressID": ""
           },
           "ShipmentItems": [
             {
@@ -3126,7 +3258,7 @@
           "Shipment": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Shipment"
+                "$ref": "#/components/schemas/MarketplaceShipment"
               }
             ]
           },
@@ -3224,6 +3356,65 @@
               "$ref": "#/components/schemas/LineItemSpec"
             },
             "readOnly": true
+          }
+        }
+      },
+      "ShipmentRate": {
+        "type": "object",
+        "example": {
+          "Id": "",
+          "Currency": "",
+          "DiscountedCost": 0,
+          "ListCost": 0,
+          "Service": "",
+          "TransitDays": ""
+        },
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Currency": {
+            "type": "string"
+          },
+          "DiscountedCost": {
+            "type": "number",
+            "format": "float"
+          },
+          "ListCost": {
+            "type": "number",
+            "format": "float"
+          },
+          "Service": {
+            "type": "string"
+          },
+          "TransitDays": {
+            "type": "string"
+          }
+        }
+      },
+      "ShipmentXp": {
+        "type": "object",
+        "example": {
+          "FreightPopShipmentRate": {
+            "Id": "",
+            "Currency": "",
+            "DiscountedCost": 0,
+            "ListCost": 0,
+            "Service": "",
+            "TransitDays": ""
+          },
+          "Service": ""
+        },
+        "properties": {
+          "FreightPopShipmentRate": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShipmentRate"
+              }
+            ]
+          },
+          "Service": {
+            "type": "string"
           }
         }
       },
@@ -3558,13 +3749,27 @@
           ],
           "Images": [
             {
-              "id": "",
-              "timeStamp": "2018-01-01T00:00:00-06:00",
-              "URL": "",
-              "ListOrder": 0,
+              "InteropID": "",
+              "ContainerID": "",
+              "Title": "",
+              "Active": false,
+              "Url": "",
+              "UrlPathOveride": "",
+              "Type": "Image",
               "Tags": [
                 ""
-              ]
+              ],
+              "FileName": "",
+              "Metadata": {
+                "ContentType": "",
+                "SizeBytes": 0,
+                "ImageHeight": 0,
+                "ImageWidth": 0,
+                "ImageVerticalResolution": 0,
+                "ImageHorizontalResolution": 0
+              },
+              "id": "",
+              "timeStamp": "2018-01-01T00:00:00-06:00"
             }
           ]
         },
@@ -3601,7 +3806,7 @@
           "Images": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Image"
+              "$ref": "#/components/schemas/Asset"
             }
           }
         }
@@ -3610,17 +3815,23 @@
         "type": "object",
         "example": {
           "Shipment": {
-            "ID": "",
-            "BuyerID": "",
-            "Shipper": "",
-            "DateShipped": "2018-01-01T00:00:00-06:00",
-            "DateDelivered": "2018-01-01T00:00:00-06:00",
-            "TrackingNumber": "",
-            "Cost": 0,
-            "Account": "",
-            "FromAddressID": "",
-            "ToAddressID": "",
+            "xp": {
+              "FreightPopShipmentRate": {
+                "Id": "",
+                "Currency": "",
+                "DiscountedCost": 0,
+                "ListCost": 0,
+                "Service": "",
+                "TransitDays": ""
+              },
+              "Service": ""
+            },
             "FromAddress": {
+              "xp": {
+                "Accessorials": [
+                  "LimitedAccessPickup"
+                ]
+              },
               "ID": "",
               "DateCreated": "2018-01-01T00:00:00-06:00",
               "CompanyName": "",
@@ -3636,6 +3847,15 @@
               "AddressName": ""
             },
             "ToAddress": {
+              "xp": {
+                "Accessorials": [
+                  "DestinationInsideDelivery"
+                ],
+                "Email": "",
+                "LocationID": "",
+                "AvalaraCertificateID": 0,
+                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+              },
               "ID": "",
               "DateCreated": "2018-01-01T00:00:00-06:00",
               "CompanyName": "",
@@ -3649,7 +3869,17 @@
               "Country": "",
               "Phone": "",
               "AddressName": ""
-            }
+            },
+            "ID": "",
+            "BuyerID": "",
+            "Shipper": "",
+            "DateShipped": "2018-01-01T00:00:00-06:00",
+            "DateDelivered": "2018-01-01T00:00:00-06:00",
+            "TrackingNumber": "",
+            "Cost": 0,
+            "Account": "",
+            "FromAddressID": "",
+            "ToAddressID": ""
           },
           "ShipmentItems": [
             {
@@ -3695,7 +3925,7 @@
           "Shipment": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/Shipment"
+                "$ref": "#/components/schemas/MarketplaceShipment"
               }
             ]
           },
@@ -3703,6 +3933,29 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ShipmentItem"
+            }
+          }
+        }
+      },
+      "SupplierAddressXP": {
+        "type": "object",
+        "example": {
+          "Accessorials": [
+            "LimitedAccessPickup"
+          ]
+        },
+        "properties": {
+          "Accessorials": {
+            "type": "string",
+            "enum": [
+              "LimitedAccessPickup",
+              "OriginExhibition",
+              "OriginInsidePickup",
+              "OriginLiftGate",
+              "ResidentialPickup"
+            ],
+            "items": {
+              "type": "string"
             }
           }
         }
@@ -5434,7 +5687,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       },
@@ -5477,7 +5732,9 @@
         "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -5515,7 +5772,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       },
@@ -5569,7 +5828,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       },
@@ -5598,7 +5859,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -5702,7 +5965,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -5749,7 +6014,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       },
@@ -5812,7 +6079,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       },
@@ -5850,7 +6119,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -5923,7 +6194,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -6027,7 +6300,9 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       },
