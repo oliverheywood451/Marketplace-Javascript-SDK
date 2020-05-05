@@ -1,8 +1,7 @@
 import { AssetMetadata } from './AssetMetadata';
 
 export interface Asset {
-    InteropID?: string
-    ContainerID?: string
+    ID?: string
     Title?: string
     Active?: boolean
     readonly Url?: string
@@ -11,6 +10,4 @@ export interface Asset {
     Tags?: string[]
     FileName?: string
     readonly Metadata?: AssetMetadata
-    id?: string
-    timeStamp?: string
 }

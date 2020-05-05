@@ -380,8 +380,7 @@
       "Asset": {
         "type": "object",
         "example": {
-          "InteropID": "",
-          "ContainerID": "",
+          "ID": "",
           "Title": "",
           "Active": false,
           "Url": "",
@@ -398,15 +397,10 @@
             "ImageWidth": 0,
             "ImageVerticalResolution": 0,
             "ImageHorizontalResolution": 0
-          },
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+          }
         },
         "properties": {
-          "InteropID": {
-            "type": "string"
-          },
-          "ContainerID": {
+          "ID": {
             "type": "string"
           },
           "Title": {
@@ -447,28 +441,19 @@
               }
             ],
             "readOnly": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
       "AssetAssignment": {
         "type": "object",
         "example": {
-          "ContainerID": "",
           "ResourceType": "Products",
           "ResourceID": "",
           "ResourceParentID": "",
           "AssetID": "",
           "AssetListOrder": 0,
           "Asset": {
-            "InteropID": "",
-            "ContainerID": "",
+            "ID": "",
             "Title": "",
             "Active": false,
             "Url": "",
@@ -485,17 +470,10 @@
               "ImageWidth": 0,
               "ImageVerticalResolution": 0,
               "ImageHorizontalResolution": 0
-            },
-            "id": "",
-            "timeStamp": "2018-01-01T00:00:00-06:00"
-          },
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+            }
+          }
         },
         "properties": {
-          "ContainerID": {
-            "type": "string"
-          },
           "ResourceType": {
             "enum": [
               "Products",
@@ -534,37 +512,23 @@
               }
             ],
             "readOnly": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
       "AssetContainer": {
         "type": "object",
         "example": {
-          "SinglePartitionID": "",
-          "InteropID": "",
+          "ID": "",
           "Name": "",
           "HostUrlOverride": "",
           "StorageAccount": {
             "Connected": false,
             "Type": "DefaultBlob",
-            "HostUrl": "",
-            "ConnectionString": ""
-          },
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+            "HostUrl": ""
+          }
         },
         "properties": {
-          "SinglePartitionID": {
-            "type": "string"
-          },
-          "InteropID": {
+          "ID": {
             "type": "string"
           },
           "Name": {
@@ -580,13 +544,6 @@
               }
             ],
             "readOnly": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -857,121 +814,11 @@
           }
         }
       },
-      "CreditCardPayment": {
-        "type": "object",
-        "example": {
-          "OrderID": "",
-          "PaymentID": "",
-          "CreditCardID": "",
-          "CreditCardDetails": {
-            "AccountNumber": "",
-            "ExpirationDate": "",
-            "CardholderName": "",
-            "CardType": "",
-            "CCBillingAddress": {
-              "ID": "",
-              "DateCreated": "2018-01-01T00:00:00-06:00",
-              "CompanyName": "",
-              "FirstName": "",
-              "LastName": "",
-              "Street1": "",
-              "Street2": "",
-              "City": "",
-              "State": "",
-              "Zip": "",
-              "Country": "",
-              "Phone": "",
-              "AddressName": ""
-            }
-          },
-          "Currency": "",
-          "CVV": "",
-          "MerchantID": ""
-        },
-        "properties": {
-          "OrderID": {
-            "type": "string"
-          },
-          "PaymentID": {
-            "type": "string"
-          },
-          "CreditCardID": {
-            "type": "string"
-          },
-          "CreditCardDetails": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CreditCardToken"
-              }
-            ]
-          },
-          "Currency": {
-            "type": "string",
-            "maxLength": 3,
-            "minLength": 3
-          },
-          "CVV": {
-            "type": "string",
-            "maxLength": 4,
-            "minLength": 3
-          },
-          "MerchantID": {
-            "type": "string"
-          }
-        }
-      },
-      "CreditCardToken": {
-        "type": "object",
-        "example": {
-          "AccountNumber": "",
-          "ExpirationDate": "",
-          "CardholderName": "",
-          "CardType": "",
-          "CCBillingAddress": {
-            "ID": "",
-            "DateCreated": "2018-01-01T00:00:00-06:00",
-            "CompanyName": "",
-            "FirstName": "",
-            "LastName": "",
-            "Street1": "",
-            "Street2": "",
-            "City": "",
-            "State": "",
-            "Zip": "",
-            "Country": "",
-            "Phone": "",
-            "AddressName": ""
-          }
-        },
-        "properties": {
-          "AccountNumber": {
-            "type": "string"
-          },
-          "ExpirationDate": {
-            "type": "string",
-            "maxLength": 6,
-            "minLength": 4
-          },
-          "CardholderName": {
-            "type": "string"
-          },
-          "CardType": {
-            "type": "string"
-          },
-          "CCBillingAddress": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Address"
-              }
-            ]
-          }
-        }
-      },
       "Image": {
         "type": "object",
         "example": {
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00",
+          "ID": "",
+          "DateCreated": "2018-01-01T00:00:00-06:00",
           "URL": "",
           "ListOrder": 0,
           "Tags": [
@@ -979,10 +826,10 @@
           ]
         },
         "properties": {
-          "id": {
+          "ID": {
             "type": "string"
           },
-          "timeStamp": {
+          "DateCreated": {
             "type": "string",
             "format": "date-time"
           },
@@ -2552,9 +2399,7 @@
               "ErrorCode": "",
               "Message": ""
             }
-          ],
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+          ]
         },
         "properties": {
           "ErrorType": {
@@ -2639,13 +2484,6 @@
             "items": {
               "$ref": "#/components/schemas/ApiError"
             }
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -3582,8 +3420,7 @@
         "example": {
           "Connected": false,
           "Type": "DefaultBlob",
-          "HostUrl": "",
-          "ConnectionString": ""
+          "HostUrl": ""
         },
         "properties": {
           "Connected": {
@@ -3596,9 +3433,6 @@
             "type": "string"
           },
           "HostUrl": {
-            "type": "string"
-          },
-          "ConnectionString": {
             "type": "string"
           }
         }
@@ -3749,8 +3583,7 @@
           ],
           "Images": [
             {
-              "InteropID": "",
-              "ContainerID": "",
+              "ID": "",
               "Title": "",
               "Active": false,
               "Url": "",
@@ -3767,9 +3600,29 @@
                 "ImageWidth": 0,
                 "ImageVerticalResolution": 0,
                 "ImageHorizontalResolution": 0
-              },
-              "id": "",
-              "timeStamp": "2018-01-01T00:00:00-06:00"
+              }
+            }
+          ],
+          "Attachments": [
+            {
+              "ID": "",
+              "Title": "",
+              "Active": false,
+              "Url": "",
+              "UrlPathOveride": "",
+              "Type": "Image",
+              "Tags": [
+                ""
+              ],
+              "FileName": "",
+              "Metadata": {
+                "ContentType": "",
+                "SizeBytes": 0,
+                "ImageHeight": 0,
+                "ImageWidth": 0,
+                "ImageVerticalResolution": 0,
+                "ImageHorizontalResolution": 0
+              }
             }
           ]
         },
@@ -3804,6 +3657,12 @@
             }
           },
           "Images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Asset"
+            }
+          },
+          "Attachments": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Asset"
@@ -5559,22 +5418,16 @@
         "tags": [
           "Credit Card Authorizations"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/CreditCardToken"
-                  }
-                ]
-              }
-            }
-          }
-        },
         "parameters": [
+          {
+            "name": "card",
+            "in": "path",
+            "description": "Card of the credit card.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
           {
             "name": "buyerID",
             "in": "path",
@@ -6047,9 +5900,6 @@
                   {
                     "$ref": "#/components/schemas/Asset"
                   }
-                ],
-                "required": [
-                  "ContainerID"
                 ]
               }
             }
@@ -6411,7 +6261,7 @@
               "items": {
                 "type": "string",
                 "enum": [
-                  "timeStamp"
+                  "DateCreated"
                 ]
               }
             }
@@ -6622,7 +6472,7 @@
               "items": {
                 "type": "string",
                 "enum": [
-                  "timeStamp"
+                  "DateCreated"
                 ]
               }
             }
@@ -6885,21 +6735,17 @@
         "tags": [
           "Me Credit Card Authorizations"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/CreditCardToken"
-                  }
-                ]
-              }
+        "parameters": [
+          {
+            "name": "card",
+            "in": "path",
+            "description": "Card of the credit card.",
+            "required": true,
+            "schema": {
+              "type": "object"
             }
           }
-        },
+        ],
         "summary": "POST Credit Card",
         "description": "",
         "security": [
@@ -6931,21 +6777,17 @@
         "tags": [
           "Me Payments"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/CreditCardPayment"
-                  }
-                ]
-              }
+        "parameters": [
+          {
+            "name": "payment",
+            "in": "path",
+            "description": "Payment of the payment.",
+            "required": true,
+            "schema": {
+              "type": "object"
             }
           }
-        },
+        ],
         "summary": "POST Payment",
         "description": "",
         "security": [

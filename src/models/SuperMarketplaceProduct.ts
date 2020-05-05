@@ -11,4 +11,5 @@ export interface SuperMarketplaceProduct {
     Specs?: Spec[]
     Variants?: MarketplaceVariant[]
     Images?: Asset[]
+    Attachments?: Asset[]
 }

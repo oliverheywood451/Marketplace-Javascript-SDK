@@ -12,8 +12,6 @@ export * from './CatalogXp';
 export * from './Contact';
 export * from './CostCenterXp';
 export * from './CreditCard';
-export * from './CreditCardPayment';
-export * from './CreditCardToken';
 export * from './Image';
 export * from './Inventory';
 export * from './LineItemProduct';

@@ -1,7 +1,7 @@
 
 export interface Image {
-    id?: string
-    timeStamp?: string
+    ID?: string
+    DateCreated?: string
     URL?: string
     ListOrder?: number
     Tags?: string[]

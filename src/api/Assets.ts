@@ -52,7 +52,7 @@ export default class Assets {
    /**
     * @param containerID ID of the container.
     * @param assetID ID of the asset.
-    * @param asset Required fields: ContainerID
+    * @param asset 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async Update(containerID: string, assetID: string, asset: Asset, accessToken?: string ): Promise<RequiredDeep<Asset>> {

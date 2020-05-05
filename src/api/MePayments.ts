@@ -1,4 +1,3 @@
-import { CreditCardPayment } from '../models/CreditCardPayment';
 import { Payment } from '../models/Payment';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -16,13 +15,13 @@ export default class MePayments {
     }
 
    /**
-    * @param creditCardPayment 
+    * @param payment Payment of the payment.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(creditCardPayment: CreditCardPayment, accessToken?: string ): Promise<RequiredDeep<Payment>> {
+    public async Post(payment: any,  accessToken?: string ): Promise<RequiredDeep<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/me/payments`, creditCardPayment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/me/payments`, { params: {  accessToken, impersonating } } );
     }
 
     /**

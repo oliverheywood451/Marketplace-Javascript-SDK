@@ -1,4 +1,3 @@
-import { CreditCardToken } from '../models/CreditCardToken';
 import { CreditCard } from '../models/CreditCard';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -16,14 +15,14 @@ export default class CreditCardAuthorizations {
     }
 
    /**
+    * @param card Card of the credit card.
     * @param buyerID ID of the buyer.
-    * @param creditCardToken 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(buyerID: string, creditCardToken: CreditCardToken, accessToken?: string ): Promise<RequiredDeep<CreditCard>> {
+    public async Post(card: any, buyerID: string,  accessToken?: string ): Promise<RequiredDeep<CreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/creditcards`, creditCardToken, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyers/${buyerID}/creditcards`, { params: {  accessToken, impersonating } } );
     }
 
     /**
