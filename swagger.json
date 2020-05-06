@@ -804,6 +804,25 @@
           }
         }
       },
+      "Currency": {
+        "type": "object",
+        "example": {
+          "Name": "",
+          "Description": "",
+          "Symbol": ""
+        },
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "Symbol": {
+            "type": "string"
+          }
+        }
+      },
       "Inventory": {
         "type": "object",
         "example": {
@@ -1308,7 +1327,12 @@
         "example": {
           "UserGroup": {
             "xp": {
-              "Type": ""
+              "Type": "",
+              "Currency": {
+                "Name": "",
+                "Description": "",
+                "Symbol": ""
+              }
             },
             "ID": "",
             "Name": "",
@@ -2200,7 +2224,12 @@
               "Phone": ""
             },
             "SyncFreightPop": false,
-            "ApiClientID": ""
+            "ApiClientID": "",
+            "Currency": {
+              "Name": "",
+              "Description": "",
+              "Symbol": ""
+            }
           },
           "ID": "",
           "Name": "",
@@ -2304,7 +2333,12 @@
         "type": "object",
         "example": {
           "xp": {
-            "Type": ""
+            "Type": "",
+            "Currency": {
+              "Name": "",
+              "Description": "",
+              "Symbol": ""
+            }
           },
           "ID": "",
           "Name": "",
@@ -4167,7 +4201,12 @@
             "Phone": ""
           },
           "SyncFreightPop": false,
-          "ApiClientID": ""
+          "ApiClientID": "",
+          "Currency": {
+            "Name": "",
+            "Description": "",
+            "Symbol": ""
+          }
         },
         "properties": {
           "Description": {
@@ -4191,6 +4230,13 @@
           },
           "ApiClientID": {
             "type": "string"
+          },
+          "Currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ]
           }
         }
       },
@@ -4389,11 +4435,23 @@
       "UserGroupXp": {
         "type": "object",
         "example": {
-          "Type": ""
+          "Type": "",
+          "Currency": {
+            "Name": "",
+            "Description": "",
+            "Symbol": ""
+          }
         },
         "properties": {
           "Type": {
             "type": "string"
+          },
+          "Currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Currency"
+              }
+            ]
           }
         }
       },

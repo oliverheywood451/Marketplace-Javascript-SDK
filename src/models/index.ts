@@ -12,6 +12,7 @@ export * from './CatalogXp';
 export * from './Contact';
 export * from './CostCenterXp';
 export * from './CreditCard';
+export * from './Currency';
 export * from './Inventory';
 export * from './LineItemProduct';
 export * from './LineItemSpec';
