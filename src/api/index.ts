@@ -1,13 +1,11 @@
 import OrchestrationProducts from './OrchestrationProducts';
 import OrchestrationUsers from './OrchestrationUsers';
-import Images from './Images';
 import OrchestrationLogs from './OrchestrationLogs';
 import Buyers from './Buyers';
 import Orders from './Orders';
 import Shipments from './Shipments';
 import Suppliers from './Suppliers';
 import Products from './Products';
-import ContentManagements from './ContentManagements';
 import SupplierCategoryConfigs from './SupplierCategoryConfigs';
 import BuyerLocations from './BuyerLocations';
 import Avalaras from './Avalaras';
@@ -26,14 +24,12 @@ export { MarketplaceSDK }
 const MarketplaceSDK: MarketplaceSDK = {
     OrchestrationProducts : new OrchestrationProducts(),
     OrchestrationUsers : new OrchestrationUsers(),
-    Images : new Images(),
     OrchestrationLogs : new OrchestrationLogs(),
     Buyers : new Buyers(),
     Orders : new Orders(),
     Shipments : new Shipments(),
     Suppliers : new Suppliers(),
     Products : new Products(),
-    ContentManagements : new ContentManagements(),
     SupplierCategoryConfigs : new SupplierCategoryConfigs(),
     BuyerLocations : new BuyerLocations(),
     Avalaras : new Avalaras(),
@@ -51,14 +47,12 @@ const MarketplaceSDK: MarketplaceSDK = {
 interface MarketplaceSDK {
     OrchestrationProducts : OrchestrationProducts,
     OrchestrationUsers : OrchestrationUsers,
-    Images : Images,
     OrchestrationLogs : OrchestrationLogs,
     Buyers : Buyers,
     Orders : Orders,
     Shipments : Shipments,
     Suppliers : Suppliers,
     Products : Products,
-    ContentManagements : ContentManagements,
     SupplierCategoryConfigs : SupplierCategoryConfigs,
     BuyerLocations : BuyerLocations,
     Avalaras : Avalaras,

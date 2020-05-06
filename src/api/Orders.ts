@@ -1,4 +1,5 @@
 import { Order } from '../models/Order';
+import { ListPage } from '../models/ListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -12,6 +13,7 @@ export default class Orders {
     */
     constructor() {
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
+        this.ListLocationOrders = this.ListLocationOrders.bind(this);
     }
 
    /**
@@ -22,6 +24,22 @@ export default class Orders {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/order/acknowledgequote/${orderID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param locationID ID of the location.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListLocationOrders(locationID: string,  options: ListArgs<Order> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<Order>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/order/location/${locationID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
     /**

@@ -33,11 +33,6 @@
       "x-section-id": "Orchestration"
     },
     {
-      "name": "Images",
-      "description": "\"Orchestration Logs\" represents logs of orchestration activities",
-      "x-section-id": "Orchestration"
-    },
-    {
       "name": "Orchestration Logs",
       "description": "\"Orchestration Logs\" represents logs of orchestration activities",
       "x-section-id": "Orchestration"
@@ -70,11 +65,6 @@
     {
       "name": "Products",
       "description": "\"Products\" represents Products for Marketplace",
-      "x-section-id": "Marketplace"
-    },
-    {
-      "name": "Content Managements",
-      "description": "\"Files\" represents files for Marketplace content management control",
       "x-section-id": "Marketplace"
     },
     {
@@ -814,40 +804,6 @@
           }
         }
       },
-      "Image": {
-        "type": "object",
-        "example": {
-          "ID": "",
-          "DateCreated": "2018-01-01T00:00:00-06:00",
-          "URL": "",
-          "ListOrder": 0,
-          "Tags": [
-            ""
-          ]
-        },
-        "properties": {
-          "ID": {
-            "type": "string"
-          },
-          "DateCreated": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "URL": {
-            "type": "string"
-          },
-          "ListOrder": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "Inventory": {
         "type": "object",
         "example": {
@@ -1079,20 +1035,6 @@
           }
         }
       },
-      "ListImage": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Image"
-            }
-          },
-          "Meta": {
-            "$ref": "#/components/schemas/Meta"
-          }
-        }
-      },
       "ListOrchestrationLog": {
         "type": "object",
         "properties": {
@@ -1100,6 +1042,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrchestrationLog"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListOrder": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Order"
             }
           },
           "Meta": {
@@ -1496,6 +1452,212 @@
           }
         }
       },
+      "MarketplaceOrder": {
+        "type": "object",
+        "example": {
+          "xp": {
+            "AvalaraTaxTransactionCode": "",
+            "ShipFromAddressIDs": [
+              ""
+            ],
+            "SupplierIDs": [
+              ""
+            ],
+            "NeedsAttention": false,
+            "StopShipSync": false,
+            "OrderType": "Standard",
+            "QuoteOrderInfo": {
+              "FirstName": "",
+              "LastName": "",
+              "Phone": "",
+              "Email": "",
+              "Comments": ""
+            }
+          },
+          "FromUser": {
+            "xp": {},
+            "ID": "",
+            "Username": "",
+            "Password": "",
+            "FirstName": "",
+            "LastName": "",
+            "Email": "",
+            "Phone": "",
+            "TermsAccepted": "2018-01-01T00:00:00-06:00",
+            "Active": false,
+            "AvailableRoles": [
+              ""
+            ],
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+          },
+          "BillingAddress": {
+            "xp": {
+              "Accessorials": [
+                "DestinationInsideDelivery"
+              ],
+              "Email": "",
+              "LocationID": "",
+              "AvalaraCertificateID": 0,
+              "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+            },
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ID": "",
+          "FromCompanyID": "",
+          "ToCompanyID": "",
+          "FromUserID": "",
+          "BillingAddressID": "",
+          "ShippingAddressID": "",
+          "Comments": "",
+          "LineItemCount": 0,
+          "Status": "Unsubmitted",
+          "DateCreated": "2018-01-01T00:00:00-06:00",
+          "DateSubmitted": "2018-01-01T00:00:00-06:00",
+          "DateApproved": "2018-01-01T00:00:00-06:00",
+          "DateDeclined": "2018-01-01T00:00:00-06:00",
+          "DateCanceled": "2018-01-01T00:00:00-06:00",
+          "DateCompleted": "2018-01-01T00:00:00-06:00",
+          "Subtotal": 0,
+          "ShippingCost": 0,
+          "TaxCost": 0,
+          "PromotionDiscount": 0,
+          "Total": 0,
+          "IsSubmitted": false
+        },
+        "properties": {
+          "xp": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderXp"
+              }
+            ]
+          },
+          "FromUser": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceUser"
+              }
+            ],
+            "readOnly": true
+          },
+          "BillingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceAddressBuyer"
+              }
+            ],
+            "readOnly": true
+          },
+          "ID": {
+            "type": "string"
+          },
+          "FromCompanyID": {
+            "type": "string"
+          },
+          "ToCompanyID": {
+            "type": "string"
+          },
+          "FromUserID": {
+            "type": "string"
+          },
+          "BillingAddressID": {
+            "type": "string"
+          },
+          "ShippingAddressID": {
+            "type": "string"
+          },
+          "Comments": {
+            "type": "string"
+          },
+          "LineItemCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Status": {
+            "enum": [
+              "Unsubmitted",
+              "AwaitingApproval",
+              "Declined",
+              "Open",
+              "Completed",
+              "Canceled"
+            ],
+            "type": "string",
+            "readOnly": true
+          },
+          "DateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "DateSubmitted": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "DateApproved": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "DateDeclined": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "DateCanceled": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "DateCompleted": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "Subtotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "ShippingCost": {
+            "type": "number",
+            "format": "float"
+          },
+          "TaxCost": {
+            "type": "number",
+            "format": "float"
+          },
+          "PromotionDiscount": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "Total": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "IsSubmitted": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        }
+      },
       "MarketplacePriceSchedule": {
         "type": "object",
         "example": {
@@ -1561,17 +1723,6 @@
         "type": "object",
         "example": {
           "xp": {
-            "Images": [
-              {
-                "URL": "",
-                "Tag": {
-                  "VariantID": "",
-                  "Options": [
-                    ""
-                  ]
-                }
-              }
-            ],
             "Status": "Draft",
             "HasVariants": false,
             "Note": "",
@@ -1585,14 +1736,6 @@
               "Unit": ""
             },
             "ProductType": "Standard",
-            "StaticContent": [
-              {
-                "URL": "",
-                "Title": "",
-                "Active": false,
-                "Filename": ""
-              }
-            ],
             "IsResale": false,
             "Accessorials": [
               "Freezable"
@@ -2657,6 +2800,175 @@
           }
         }
       },
+      "OrderCloudIntegrationsCreditCardPayment": {
+        "type": "object",
+        "example": {
+          "OrderID": "",
+          "PaymentID": "",
+          "CreditCardID": "",
+          "CreditCardDetails": {
+            "AccountNumber": "",
+            "ExpirationDate": "",
+            "CardholderName": "",
+            "CardType": "",
+            "CCBillingAddress": {
+              "ID": "",
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "CompanyName": "",
+              "FirstName": "",
+              "LastName": "",
+              "Street1": "",
+              "Street2": "",
+              "City": "",
+              "State": "",
+              "Zip": "",
+              "Country": "",
+              "Phone": "",
+              "AddressName": ""
+            }
+          },
+          "Currency": "",
+          "CVV": "",
+          "MerchantID": ""
+        },
+        "properties": {
+          "OrderID": {
+            "type": "string"
+          },
+          "PaymentID": {
+            "type": "string"
+          },
+          "CreditCardID": {
+            "type": "string"
+          },
+          "CreditCardDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+              }
+            ]
+          },
+          "Currency": {
+            "type": "string",
+            "maxLength": 3,
+            "minLength": 3
+          },
+          "CVV": {
+            "type": "string",
+            "maxLength": 4,
+            "minLength": 3
+          },
+          "MerchantID": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderCloudIntegrationsCreditCardToken": {
+        "type": "object",
+        "example": {
+          "AccountNumber": "",
+          "ExpirationDate": "",
+          "CardholderName": "",
+          "CardType": "",
+          "CCBillingAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          }
+        },
+        "properties": {
+          "AccountNumber": {
+            "type": "string"
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 4
+          },
+          "CardholderName": {
+            "type": "string"
+          },
+          "CardType": {
+            "type": "string"
+          },
+          "CCBillingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
+          }
+        }
+      },
+      "OrderXp": {
+        "type": "object",
+        "example": {
+          "AvalaraTaxTransactionCode": "",
+          "ShipFromAddressIDs": [
+            ""
+          ],
+          "SupplierIDs": [
+            ""
+          ],
+          "NeedsAttention": false,
+          "StopShipSync": false,
+          "OrderType": "Standard",
+          "QuoteOrderInfo": {
+            "FirstName": "",
+            "LastName": "",
+            "Phone": "",
+            "Email": "",
+            "Comments": ""
+          }
+        },
+        "properties": {
+          "AvalaraTaxTransactionCode": {
+            "type": "string"
+          },
+          "ShipFromAddressIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "SupplierIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "NeedsAttention": {
+            "type": "boolean"
+          },
+          "StopShipSync": {
+            "type": "boolean"
+          },
+          "OrderType": {
+            "enum": [
+              "Standard",
+              "Quote"
+            ],
+            "type": "string"
+          },
+          "QuoteOrderInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/QuoteOrderInfo"
+              }
+            ]
+          }
+        }
+      },
       "Payment": {
         "type": "object",
         "example": {
@@ -2881,17 +3193,6 @@
       "ProductXp": {
         "type": "object",
         "example": {
-          "Images": [
-            {
-              "URL": "",
-              "Tag": {
-                "VariantID": "",
-                "Options": [
-                  ""
-                ]
-              }
-            }
-          ],
           "Status": "Draft",
           "HasVariants": false,
           "Note": "",
@@ -2905,26 +3206,12 @@
             "Unit": ""
           },
           "ProductType": "Standard",
-          "StaticContent": [
-            {
-              "URL": "",
-              "Title": "",
-              "Active": false,
-              "Filename": ""
-            }
-          ],
           "IsResale": false,
           "Accessorials": [
             "Freezable"
           ]
         },
         "properties": {
-          "Images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductImage"
-            }
-          },
           "Status": {
             "enum": [
               "Draft",
@@ -2956,15 +3243,10 @@
           "ProductType": {
             "enum": [
               "Standard",
-              "Quote"
+              "Quote",
+              "PurchaseOrder"
             ],
             "type": "string"
-          },
-          "StaticContent": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StaticContent"
-            }
           },
           "IsResale": {
             "type": "boolean"
@@ -2979,6 +3261,34 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "QuoteOrderInfo": {
+        "type": "object",
+        "example": {
+          "FirstName": "",
+          "LastName": "",
+          "Phone": "",
+          "Email": "",
+          "Comments": ""
+        },
+        "properties": {
+          "FirstName": {
+            "type": "string"
+          },
+          "LastName": {
+            "type": "string"
+          },
+          "Phone": {
+            "type": "string"
+          },
+          "Email": {
+            "type": "string"
+          },
+          "Comments": {
+            "type": "string",
+            "maxLength": 200
           }
         }
       },
@@ -3392,29 +3702,6 @@
           }
         }
       },
-      "StaticContent": {
-        "type": "object",
-        "example": {
-          "URL": "",
-          "Title": "",
-          "Active": false,
-          "Filename": ""
-        },
-        "properties": {
-          "URL": {
-            "type": "string"
-          },
-          "Title": {
-            "type": "string"
-          },
-          "Active": {
-            "type": "boolean"
-          },
-          "Filename": {
-            "type": "string"
-          }
-        }
-      },
       "StorageAccount": {
         "type": "object",
         "example": {
@@ -3443,17 +3730,6 @@
           "ID": "",
           "Product": {
             "xp": {
-              "Images": [
-                {
-                  "URL": "",
-                  "Tag": {
-                    "VariantID": "",
-                    "Options": [
-                      ""
-                    ]
-                  }
-                }
-              ],
               "Status": "Draft",
               "HasVariants": false,
               "Note": "",
@@ -3467,14 +3743,6 @@
                 "Unit": ""
               },
               "ProductType": "Standard",
-              "StaticContent": [
-                {
-                  "URL": "",
-                  "Title": "",
-                  "Active": false,
-                  "Filename": ""
-                }
-              ],
               "IsResale": false,
               "Accessorials": [
                 "Freezable"
@@ -4202,249 +4470,6 @@
     }
   },
   "paths": {
-    "/{marketplaceID}/images/product/{productID}": {
-      "post": {
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "ContentManagements.PostImage",
-        "tags": [
-          "Content Managements"
-        ],
-        "parameters": [
-          {
-            "name": "marketplaceID",
-            "in": "path",
-            "description": "ID of the marketplace.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "productID",
-            "in": "path",
-            "description": "ID of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "file",
-            "in": "query",
-            "description": "File of the super marketplace product.",
-            "required": true,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "summary": "POST Product Images",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "ProductAdmin",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/{marketplaceID}/images/product/{productID}/{fileName}": {
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "ContentManagements.DeleteImage",
-        "tags": [
-          "Content Managements"
-        ],
-        "parameters": [
-          {
-            "name": "marketplaceID",
-            "in": "path",
-            "description": "ID of the marketplace.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "productID",
-            "in": "path",
-            "description": "ID of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fileName",
-            "in": "path",
-            "description": "File name of the super marketplace product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "DELETE Product Images",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "ProductAdmin",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/{marketplaceID}/static-content/{productID}/{fileName}": {
-      "post": {
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "ContentManagements.PostStaticContent",
-        "tags": [
-          "Content Managements"
-        ],
-        "parameters": [
-          {
-            "name": "marketplaceID",
-            "in": "path",
-            "description": "ID of the marketplace.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "file",
-            "in": "path",
-            "description": "File of the super marketplace product.",
-            "required": true,
-            "schema": {
-              "type": "object"
-            }
-          },
-          {
-            "name": "productID",
-            "in": "path",
-            "description": "ID of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fileName",
-            "in": "path",
-            "description": "File name of the super marketplace product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "POST Static Content",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "ProductAdmin",
-              "FullAccess"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "ContentManagements.DeleteStaticContent",
-        "tags": [
-          "Content Managements"
-        ],
-        "parameters": [
-          {
-            "name": "marketplaceID",
-            "in": "path",
-            "description": "ID of the marketplace.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "productID",
-            "in": "path",
-            "description": "ID of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fileName",
-            "in": "path",
-            "description": "File name of the super marketplace product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "DELETE Static Content",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "ProductAdmin",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
     "/addresses": {
       "post": {
         "responses": {
@@ -5418,16 +5443,22 @@
         "tags": [
           "Credit Card Authorizations"
         ],
-        "parameters": [
-          {
-            "name": "card",
-            "in": "path",
-            "description": "Card of the credit card.",
-            "required": true,
-            "schema": {
-              "type": "object"
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+                  }
+                ]
+              }
             }
-          },
+          }
+        },
+        "parameters": [
           {
             "name": "buyerID",
             "in": "path",
@@ -6208,312 +6239,6 @@
         ]
       }
     },
-    "/content/images": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListImage"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Images.List",
-        "tags": [
-          "Images"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "description": "Word or phrase to search for.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "searchOn",
-            "in": "query",
-            "description": "Comma-delimited list of fields to search on.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Comma-delimited list of fields to sort by.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DateCreated"
-                ]
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page of results to return. Default: 1",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of results to return per page. Default: 20, max: 100.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "filters",
-            "in": "query",
-            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "summary": "LIST Images",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      },
-      "post": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Image"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Images.Post",
-        "tags": [
-          "Images"
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Image"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "summary": "POST Image",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/content/images/{id}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Image"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Images.Get",
-        "tags": [
-          "Images"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id of the image.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "GET Image",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      },
-      "delete": {
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "operationId": "Images.Delete",
-        "tags": [
-          "Images"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id of the image.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "DELETE Image",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/content/images/product/{productID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListImage"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Images.GetProductImages",
-        "tags": [
-          "Images"
-        ],
-        "parameters": [
-          {
-            "name": "productID",
-            "in": "path",
-            "description": "ID of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "description": "Word or phrase to search for.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "searchOn",
-            "in": "query",
-            "description": "Comma-delimited list of fields to search on.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Comma-delimited list of fields to sort by.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "DateCreated"
-                ]
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page of results to return. Default: 1",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of results to return per page. Default: 20, max: 100.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "filters",
-            "in": "query",
-            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "summary": "GET a product's images",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
     "/marketplace/{marketplaceID}/supplier/category/config": {
       "get": {
         "responses": {
@@ -6735,17 +6460,21 @@
         "tags": [
           "Me Credit Card Authorizations"
         ],
-        "parameters": [
-          {
-            "name": "card",
-            "in": "path",
-            "description": "Card of the credit card.",
-            "required": true,
-            "schema": {
-              "type": "object"
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+                  }
+                ]
+              }
             }
           }
-        ],
+        },
         "summary": "POST Credit Card",
         "description": "",
         "security": [
@@ -6777,17 +6506,27 @@
         "tags": [
           "Me Payments"
         ],
-        "parameters": [
-          {
-            "name": "payment",
-            "in": "path",
-            "description": "Payment of the payment.",
-            "required": true,
-            "schema": {
-              "type": "object"
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardPayment"
+                  }
+                ],
+                "required": [
+                  "OrderID",
+                  "PaymentID",
+                  "Currency",
+                  "MerchantID"
+                ]
+              }
             }
           }
-        ],
+        },
         "summary": "POST Payment",
         "description": "",
         "security": [
@@ -8085,6 +7824,113 @@
         "security": [
           {
             "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/order/location/{locationID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListOrder"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Orders.ListLocationOrders",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "LIST orders for a specific location as a buyer, ensures user has access to location orders",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
           }
         ]
       }
