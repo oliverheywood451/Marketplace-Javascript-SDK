@@ -22,7 +22,7 @@ export default class Suppliers {
     public async Create(marketplaceSupplier: MarketplaceSupplier, accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/suppliers`, marketplaceSupplier, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/supplier`, marketplaceSupplier, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -32,7 +32,7 @@ export default class Suppliers {
     public async GetMySupplier(supplierID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/suppliers/me/${supplierID}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/supplier/me/${supplierID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

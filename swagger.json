@@ -804,25 +804,6 @@
           }
         }
       },
-      "Currency": {
-        "type": "object",
-        "example": {
-          "Name": "",
-          "Description": "",
-          "Symbol": ""
-        },
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "Description": {
-            "type": "string"
-          },
-          "Symbol": {
-            "type": "string"
-          }
-        }
-      },
       "Inventory": {
         "type": "object",
         "example": {
@@ -1314,11 +1295,7 @@
           "UserGroup": {
             "xp": {
               "Type": "",
-              "Currency": {
-                "Name": "",
-                "Description": "",
-                "Symbol": ""
-              }
+              "Currency": ""
             },
             "ID": "",
             "Name": "",
@@ -2211,11 +2188,7 @@
             },
             "SyncFreightPop": false,
             "ApiClientID": "",
-            "Currency": {
-              "Name": "",
-              "Description": "",
-              "Symbol": ""
-            }
+            "Currency": ""
           },
           "ID": "",
           "Name": "",
@@ -2320,11 +2293,7 @@
         "example": {
           "xp": {
             "Type": "",
-            "Currency": {
-              "Name": "",
-              "Description": "",
-              "Symbol": ""
-            }
+            "Currency": ""
           },
           "ID": "",
           "Name": "",
@@ -4168,11 +4137,7 @@
           },
           "SyncFreightPop": false,
           "ApiClientID": "",
-          "Currency": {
-            "Name": "",
-            "Description": "",
-            "Symbol": ""
-          }
+          "Currency": ""
         },
         "properties": {
           "Description": {
@@ -4198,11 +4163,7 @@
             "type": "string"
           },
           "Currency": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Currency"
-              }
-            ]
+            "type": "string"
           }
         }
       },
@@ -4402,22 +4363,14 @@
         "type": "object",
         "example": {
           "Type": "",
-          "Currency": {
-            "Name": "",
-            "Description": "",
-            "Symbol": ""
-          }
+          "Currency": ""
         },
         "properties": {
           "Type": {
             "type": "string"
           },
           "Currency": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Currency"
-              }
-            ]
+            "type": "string"
           }
         }
       },
@@ -9402,7 +9355,7 @@
         ]
       }
     },
-    "/suppliers": {
+    "/supplier": {
       "post": {
         "responses": {
           "201": {
@@ -9444,6 +9397,48 @@
           {
             "OAuth2": [
               "SupplierAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/supplier/me/{supplierID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceSupplier"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Suppliers.GetMySupplier",
+        "tags": [
+          "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET MarketplaceSupplier",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "SupplierAdmin",
+              "SupplierReader",
               "FullAccess"
             ]
           }
@@ -9914,48 +9909,6 @@
         "security": [
           {
             "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/suppliers/me/{supplierID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MarketplaceSupplier"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Suppliers.GetMySupplier",
-        "tags": [
-          "Suppliers"
-        ],
-        "parameters": [
-          {
-            "name": "supplierID",
-            "in": "path",
-            "description": "ID of the supplier.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "GET MarketplaceSupplier",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "SupplierAdmin",
-              "SupplierReader",
-              "FullAccess"
-            ]
           }
         ]
       }

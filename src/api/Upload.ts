@@ -9,7 +9,6 @@ export default class Upload {
   }
 
   async UploadAsset(
-    containerID: string,
     asset: AssetUpload,
     accessToken?: string
   ): Promise<RequiredDeep<Asset>> {
@@ -19,7 +18,6 @@ export default class Upload {
         form.append(prop, asset[prop])
       }
     }
-    const url = `/containers/${containerID}/assets`
-    return await httpClient.post(url, form, { params: { accessToken } })
+    return await httpClient.post(`/assets`, form, { params: { accessToken } })
   }
 }
