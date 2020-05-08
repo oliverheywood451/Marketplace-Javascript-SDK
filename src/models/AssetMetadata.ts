@@ -1,5 +1,6 @@
 
 export interface AssetMetadata {
+    IsUrlOverridden?: boolean
     ContentType?: string
     SizeBytes?: number
     ImageHeight?: number

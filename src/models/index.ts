@@ -1,8 +1,7 @@
 export * from './Address';
 export * from './ApiError';
 export * from './Asset';
-export * from './AssetAssignment';
-export * from './AssetContainer';
+export * from './AssetForDelivery';
 export * from './AssetMetadata';
 export * from './BuyerAddress';
 export * from './BuyerAddressXP';
@@ -66,7 +65,6 @@ export * from './Spec';
 export * from './SpecOption';
 export * from './SpecOptionXp';
 export * from './SpecValue';
-export * from './StorageAccount';
 export * from './SuperMarketplaceProduct';
 export * from './SuperShipment';
 export * from './SupplierAddressXP';

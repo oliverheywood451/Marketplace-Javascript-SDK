@@ -108,14 +108,49 @@
       "x-section-id": "Integration"
     },
     {
-      "name": "Asset Containers",
-      "description": "\"Integration\" represents asset containers",
-      "x-section-id": "Integration"
+      "name": "Content",
+      "description": "Content resources",
+      "x-id": "Content"
     },
     {
       "name": "Assets",
       "description": "\"Integration\" represents Assets",
-      "x-section-id": "Integration"
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Buyer Contents",
+      "description": "",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Catalog Contents",
+      "description": "",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Category Contents",
+      "description": "",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Facet Contents",
+      "description": "",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Product Contents",
+      "description": "",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Promotion Contents",
+      "description": "",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Supplier Contents",
+      "description": "",
+      "x-section-id": "Content"
     }
   ],
   "components": {
@@ -374,13 +409,13 @@
           "Title": "",
           "Active": false,
           "Url": "",
-          "UrlPathOveride": "",
           "Type": "Image",
           "Tags": [
             ""
           ],
           "FileName": "",
           "Metadata": {
+            "IsUrlOverridden": false,
             "ContentType": "",
             "SizeBytes": 0,
             "ImageHeight": 0,
@@ -400,10 +435,6 @@
             "type": "boolean"
           },
           "Url": {
-            "type": "string",
-            "readOnly": true
-          },
-          "UrlPathOveride": {
             "type": "string"
           },
           "Type": {
@@ -411,7 +442,7 @@
               "Image",
               "Theme",
               "Attachment",
-              "StructuredData"
+              "Structured"
             ],
             "type": "string"
           },
@@ -434,103 +465,68 @@
           }
         }
       },
-      "AssetAssignment": {
+      "AssetForDelivery": {
         "type": "object",
         "example": {
-          "ResourceType": "Products",
-          "ResourceID": "",
-          "ResourceParentID": "",
-          "AssetID": "",
-          "AssetListOrder": 0,
-          "Asset": {
-            "ID": "",
-            "Title": "",
-            "Active": false,
-            "Url": "",
-            "UrlPathOveride": "",
-            "Type": "Image",
-            "Tags": [
-              ""
-            ],
-            "FileName": "",
-            "Metadata": {
-              "ContentType": "",
-              "SizeBytes": 0,
-              "ImageHeight": 0,
-              "ImageWidth": 0,
-              "ImageVerticalResolution": 0,
-              "ImageHorizontalResolution": 0
-            }
+          "ListOrderWithinType": 0,
+          "ID": "",
+          "Title": "",
+          "Active": false,
+          "Url": "",
+          "Type": "Image",
+          "Tags": [
+            ""
+          ],
+          "FileName": "",
+          "Metadata": {
+            "IsUrlOverridden": false,
+            "ContentType": "",
+            "SizeBytes": 0,
+            "ImageHeight": 0,
+            "ImageWidth": 0,
+            "ImageVerticalResolution": 0,
+            "ImageHorizontalResolution": 0
           }
         },
         "properties": {
-          "ResourceType": {
-            "enum": [
-              "Products",
-              "Categories",
-              "Catalogs",
-              "Promotions",
-              "Suppliers",
-              "Buyers",
-              "Addresses",
-              "SupplierAddrresses",
-              "AdminAddresses",
-              "UserGrousp",
-              "SupplierUserGroups",
-              "AdminUserGroups",
-              "ProductFacets"
-            ],
-            "type": "string"
-          },
-          "ResourceID": {
-            "type": "string"
-          },
-          "ResourceParentID": {
-            "type": "string"
-          },
-          "AssetID": {
-            "type": "string"
-          },
-          "AssetListOrder": {
+          "ListOrderWithinType": {
             "type": "integer",
             "format": "int32"
           },
-          "Asset": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Asset"
-              }
-            ],
-            "readOnly": true
-          }
-        }
-      },
-      "AssetContainer": {
-        "type": "object",
-        "example": {
-          "ID": "",
-          "Name": "",
-          "HostUrlOverride": "",
-          "StorageAccount": {
-            "Connected": false,
-            "Type": "DefaultBlob",
-            "HostUrl": ""
-          }
-        },
-        "properties": {
           "ID": {
             "type": "string"
           },
-          "Name": {
+          "Title": {
             "type": "string"
           },
-          "HostUrlOverride": {
+          "Active": {
+            "type": "boolean"
+          },
+          "Url": {
             "type": "string"
           },
-          "StorageAccount": {
+          "Type": {
+            "enum": [
+              "Image",
+              "Theme",
+              "Attachment",
+              "Structured"
+            ],
+            "type": "string"
+          },
+          "Tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "FileName": {
+            "type": "string"
+          },
+          "Metadata": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/StorageAccount"
+                "$ref": "#/components/schemas/AssetMetadata"
               }
             ],
             "readOnly": true
@@ -540,6 +536,7 @@
       "AssetMetadata": {
         "type": "object",
         "example": {
+          "IsUrlOverridden": false,
           "ContentType": "",
           "SizeBytes": 0,
           "ImageHeight": 0,
@@ -548,6 +545,9 @@
           "ImageHorizontalResolution": 0
         },
         "properties": {
+          "IsUrlOverridden": {
+            "type": "boolean"
+          },
           "ContentType": {
             "type": "string"
           },
@@ -994,27 +994,13 @@
           }
         }
       },
-      "ListAssetAssignment": {
+      "ListAssetForDelivery": {
         "type": "object",
         "properties": {
           "Items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetAssignment"
-            }
-          },
-          "Meta": {
-            "$ref": "#/components/schemas/Meta"
-          }
-        }
-      },
-      "ListAssetContainer": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AssetContainer"
+              "$ref": "#/components/schemas/AssetForDelivery"
             }
           },
           "Meta": {
@@ -3736,28 +3722,6 @@
           }
         }
       },
-      "StorageAccount": {
-        "type": "object",
-        "example": {
-          "Connected": false,
-          "Type": "DefaultBlob",
-          "HostUrl": ""
-        },
-        "properties": {
-          "Connected": {
-            "type": "boolean"
-          },
-          "Type": {
-            "enum": [
-              "DefaultBlob"
-            ],
-            "type": "string"
-          },
-          "HostUrl": {
-            "type": "string"
-          }
-        }
-      },
       "SuperMarketplaceProduct": {
         "type": "object",
         "example": {
@@ -3885,17 +3849,18 @@
           ],
           "Images": [
             {
+              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
               "Url": "",
-              "UrlPathOveride": "",
               "Type": "Image",
               "Tags": [
                 ""
               ],
               "FileName": "",
               "Metadata": {
+                "IsUrlOverridden": false,
                 "ContentType": "",
                 "SizeBytes": 0,
                 "ImageHeight": 0,
@@ -3907,17 +3872,18 @@
           ],
           "Attachments": [
             {
+              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
               "Url": "",
-              "UrlPathOveride": "",
               "Type": "Image",
               "Tags": [
                 ""
               ],
               "FileName": "",
               "Metadata": {
+                "IsUrlOverridden": false,
                 "ContentType": "",
                 "SizeBytes": 0,
                 "ImageHeight": 0,
@@ -3961,13 +3927,13 @@
           "Images": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Asset"
+              "$ref": "#/components/schemas/AssetForDelivery"
             }
           },
           "Attachments": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Asset"
+              "$ref": "#/components/schemas/AssetForDelivery"
             }
           }
         }
@@ -4691,6 +4657,227 @@
           {
             "OAuth2": [
               "AdminAddressAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAsset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.List",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Assets",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/assets/{assetID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.Get",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get an Asset",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.Update",
+        "tags": [
+          "Assets"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Asset"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Update an Asset",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Assets.Delete",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete an Asset",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
               "FullAccess"
             ]
           }
@@ -5483,6 +5670,245 @@
         ]
       }
     },
+    "/buyers/{buyerID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerContents.ListAssets",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyers/{buyerID}/assets/{assetID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "BuyerContents.SaveAssetAssignment",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Asset to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "BuyerContents.DeleteAssetAssignment",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyers/{buyerID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "BuyerContents.MoveAssetAssignment",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/buyers/{buyerID}/creditcards": {
       "post": {
         "responses": {
@@ -5539,276 +5965,38 @@
         ]
       }
     },
-    "/containers": {
+    "/buyers/{buyerID}/image": {
       "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListAssetContainer"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "AssetContainers.List",
-        "tags": [
-          "Asset Containers"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "description": "Word or phrase to search for.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "searchOn",
-            "in": "query",
-            "description": "Comma-delimited list of fields to search on.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Comma-delimited list of fields to sort by.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page of results to return. Default: 1",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of results to return per page. Default: 20, max: 100.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "filters",
-            "in": "query",
-            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "summary": "List Asset Containers",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      },
-      "post": {
-        "responses": {
-          "200": {
-            "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AssetContainer"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "AssetContainers.Create",
-        "tags": [
-          "Asset Containers"
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/AssetContainer"
-                  }
-                ],
-                "required": [
-                  "Name"
-                ]
-              }
-            }
-          }
-        },
-        "summary": "Create an Asset Container",
-        "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/containers/{containerID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AssetContainer"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "AssetContainers.Get",
-        "tags": [
-          "Asset Containers"
-        ],
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Get an Asset Container",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AssetContainer"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "AssetContainers.Update",
-        "tags": [
-          "Asset Containers"
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/AssetContainer"
-                  }
-                ],
-                "required": [
-                  "Name"
-                ]
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Update an Asset Container",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      },
-      "delete": {
         "responses": {
           "204": {
             "description": ""
           }
         },
-        "operationId": "AssetContainers.Delete",
+        "operationId": "BuyerContents.GetFirstImage",
         "tags": [
-          "Asset Containers"
+          "Buyer Contents"
         ],
         "parameters": [
           {
-            "name": "containerID",
+            "name": "buyerID",
             "in": "path",
-            "description": "ID of the container.",
+            "description": "ID of the buyer.",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
-        "summary": "Delete an Asset Container",
+        "summary": "Get Resource's primary image",
         "description": "",
         "security": [
           {
-            "OAuth2": [
-              "FullAccess"
-            ]
+            "OAuth2": []
           }
         ]
       }
     },
-    "/containers/{containerID}/assets": {
+    "/catalogs/{catalogID}/assets": {
       "get": {
         "responses": {
           "200": {
@@ -5816,21 +6004,21 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListAsset"
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
                 }
               }
             }
           }
         },
-        "operationId": "Assets.List",
+        "operationId": "CatalogContents.ListAssets",
         "tags": [
-          "Assets"
+          "Catalog Contents"
         ],
         "parameters": [
           {
-            "name": "containerID",
+            "name": "catalogID",
             "in": "path",
-            "description": "ID of the container.",
+            "description": "ID of the catalog.",
             "required": true,
             "schema": {
               "type": "string"
@@ -5903,7 +6091,7 @@
             }
           }
         ],
-        "summary": "List Assets",
+        "summary": "Get Assets Assigned to Resource",
         "description": "",
         "security": [
           {
@@ -5914,385 +6102,481 @@
         ]
       }
     },
-    "/containers/{containerID}/assets/{assetID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Asset"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Assets.Get",
-        "tags": [
-          "Assets"
-        ],
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "assetID",
-            "in": "path",
-            "description": "ID of the asset.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Get an Asset",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Asset"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Assets.Update",
-        "tags": [
-          "Assets"
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Asset"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "assetID",
-            "in": "path",
-            "description": "ID of the asset.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Update an Asset",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "operationId": "Assets.Delete",
-        "tags": [
-          "Assets"
-        ],
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "assetID",
-            "in": "path",
-            "description": "ID of the asset.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Delete an Asset",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/containers/{containerID}/assets/{assetID}/assignments/{resourceType}/{resourceID}": {
-      "delete": {
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "operationId": "Assets.DeleteAssignment",
-        "tags": [
-          "Assets"
-        ],
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "assetID",
-            "in": "path",
-            "description": "ID of the asset.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "resourceType",
-            "in": "path",
-            "description": "Resource type of the asset. Possible values: Products, Categories, Catalogs, Promotions, Suppliers, Buyers, Addresses, SupplierAddrresses, AdminAddresses, UserGrousp, SupplierUserGroups, AdminUserGroups, ProductFacets.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "Products",
-                "Categories",
-                "Catalogs",
-                "Promotions",
-                "Suppliers",
-                "Buyers",
-                "Addresses",
-                "SupplierAddrresses",
-                "AdminAddresses",
-                "UserGrousp",
-                "SupplierUserGroups",
-                "AdminUserGroups",
-                "ProductFacets"
-              ]
-            }
-          },
-          {
-            "name": "resourceID",
-            "in": "path",
-            "description": "ID of the resource.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Delete Asset Assignment",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/containers/{containerID}/assets/assignments": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ListAssetAssignment"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Assets.ListAssignments",
-        "tags": [
-          "Assets"
-        ],
-        "parameters": [
-          {
-            "name": "containerID",
-            "in": "path",
-            "description": "ID of the container.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "search",
-            "in": "query",
-            "description": "Word or phrase to search for.",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "searchOn",
-            "in": "query",
-            "description": "Comma-delimited list of fields to search on.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Comma-delimited list of fields to sort by.",
-            "required": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ID"
-                ]
-              }
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Page of results to return. Default: 1",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of results to return per page. Default: 20, max: 100.",
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "filters",
-            "in": "query",
-            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-            "required": false,
-            "schema": {
-              "type": "object"
-            }
-          }
-        ],
-        "summary": "List Asset Assignments",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      },
+    "/catalogs/{catalogID}/assets/{assetID}/assignments": {
       "post": {
         "responses": {
           "204": {
             "description": ""
           }
         },
-        "operationId": "Assets.SaveAssignment",
+        "operationId": "CatalogContents.SaveAssetAssignment",
         "tags": [
-          "Assets"
+          "Catalog Contents"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/AssetAssignment"
-                  }
-                ],
-                "required": [
-                  "ResourceType",
-                  "ResourceID",
-                  "AssetID"
-                ]
-              }
-            }
-          }
-        },
         "parameters": [
           {
-            "name": "containerID",
+            "name": "catalogID",
             "in": "path",
-            "description": "ID of the container.",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
             "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
-        "summary": "Save Asset Assignment",
+        "summary": "Assign Asset to Resource",
         "description": "",
         "security": [
           {
             "OAuth2": [
               "FullAccess"
             ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CatalogContents.DeleteAssetAssignment",
+        "tags": [
+          "Catalog Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CatalogContents.MoveAssetAssignment",
+        "tags": [
+          "Catalog Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the catalog content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/categories/{categoryID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "CategoryContents.ListAssets",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/categories/{categoryID}/assets/{assetID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CategoryContents.SaveAssetAssignment",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Asset to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CategoryContents.DeleteAssetAssignment",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/categories/{categoryID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CategoryContents.MoveAssetAssignment",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the category content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/categories/{categoryID}/image": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CategoryContents.GetFirstImage",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/image": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CatalogContents.GetFirstImage",
+        "tags": [
+          "Catalog Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
           }
         ]
       }
@@ -7993,6 +8277,276 @@
         ]
       }
     },
+    "/productFacets/{productFacetID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "FacetContents.ListAssets",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/productFacets/{productFacetID}/assets/{assetID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "FacetContents.SaveAssetAssignment",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Asset to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "FacetContents.DeleteAssetAssignment",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/productFacets/{productFacetID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "FacetContents.MoveAssetAssignment",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the facet content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/productFacets/{productFacetID}/image": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "FacetContents.GetFirstImage",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
     "/products": {
       "get": {
         "responses": {
@@ -8263,6 +8817,546 @@
         ]
       }
     },
+    "/products/{productID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "ProductContents.ListAssets",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/products/{productID}/assets/{assetID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "ProductContents.SaveAssetAssignment",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Asset to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "ProductContents.DeleteAssetAssignment",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/products/{productID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "ProductContents.MoveAssetAssignment",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the product content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/products/{productID}/image": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "ProductContents.GetFirstImage",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/promotion/{promotionID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PromotionContents.ListAssets",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/promotion/{promotionID}/assets/{assetID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "PromotionContents.SaveAssetAssignment",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Asset to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "PromotionContents.DeleteAssetAssignment",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/promotion/{promotionID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "PromotionContents.MoveAssetAssignment",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the promotion content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/promotion/{promotionID}/image": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "PromotionContents.GetFirstImage",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
     "/shipment": {
       "post": {
         "responses": {
@@ -8308,7 +9402,7 @@
         ]
       }
     },
-    "/supplier": {
+    "/suppliers": {
       "post": {
         "responses": {
           "201": {
@@ -8350,48 +9444,6 @@
           {
             "OAuth2": [
               "SupplierAdmin",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/supplier/me/{supplierID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MarketplaceSupplier"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Suppliers.GetMySupplier",
-        "tags": [
-          "Suppliers"
-        ],
-        "parameters": [
-          {
-            "name": "supplierID",
-            "in": "path",
-            "description": "ID of the supplier.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "GET MarketplaceSupplier",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "SupplierAdmin",
-              "SupplierReader",
               "FullAccess"
             ]
           }
@@ -8590,6 +9642,318 @@
           {
             "OAuth2": [
               "SupplierAddressAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/suppliers/{supplierID}/assets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAssetForDelivery"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "SupplierContents.ListAssets",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/suppliers/{supplierID}/assets/{assetID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "SupplierContents.SaveAssetAssignment",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Asset to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "SupplierContents.DeleteAssetAssignment",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Asset from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/suppliers/{supplierID}/assets/{assetID}/assignments/moveto/{listOrderWithinType}": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "SupplierContents.MoveAssetAssignment",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "listOrderWithinType",
+            "in": "path",
+            "description": "List order within type of the content.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "summary": "Reorder Asset Assignment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/suppliers/{supplierID}/image": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "SupplierContents.GetFirstImage",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/suppliers/me/{supplierID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceSupplier"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Suppliers.GetMySupplier",
+        "tags": [
+          "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET MarketplaceSupplier",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "SupplierAdmin",
+              "SupplierReader",
               "FullAccess"
             ]
           }

@@ -1,6 +1,7 @@
 import { AssetMetadata } from './AssetMetadata';
 
-export interface Asset {
+export interface AssetForDelivery {
+    ListOrderWithinType?: number
     ID?: string
     Title?: string
     Active?: boolean

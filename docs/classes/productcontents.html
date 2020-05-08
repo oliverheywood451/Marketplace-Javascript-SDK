@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Assets | ordercloud-javascript-sdk</title>
+	<title>ProductContents | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="assets.html">Assets</a>
+					<a href="productcontents.html">ProductContents</a>
 				</li>
 			</ul>
 		</div>
@@ -50,11 +50,12 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#as" class="tsd-kind-icon">As</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#delete" class="tsd-kind-icon">Delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#get" class="tsd-kind-icon">Get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#list" class="tsd-kind-icon">List</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#update" class="tsd-kind-icon">Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="productcontents.html#as" class="tsd-kind-icon">As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="productcontents.html#deleteassetassignment" class="tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="productcontents.html#getfirstimage" class="tsd-kind-icon">Get<wbr>First<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="productcontents.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="productcontents.html#moveassetassignment" class="tsd-kind-icon">Move<wbr>Asset<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="productcontents.html#saveassetassignment" class="tsd-kind-icon">Save<wbr>Asset<wbr>Assignment</a></li>
 							</ul>
 						</section>
 					</div>
@@ -78,7 +79,7 @@
 									<dd><p>enables impersonation by calling the subsequent method with the stored impersonation token</p>
 									</dd>
 									<dt>example</dt>
-									<dd><p>Assets.As().List() // lists Assets using the impersonated users&#39; token</p>
+									<dd><p>ProductContents.As().List() // lists ProductContents using the impersonated users&#39; token</p>
 									</dd>
 								</dl>
 							</div>
@@ -87,10 +88,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3>Delete</h3>
+					<a name="deleteassetassignment" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Asset<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Delete<span class="tsd-signature-symbol">(</span>assetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment<span class="tsd-signature-symbol">(</span>productID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -100,6 +101,12 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>productID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the product.</p>
+									</div>
+								</li>
 								<li>
 									<h5>assetID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
@@ -118,10 +125,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="get" class="tsd-anchor"></a>
-					<h3>Get</h3>
+					<a name="getfirstimage" class="tsd-anchor"></a>
+					<h3>Get<wbr>First<wbr>Image</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>assetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>First<wbr>Image<span class="tsd-signature-symbol">(</span>productID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -131,6 +138,120 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>productID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the product.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listassets" class="tsd-anchor"></a>
+					<h3>List<wbr>Assets</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Assets<span class="tsd-signature-symbol">(</span>productID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/assetfordelivery.html" class="tsd-signature-type">AssetForDelivery</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/assetfordelivery.html" class="tsd-signature-type">AssetForDelivery</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>productID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the product.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/assetfordelivery.html" class="tsd-signature-type">AssetForDelivery</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/assetfordelivery.html" class="tsd-signature-type">AssetForDelivery</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="moveassetassignment" class="tsd-anchor"></a>
+					<h3>Move<wbr>Asset<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Move<wbr>Asset<wbr>Assignment<span class="tsd-signature-symbol">(</span>productID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, listOrderWithinType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>productID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the product.</p>
+									</div>
+								</li>
+								<li>
+									<h5>assetID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the asset.</p>
+									</div>
+								</li>
+								<li>
+									<h5>listOrderWithinType: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List order within type of the product content.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="saveassetassignment" class="tsd-anchor"></a>
+					<h3>Save<wbr>Asset<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Save<wbr>Asset<wbr>Assignment<span class="tsd-signature-symbol">(</span>productID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, assetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>productID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the product.</p>
+									</div>
+								</li>
 								<li>
 									<h5>assetID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
@@ -144,69 +265,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="list" class="tsd-anchor"></a>
-					<h3>List</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="update" class="tsd-anchor"></a>
-					<h3>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Update<span class="tsd-signature-symbol">(</span>assetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, asset<span class="tsd-signature-symbol">: </span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>assetID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>ID of the asset.</p>
-									</div>
-								</li>
-								<li>
-									<h5>asset: <a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -222,22 +281,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="assets.html" class="tsd-kind-icon">Assets</a>
+						<a href="productcontents.html" class="tsd-kind-icon">Product<wbr>Contents</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#as" class="tsd-kind-icon">As</a>
+								<a href="productcontents.html#as" class="tsd-kind-icon">As</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#delete" class="tsd-kind-icon">Delete</a>
+								<a href="productcontents.html#deleteassetassignment" class="tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#get" class="tsd-kind-icon">Get</a>
+								<a href="productcontents.html#getfirstimage" class="tsd-kind-icon">Get<wbr>First<wbr>Image</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#list" class="tsd-kind-icon">List</a>
+								<a href="productcontents.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#update" class="tsd-kind-icon">Update</a>
+								<a href="productcontents.html#moveassetassignment" class="tsd-kind-icon">Move<wbr>Asset<wbr>Assignment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="productcontents.html#saveassetassignment" class="tsd-kind-icon">Save<wbr>Asset<wbr>Assignment</a>
 							</li>
 						</ul>
 					</li>

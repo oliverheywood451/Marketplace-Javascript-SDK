@@ -13,8 +13,14 @@ import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
 import CreditCardAuthorizations from './CreditCardAuthorizations';
 import ValidatedAddresses from './ValidatedAddresses';
-import AssetContainers from './AssetContainers';
 import Assets from './Assets';
+import BuyerContents from './BuyerContents';
+import CatalogContents from './CatalogContents';
+import CategoryContents from './CategoryContents';
+import FacetContents from './FacetContents';
+import ProductContents from './ProductContents';
+import PromotionContents from './PromotionContents';
+import SupplierContents from './SupplierContents';
 import Auth from './Auth';
 import Tokens from './Tokens';
 import Upload from './Upload';
@@ -37,8 +43,14 @@ const MarketplaceSDK: MarketplaceSDK = {
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
     CreditCardAuthorizations : new CreditCardAuthorizations(),
     ValidatedAddresses : new ValidatedAddresses(),
-    AssetContainers : new AssetContainers(),
     Assets : new Assets(),
+    BuyerContents : new BuyerContents(),
+    CatalogContents : new CatalogContents(),
+    CategoryContents : new CategoryContents(),
+    FacetContents : new FacetContents(),
+    ProductContents : new ProductContents(),
+    PromotionContents : new PromotionContents(),
+    SupplierContents : new SupplierContents(),
     Auth: new Auth(),
     Tokens: new Tokens(),
     Upload: new Upload()
@@ -60,8 +72,14 @@ interface MarketplaceSDK {
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,
     CreditCardAuthorizations : CreditCardAuthorizations,
     ValidatedAddresses : ValidatedAddresses,
-    AssetContainers : AssetContainers,
     Assets : Assets,
+    BuyerContents : BuyerContents,
+    CatalogContents : CatalogContents,
+    CategoryContents : CategoryContents,
+    FacetContents : FacetContents,
+    ProductContents : ProductContents,
+    PromotionContents : PromotionContents,
+    SupplierContents : SupplierContents,
     Auth: Auth,
     Tokens: Tokens,
     Upload: Upload
