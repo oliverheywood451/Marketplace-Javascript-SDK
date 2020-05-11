@@ -1726,7 +1726,8 @@
             "IsResale": false,
             "Accessorials": [
               "Freezable"
-            ]
+            ],
+            "Currency": ""
           },
           "OwnerID": "",
           "DefaultPriceScheduleID": "",
@@ -3198,7 +3199,8 @@
           "IsResale": false,
           "Accessorials": [
             "Freezable"
-          ]
+          ],
+          "Currency": ""
         },
         "properties": {
           "Status": {
@@ -3250,6 +3252,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "Currency": {
+            "type": "string"
           }
         }
       },
@@ -3713,7 +3718,8 @@
               "IsResale": false,
               "Accessorials": [
                 "Freezable"
-              ]
+              ],
+              "Currency": ""
             },
             "OwnerID": "",
             "DefaultPriceScheduleID": "",

@@ -10,4 +10,5 @@ export interface ProductXp {
     ProductType?: 'Standard' | 'Quote' | 'PurchaseOrder'
     IsResale?: boolean
     Accessorials?: 'Freezable' | 'Hazmat' | 'KeepFromFreezing'
+    Currency?: string
 }
