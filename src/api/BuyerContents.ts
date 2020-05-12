@@ -43,7 +43,7 @@ export default class BuyerContents {
     public async SaveAssetAssignment(buyerID: string, assetID: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/assets/${assetID}/assignments`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyers/${buyerID}/assets/${assetID}/assignments`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -66,7 +66,7 @@ export default class BuyerContents {
     public async MoveAssetAssignment(buyerID: string, assetID: string, listOrderWithinType: number,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/assets/${assetID}/assignments/moveto/${listOrderWithinType}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyers/${buyerID}/assets/${assetID}/assignments/moveto/${listOrderWithinType}`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**

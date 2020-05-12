@@ -23,7 +23,7 @@ export default class Orders {
     public async AcknowledgeQuoteOrder(orderID: string,  accessToken?: string ): Promise<RequiredDeep<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/order/acknowledgequote/${orderID}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/order/acknowledgequote/${orderID}`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**

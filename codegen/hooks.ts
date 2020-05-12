@@ -64,6 +64,11 @@ const postFormatOperation: PostFormatOperationHook = function(operation) {
     operation.fileImports = [...new Set(newImports)] // unique array
   }
 
+  if (operation.verb == 'post' && operation.bodyParam == null) {
+    operation.hasBodyParam = true
+    operation.bodyParam = { name: '{}' } as Param
+  }
+
   // RETURN OPERATION - THIS IS IMPORTANT
   return operation
 }

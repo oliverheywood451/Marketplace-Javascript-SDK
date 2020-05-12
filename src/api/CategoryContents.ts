@@ -45,7 +45,7 @@ export default class CategoryContents {
     public async SaveAssetAssignment(catalogID: string, categoryID: string, assetID: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/catalogs/${catalogID}/categories/${categoryID}/assets/${assetID}/assignments`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/catalogs/${catalogID}/categories/${categoryID}/assets/${assetID}/assignments`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -70,7 +70,7 @@ export default class CategoryContents {
     public async MoveAssetAssignment(catalogID: string, categoryID: string, assetID: string, listOrderWithinType: number,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/catalogs/${catalogID}/categories/${categoryID}/assets/${assetID}/assignments/moveto/${listOrderWithinType}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/catalogs/${catalogID}/categories/${categoryID}/assets/${assetID}/assignments/moveto/${listOrderWithinType}`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**
