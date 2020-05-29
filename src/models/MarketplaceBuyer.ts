@@ -6,4 +6,5 @@ export interface MarketplaceBuyer {
     Name?: string
     DefaultCatalogID?: string
     Active?: boolean
+    readonly DateCreated?: string
 }

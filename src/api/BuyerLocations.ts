@@ -1,4 +1,6 @@
 import { MarketplaceBuyerLocation } from '../models/MarketplaceBuyerLocation';
+import { ListPage } from '../models/ListPage';
+import { MarketplaceUser } from '../models/MarketplaceUser';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -15,6 +17,12 @@ export default class BuyerLocations {
         this.Get = this.Get.bind(this);
         this.Update = this.Update.bind(this);
         this.Delete = this.Delete.bind(this);
+        this.ListLocationApprovalPermissionAsssignments = this.ListLocationApprovalPermissionAsssignments.bind(this);
+        this.GetApprovalThreshold = this.GetApprovalThreshold.bind(this);
+        this.SetLocationApprovalThreshold = this.SetLocationApprovalThreshold.bind(this);
+        this.ListLocationPermissionUserGroups = this.ListLocationPermissionUserGroups.bind(this);
+        this.UpdateLocationPermissions = this.UpdateLocationPermissions.bind(this);
+        this.ListLocationUsers = this.ListLocationUsers.bind(this);
     }
 
    /**
@@ -60,6 +68,80 @@ export default class BuyerLocations {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/buyerlocations/${buyerID}/${buyerLocationID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param buyerLocationID ID of the buyer location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListLocationApprovalPermissionAsssignments(buyerID: string, buyerLocationID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}/approvalpermissions`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param buyerLocationID ID of the buyer location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetApprovalThreshold(buyerID: string, buyerLocationID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}/approvalthreshold`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param buyerLocationID ID of the buyer location.
+    * @param options.locationApprovalThresholdUpdate Location approval threshold update of the decimal.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SetLocationApprovalThreshold(buyerID: string, buyerLocationID: string,  locationApprovalThresholdUpdate: any, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/buyerlocations/${buyerID}/${buyerLocationID}/approvalthreshold`, {}, { params: { locationApprovalThresholdUpdate,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param buyerLocationID ID of the buyer location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListLocationPermissionUserGroups(buyerID: string, buyerLocationID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}/permissions`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param buyerLocationID ID of the buyer location.
+    * @param options.locationPermissionUpdate Location permission update of the user group assignment.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async UpdateLocationPermissions(buyerID: string, buyerLocationID: string,  locationPermissionUpdate: any, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/buyerlocations/${buyerID}/${buyerLocationID}/permissions`, {}, { params: { locationPermissionUpdate,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param buyerLocationID ID of the buyer location.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListLocationUsers(buyerID: string, buyerLocationID: string,  options: ListArgs<MarketplaceUser> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceUser>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}/users`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
     /**

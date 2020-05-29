@@ -5,4 +5,5 @@ export interface MarketplaceSupplier {
     ID?: string
     Name?: string
     Active?: boolean
+    readonly DateCreated?: string
 }

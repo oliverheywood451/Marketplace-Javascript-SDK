@@ -1,3 +1,5 @@
+import { OrderDetails } from '../models/OrderDetails';
+import { MarketplaceLineItem } from '../models/MarketplaceLineItem';
 import { Order } from '../models/Order';
 import { ListPage } from '../models/ListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -12,8 +14,42 @@ export default class Orders {
     * not part of public api, don't include in generated docs
     */
     constructor() {
+        this.GetOrderDetails = this.GetOrderDetails.bind(this);
+        this.CreateLineItem = this.CreateLineItem.bind(this);
+        this.GetOrderShipmentsWithItems = this.GetOrderShipmentsWithItems.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
         this.ListLocationOrders = this.ListLocationOrders.bind(this);
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetOrderDetails(orderID: string,  accessToken?: string ): Promise<RequiredDeep<OrderDetails>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/order/${orderID}/details`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param marketplaceLineItem Required fields: ProductID, Quantity
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async CreateLineItem(orderID: string, marketplaceLineItem: MarketplaceLineItem, accessToken?: string ): Promise<RequiredDeep<MarketplaceLineItem>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.put(`/order/${orderID}/lineitems`, marketplaceLineItem, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetOrderShipmentsWithItems(orderID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/order/${orderID}/shipmentswithitems`, { params: {  accessToken, impersonating } } );
     }
 
    /**

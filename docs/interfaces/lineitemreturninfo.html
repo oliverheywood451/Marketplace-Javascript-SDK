@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MarketplaceBuyer | ordercloud-javascript-sdk</title>
+	<title>LineItemReturnInfo | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="marketplacebuyer.html">MarketplaceBuyer</a>
+					<a href="lineitemreturninfo.html">LineItemReturnInfo</a>
 				</li>
 			</ul>
 		</div>
@@ -50,12 +50,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="marketplacebuyer.html#active" class="tsd-kind-icon">Active</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="marketplacebuyer.html#datecreated" class="tsd-kind-icon">Date<wbr>Created</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="marketplacebuyer.html#defaultcatalogid" class="tsd-kind-icon">Default<wbr>CatalogID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="marketplacebuyer.html#id" class="tsd-kind-icon">ID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="marketplacebuyer.html#name" class="tsd-kind-icon">Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="marketplacebuyer.html#xp" class="tsd-kind-icon">xp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemreturninfo.html#quantitytoreturn" class="tsd-kind-icon">Quantity<wbr>ToReturn</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemreturninfo.html#resolved" class="tsd-kind-icon">Resolved</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemreturninfo.html#returnreason" class="tsd-kind-icon">Return<wbr>Reason</a></li>
 							</ul>
 						</section>
 					</div>
@@ -64,44 +61,23 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="active" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Active</h3>
-					<div class="tsd-signature tsd-kind-icon">Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="quantitytoreturn" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Quantity<wbr>ToReturn</h3>
+					<div class="tsd-signature tsd-kind-icon">Quantity<wbr>ToReturn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="datecreated" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Date<wbr>Created</h3>
-					<div class="tsd-signature tsd-kind-icon">Date<wbr>Created<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="resolved" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Resolved</h3>
+					<div class="tsd-signature tsd-kind-icon">Resolved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="defaultcatalogid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Default<wbr>CatalogID</h3>
-					<div class="tsd-signature tsd-kind-icon">Default<wbr>CatalogID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ID</h3>
-					<div class="tsd-signature tsd-kind-icon">ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="xp" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> xp</h3>
-					<div class="tsd-signature tsd-kind-icon">xp<span class="tsd-signature-symbol">:</span> <a href="buyerxp.html" class="tsd-signature-type">BuyerXp</a></div>
+					<a name="returnreason" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Return<wbr>Reason</h3>
+					<div class="tsd-signature tsd-kind-icon">Return<wbr>Reason<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -117,25 +93,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="marketplacebuyer.html" class="tsd-kind-icon">Marketplace<wbr>Buyer</a>
+						<a href="lineitemreturninfo.html" class="tsd-kind-icon">Line<wbr>Item<wbr>Return<wbr>Info</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="marketplacebuyer.html#active" class="tsd-kind-icon">Active</a>
+								<a href="lineitemreturninfo.html#quantitytoreturn" class="tsd-kind-icon">Quantity<wbr>ToReturn</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="marketplacebuyer.html#datecreated" class="tsd-kind-icon">Date<wbr>Created</a>
+								<a href="lineitemreturninfo.html#resolved" class="tsd-kind-icon">Resolved</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="marketplacebuyer.html#defaultcatalogid" class="tsd-kind-icon">Default<wbr>CatalogID</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="marketplacebuyer.html#id" class="tsd-kind-icon">ID</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="marketplacebuyer.html#name" class="tsd-kind-icon">Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="marketplacebuyer.html#xp" class="tsd-kind-icon">xp</a>
+								<a href="lineitemreturninfo.html#returnreason" class="tsd-kind-icon">Return<wbr>Reason</a>
 							</li>
 						</ul>
 					</li>

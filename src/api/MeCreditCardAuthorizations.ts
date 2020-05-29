@@ -1,4 +1,3 @@
-import { OrderCloudIntegrationsCreditCardToken } from '../models/OrderCloudIntegrationsCreditCardToken';
 import { BuyerCreditCard } from '../models/BuyerCreditCard';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -16,13 +15,13 @@ export default class MeCreditCardAuthorizations {
     }
 
    /**
-    * @param orderCloudIntegrationsCreditCardToken 
+    * @param card Card of the credit card.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async MePost(orderCloudIntegrationsCreditCardToken: OrderCloudIntegrationsCreditCardToken, accessToken?: string ): Promise<RequiredDeep<BuyerCreditCard>> {
+    public async MePost(card: any,  accessToken?: string ): Promise<RequiredDeep<BuyerCreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/me/creditcards`, orderCloudIntegrationsCreditCardToken, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/me/creditcards`, {}, { params: {  accessToken, impersonating } } );
     }
 
     /**

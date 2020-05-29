@@ -1,5 +1,4 @@
 import { TaxCertificate } from '../models/TaxCertificate';
-import { Authentication } from '../models/Authentication';
 import { ListPage } from '../models/ListPage';
 import { TaxCode } from '../models/TaxCode';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -14,8 +13,8 @@ export default class Avalaras {
     * not part of public api, don't include in generated docs
     */
     constructor() {
-        this.CreateCertificate = this.CreateCertificate.bind(this);
         this.GetCertificate = this.GetCertificate.bind(this);
+        this.CreateCertificate = this.CreateCertificate.bind(this);
         this.UpdateCertificate = this.UpdateCertificate.bind(this);
         this.DownloadCertificate = this.DownloadCertificate.bind(this);
         this.ListTaxCodes = this.ListTaxCodes.bind(this);
@@ -23,47 +22,48 @@ export default class Avalaras {
 
    /**
     * @param companyID ID of the company.
+    * @param locationID ID of the location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetCertificate(companyID: number, locationID: string,  accessToken?: string ): Promise<RequiredDeep<TaxCertificate>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/avalara/${companyID}/certificate/${locationID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param companyID ID of the company.
+    * @param locationID ID of the location.
     * @param taxCertificate Required fields: SignedDate, ExpirationDate, ExposureZoneName, Base64UrlEncodedPDF
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async CreateCertificate(companyID: number, taxCertificate: TaxCertificate, accessToken?: string ): Promise<RequiredDeep<TaxCertificate>> {
+    public async CreateCertificate(companyID: number, locationID: string, taxCertificate: TaxCertificate, accessToken?: string ): Promise<RequiredDeep<TaxCertificate>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/avalara/${companyID}/certificate`, taxCertificate, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/avalara/${companyID}/certificate/${locationID}`, taxCertificate, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param companyID ID of the company.
-    * @param certificateID ID of the certificate.
-    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
-    */
-    public async GetCertificate(companyID: number, certificateID: number,  accessToken?: string ): Promise<RequiredDeep<TaxCertificate>> {
-        const impersonating = this.impersonating;
-        this.impersonating = false;
-        return await httpClient.get(`/avalara/${companyID}/certificate/${certificateID}`, { params: {  accessToken, impersonating } } );
-    }
-
-   /**
-    * @param companyID ID of the company.
-    * @param certificateID ID of the certificate.
+    * @param locationID ID of the location.
     * @param taxCertificate Required fields: SignedDate, ExpirationDate, ExposureZoneName, Base64UrlEncodedPDF
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async UpdateCertificate(companyID: number, certificateID: number, taxCertificate: TaxCertificate, accessToken?: string ): Promise<RequiredDeep<TaxCertificate>> {
+    public async UpdateCertificate(companyID: number, locationID: string, taxCertificate: TaxCertificate, accessToken?: string ): Promise<RequiredDeep<TaxCertificate>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/avalara/${companyID}/certificate/${certificateID}`, taxCertificate, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/avalara/${companyID}/certificate/${locationID}`, taxCertificate, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param companyID ID of the company.
-    * @param certificateID ID of the certificate.
+    * @param locationID ID of the location.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async DownloadCertificate(companyID: number, certificateID: number,  accessToken?: string ): Promise<RequiredDeep<Authentication>> {
+    public async DownloadCertificate(companyID: number, locationID: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/avalara/${companyID}/certificate/${certificateID}/pdf`, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/avalara/${companyID}/certificate/${locationID}/pdf`, { params: {  accessToken, impersonating } } );
     }
 
    /**

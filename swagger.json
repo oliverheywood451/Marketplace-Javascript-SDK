@@ -103,6 +103,11 @@
       "x-section-id": "Integration"
     },
     {
+      "name": "Exchange Rates",
+      "description": "\"Integration\" represents Currency Conversion Charts",
+      "x-section-id": "Integration"
+    },
+    {
       "name": "Validated Addresses",
       "description": "\"Integration\" represents Validated Addresses with suggestions",
       "x-section-id": "Integration"
@@ -422,7 +427,9 @@
             "ImageWidth": 0,
             "ImageVerticalResolution": 0,
             "ImageHorizontalResolution": 0
-          }
+          },
+          "id": "",
+          "timeStamp": "2018-01-01T00:00:00-06:00"
         },
         "properties": {
           "ID": {
@@ -462,6 +469,13 @@
               }
             ],
             "readOnly": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -486,7 +500,9 @@
             "ImageWidth": 0,
             "ImageVerticalResolution": 0,
             "ImageHorizontalResolution": 0
-          }
+          },
+          "id": "",
+          "timeStamp": "2018-01-01T00:00:00-06:00"
         },
         "properties": {
           "ListOrderWithinType": {
@@ -530,6 +546,13 @@
               }
             ],
             "readOnly": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -839,6 +862,184 @@
           }
         }
       },
+      "LineItem": {
+        "type": "object",
+        "example": {
+          "ID": "",
+          "ProductID": "",
+          "Quantity": 0,
+          "DateAdded": "2018-01-01T00:00:00-06:00",
+          "QuantityShipped": 0,
+          "UnitPrice": 0,
+          "PromotionDiscount": 0,
+          "LineTotal": 0,
+          "LineSubtotal": 0,
+          "CostCenter": "",
+          "DateNeeded": "2018-01-01T00:00:00-06:00",
+          "ShippingAccount": "",
+          "ShippingAddressID": "",
+          "ShipFromAddressID": "",
+          "Product": {
+            "ID": "",
+            "Name": "",
+            "Description": "",
+            "QuantityMultiplier": 0,
+            "ShipWeight": 0,
+            "ShipHeight": 0,
+            "ShipWidth": 0,
+            "ShipLength": 0
+          },
+          "Variant": {
+            "ID": "",
+            "Name": "",
+            "Description": "",
+            "ShipWeight": 0,
+            "ShipHeight": 0,
+            "ShipWidth": 0,
+            "ShipLength": 0
+          },
+          "ShippingAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ShipFromAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "SupplierID": "",
+          "Specs": [
+            {
+              "SpecID": "",
+              "Name": "",
+              "OptionID": "",
+              "Value": "",
+              "PriceMarkupType": "NoMarkup",
+              "PriceMarkup": 0
+            }
+          ]
+        },
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "ProductID": {
+            "type": "string"
+          },
+          "Quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DateAdded": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "QuantityShipped": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "UnitPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "PromotionDiscount": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "LineTotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "LineSubtotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "CostCenter": {
+            "type": "string"
+          },
+          "DateNeeded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ShippingAccount": {
+            "type": "string"
+          },
+          "ShippingAddressID": {
+            "type": "string"
+          },
+          "ShipFromAddressID": {
+            "type": "string"
+          },
+          "Product": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemProduct"
+              }
+            ],
+            "readOnly": true
+          },
+          "Variant": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemVariant"
+              }
+            ],
+            "readOnly": true
+          },
+          "ShippingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "readOnly": true
+          },
+          "ShipFromAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "readOnly": true
+          },
+          "SupplierID": {
+            "type": "string",
+            "readOnly": true
+          },
+          "Specs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItemSpec"
+            }
+          }
+        }
+      },
       "LineItemProduct": {
         "type": "object",
         "example": {
@@ -880,6 +1081,26 @@
           "ShipLength": {
             "type": "number",
             "format": "float"
+          }
+        }
+      },
+      "LineItemReturnInfo": {
+        "type": "object",
+        "example": {
+          "QuantityToReturn": 0,
+          "ReturnReason": "",
+          "Resolved": false
+        },
+        "properties": {
+          "QuantityToReturn": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ReturnReason": {
+            "type": "string"
+          },
+          "Resolved": {
+            "type": "boolean"
           }
         }
       },
@@ -961,6 +1182,30 @@
           }
         }
       },
+      "LineItemXp": {
+        "type": "object",
+        "example": {
+          "LineItemReturnInfo": {
+            "QuantityToReturn": 0,
+            "ReturnReason": "",
+            "Resolved": false
+          },
+          "ProductUnitPrice": 0
+        },
+        "properties": {
+          "LineItemReturnInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemReturnInfo"
+              }
+            ]
+          },
+          "ProductUnitPrice": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
       "ListAsset": {
         "type": "object",
         "properties": {
@@ -1021,6 +1266,20 @@
           }
         }
       },
+      "ListMarketplaceUser": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketplaceUser"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
       "ListOrchestrationLog": {
         "type": "object",
         "properties": {
@@ -1042,6 +1301,20 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Order"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListOrderCloudIntegrationsConversionRate": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderCloudIntegrationsConversionRate"
             }
           },
           "Meta": {
@@ -1265,7 +1538,8 @@
           "ID": "",
           "Name": "",
           "DefaultCatalogID": "",
-          "Active": false
+          "Active": false,
+          "DateCreated": "2018-01-01T00:00:00-06:00"
         },
         "properties": {
           "xp": {
@@ -1286,6 +1560,11 @@
           },
           "Active": {
             "type": "boolean"
+          },
+          "DateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           }
         }
       },
@@ -1295,6 +1574,7 @@
           "UserGroup": {
             "xp": {
               "Type": "",
+              "Role": "",
               "Currency": ""
             },
             "ID": "",
@@ -1439,6 +1719,304 @@
           }
         }
       },
+      "MarketplaceLineItem": {
+        "type": "object",
+        "example": {
+          "xp": {
+            "LineItemReturnInfo": {
+              "QuantityToReturn": 0,
+              "ReturnReason": "",
+              "Resolved": false
+            },
+            "ProductUnitPrice": 0
+          },
+          "Product": {
+            "xp": {
+              "Status": "Draft",
+              "HasVariants": false,
+              "Note": "",
+              "Tax": {
+                "Category": "",
+                "Code": "",
+                "Description": ""
+              },
+              "UnitOfMeasure": {
+                "Qty": 0,
+                "Unit": ""
+              },
+              "ProductType": "Standard",
+              "IsResale": false,
+              "Accessorials": [
+                "Freezable"
+              ],
+              "Currency": ""
+            },
+            "ID": "",
+            "Name": "",
+            "Description": "",
+            "QuantityMultiplier": 0,
+            "ShipWeight": 0,
+            "ShipHeight": 0,
+            "ShipWidth": 0,
+            "ShipLength": 0
+          },
+          "Variant": {
+            "ID": "",
+            "Name": "",
+            "Description": "",
+            "ShipWeight": 0,
+            "ShipHeight": 0,
+            "ShipWidth": 0,
+            "ShipLength": 0
+          },
+          "ShippingAddress": {
+            "xp": {
+              "Accessorials": [
+                "DestinationInsideDelivery"
+              ],
+              "Email": "",
+              "LocationID": "",
+              "AvalaraCertificateID": 0,
+              "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+            },
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ShipFromAddress": {
+            "xp": {
+              "Accessorials": [
+                "LimitedAccessPickup"
+              ]
+            },
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ID": "",
+          "ProductID": "",
+          "Quantity": 0,
+          "DateAdded": "2018-01-01T00:00:00-06:00",
+          "QuantityShipped": 0,
+          "UnitPrice": 0,
+          "PromotionDiscount": 0,
+          "LineTotal": 0,
+          "LineSubtotal": 0,
+          "CostCenter": "",
+          "DateNeeded": "2018-01-01T00:00:00-06:00",
+          "ShippingAccount": "",
+          "ShippingAddressID": "",
+          "ShipFromAddressID": "",
+          "SupplierID": "",
+          "Specs": [
+            {
+              "SpecID": "",
+              "Name": "",
+              "OptionID": "",
+              "Value": "",
+              "PriceMarkupType": "NoMarkup",
+              "PriceMarkup": 0
+            }
+          ]
+        },
+        "properties": {
+          "xp": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemXp"
+              }
+            ]
+          },
+          "Product": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceLineItemProduct"
+              }
+            ],
+            "readOnly": true
+          },
+          "Variant": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemVariant"
+              }
+            ],
+            "readOnly": true
+          },
+          "ShippingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceAddressBuyer"
+              }
+            ],
+            "readOnly": true
+          },
+          "ShipFromAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceAddressSupplier"
+              }
+            ],
+            "readOnly": true
+          },
+          "ID": {
+            "type": "string"
+          },
+          "ProductID": {
+            "type": "string"
+          },
+          "Quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DateAdded": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "QuantityShipped": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "UnitPrice": {
+            "type": "number",
+            "format": "float"
+          },
+          "PromotionDiscount": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "LineTotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "LineSubtotal": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "CostCenter": {
+            "type": "string"
+          },
+          "DateNeeded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ShippingAccount": {
+            "type": "string"
+          },
+          "ShippingAddressID": {
+            "type": "string"
+          },
+          "ShipFromAddressID": {
+            "type": "string"
+          },
+          "SupplierID": {
+            "type": "string",
+            "readOnly": true
+          },
+          "Specs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItemSpec"
+            }
+          }
+        }
+      },
+      "MarketplaceLineItemProduct": {
+        "type": "object",
+        "example": {
+          "xp": {
+            "Status": "Draft",
+            "HasVariants": false,
+            "Note": "",
+            "Tax": {
+              "Category": "",
+              "Code": "",
+              "Description": ""
+            },
+            "UnitOfMeasure": {
+              "Qty": 0,
+              "Unit": ""
+            },
+            "ProductType": "Standard",
+            "IsResale": false,
+            "Accessorials": [
+              "Freezable"
+            ],
+            "Currency": ""
+          },
+          "ID": "",
+          "Name": "",
+          "Description": "",
+          "QuantityMultiplier": 0,
+          "ShipWeight": 0,
+          "ShipHeight": 0,
+          "ShipWidth": 0,
+          "ShipLength": 0
+        },
+        "properties": {
+          "xp": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProductXp"
+              }
+            ]
+          },
+          "ID": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "QuantityMultiplier": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ShipWeight": {
+            "type": "number",
+            "format": "float"
+          },
+          "ShipHeight": {
+            "type": "number",
+            "format": "float"
+          },
+          "ShipWidth": {
+            "type": "number",
+            "format": "float"
+          },
+          "ShipLength": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
       "MarketplaceOrder": {
         "type": "object",
         "example": {
@@ -1459,7 +2037,13 @@
               "Phone": "",
               "Email": "",
               "Comments": ""
-            }
+            },
+            "OrderReturnInfo": {
+              "HasReturn": false,
+              "RMANumber": "",
+              "Resolved": false
+            },
+            "Currency": ""
           },
           "FromUser": {
             "xp": {},
@@ -2026,6 +2610,395 @@
           }
         }
       },
+      "MarketplaceShipmentItemWithLineItem": {
+        "type": "object",
+        "example": {
+          "LineItem": {
+            "ID": "",
+            "ProductID": "",
+            "Quantity": 0,
+            "DateAdded": "2018-01-01T00:00:00-06:00",
+            "QuantityShipped": 0,
+            "UnitPrice": 0,
+            "PromotionDiscount": 0,
+            "LineTotal": 0,
+            "LineSubtotal": 0,
+            "CostCenter": "",
+            "DateNeeded": "2018-01-01T00:00:00-06:00",
+            "ShippingAccount": "",
+            "ShippingAddressID": "",
+            "ShipFromAddressID": "",
+            "Product": {
+              "ID": "",
+              "Name": "",
+              "Description": "",
+              "QuantityMultiplier": 0,
+              "ShipWeight": 0,
+              "ShipHeight": 0,
+              "ShipWidth": 0,
+              "ShipLength": 0
+            },
+            "Variant": {
+              "ID": "",
+              "Name": "",
+              "Description": "",
+              "ShipWeight": 0,
+              "ShipHeight": 0,
+              "ShipWidth": 0,
+              "ShipLength": 0
+            },
+            "ShippingAddress": {
+              "ID": "",
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "CompanyName": "",
+              "FirstName": "",
+              "LastName": "",
+              "Street1": "",
+              "Street2": "",
+              "City": "",
+              "State": "",
+              "Zip": "",
+              "Country": "",
+              "Phone": "",
+              "AddressName": ""
+            },
+            "ShipFromAddress": {
+              "ID": "",
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "CompanyName": "",
+              "FirstName": "",
+              "LastName": "",
+              "Street1": "",
+              "Street2": "",
+              "City": "",
+              "State": "",
+              "Zip": "",
+              "Country": "",
+              "Phone": "",
+              "AddressName": ""
+            },
+            "SupplierID": "",
+            "Specs": [
+              {
+                "SpecID": "",
+                "Name": "",
+                "OptionID": "",
+                "Value": "",
+                "PriceMarkupType": "NoMarkup",
+                "PriceMarkup": 0
+              }
+            ]
+          },
+          "OrderID": "",
+          "LineItemID": "",
+          "QuantityShipped": 0,
+          "UnitPrice": 0,
+          "CostCenter": "",
+          "DateNeeded": "2018-01-01T00:00:00-06:00",
+          "Product": {
+            "ID": "",
+            "Name": "",
+            "Description": "",
+            "QuantityMultiplier": 0,
+            "ShipWeight": 0,
+            "ShipHeight": 0,
+            "ShipWidth": 0,
+            "ShipLength": 0
+          },
+          "Variant": {
+            "ID": "",
+            "Name": "",
+            "Description": "",
+            "ShipWeight": 0,
+            "ShipHeight": 0,
+            "ShipWidth": 0,
+            "ShipLength": 0
+          },
+          "Specs": [
+            {
+              "SpecID": "",
+              "Name": "",
+              "OptionID": "",
+              "Value": "",
+              "PriceMarkupType": "NoMarkup",
+              "PriceMarkup": 0
+            }
+          ]
+        },
+        "properties": {
+          "LineItem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItem"
+              }
+            ]
+          },
+          "OrderID": {
+            "type": "string"
+          },
+          "LineItemID": {
+            "type": "string"
+          },
+          "QuantityShipped": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "UnitPrice": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "CostCenter": {
+            "type": "string",
+            "readOnly": true
+          },
+          "DateNeeded": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "Product": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemProduct"
+              }
+            ],
+            "readOnly": true
+          },
+          "Variant": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LineItemVariant"
+              }
+            ],
+            "readOnly": true
+          },
+          "Specs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItemSpec"
+            },
+            "readOnly": true
+          }
+        }
+      },
+      "MarketplaceShipmentWithItems": {
+        "type": "object",
+        "example": {
+          "ShipmentItems": [
+            {
+              "LineItem": {
+                "ID": "",
+                "ProductID": "",
+                "Quantity": 0,
+                "DateAdded": "2018-01-01T00:00:00-06:00",
+                "QuantityShipped": 0,
+                "UnitPrice": 0,
+                "PromotionDiscount": 0,
+                "LineTotal": 0,
+                "LineSubtotal": 0,
+                "CostCenter": "",
+                "DateNeeded": "2018-01-01T00:00:00-06:00",
+                "ShippingAccount": "",
+                "ShippingAddressID": "",
+                "ShipFromAddressID": "",
+                "Product": {
+                  "ID": "",
+                  "Name": "",
+                  "Description": "",
+                  "QuantityMultiplier": 0,
+                  "ShipWeight": 0,
+                  "ShipHeight": 0,
+                  "ShipWidth": 0,
+                  "ShipLength": 0
+                },
+                "Variant": {
+                  "ID": "",
+                  "Name": "",
+                  "Description": "",
+                  "ShipWeight": 0,
+                  "ShipHeight": 0,
+                  "ShipWidth": 0,
+                  "ShipLength": 0
+                },
+                "ShippingAddress": {
+                  "ID": "",
+                  "DateCreated": "2018-01-01T00:00:00-06:00",
+                  "CompanyName": "",
+                  "FirstName": "",
+                  "LastName": "",
+                  "Street1": "",
+                  "Street2": "",
+                  "City": "",
+                  "State": "",
+                  "Zip": "",
+                  "Country": "",
+                  "Phone": "",
+                  "AddressName": ""
+                },
+                "ShipFromAddress": {
+                  "ID": "",
+                  "DateCreated": "2018-01-01T00:00:00-06:00",
+                  "CompanyName": "",
+                  "FirstName": "",
+                  "LastName": "",
+                  "Street1": "",
+                  "Street2": "",
+                  "City": "",
+                  "State": "",
+                  "Zip": "",
+                  "Country": "",
+                  "Phone": "",
+                  "AddressName": ""
+                },
+                "SupplierID": "",
+                "Specs": [
+                  {
+                    "SpecID": "",
+                    "Name": "",
+                    "OptionID": "",
+                    "Value": "",
+                    "PriceMarkupType": "NoMarkup",
+                    "PriceMarkup": 0
+                  }
+                ]
+              },
+              "OrderID": "",
+              "LineItemID": "",
+              "QuantityShipped": 0,
+              "UnitPrice": 0,
+              "CostCenter": "",
+              "DateNeeded": "2018-01-01T00:00:00-06:00",
+              "Product": {
+                "ID": "",
+                "Name": "",
+                "Description": "",
+                "QuantityMultiplier": 0,
+                "ShipWeight": 0,
+                "ShipHeight": 0,
+                "ShipWidth": 0,
+                "ShipLength": 0
+              },
+              "Variant": {
+                "ID": "",
+                "Name": "",
+                "Description": "",
+                "ShipWeight": 0,
+                "ShipHeight": 0,
+                "ShipWidth": 0,
+                "ShipLength": 0
+              },
+              "Specs": [
+                {
+                  "SpecID": "",
+                  "Name": "",
+                  "OptionID": "",
+                  "Value": "",
+                  "PriceMarkupType": "NoMarkup",
+                  "PriceMarkup": 0
+                }
+              ]
+            }
+          ],
+          "ID": "",
+          "BuyerID": "",
+          "Shipper": "",
+          "DateShipped": "2018-01-01T00:00:00-06:00",
+          "DateDelivered": "2018-01-01T00:00:00-06:00",
+          "TrackingNumber": "",
+          "Cost": 0,
+          "Account": "",
+          "FromAddressID": "",
+          "ToAddressID": "",
+          "FromAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          },
+          "ToAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          }
+        },
+        "properties": {
+          "ShipmentItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketplaceShipmentItemWithLineItem"
+            }
+          },
+          "ID": {
+            "type": "string"
+          },
+          "BuyerID": {
+            "type": "string"
+          },
+          "Shipper": {
+            "type": "string"
+          },
+          "DateShipped": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DateDelivered": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TrackingNumber": {
+            "type": "string"
+          },
+          "Cost": {
+            "type": "number",
+            "format": "float"
+          },
+          "Account": {
+            "type": "string"
+          },
+          "FromAddressID": {
+            "type": "string"
+          },
+          "ToAddressID": {
+            "type": "string"
+          },
+          "FromAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "readOnly": true
+          },
+          "ToAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "readOnly": true
+          }
+        }
+      },
       "MarketplaceSpec": {
         "type": "object",
         "example": {
@@ -2193,7 +3166,8 @@
           },
           "ID": "",
           "Name": "",
-          "Active": false
+          "Active": false,
+          "DateCreated": "2018-01-01T00:00:00-06:00"
         },
         "properties": {
           "xp": {
@@ -2211,6 +3185,11 @@
           },
           "Active": {
             "type": "boolean"
+          },
+          "DateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
           }
         }
       },
@@ -2294,6 +3273,7 @@
         "example": {
           "xp": {
             "Type": "",
+            "Role": "",
             "Currency": ""
           },
           "ID": "",
@@ -2532,7 +3512,9 @@
               "ErrorCode": "",
               "Message": ""
             }
-          ]
+          ],
+          "id": "",
+          "timeStamp": "2018-01-01T00:00:00-06:00"
         },
         "properties": {
           "ErrorType": {
@@ -2617,6 +3599,13 @@
             "items": {
               "$ref": "#/components/schemas/ApiError"
             }
+          },
+          "id": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -2790,18 +3779,198 @@
           }
         }
       },
-      "OrderCloudIntegrationsCreditCardPayment": {
+      "OrderApproval": {
         "type": "object",
         "example": {
-          "OrderID": "",
-          "PaymentID": "",
-          "CreditCardID": "",
-          "CreditCardDetails": {
-            "AccountNumber": "",
-            "ExpirationDate": "",
-            "CardholderName": "",
-            "CardType": "",
-            "CCBillingAddress": {
+          "ApprovalRuleID": "",
+          "ApprovingGroupID": "",
+          "Status": "Pending",
+          "AllowResubmit": false,
+          "DateCreated": "2018-01-01T00:00:00-06:00",
+          "DateCompleted": "2018-01-01T00:00:00-06:00",
+          "Approver": {
+            "ID": "",
+            "Username": "",
+            "Password": "",
+            "FirstName": "",
+            "LastName": "",
+            "Email": "",
+            "Phone": "",
+            "TermsAccepted": "2018-01-01T00:00:00-06:00",
+            "Active": false,
+            "AvailableRoles": [
+              ""
+            ],
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+          },
+          "Comments": ""
+        },
+        "properties": {
+          "ApprovalRuleID": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ApprovingGroupID": {
+            "type": "string",
+            "readOnly": true
+          },
+          "Status": {
+            "enum": [
+              "Pending",
+              "Approved",
+              "Declined"
+            ],
+            "type": "string",
+            "readOnly": true
+          },
+          "AllowResubmit": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "DateCreated": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "DateCompleted": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "Approver": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ],
+            "readOnly": true
+          },
+          "Comments": {
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "OrderCloudIntegrationsConversionRate": {
+        "type": "object",
+        "example": {
+          "Currency": "CAD",
+          "Symbol": "",
+          "Name": "",
+          "Rate": 0,
+          "Icon": ""
+        },
+        "properties": {
+          "Currency": {
+            "enum": [
+              "CAD",
+              "HKD",
+              "ISK",
+              "PHP",
+              "DKK",
+              "HUF",
+              "CZK",
+              "GBP",
+              "RON",
+              "SEK",
+              "IDR",
+              "INR",
+              "BRL",
+              "RUB",
+              "HRK",
+              "JPY",
+              "THB",
+              "CHF",
+              "EUR",
+              "MYR",
+              "BGN",
+              "TRY",
+              "CNY",
+              "NOK",
+              "NZD",
+              "ZAR",
+              "USD",
+              "MXN",
+              "SGD",
+              "AUD",
+              "ILS",
+              "KRW",
+              "PLN"
+            ],
+            "type": "string"
+          },
+          "Symbol": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Rate": {
+            "type": "number",
+            "format": "double"
+          },
+          "Icon": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderDetails": {
+        "type": "object",
+        "example": {
+          "Order": {
+            "xp": {
+              "AvalaraTaxTransactionCode": "",
+              "ShipFromAddressIDs": [
+                ""
+              ],
+              "SupplierIDs": [
+                ""
+              ],
+              "NeedsAttention": false,
+              "StopShipSync": false,
+              "OrderType": "Standard",
+              "QuoteOrderInfo": {
+                "FirstName": "",
+                "LastName": "",
+                "Phone": "",
+                "Email": "",
+                "Comments": ""
+              },
+              "OrderReturnInfo": {
+                "HasReturn": false,
+                "RMANumber": "",
+                "Resolved": false
+              },
+              "Currency": ""
+            },
+            "FromUser": {
+              "xp": {},
+              "ID": "",
+              "Username": "",
+              "Password": "",
+              "FirstName": "",
+              "LastName": "",
+              "Email": "",
+              "Phone": "",
+              "TermsAccepted": "2018-01-01T00:00:00-06:00",
+              "Active": false,
+              "AvailableRoles": [
+                ""
+              ],
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+            },
+            "BillingAddress": {
+              "xp": {
+                "Accessorials": [
+                  "DestinationInsideDelivery"
+                ],
+                "Email": "",
+                "LocationID": "",
+                "AvalaraCertificateID": 0,
+                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+              },
               "ID": "",
               "DateCreated": "2018-01-01T00:00:00-06:00",
               "CompanyName": "",
@@ -2815,88 +3984,313 @@
               "Country": "",
               "Phone": "",
               "AddressName": ""
-            }
+            },
+            "ID": "",
+            "FromCompanyID": "",
+            "ToCompanyID": "",
+            "FromUserID": "",
+            "BillingAddressID": "",
+            "ShippingAddressID": "",
+            "Comments": "",
+            "LineItemCount": 0,
+            "Status": "Unsubmitted",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "DateSubmitted": "2018-01-01T00:00:00-06:00",
+            "DateApproved": "2018-01-01T00:00:00-06:00",
+            "DateDeclined": "2018-01-01T00:00:00-06:00",
+            "DateCanceled": "2018-01-01T00:00:00-06:00",
+            "DateCompleted": "2018-01-01T00:00:00-06:00",
+            "Subtotal": 0,
+            "ShippingCost": 0,
+            "TaxCost": 0,
+            "PromotionDiscount": 0,
+            "Total": 0,
+            "IsSubmitted": false
           },
-          "Currency": "",
-          "CVV": "",
-          "MerchantID": ""
+          "LineItems": [
+            {
+              "ID": "",
+              "ProductID": "",
+              "Quantity": 0,
+              "DateAdded": "2018-01-01T00:00:00-06:00",
+              "QuantityShipped": 0,
+              "UnitPrice": 0,
+              "PromotionDiscount": 0,
+              "LineTotal": 0,
+              "LineSubtotal": 0,
+              "CostCenter": "",
+              "DateNeeded": "2018-01-01T00:00:00-06:00",
+              "ShippingAccount": "",
+              "ShippingAddressID": "",
+              "ShipFromAddressID": "",
+              "Product": {
+                "ID": "",
+                "Name": "",
+                "Description": "",
+                "QuantityMultiplier": 0,
+                "ShipWeight": 0,
+                "ShipHeight": 0,
+                "ShipWidth": 0,
+                "ShipLength": 0
+              },
+              "Variant": {
+                "ID": "",
+                "Name": "",
+                "Description": "",
+                "ShipWeight": 0,
+                "ShipHeight": 0,
+                "ShipWidth": 0,
+                "ShipLength": 0
+              },
+              "ShippingAddress": {
+                "ID": "",
+                "DateCreated": "2018-01-01T00:00:00-06:00",
+                "CompanyName": "",
+                "FirstName": "",
+                "LastName": "",
+                "Street1": "",
+                "Street2": "",
+                "City": "",
+                "State": "",
+                "Zip": "",
+                "Country": "",
+                "Phone": "",
+                "AddressName": ""
+              },
+              "ShipFromAddress": {
+                "ID": "",
+                "DateCreated": "2018-01-01T00:00:00-06:00",
+                "CompanyName": "",
+                "FirstName": "",
+                "LastName": "",
+                "Street1": "",
+                "Street2": "",
+                "City": "",
+                "State": "",
+                "Zip": "",
+                "Country": "",
+                "Phone": "",
+                "AddressName": ""
+              },
+              "SupplierID": "",
+              "Specs": [
+                {
+                  "SpecID": "",
+                  "Name": "",
+                  "OptionID": "",
+                  "Value": "",
+                  "PriceMarkupType": "NoMarkup",
+                  "PriceMarkup": 0
+                }
+              ]
+            }
+          ],
+          "Promotions": [
+            {
+              "Amount": 0,
+              "LineItemID": "",
+              "ID": "",
+              "LineItemLevel": false,
+              "Code": "",
+              "Name": "",
+              "RedemptionLimit": 0,
+              "RedemptionLimitPerUser": 0,
+              "RedemptionCount": 0,
+              "Description": "",
+              "FinePrint": "",
+              "StartDate": "2018-01-01T00:00:00-06:00",
+              "ExpirationDate": "2018-01-01T00:00:00-06:00",
+              "EligibleExpression": "",
+              "ValueExpression": "",
+              "CanCombine": false,
+              "AllowAllBuyers": false
+            }
+          ],
+          "Payments": [
+            {
+              "ID": "",
+              "Type": "PurchaseOrder",
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "CreditCardID": "",
+              "SpendingAccountID": "",
+              "Description": "",
+              "Amount": 0,
+              "Accepted": false,
+              "Transactions": [
+                {
+                  "ID": "",
+                  "Type": "",
+                  "DateExecuted": "2018-01-01T00:00:00-06:00",
+                  "Amount": 0,
+                  "Succeeded": false,
+                  "ResultCode": "",
+                  "ResultMessage": ""
+                }
+              ]
+            }
+          ],
+          "Approvals": [
+            {
+              "ApprovalRuleID": "",
+              "ApprovingGroupID": "",
+              "Status": "Pending",
+              "AllowResubmit": false,
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "DateCompleted": "2018-01-01T00:00:00-06:00",
+              "Approver": {
+                "ID": "",
+                "Username": "",
+                "Password": "",
+                "FirstName": "",
+                "LastName": "",
+                "Email": "",
+                "Phone": "",
+                "TermsAccepted": "2018-01-01T00:00:00-06:00",
+                "Active": false,
+                "AvailableRoles": [
+                  ""
+                ],
+                "DateCreated": "2018-01-01T00:00:00-06:00",
+                "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+              },
+              "Comments": ""
+            }
+          ]
         },
         "properties": {
-          "OrderID": {
-            "type": "string"
-          },
-          "PaymentID": {
-            "type": "string"
-          },
-          "CreditCardID": {
-            "type": "string"
-          },
-          "CreditCardDetails": {
+          "Order": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+                "$ref": "#/components/schemas/MarketplaceOrder"
               }
             ]
           },
-          "Currency": {
-            "type": "string",
-            "maxLength": 3,
-            "minLength": 3
+          "LineItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItem"
+            }
           },
-          "CVV": {
-            "type": "string",
-            "maxLength": 4,
-            "minLength": 3
+          "Promotions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderPromotion"
+            }
           },
-          "MerchantID": {
-            "type": "string"
+          "Payments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Payment"
+            }
+          },
+          "Approvals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderApproval"
+            }
           }
         }
       },
-      "OrderCloudIntegrationsCreditCardToken": {
+      "OrderPromotion": {
         "type": "object",
         "example": {
-          "AccountNumber": "",
-          "ExpirationDate": "",
-          "CardholderName": "",
-          "CardType": "",
-          "CCBillingAddress": {
-            "ID": "",
-            "DateCreated": "2018-01-01T00:00:00-06:00",
-            "CompanyName": "",
-            "FirstName": "",
-            "LastName": "",
-            "Street1": "",
-            "Street2": "",
-            "City": "",
-            "State": "",
-            "Zip": "",
-            "Country": "",
-            "Phone": "",
-            "AddressName": ""
-          }
+          "Amount": 0,
+          "LineItemID": "",
+          "ID": "",
+          "LineItemLevel": false,
+          "Code": "",
+          "Name": "",
+          "RedemptionLimit": 0,
+          "RedemptionLimitPerUser": 0,
+          "RedemptionCount": 0,
+          "Description": "",
+          "FinePrint": "",
+          "StartDate": "2018-01-01T00:00:00-06:00",
+          "ExpirationDate": "2018-01-01T00:00:00-06:00",
+          "EligibleExpression": "",
+          "ValueExpression": "",
+          "CanCombine": false,
+          "AllowAllBuyers": false
         },
         "properties": {
-          "AccountNumber": {
+          "Amount": {
+            "type": "number",
+            "format": "float",
+            "readOnly": true
+          },
+          "LineItemID": {
+            "type": "string",
+            "readOnly": true
+          },
+          "ID": {
             "type": "string"
+          },
+          "LineItemLevel": {
+            "type": "boolean"
+          },
+          "Code": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "RedemptionLimit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RedemptionLimitPerUser": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RedemptionCount": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Description": {
+            "type": "string"
+          },
+          "FinePrint": {
+            "type": "string"
+          },
+          "StartDate": {
+            "type": "string",
+            "format": "date-time"
           },
           "ExpirationDate": {
             "type": "string",
-            "maxLength": 6,
-            "minLength": 4
+            "format": "date-time"
           },
-          "CardholderName": {
+          "EligibleExpression": {
             "type": "string"
           },
-          "CardType": {
+          "ValueExpression": {
             "type": "string"
           },
-          "CCBillingAddress": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Address"
-              }
-            ]
+          "CanCombine": {
+            "type": "boolean"
+          },
+          "AllowAllBuyers": {
+            "type": "boolean"
+          }
+        }
+      },
+      "OrderReturnInfo": {
+        "type": "object",
+        "example": {
+          "HasReturn": false,
+          "RMANumber": "",
+          "Resolved": false
+        },
+        "properties": {
+          "HasReturn": {
+            "type": "boolean"
+          },
+          "RMANumber": {
+            "type": "string"
+          },
+          "Resolved": {
+            "type": "boolean"
           }
         }
       },
@@ -2919,7 +4313,13 @@
             "Phone": "",
             "Email": "",
             "Comments": ""
-          }
+          },
+          "OrderReturnInfo": {
+            "HasReturn": false,
+            "RMANumber": "",
+            "Resolved": false
+          },
+          "Currency": ""
         },
         "properties": {
           "AvalaraTaxTransactionCode": {
@@ -2956,6 +4356,16 @@
                 "$ref": "#/components/schemas/QuoteOrderInfo"
               }
             ]
+          },
+          "OrderReturnInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderReturnInfo"
+              }
+            ]
+          },
+          "Currency": {
+            "type": "string"
           }
         }
       },
@@ -3842,7 +5252,9 @@
                 "ImageWidth": 0,
                 "ImageVerticalResolution": 0,
                 "ImageHorizontalResolution": 0
-              }
+              },
+              "id": "",
+              "timeStamp": "2018-01-01T00:00:00-06:00"
             }
           ],
           "Attachments": [
@@ -3865,7 +5277,9 @@
                 "ImageWidth": 0,
                 "ImageVerticalResolution": 0,
                 "ImageHorizontalResolution": 0
-              }
+              },
+              "id": "",
+              "timeStamp": "2018-01-01T00:00:00-06:00"
             }
           ]
         },
@@ -4365,14 +5779,33 @@
           }
         }
       },
+      "UserGroupAssignment": {
+        "type": "object",
+        "example": {
+          "UserGroupID": "",
+          "UserID": ""
+        },
+        "properties": {
+          "UserGroupID": {
+            "type": "string"
+          },
+          "UserID": {
+            "type": "string"
+          }
+        }
+      },
       "UserGroupXp": {
         "type": "object",
         "example": {
           "Type": "",
+          "Role": "",
           "Currency": ""
         },
         "properties": {
           "Type": {
+            "type": "string"
+          },
+          "Role": {
             "type": "string"
           },
           "Currency": {
@@ -4843,7 +6276,55 @@
         ]
       }
     },
-    "/avalara/{companyID}/certificate": {
+    "/avalara/{companyID}/certificate/{locationID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaxCertificate"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Avalaras.GetCertificate",
+        "tags": [
+          "Avalaras"
+        ],
+        "parameters": [
+          {
+            "name": "companyID",
+            "in": "path",
+            "description": "ID of the company.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get tax exeption certificate details",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
       "post": {
         "responses": {
           "201": {
@@ -4891,59 +6372,18 @@
             "schema": {
               "type": "integer"
             }
+          },
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "summary": "Create tax exeption certificate",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "AddressAdmin",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/avalara/{companyID}/certificate/{certificateID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TaxCertificate"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Avalaras.GetCertificate",
-        "tags": [
-          "Avalaras"
-        ],
-        "parameters": [
-          {
-            "name": "companyID",
-            "in": "path",
-            "description": "ID of the company.",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "certificateID",
-            "in": "path",
-            "description": "ID of the certificate.",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          }
-        ],
-        "summary": "Get tax exeption certificate details",
         "description": "",
         "security": [
           {
@@ -5003,12 +6443,12 @@
             }
           },
           {
-            "name": "certificateID",
+            "name": "locationID",
             "in": "path",
-            "description": "ID of the certificate.",
+            "description": "ID of the location.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -5017,14 +6457,14 @@
         "security": [
           {
             "OAuth2": [
-              "AddressAdmin",
+              "Shopper",
               "FullAccess"
             ]
           }
         ]
       }
     },
-    "/avalara/{companyID}/certificate/{certificateID}/pdf": {
+    "/avalara/{companyID}/certificate/{locationID}/pdf": {
       "get": {
         "responses": {
           "200": {
@@ -5032,7 +6472,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Authentication"
+                  "type": "object"
                 }
               }
             }
@@ -5053,12 +6493,12 @@
             }
           },
           {
-            "name": "certificateID",
+            "name": "locationID",
             "in": "path",
-            "description": "ID of the certificate.",
+            "description": "ID of the location.",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -5425,6 +6865,397 @@
             "OAuth2": [
               "UserGroupAdmin",
               "AddressAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyerlocations/{buyerID}/{buyerLocationID}/approvalpermissions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserGroupAssignment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerLocations.ListLocationApprovalPermissionAsssignments",
+        "tags": [
+          "Buyer Locations"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyerLocationID",
+            "in": "path",
+            "description": "ID of the buyer location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET List of location approval permission user groups",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyerlocations/{buyerID}/{buyerLocationID}/approvalthreshold": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerLocations.GetApprovalThreshold",
+        "tags": [
+          "Buyer Locations"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyerLocationID",
+            "in": "path",
+            "description": "ID of the buyer location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET general approval threshold for location",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerLocations.SetLocationApprovalThreshold",
+        "tags": [
+          "Buyer Locations"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyerLocationID",
+            "in": "path",
+            "description": "ID of the buyer location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationApprovalThresholdUpdate",
+            "in": "query",
+            "description": "Location approval threshold update of the decimal.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "POST set location approval threshold",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyerlocations/{buyerID}/{buyerLocationID}/permissions": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserGroupAssignment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerLocations.ListLocationPermissionUserGroups",
+        "tags": [
+          "Buyer Locations"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyerLocationID",
+            "in": "path",
+            "description": "ID of the buyer location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET List of location permission user groups",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserGroupAssignment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerLocations.UpdateLocationPermissions",
+        "tags": [
+          "Buyer Locations"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyerLocationID",
+            "in": "path",
+            "description": "ID of the buyer location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationPermissionUpdate",
+            "in": "query",
+            "description": "Location permission update of the user group assignment.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "POST location permissions, add or delete access",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyerlocations/{buyerID}/{buyerLocationID}/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMarketplaceUser"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerLocations.ListLocationUsers",
+        "tags": [
+          "Buyer Locations"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyerLocationID",
+            "in": "path",
+            "description": "ID of the buyer location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "LIST orders for a specific location as a buyer, ensures user has access to location orders",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
               "FullAccess"
             ]
           }
@@ -5886,22 +7717,16 @@
         "tags": [
           "Credit Card Authorizations"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
-                  }
-                ]
-              }
-            }
-          }
-        },
         "parameters": [
+          {
+            "name": "card",
+            "in": "path",
+            "description": "Card of the credit card.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
           {
             "name": "buyerID",
             "in": "path",
@@ -6540,6 +8365,175 @@
         ]
       }
     },
+    "/exchangerates/{currency}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListOrderCloudIntegrationsConversionRate"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "ExchangeRates.Get",
+        "tags": [
+          "Exchange Rates"
+        ],
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "description": "Currency of the order cloud integrations conversion rate. Possible values: CAD, HKD, ISK, PHP, DKK, HUF, CZK, GBP, RON, SEK, IDR, INR, BRL, RUB, HRK, JPY, THB, CHF, EUR, MYR, BGN, TRY, CNY, NOK, NZD, ZAR, USD, MXN, SGD, AUD, ILS, KRW, PLN.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CAD",
+                "HKD",
+                "ISK",
+                "PHP",
+                "DKK",
+                "HUF",
+                "CZK",
+                "GBP",
+                "RON",
+                "SEK",
+                "IDR",
+                "INR",
+                "BRL",
+                "RUB",
+                "HRK",
+                "JPY",
+                "THB",
+                "CHF",
+                "EUR",
+                "MYR",
+                "BGN",
+                "TRY",
+                "CNY",
+                "NOK",
+                "NZD",
+                "ZAR",
+                "USD",
+                "MXN",
+                "SGD",
+                "AUD",
+                "ILS",
+                "KRW",
+                "PLN"
+              ]
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get a single exchange rate.",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/exchangerates/supportedrates": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsConversionRate"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "ExchangeRates.GetRateList",
+        "tags": [
+          "Exchange Rates"
+        ],
+        "summary": "Get a single exchange rate rate list.",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
     "/marketplace/{marketplaceID}/supplier/category/config": {
       "get": {
         "responses": {
@@ -6761,21 +8755,17 @@
         "tags": [
           "Me Credit Card Authorizations"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
-                  }
-                ]
-              }
+        "parameters": [
+          {
+            "name": "card",
+            "in": "path",
+            "description": "Card of the credit card.",
+            "required": true,
+            "schema": {
+              "type": "object"
             }
           }
-        },
+        ],
         "summary": "POST Credit Card",
         "description": "",
         "security": [
@@ -6807,27 +8797,17 @@
         "tags": [
           "Me Payments"
         ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardPayment"
-                  }
-                ],
-                "required": [
-                  "OrderID",
-                  "PaymentID",
-                  "Currency",
-                  "MerchantID"
-                ]
-              }
+        "parameters": [
+          {
+            "name": "payment",
+            "in": "path",
+            "description": "Payment of the payment.",
+            "required": true,
+            "schema": {
+              "type": "object"
             }
           }
-        },
+        ],
         "summary": "POST Payment",
         "description": "",
         "security": [
@@ -8085,6 +10065,151 @@
             "OAuth2": [
               "Shopper",
               "OrderAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/order/{orderID}/details": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderDetails"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Orders.GetOrderDetails",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "ID of the order.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET order details as buyer, ensures user has access to location orders or created the order themselves",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/order/{orderID}/lineitems": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceLineItem"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Orders.CreateLineItem",
+        "tags": [
+          "Orders"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MarketplaceLineItem"
+                  }
+                ],
+                "required": [
+                  "ProductID",
+                  "Quantity"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "ID of the order.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Add or update a line item to an order",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/order/{orderID}/shipmentswithitems": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketplaceShipmentWithItems"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Orders.GetOrderShipmentsWithItems",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "ID of the order.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET order shipments as buyer, ensures user has access to location orders or created the order themselves",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
               "FullAccess"
             ]
           }

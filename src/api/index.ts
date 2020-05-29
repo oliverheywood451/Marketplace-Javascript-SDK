@@ -12,6 +12,7 @@ import Avalaras from './Avalaras';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
 import CreditCardAuthorizations from './CreditCardAuthorizations';
+import ExchangeRates from './ExchangeRates';
 import ValidatedAddresses from './ValidatedAddresses';
 import Assets from './Assets';
 import BuyerContents from './BuyerContents';
@@ -42,6 +43,7 @@ const MarketplaceSDK: MarketplaceSDK = {
     MePayments : new MePayments(),
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
     CreditCardAuthorizations : new CreditCardAuthorizations(),
+    ExchangeRates : new ExchangeRates(),
     ValidatedAddresses : new ValidatedAddresses(),
     Assets : new Assets(),
     BuyerContents : new BuyerContents(),
@@ -71,6 +73,7 @@ interface MarketplaceSDK {
     MePayments : MePayments,
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,
     CreditCardAuthorizations : CreditCardAuthorizations,
+    ExchangeRates : ExchangeRates,
     ValidatedAddresses : ValidatedAddresses,
     Assets : Assets,
     BuyerContents : BuyerContents,

@@ -91,7 +91,7 @@
 					<a name="createcertificate" class="tsd-anchor"></a>
 					<h3>Create<wbr>Certificate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Create<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, taxCertificate<span class="tsd-signature-symbol">: </span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Create<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, locationID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, taxCertificate<span class="tsd-signature-symbol">: </span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -105,6 +105,12 @@
 									<h5>companyID: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>ID of the company.</p>
+									</div>
+								</li>
+								<li>
+									<h5>locationID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the location.</p>
 									</div>
 								</li>
 								<li>
@@ -128,7 +134,7 @@
 					<a name="downloadcertificate" class="tsd-anchor"></a>
 					<h3>Download<wbr>Certificate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Download<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, certificateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/authentication.html" class="tsd-signature-type">Authentication</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Download<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, locationID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -145,9 +151,9 @@
 									</div>
 								</li>
 								<li>
-									<h5>certificateID: <span class="tsd-signature-type">number</span></h5>
+									<h5>locationID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ID of the certificate.</p>
+										<p>ID of the location.</p>
 									</div>
 								</li>
 								<li>
@@ -157,7 +163,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/authentication.html" class="tsd-signature-type">Authentication</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -165,7 +171,7 @@
 					<a name="getcertificate" class="tsd-anchor"></a>
 					<h3>Get<wbr>Certificate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, certificateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, locationID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -182,9 +188,9 @@
 									</div>
 								</li>
 								<li>
-									<h5>certificateID: <span class="tsd-signature-type">number</span></h5>
+									<h5>locationID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ID of the certificate.</p>
+										<p>ID of the location.</p>
 									</div>
 								</li>
 								<li>
@@ -230,7 +236,7 @@
 					<a name="updatecertificate" class="tsd-anchor"></a>
 					<h3>Update<wbr>Certificate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Update<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, certificateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, taxCertificate<span class="tsd-signature-symbol">: </span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Update<wbr>Certificate<span class="tsd-signature-symbol">(</span>companyID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, locationID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, taxCertificate<span class="tsd-signature-symbol">: </span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/taxcertificate.html" class="tsd-signature-type">TaxCertificate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -247,9 +253,9 @@
 									</div>
 								</li>
 								<li>
-									<h5>certificateID: <span class="tsd-signature-type">number</span></h5>
+									<h5>locationID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>ID of the certificate.</p>
+										<p>ID of the location.</p>
 									</div>
 								</li>
 								<li>

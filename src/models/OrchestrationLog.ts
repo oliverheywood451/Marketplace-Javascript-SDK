@@ -9,4 +9,6 @@ export interface OrchestrationLog {
     RecordType?: 'Product' | 'PriceSchedule' | 'Spec' | 'SpecOption' | 'SpecProductAssignment' | 'ProductFacet' | 'Buyer' | 'User' | 'UserGroup' | 'Address' | 'CostCenter' | 'UserGroupAssignment' | 'AddressAssignment' | 'CatalogAssignment' | 'Catalog' | 'Supplier' | 'Order'
     Action?: 'Ignore' | 'Create' | 'Update' | 'Patch' | 'Delete' | 'Get' | 'SyncShipments'
     OrderCloudErrors?: ApiError[]
+    id?: string
+    timeStamp?: string
 }
