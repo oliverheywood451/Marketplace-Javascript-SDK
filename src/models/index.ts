@@ -53,6 +53,8 @@ export * from './OrchestrationLog';
 export * from './Order';
 export * from './OrderApproval';
 export * from './OrderCloudIntegrationsConversionRate';
+export * from './OrderCloudIntegrationsCreditCardPayment';
+export * from './OrderCloudIntegrationsCreditCardToken';
 export * from './OrderDetails';
 export * from './OrderPromotion';
 export * from './OrderReturnInfo';

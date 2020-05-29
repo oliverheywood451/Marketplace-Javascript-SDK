@@ -6,5 +6,5 @@ export interface CreditCard {
     CardType?: string
     PartialAccountNumber?: string
     CardholderName?: string
-    ExpirationDate?: string
+    ExpirationDate: string
 }

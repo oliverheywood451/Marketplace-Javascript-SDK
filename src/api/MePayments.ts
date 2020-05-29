@@ -1,3 +1,4 @@
+import { OrderCloudIntegrationsCreditCardPayment } from '../models/OrderCloudIntegrationsCreditCardPayment';
 import { Payment } from '../models/Payment';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -15,13 +16,13 @@ export default class MePayments {
     }
 
    /**
-    * @param payment Payment of the payment.
+    * @param orderCloudIntegrationsCreditCardPayment Required fields: OrderID, PaymentID, Currency, MerchantID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(payment: any,  accessToken?: string ): Promise<RequiredDeep<Payment>> {
+    public async Post(orderCloudIntegrationsCreditCardPayment: OrderCloudIntegrationsCreditCardPayment, accessToken?: string ): Promise<RequiredDeep<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/me/payments`, {}, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/me/payments`, orderCloudIntegrationsCreditCardPayment, { params: {  accessToken, impersonating } } );
     }
 
     /**

@@ -3915,6 +3915,116 @@
           }
         }
       },
+      "OrderCloudIntegrationsCreditCardPayment": {
+        "type": "object",
+        "example": {
+          "OrderID": "",
+          "PaymentID": "",
+          "CreditCardID": "",
+          "CreditCardDetails": {
+            "AccountNumber": "",
+            "ExpirationDate": "",
+            "CardholderName": "",
+            "CardType": "",
+            "CCBillingAddress": {
+              "ID": "",
+              "DateCreated": "2018-01-01T00:00:00-06:00",
+              "CompanyName": "",
+              "FirstName": "",
+              "LastName": "",
+              "Street1": "",
+              "Street2": "",
+              "City": "",
+              "State": "",
+              "Zip": "",
+              "Country": "",
+              "Phone": "",
+              "AddressName": ""
+            }
+          },
+          "Currency": "",
+          "CVV": "",
+          "MerchantID": ""
+        },
+        "properties": {
+          "OrderID": {
+            "type": "string"
+          },
+          "PaymentID": {
+            "type": "string"
+          },
+          "CreditCardID": {
+            "type": "string"
+          },
+          "CreditCardDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+              }
+            ]
+          },
+          "Currency": {
+            "type": "string",
+            "maxLength": 3,
+            "minLength": 3
+          },
+          "CVV": {
+            "type": "string",
+            "maxLength": 4,
+            "minLength": 3
+          },
+          "MerchantID": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderCloudIntegrationsCreditCardToken": {
+        "type": "object",
+        "example": {
+          "AccountNumber": "",
+          "ExpirationDate": "",
+          "CardholderName": "",
+          "CardType": "",
+          "CCBillingAddress": {
+            "ID": "",
+            "DateCreated": "2018-01-01T00:00:00-06:00",
+            "CompanyName": "",
+            "FirstName": "",
+            "LastName": "",
+            "Street1": "",
+            "Street2": "",
+            "City": "",
+            "State": "",
+            "Zip": "",
+            "Country": "",
+            "Phone": "",
+            "AddressName": ""
+          }
+        },
+        "properties": {
+          "AccountNumber": {
+            "type": "string"
+          },
+          "ExpirationDate": {
+            "type": "string",
+            "maxLength": 6,
+            "minLength": 4
+          },
+          "CardholderName": {
+            "type": "string"
+          },
+          "CardType": {
+            "type": "string"
+          },
+          "CCBillingAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ]
+          }
+        }
+      },
       "OrderDetails": {
         "type": "object",
         "example": {
@@ -7717,16 +7827,26 @@
         "tags": [
           "Credit Card Authorizations"
         ],
-        "parameters": [
-          {
-            "name": "card",
-            "in": "path",
-            "description": "Card of the credit card.",
-            "required": true,
-            "schema": {
-              "type": "object"
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+                  }
+                ],
+                "required": [
+                  "ExpirationDate",
+                  "CCBillingAddress"
+                ]
+              }
             }
-          },
+          }
+        },
+        "parameters": [
           {
             "name": "buyerID",
             "in": "path",
@@ -8755,17 +8875,25 @@
         "tags": [
           "Me Credit Card Authorizations"
         ],
-        "parameters": [
-          {
-            "name": "card",
-            "in": "path",
-            "description": "Card of the credit card.",
-            "required": true,
-            "schema": {
-              "type": "object"
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardToken"
+                  }
+                ],
+                "required": [
+                  "ExpirationDate",
+                  "CCBillingAddress"
+                ]
+              }
             }
           }
-        ],
+        },
         "summary": "POST Credit Card",
         "description": "",
         "security": [
@@ -8797,17 +8925,27 @@
         "tags": [
           "Me Payments"
         ],
-        "parameters": [
-          {
-            "name": "payment",
-            "in": "path",
-            "description": "Payment of the payment.",
-            "required": true,
-            "schema": {
-              "type": "object"
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardPayment"
+                  }
+                ],
+                "required": [
+                  "OrderID",
+                  "PaymentID",
+                  "Currency",
+                  "MerchantID"
+                ]
+              }
             }
           }
-        ],
+        },
         "summary": "POST Payment",
         "description": "",
         "security": [
