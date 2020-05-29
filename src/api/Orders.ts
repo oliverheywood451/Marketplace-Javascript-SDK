@@ -15,7 +15,7 @@ export default class Orders {
     */
     constructor() {
         this.GetOrderDetails = this.GetOrderDetails.bind(this);
-        this.CreateLineItem = this.CreateLineItem.bind(this);
+        this.UpsertLineItem = this.UpsertLineItem.bind(this);
         this.GetOrderShipmentsWithItems = this.GetOrderShipmentsWithItems.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
         this.ListLocationOrders = this.ListLocationOrders.bind(this);
@@ -36,7 +36,7 @@ export default class Orders {
     * @param marketplaceLineItem Required fields: ProductID, Quantity
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async CreateLineItem(orderID: string, marketplaceLineItem: MarketplaceLineItem, accessToken?: string ): Promise<RequiredDeep<MarketplaceLineItem>> {
+    public async UpsertLineItem(orderID: string, marketplaceLineItem: MarketplaceLineItem, accessToken?: string ): Promise<RequiredDeep<MarketplaceLineItem>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/order/${orderID}/lineitems`, marketplaceLineItem, { params: {  accessToken, impersonating } } );

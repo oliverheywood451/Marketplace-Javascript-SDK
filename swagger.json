@@ -1575,7 +1575,7 @@
             "xp": {
               "Type": "",
               "Role": "",
-              "Currency": ""
+              "Currency": "CAD"
             },
             "ID": "",
             "Name": "",
@@ -1749,7 +1749,7 @@
               "Accessorials": [
                 "Freezable"
               ],
-              "Currency": ""
+              "Currency": "CAD"
             },
             "ID": "",
             "Name": "",
@@ -1967,7 +1967,7 @@
             "Accessorials": [
               "Freezable"
             ],
-            "Currency": ""
+            "Currency": "CAD"
           },
           "ID": "",
           "Name": "",
@@ -2043,7 +2043,7 @@
               "RMANumber": "",
               "Resolved": false
             },
-            "Currency": ""
+            "Currency": "CAD"
           },
           "FromUser": {
             "xp": {},
@@ -2311,7 +2311,7 @@
             "Accessorials": [
               "Freezable"
             ],
-            "Currency": ""
+            "Currency": "CAD"
           },
           "OwnerID": "",
           "DefaultPriceScheduleID": "",
@@ -3162,7 +3162,7 @@
             },
             "SyncFreightPop": false,
             "ApiClientID": "",
-            "Currency": ""
+            "Currency": "CAD"
           },
           "ID": "",
           "Name": "",
@@ -3274,7 +3274,7 @@
           "xp": {
             "Type": "",
             "Role": "",
-            "Currency": ""
+            "Currency": "CAD"
           },
           "ID": "",
           "Name": "",
@@ -4052,7 +4052,7 @@
                 "RMANumber": "",
                 "Resolved": false
               },
-              "Currency": ""
+              "Currency": "CAD"
             },
             "FromUser": {
               "xp": {},
@@ -4429,7 +4429,7 @@
             "RMANumber": "",
             "Resolved": false
           },
-          "Currency": ""
+          "Currency": "CAD"
         },
         "properties": {
           "AvalaraTaxTransactionCode": {
@@ -4475,6 +4475,41 @@
             ]
           },
           "Currency": {
+            "enum": [
+              "CAD",
+              "HKD",
+              "ISK",
+              "PHP",
+              "DKK",
+              "HUF",
+              "CZK",
+              "GBP",
+              "RON",
+              "SEK",
+              "IDR",
+              "INR",
+              "BRL",
+              "RUB",
+              "HRK",
+              "JPY",
+              "THB",
+              "CHF",
+              "EUR",
+              "MYR",
+              "BGN",
+              "TRY",
+              "CNY",
+              "NOK",
+              "NZD",
+              "ZAR",
+              "USD",
+              "MXN",
+              "SGD",
+              "AUD",
+              "ILS",
+              "KRW",
+              "PLN"
+            ],
             "type": "string"
           }
         }
@@ -4720,7 +4755,7 @@
           "Accessorials": [
             "Freezable"
           ],
-          "Currency": ""
+          "Currency": "CAD"
         },
         "properties": {
           "Status": {
@@ -4774,6 +4809,41 @@
             }
           },
           "Currency": {
+            "enum": [
+              "CAD",
+              "HKD",
+              "ISK",
+              "PHP",
+              "DKK",
+              "HUF",
+              "CZK",
+              "GBP",
+              "RON",
+              "SEK",
+              "IDR",
+              "INR",
+              "BRL",
+              "RUB",
+              "HRK",
+              "JPY",
+              "THB",
+              "CHF",
+              "EUR",
+              "MYR",
+              "BGN",
+              "TRY",
+              "CNY",
+              "NOK",
+              "NZD",
+              "ZAR",
+              "USD",
+              "MXN",
+              "SGD",
+              "AUD",
+              "ILS",
+              "KRW",
+              "PLN"
+            ],
             "type": "string"
           }
         }
@@ -5239,7 +5309,7 @@
               "Accessorials": [
                 "Freezable"
               ],
-              "Currency": ""
+              "Currency": "CAD"
             },
             "OwnerID": "",
             "DefaultPriceScheduleID": "",
@@ -5667,7 +5737,7 @@
           },
           "SyncFreightPop": false,
           "ApiClientID": "",
-          "Currency": ""
+          "Currency": "CAD"
         },
         "properties": {
           "Description": {
@@ -5693,6 +5763,41 @@
             "type": "string"
           },
           "Currency": {
+            "enum": [
+              "CAD",
+              "HKD",
+              "ISK",
+              "PHP",
+              "DKK",
+              "HUF",
+              "CZK",
+              "GBP",
+              "RON",
+              "SEK",
+              "IDR",
+              "INR",
+              "BRL",
+              "RUB",
+              "HRK",
+              "JPY",
+              "THB",
+              "CHF",
+              "EUR",
+              "MYR",
+              "BGN",
+              "TRY",
+              "CNY",
+              "NOK",
+              "NZD",
+              "ZAR",
+              "USD",
+              "MXN",
+              "SGD",
+              "AUD",
+              "ILS",
+              "KRW",
+              "PLN"
+            ],
             "type": "string"
           }
         }
@@ -5909,7 +6014,7 @@
         "example": {
           "Type": "",
           "Role": "",
-          "Currency": ""
+          "Currency": "CAD"
         },
         "properties": {
           "Type": {
@@ -5919,6 +6024,41 @@
             "type": "string"
           },
           "Currency": {
+            "enum": [
+              "CAD",
+              "HKD",
+              "ISK",
+              "PHP",
+              "DKK",
+              "HUF",
+              "CZK",
+              "GBP",
+              "RON",
+              "SEK",
+              "IDR",
+              "INR",
+              "BRL",
+              "RUB",
+              "HRK",
+              "JPY",
+              "THB",
+              "CHF",
+              "EUR",
+              "MYR",
+              "BGN",
+              "TRY",
+              "CNY",
+              "NOK",
+              "NZD",
+              "ZAR",
+              "USD",
+              "MXN",
+              "SGD",
+              "AUD",
+              "ILS",
+              "KRW",
+              "PLN"
+            ],
             "type": "string"
           }
         }
@@ -10264,7 +10404,7 @@
             }
           }
         },
-        "operationId": "Orders.CreateLineItem",
+        "operationId": "Orders.UpsertLineItem",
         "tags": [
           "Orders"
         ],
