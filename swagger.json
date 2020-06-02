@@ -1190,6 +1190,7 @@
             "ReturnReason": "",
             "Resolved": false
           },
+          "LineItemImageUrl": "",
           "ProductUnitPrice": 0
         },
         "properties": {
@@ -1199,6 +1200,9 @@
                 "$ref": "#/components/schemas/LineItemReturnInfo"
               }
             ]
+          },
+          "LineItemImageUrl": {
+            "type": "string"
           },
           "ProductUnitPrice": {
             "type": "number",
@@ -1728,6 +1732,7 @@
               "ReturnReason": "",
               "Resolved": false
             },
+            "LineItemImageUrl": "",
             "ProductUnitPrice": 0
           },
           "Product": {
