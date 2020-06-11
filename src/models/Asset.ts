@@ -9,6 +9,4 @@ export interface Asset {
     Tags?: string[]
     FileName?: string
     readonly Metadata?: AssetMetadata
-    id?: string
-    timeStamp?: string
 }

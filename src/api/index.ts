@@ -8,6 +8,7 @@ import Suppliers from './Suppliers';
 import Products from './Products';
 import SupplierCategoryConfigs from './SupplierCategoryConfigs';
 import BuyerLocations from './BuyerLocations';
+import Mes from './Mes';
 import Avalaras from './Avalaras';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
@@ -39,6 +40,7 @@ const MarketplaceSDK: MarketplaceSDK = {
     Products : new Products(),
     SupplierCategoryConfigs : new SupplierCategoryConfigs(),
     BuyerLocations : new BuyerLocations(),
+    Mes : new Mes(),
     Avalaras : new Avalaras(),
     MePayments : new MePayments(),
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
@@ -69,6 +71,7 @@ interface MarketplaceSDK {
     Products : Products,
     SupplierCategoryConfigs : SupplierCategoryConfigs,
     BuyerLocations : BuyerLocations,
+    Mes : Mes,
     Avalaras : Avalaras,
     MePayments : MePayments,
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,

@@ -35,7 +35,7 @@ export default class ExchangeRates {
    /**
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetRateList( accessToken?: string ): Promise<void> {
+    public async GetRateList( accessToken?: string ): Promise<RequiredDeep<ListPage<OrderCloudIntegrationsConversionRate>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/exchangerates/supportedrates`, { params: {  accessToken, impersonating } } );

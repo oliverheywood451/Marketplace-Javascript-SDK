@@ -78,6 +78,11 @@
       "x-section-id": "Marketplace"
     },
     {
+      "name": "Mes",
+      "description": "Me and my stuff",
+      "x-section-id": "Marketplace"
+    },
+    {
       "name": "Integration",
       "description": "Integration resources",
       "x-id": "Integration"
@@ -427,9 +432,7 @@
             "ImageWidth": 0,
             "ImageVerticalResolution": 0,
             "ImageHorizontalResolution": 0
-          },
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+          }
         },
         "properties": {
           "ID": {
@@ -469,13 +472,6 @@
               }
             ],
             "readOnly": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -500,9 +496,7 @@
             "ImageWidth": 0,
             "ImageVerticalResolution": 0,
             "ImageHorizontalResolution": 0
-          },
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+          }
         },
         "properties": {
           "ListOrderWithinType": {
@@ -546,13 +540,6 @@
               }
             ],
             "readOnly": true
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -3517,9 +3504,7 @@
               "ErrorCode": "",
               "Message": ""
             }
-          ],
-          "id": "",
-          "timeStamp": "2018-01-01T00:00:00-06:00"
+          ]
         },
         "properties": {
           "ErrorType": {
@@ -3538,12 +3523,14 @@
               "PatchGeneralError",
               "GetGeneralError",
               "AuthenticateSupplierError",
+              "FreightPopAuthenticateError",
               "GetOrdersNeedingShipmentError",
               "GetShipmentSyncOrders",
               "GetShipmentDetailsForShipmentSyncOrders",
               "CreateShipmentsInOrderCloudIfNeeded",
               "GetFreightPopShipments",
-              "NoRelatedOrderCloudOrderFound"
+              "NoRelatedOrderCloudOrderFound",
+              "ShipmentOrderIDParsingError"
             ],
             "type": "string"
           },
@@ -3604,13 +3591,6 @@
             "items": {
               "$ref": "#/components/schemas/ApiError"
             }
-          },
-          "id": {
-            "type": "string"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
@@ -5437,9 +5417,7 @@
                 "ImageWidth": 0,
                 "ImageVerticalResolution": 0,
                 "ImageHorizontalResolution": 0
-              },
-              "id": "",
-              "timeStamp": "2018-01-01T00:00:00-06:00"
+              }
             }
           ],
           "Attachments": [
@@ -5462,9 +5440,7 @@
                 "ImageWidth": 0,
                 "ImageVerticalResolution": 0,
                 "ImageHorizontalResolution": 0
-              },
-              "id": "",
-              "timeStamp": "2018-01-01T00:00:00-06:00"
+              }
             }
           ]
         },
@@ -8777,10 +8753,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OrderCloudIntegrationsConversionRate"
-                  }
+                  "$ref": "#/components/schemas/ListOrderCloudIntegrationsConversionRate"
                 }
               }
             }
@@ -9092,6 +9065,47 @@
           }
         },
         "summary": "POST Payment",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/me/products/{productID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Mes.GetSuperProduct",
+        "tags": [
+          "Mes"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET Super Product",
         "description": "",
         "security": [
           {
@@ -10472,7 +10486,7 @@
             }
           }
         },
-        "operationId": "Orders.GetOrderShipmentsWithItems",
+        "operationId": "Orders.ListShipmentsWithItems",
         "tags": [
           "Orders"
         ],
@@ -10640,6 +10654,37 @@
               "Shopper",
               "FullAccess"
             ]
+          }
+        ]
+      }
+    },
+    "/order/requestreturn/{orderID}": {
+      "patch": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Orders.RequestReturnEmail",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "ID of the order.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "PATCH Send return requested email",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
           }
         ]
       }

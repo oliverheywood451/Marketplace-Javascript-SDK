@@ -35,6 +35,9 @@ const postFormatModel: PostFormatModelHook = function(model, models) {
 }
 
 const postFormatOperation: PostFormatOperationHook = function(operation) {
+  if (operation['id'] === 'Orders.ListShipmentsWithItems') {
+    console.log(operation)
+  }
   // add prop.typescriptType to props on operations
   operation.allParams.forEach(param => {
     param['typescriptType'] = findTypeForOperationProps(param, operation)
@@ -43,6 +46,11 @@ const postFormatOperation: PostFormatOperationHook = function(operation) {
   operation.queryParams.forEach(param => {
     param['typescriptType'] = findTypeForOperationProps(param, operation)
   })
+
+  if (operation['verb'] === 'get' && operation.returnType?.startsWith('List')) {
+    operation['isList'] = true
+    //operation['returnType'] = operation.returnType.substring(4)
+  }
 
   if (operation.isList) {
     // instead of the many similar list models that the spec spits out
