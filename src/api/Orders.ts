@@ -16,7 +16,7 @@ export default class Orders {
     constructor() {
         this.GetOrderDetails = this.GetOrderDetails.bind(this);
         this.UpsertLineItem = this.UpsertLineItem.bind(this);
-        this.ListShipmentsWithItems = this.ListShipmentsWithItems.bind(this);
+        this.GetOrderShipmentsWithItems = this.GetOrderShipmentsWithItems.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
         this.ListLocationOrders = this.ListLocationOrders.bind(this);
         this.RequestReturnEmail = this.RequestReturnEmail.bind(this);
@@ -47,7 +47,7 @@ export default class Orders {
     * @param orderID ID of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListShipmentsWithItems(orderID: string,  accessToken?: string ): Promise<void> {
+    public async GetOrderShipmentsWithItems(orderID: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/order/${orderID}/shipmentswithitems`, { params: {  accessToken, impersonating } } );

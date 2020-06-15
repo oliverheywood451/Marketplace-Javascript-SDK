@@ -78,11 +78,6 @@
       "x-section-id": "Marketplace"
     },
     {
-      "name": "Mes",
-      "description": "Me and my stuff",
-      "x-section-id": "Marketplace"
-    },
-    {
       "name": "Integration",
       "description": "Integration resources",
       "x-id": "Integration"
@@ -1178,7 +1173,7 @@
             "Resolved": false
           },
           "LineItemImageUrl": "",
-          "ProductUnitPrice": 0
+          "UnitPriceInProductCurrency": 0
         },
         "properties": {
           "LineItemReturnInfo": {
@@ -1191,7 +1186,7 @@
           "LineItemImageUrl": {
             "type": "string"
           },
-          "ProductUnitPrice": {
+          "UnitPriceInProductCurrency": {
             "type": "number",
             "format": "float"
           }
@@ -1720,7 +1715,7 @@
               "Resolved": false
             },
             "LineItemImageUrl": "",
-            "ProductUnitPrice": 0
+            "UnitPriceInProductCurrency": 0
           },
           "Product": {
             "xp": {
@@ -9076,47 +9071,6 @@
         ]
       }
     },
-    "/me/products/{productID}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Mes.GetSuperProduct",
-        "tags": [
-          "Mes"
-        ],
-        "parameters": [
-          {
-            "name": "productID",
-            "in": "path",
-            "description": "ID of the product.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "GET Super Product",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "Shopper",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
     "/orchestration/{clientId}/{buyerId}/address": {
       "post": {
         "responses": {
@@ -10486,7 +10440,7 @@
             }
           }
         },
-        "operationId": "Orders.ListShipmentsWithItems",
+        "operationId": "Orders.GetOrderShipmentsWithItems",
         "tags": [
           "Orders"
         ],
