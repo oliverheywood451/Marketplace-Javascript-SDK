@@ -1167,6 +1167,7 @@
       "LineItemXp": {
         "type": "object",
         "example": {
+          "LineItemStatus": "Complete",
           "LineItemReturnInfo": {
             "QuantityToReturn": 0,
             "ReturnReason": "",
@@ -1176,6 +1177,17 @@
           "UnitPriceInProductCurrency": 0
         },
         "properties": {
+          "LineItemStatus": {
+            "enum": [
+              "Complete",
+              "Submitted",
+              "Open",
+              "Backordered",
+              "Cancelled",
+              "Returned"
+            ],
+            "type": "string"
+          },
           "LineItemReturnInfo": {
             "allOf": [
               {
@@ -1709,6 +1721,7 @@
         "type": "object",
         "example": {
           "xp": {
+            "LineItemStatus": "Complete",
             "LineItemReturnInfo": {
               "QuantityToReturn": 0,
               "ReturnReason": "",
@@ -2030,7 +2043,10 @@
               "RMANumber": "",
               "Resolved": false
             },
-            "Currency": "CAD"
+            "Currency": "CAD",
+            "ShippingStatus": "Shipped",
+            "LineItemStatus": "Complete",
+            "ClaimStatus": "NoClaim"
           },
           "FromUser": {
             "xp": {},
@@ -4032,7 +4048,10 @@
                 "RMANumber": "",
                 "Resolved": false
               },
-              "Currency": "CAD"
+              "Currency": "CAD",
+              "ShippingStatus": "Shipped",
+              "LineItemStatus": "Complete",
+              "ClaimStatus": "NoClaim"
             },
             "FromUser": {
               "xp": {},
@@ -4409,7 +4428,10 @@
             "RMANumber": "",
             "Resolved": false
           },
-          "Currency": "CAD"
+          "Currency": "CAD",
+          "ShippingStatus": "Shipped",
+          "LineItemStatus": "Complete",
+          "ClaimStatus": "NoClaim"
         },
         "properties": {
           "AvalaraTaxTransactionCode": {
@@ -4489,6 +4511,34 @@
               "ILS",
               "KRW",
               "PLN"
+            ],
+            "type": "string"
+          },
+          "ShippingStatus": {
+            "enum": [
+              "Shipped",
+              "PartiallyShipped",
+              "Cancelled",
+              "Processing"
+            ],
+            "type": "string"
+          },
+          "LineItemStatus": {
+            "enum": [
+              "Complete",
+              "Submitted",
+              "Open",
+              "Backordered",
+              "Cancelled",
+              "Returned"
+            ],
+            "type": "string"
+          },
+          "ClaimStatus": {
+            "enum": [
+              "NoClaim",
+              "Pending",
+              "Complete"
             ],
             "type": "string"
           }
