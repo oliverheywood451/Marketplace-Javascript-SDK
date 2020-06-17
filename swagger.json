@@ -78,6 +78,11 @@
       "x-section-id": "Marketplace"
     },
     {
+      "name": "Mes",
+      "description": "Me and my stuff",
+      "x-section-id": "Marketplace"
+    },
+    {
       "name": "Integration",
       "description": "Integration resources",
       "x-id": "Integration"
@@ -3147,17 +3152,6 @@
         "example": {
           "xp": {
             "Description": "",
-            "Images": [
-              {
-                "URL": "",
-                "Tag": {
-                  "VariantID": "",
-                  "Options": [
-                    ""
-                  ]
-                }
-              }
-            ],
             "SupportContact": {
               "Name": "",
               "Email": "",
@@ -4741,30 +4735,6 @@
           }
         }
       },
-      "ProductImage": {
-        "type": "object",
-        "example": {
-          "URL": "",
-          "Tag": {
-            "VariantID": "",
-            "Options": [
-              ""
-            ]
-          }
-        },
-        "properties": {
-          "URL": {
-            "type": "string"
-          },
-          "Tag": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Tag"
-              }
-            ]
-          }
-        }
-      },
       "ProductXp": {
         "type": "object",
         "example": {
@@ -5745,17 +5715,6 @@
         "type": "object",
         "example": {
           "Description": "",
-          "Images": [
-            {
-              "URL": "",
-              "Tag": {
-                "VariantID": "",
-                "Options": [
-                  ""
-                ]
-              }
-            }
-          ],
           "SupportContact": {
             "Name": "",
             "Email": "",
@@ -5768,12 +5727,6 @@
         "properties": {
           "Description": {
             "type": "string"
-          },
-          "Images": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductImage"
-            }
           },
           "SupportContact": {
             "allOf": [
@@ -5825,26 +5778,6 @@
               "PLN"
             ],
             "type": "string"
-          }
-        }
-      },
-      "Tag": {
-        "type": "object",
-        "example": {
-          "VariantID": "",
-          "Options": [
-            ""
-          ]
-        },
-        "properties": {
-          "VariantID": {
-            "type": "string"
-          },
-          "Options": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
@@ -9121,6 +9054,47 @@
         ]
       }
     },
+    "/me/products/{productID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperMarketplaceProduct"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Mes.GetSuperProduct",
+        "tags": [
+          "Mes"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET Super Product",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/orchestration/{clientId}/{buyerId}/address": {
       "post": {
         "responses": {
@@ -10490,7 +10464,7 @@
             }
           }
         },
-        "operationId": "Orders.GetOrderShipmentsWithItems",
+        "operationId": "Orders.ListShipmentsWithItems",
         "tags": [
           "Orders"
         ],
