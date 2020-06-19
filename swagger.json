@@ -48,6 +48,11 @@
       "x-section-id": "Marketplace"
     },
     {
+      "name": "Catalogs",
+      "description": "\"Marketplace Catalogs\" for product groupings and visibility in Marketplace",
+      "x-section-id": "Marketplace"
+    },
+    {
       "name": "Orders",
       "description": "\"Marketplace Orders\" for handling order commands in Marketplace",
       "x-section-id": "Marketplace"
@@ -749,8 +754,14 @@
       },
       "CatalogXp": {
         "type": "object",
-        "example": {},
-        "properties": {}
+        "example": {
+          "Type": ""
+        },
+        "properties": {
+          "Type": {
+            "type": "string"
+          }
+        }
       },
       "Contact": {
         "type": "object",
@@ -1188,7 +1199,7 @@
               "Submitted",
               "Open",
               "Backordered",
-              "Cancelled",
+              "Canceled",
               "Returned"
             ],
             "type": "string"
@@ -1266,6 +1277,20 @@
           "Count": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "ListMarketplaceCatalog": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketplaceCatalog"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
           }
         }
       },
@@ -1629,13 +1654,12 @@
       "MarketplaceCatalog": {
         "type": "object",
         "example": {
-          "xp": {},
+          "xp": {
+            "Type": ""
+          },
           "ID": "",
-          "OwnerID": "",
           "Name": "",
-          "Description": "",
-          "Active": false,
-          "CategoryCount": 0
+          "Description": ""
         },
         "properties": {
           "xp": {
@@ -1648,23 +1672,11 @@
           "ID": {
             "type": "string"
           },
-          "OwnerID": {
-            "type": "string",
-            "readOnly": true
-          },
           "Name": {
             "type": "string"
           },
           "Description": {
             "type": "string"
-          },
-          "Active": {
-            "type": "boolean"
-          },
-          "CategoryCount": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
           }
         }
       },
@@ -2050,7 +2062,6 @@
             },
             "Currency": "CAD",
             "ShippingStatus": "Shipped",
-            "LineItemStatus": "Complete",
             "ClaimStatus": "NoClaim"
           },
           "FromUser": {
@@ -4044,7 +4055,6 @@
               },
               "Currency": "CAD",
               "ShippingStatus": "Shipped",
-              "LineItemStatus": "Complete",
               "ClaimStatus": "NoClaim"
             },
             "FromUser": {
@@ -4424,7 +4434,6 @@
           },
           "Currency": "CAD",
           "ShippingStatus": "Shipped",
-          "LineItemStatus": "Complete",
           "ClaimStatus": "NoClaim"
         },
         "properties": {
@@ -4512,19 +4521,9 @@
             "enum": [
               "Shipped",
               "PartiallyShipped",
-              "Cancelled",
-              "Processing"
-            ],
-            "type": "string"
-          },
-          "LineItemStatus": {
-            "enum": [
-              "Complete",
-              "Submitted",
-              "Open",
-              "Backordered",
-              "Cancelled",
-              "Returned"
+              "Canceled",
+              "Processing",
+              "Backordered"
             ],
             "type": "string"
           },
@@ -7908,6 +7907,272 @@
         ]
       }
     },
+    "/buyers/{buyerID}/catalogs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMarketplaceCatalog"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Catalogs.List",
+        "tags": [
+          "Catalogs"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "LIST Catalogs",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "ProductReader",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyers/{buyerID}/catalogs/{catalogID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceCatalog"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Catalogs.Get",
+        "tags": [
+          "Catalogs"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET Catalog",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "ProductReader",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceCatalog"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Catalogs.Put",
+        "tags": [
+          "Catalogs"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MarketplaceCatalog"
+                  }
+                ],
+                "required": [
+                  "Name"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "PUT Catalog",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Catalogs.Delete",
+        "tags": [
+          "Catalogs"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "DELETE Catalog",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/buyers/{buyerID}/creditcards": {
       "post": {
         "responses": {
@@ -7995,6 +8260,65 @@
         "security": [
           {
             "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/buyers/buyers/{buyerID}/catalogs": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceCatalog"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Catalogs.Post",
+        "tags": [
+          "Catalogs"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MarketplaceCatalog"
+                  }
+                ],
+                "required": [
+                  "Name"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "POST Catalog",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
           }
         ]
       }

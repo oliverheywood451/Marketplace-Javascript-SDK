@@ -2,6 +2,7 @@ import OrchestrationProducts from './OrchestrationProducts';
 import OrchestrationUsers from './OrchestrationUsers';
 import OrchestrationLogs from './OrchestrationLogs';
 import Buyers from './Buyers';
+import Catalogs from './Catalogs';
 import Orders from './Orders';
 import Shipments from './Shipments';
 import Suppliers from './Suppliers';
@@ -34,6 +35,7 @@ const MarketplaceSDK: MarketplaceSDK = {
     OrchestrationUsers : new OrchestrationUsers(),
     OrchestrationLogs : new OrchestrationLogs(),
     Buyers : new Buyers(),
+    Catalogs : new Catalogs(),
     Orders : new Orders(),
     Shipments : new Shipments(),
     Suppliers : new Suppliers(),
@@ -65,6 +67,7 @@ interface MarketplaceSDK {
     OrchestrationUsers : OrchestrationUsers,
     OrchestrationLogs : OrchestrationLogs,
     Buyers : Buyers,
+    Catalogs : Catalogs,
     Orders : Orders,
     Shipments : Shipments,
     Suppliers : Suppliers,

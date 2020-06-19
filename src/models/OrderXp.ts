@@ -11,7 +11,6 @@ export interface OrderXp {
     QuoteOrderInfo?: QuoteOrderInfo
     OrderReturnInfo?: OrderReturnInfo
     Currency?: 'CAD' | 'HKD' | 'ISK' | 'PHP' | 'DKK' | 'HUF' | 'CZK' | 'GBP' | 'RON' | 'SEK' | 'IDR' | 'INR' | 'BRL' | 'RUB' | 'HRK' | 'JPY' | 'THB' | 'CHF' | 'EUR' | 'MYR' | 'BGN' | 'TRY' | 'CNY' | 'NOK' | 'NZD' | 'ZAR' | 'USD' | 'MXN' | 'SGD' | 'AUD' | 'ILS' | 'KRW' | 'PLN'
-    ShippingStatus?: 'Shipped' | 'PartiallyShipped' | 'Cancelled' | 'Processing'
-    LineItemStatus?: 'Complete' | 'Submitted' | 'Open' | 'Backordered' | 'Cancelled' | 'Returned'
+    ShippingStatus?: 'Shipped' | 'PartiallyShipped' | 'Canceled' | 'Processing' | 'Backordered'
     ClaimStatus?: 'NoClaim' | 'Pending' | 'Complete'
 }
