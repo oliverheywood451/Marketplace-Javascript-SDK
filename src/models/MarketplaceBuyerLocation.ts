@@ -1,7 +1,7 @@
-import { MarketplaceUserGroup } from './MarketplaceUserGroup';
+import { MarketplaceLocationUserGroup } from './MarketplaceLocationUserGroup';
 import { MarketplaceAddressBuyer } from './MarketplaceAddressBuyer';
 
 export interface MarketplaceBuyerLocation {
-    UserGroup?: MarketplaceUserGroup
+    UserGroup?: MarketplaceLocationUserGroup
     Address?: MarketplaceAddressBuyer
 }

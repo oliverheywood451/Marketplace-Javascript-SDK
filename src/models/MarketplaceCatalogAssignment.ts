@@ -1,8 +1,6 @@
 
 export interface MarketplaceCatalogAssignment {
     ID?: string
+    LocationID?: string
     CatalogID?: string
-    BuyerID?: string
-    ViewAllCategories?: boolean
-    ViewAllProducts?: boolean
 }

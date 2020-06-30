@@ -1294,6 +1294,20 @@
           }
         }
       },
+      "ListMarketplaceCatalogAssignment": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketplaceCatalogAssignment"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
       "ListMarketplaceUser": {
         "type": "object",
         "properties": {
@@ -1603,7 +1617,10 @@
             "xp": {
               "Type": "",
               "Role": "",
-              "Currency": "CAD"
+              "Currency": "CAD",
+              "CatalogAssignments": [
+                ""
+              ]
             },
             "ID": "",
             "Name": "",
@@ -1638,7 +1655,7 @@
           "UserGroup": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/MarketplaceUserGroup"
+                "$ref": "#/components/schemas/MarketplaceLocationUserGroup"
               }
             ]
           },
@@ -1684,26 +1701,34 @@
         "type": "object",
         "example": {
           "ID": "",
-          "CatalogID": "",
-          "BuyerID": "",
-          "ViewAllCategories": false,
-          "ViewAllProducts": false
+          "LocationID": "",
+          "CatalogID": ""
         },
         "properties": {
           "ID": {
             "type": "string"
           },
+          "LocationID": {
+            "type": "string"
+          },
           "CatalogID": {
             "type": "string"
-          },
-          "BuyerID": {
-            "type": "string"
-          },
-          "ViewAllCategories": {
-            "type": "boolean"
-          },
-          "ViewAllProducts": {
-            "type": "boolean"
+          }
+        }
+      },
+      "MarketplaceCatalogAssignmentRequest": {
+        "type": "object",
+        "example": {
+          "CatalogIDs": [
+            ""
+          ]
+        },
+        "properties": {
+          "CatalogIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -2031,6 +2056,103 @@
           "ShipLength": {
             "type": "number",
             "format": "float"
+          }
+        }
+      },
+      "MarketplaceLocationUserGroup": {
+        "type": "object",
+        "example": {
+          "xp": {
+            "Type": "",
+            "Role": "",
+            "Currency": "CAD",
+            "CatalogAssignments": [
+              ""
+            ]
+          },
+          "ID": "",
+          "Name": "",
+          "Description": ""
+        },
+        "properties": {
+          "xp": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceLocationUserGroupXp"
+              }
+            ]
+          },
+          "ID": {
+            "type": "string"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          }
+        }
+      },
+      "MarketplaceLocationUserGroupXp": {
+        "type": "object",
+        "example": {
+          "Type": "",
+          "Role": "",
+          "Currency": "CAD",
+          "CatalogAssignments": [
+            ""
+          ]
+        },
+        "properties": {
+          "Type": {
+            "type": "string"
+          },
+          "Role": {
+            "type": "string"
+          },
+          "Currency": {
+            "enum": [
+              "CAD",
+              "HKD",
+              "ISK",
+              "PHP",
+              "DKK",
+              "HUF",
+              "CZK",
+              "GBP",
+              "RON",
+              "SEK",
+              "IDR",
+              "INR",
+              "BRL",
+              "RUB",
+              "HRK",
+              "JPY",
+              "THB",
+              "CHF",
+              "EUR",
+              "MYR",
+              "BGN",
+              "TRY",
+              "CNY",
+              "NOK",
+              "NZD",
+              "ZAR",
+              "USD",
+              "MXN",
+              "SGD",
+              "AUD",
+              "ILS",
+              "KRW",
+              "PLN"
+            ],
+            "type": "string"
+          },
+          "CatalogAssignments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -3281,8 +3403,7 @@
         "example": {
           "xp": {
             "Type": "",
-            "Role": "",
-            "Currency": "CAD"
+            "Role": ""
           },
           "ID": "",
           "Name": "",
@@ -5971,52 +6092,13 @@
         "type": "object",
         "example": {
           "Type": "",
-          "Role": "",
-          "Currency": "CAD"
+          "Role": ""
         },
         "properties": {
           "Type": {
             "type": "string"
           },
           "Role": {
-            "type": "string"
-          },
-          "Currency": {
-            "enum": [
-              "CAD",
-              "HKD",
-              "ISK",
-              "PHP",
-              "DKK",
-              "HUF",
-              "CZK",
-              "GBP",
-              "RON",
-              "SEK",
-              "IDR",
-              "INR",
-              "BRL",
-              "RUB",
-              "HRK",
-              "JPY",
-              "THB",
-              "CHF",
-              "EUR",
-              "MYR",
-              "BGN",
-              "TRY",
-              "CNY",
-              "NOK",
-              "NZD",
-              "ZAR",
-              "USD",
-              "MXN",
-              "SGD",
-              "AUD",
-              "ILS",
-              "KRW",
-              "PLN"
-            ],
             "type": "string"
           }
         }
@@ -7470,6 +7552,64 @@
         ]
       }
     },
+    "/buyers/{buyerID}/{locationID}/catalogs/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Catalogs.SetAssignments",
+        "tags": [
+          "Catalogs"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MarketplaceCatalogAssignmentRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Set catalog assignments for a location",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "UserGroupAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/buyers/{buyerID}/addresses": {
       "post": {
         "responses": {
@@ -8002,13 +8142,70 @@
             }
           }
         ],
-        "summary": "LIST Catalogs",
+        "summary": "GET a list of Catalogs",
         "description": "",
         "security": [
           {
             "OAuth2": [
               "ProductAdmin",
               "ProductReader",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceCatalog"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Catalogs.Post",
+        "tags": [
+          "Catalogs"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MarketplaceCatalog"
+                  }
+                ],
+                "required": [
+                  "Name"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Create a new Catalog",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
               "FullAccess"
             ]
           }
@@ -8053,7 +8250,7 @@
             }
           }
         ],
-        "summary": "GET Catalog",
+        "summary": "GET a single Catalog",
         "description": "",
         "security": [
           {
@@ -8173,6 +8370,169 @@
         ]
       }
     },
+    "/buyers/{buyerID}/catalogs/assignments": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListMarketplaceCatalogAssignment"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Catalogs.GetAssignments",
+        "tags": [
+          "Catalogs"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "catalogID",
+            "in": "query",
+            "description": "ID of the catalog.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationID",
+            "in": "query",
+            "description": "ID of the location.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get a list of catalog location assignments",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyers/{buyerID}/catalogs/user/{userID}/location/{locationID}/Add": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Catalogs.SyncOnAddToLocation",
+        "tags": [
+          "Catalogs"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "ID of the user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "SYNC User Location Catalogs On Add To Location",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyers/{buyerID}/catalogs/user/{userID}/location/{locationID}/Remove": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Catalogs.SyncOnRemoveFromLocation",
+        "tags": [
+          "Catalogs"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "ID of the user.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "SYNC User Location Catalogs On Remove From Location",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "ProductAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/buyers/{buyerID}/creditcards": {
       "post": {
         "responses": {
@@ -8260,65 +8620,6 @@
         "security": [
           {
             "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/buyers/buyers/{buyerID}/catalogs": {
-      "post": {
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MarketplaceCatalog"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Catalogs.Post",
-        "tags": [
-          "Catalogs"
-        ],
-        "requestBody": {
-          "required": true,
-          "description": "",
-          "content": {
-            "application/json": {
-              "schema": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/MarketplaceCatalog"
-                  }
-                ],
-                "required": [
-                  "Name"
-                ]
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "buyerID",
-            "in": "path",
-            "description": "ID of the buyer.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "POST Catalog",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "ProductAdmin",
-              "FullAccess"
-            ]
           }
         ]
       }
@@ -9971,10 +10272,6 @@
                   {
                     "$ref": "#/components/schemas/MarketplaceCatalogAssignment"
                   }
-                ],
-                "required": [
-                  "CatalogID",
-                  "BuyerID"
                 ]
               }
             }
@@ -10848,7 +11145,10 @@
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "OrderAdmin",
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -10961,7 +11261,7 @@
       }
     },
     "/order/requestreturn/{orderID}": {
-      "patch": {
+      "post": {
         "responses": {
           "204": {
             "description": ""
@@ -10982,11 +11282,14 @@
             }
           }
         ],
-        "summary": "PATCH Send return requested email",
+        "summary": "Send return requested email",
         "description": "",
         "security": [
           {
-            "OAuth2": []
+            "OAuth2": [
+              "Shopper",
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -12158,6 +12461,47 @@
           {
             "OAuth2": [
               "SupplierAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/supplier/candelete/{locationID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Suppliers.CanDeleteLocation",
+        "tags": [
+          "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "locationID",
+            "in": "path",
+            "description": "ID of the location.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET If Location Deletable",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "SupplierAddressAdmin",
               "FullAccess"
             ]
           }

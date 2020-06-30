@@ -43,7 +43,7 @@ export default class OrchestrationProducts {
 
    /**
     * @param clientId Client id of the marketplace catalog assignment.
-    * @param marketplaceCatalogAssignment Required fields: CatalogID, BuyerID
+    * @param marketplaceCatalogAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async PostCatalogProductAssignment(clientId: string, marketplaceCatalogAssignment: MarketplaceCatalogAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalogAssignment>> {

@@ -86,7 +86,7 @@ export default class Orders {
     public async RequestReturnEmail(orderID: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.patch(`/order/requestreturn/${orderID}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/order/requestreturn/${orderID}`, {}, { params: {  accessToken, impersonating } } );
     }
 
     /**

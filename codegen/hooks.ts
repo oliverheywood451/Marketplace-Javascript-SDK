@@ -72,7 +72,12 @@ const postFormatOperation: PostFormatOperationHook = function(operation) {
     operation.fileImports = [...new Set(newImports)] // unique array
   }
 
-  if (operation.verb == 'post' && operation.bodyParam == null) {
+  const operationExpectsBody: boolean =
+    operation.verb == 'post' ||
+    operation.verb == 'put' ||
+    operation.verb == 'patch'
+
+  if (operationExpectsBody && operation.bodyParam == null) {
     operation.hasBodyParam = true
     operation.bodyParam = { name: '{}' } as Param
   }

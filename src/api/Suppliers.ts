@@ -12,6 +12,7 @@ export default class Suppliers {
     */
     constructor() {
         this.Create = this.Create.bind(this);
+        this.CanDeleteLocation = this.CanDeleteLocation.bind(this);
         this.GetMySupplier = this.GetMySupplier.bind(this);
     }
 
@@ -23,6 +24,16 @@ export default class Suppliers {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/supplier`, marketplaceSupplier, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param locationID ID of the location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async CanDeleteLocation(locationID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/supplier/candelete/${locationID}`, { params: {  accessToken, impersonating } } );
     }
 
    /**

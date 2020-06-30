@@ -1,5 +1,7 @@
+import { MarketplaceCatalogAssignmentRequest } from '../models/MarketplaceCatalogAssignmentRequest';
 import { ListPage } from '../models/ListPage';
 import { MarketplaceCatalog } from '../models/MarketplaceCatalog';
+import { MarketplaceCatalogAssignment } from '../models/MarketplaceCatalogAssignment';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -12,11 +14,27 @@ export default class Catalogs {
     * not part of public api, don't include in generated docs
     */
     constructor() {
+        this.SetAssignments = this.SetAssignments.bind(this);
         this.List = this.List.bind(this);
+        this.Post = this.Post.bind(this);
         this.Get = this.Get.bind(this);
         this.Put = this.Put.bind(this);
         this.Delete = this.Delete.bind(this);
-        this.Post = this.Post.bind(this);
+        this.GetAssignments = this.GetAssignments.bind(this);
+        this.SyncOnAddToLocation = this.SyncOnAddToLocation.bind(this);
+        this.SyncOnRemoveFromLocation = this.SyncOnRemoveFromLocation.bind(this);
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param locationID ID of the location.
+    * @param marketplaceCatalogAssignmentRequest 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SetAssignments(buyerID: string, locationID: string, marketplaceCatalogAssignmentRequest: MarketplaceCatalogAssignmentRequest, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/buyers/${buyerID}/${locationID}/catalogs/assignments`, marketplaceCatalogAssignmentRequest, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -33,6 +51,17 @@ export default class Catalogs {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/catalogs`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param marketplaceCatalog Required fields: Name
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async Post(buyerID: string, marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/buyers/${buyerID}/catalogs`, marketplaceCatalog, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -71,13 +100,38 @@ export default class Catalogs {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param marketplaceCatalog Required fields: Name
+    * @param options.catalogID ID of the catalog.
+    * @param options.locationID ID of the location.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(buyerID: string, marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+    public async GetAssignments(buyerID: string,  options: ListArgs<MarketplaceCatalogAssignment> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceCatalogAssignment>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/buyers/${buyerID}/catalogs`, marketplaceCatalog, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/buyers/${buyerID}/catalogs/assignments`, { params: { ...options,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param userID ID of the user.
+    * @param locationID ID of the location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SyncOnAddToLocation(buyerID: string, userID: string, locationID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/buyers/${buyerID}/catalogs/user/${userID}/location/${locationID}/Add`, {}, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param userID ID of the user.
+    * @param locationID ID of the location.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SyncOnRemoveFromLocation(buyerID: string, userID: string, locationID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/buyers/${buyerID}/catalogs/user/${userID}/location/${locationID}/Remove`, {}, { params: {  accessToken, impersonating } } );
     }
 
     /**
