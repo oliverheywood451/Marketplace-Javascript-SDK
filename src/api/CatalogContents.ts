@@ -1,5 +1,6 @@
 import { ListPage } from '../models/ListPage';
 import { AssetForDelivery } from '../models/AssetForDelivery';
+import { Document } from '../models/Document';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -17,6 +18,9 @@ export default class CatalogContents {
         this.DeleteAssetAssignment = this.DeleteAssetAssignment.bind(this);
         this.MoveAssetAssignment = this.MoveAssetAssignment.bind(this);
         this.GetFirstImage = this.GetFirstImage.bind(this);
+        this.ListDocuments = this.ListDocuments.bind(this);
+        this.SaveDocumentAssignment = this.SaveDocumentAssignment.bind(this);
+        this.DeleteDocumentAssignment = this.DeleteDocumentAssignment.bind(this);
     }
 
    /**
@@ -77,6 +81,47 @@ export default class CatalogContents {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/catalogs/${catalogID}/image`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param catalogID ID of the catalog.
+    * @param schemaID ID of the schema.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListDocuments(catalogID: string, schemaID: string,  options: ListArgs<Document> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<Document>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/catalogs/${catalogID}/schemas/${schemaID}/documents`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+   /**
+    * @param catalogID ID of the catalog.
+    * @param schemaID ID of the schema.
+    * @param documentID ID of the document.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SaveDocumentAssignment(catalogID: string, schemaID: string, documentID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/catalogs/${catalogID}/schemas/${schemaID}/documents/${documentID}/assignments`, {}, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param catalogID ID of the catalog.
+    * @param schemaID ID of the schema.
+    * @param documentID ID of the document.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async DeleteDocumentAssignment(catalogID: string, schemaID: string, documentID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.delete(`/catalogs/${catalogID}/schemas/${schemaID}/documents/${documentID}/assignments`, { params: {  accessToken, impersonating } } );
     }
 
     /**

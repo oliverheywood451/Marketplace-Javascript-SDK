@@ -1,6 +1,7 @@
+import { SupplierCategoriesFilterItem } from './SupplierCategoriesFilterItem';
 
 export interface SupplierCategoriesFilter {
     Display?: string
     Path?: string
-    Values?: string[]
+    Items?: SupplierCategoriesFilterItem[]
 }

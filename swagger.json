@@ -166,6 +166,16 @@
       "name": "Supplier Contents",
       "description": "",
       "x-section-id": "Content"
+    },
+    {
+      "name": "Document Schemas",
+      "description": "\"Integration\" represents Document Schemas",
+      "x-section-id": "Content"
+    },
+    {
+      "name": "Documents",
+      "description": "\"Integration\" represents Documents",
+      "x-section-id": "Content"
     }
   ],
   "components": {
@@ -444,7 +454,8 @@
             "type": "string"
           },
           "Title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "Active": {
             "type": "boolean"
@@ -512,7 +523,8 @@
             "type": "string"
           },
           "Title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 100
           },
           "Active": {
             "type": "boolean"
@@ -747,10 +759,29 @@
           }
         }
       },
+      "BuyerMarkup": {
+        "type": "object",
+        "example": {
+          "Percent": 0
+        },
+        "properties": {
+          "Percent": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "BuyerXp": {
         "type": "object",
-        "example": {},
-        "properties": {}
+        "example": {
+          "MarkupPercent": 0
+        },
+        "properties": {
+          "MarkupPercent": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
       },
       "CatalogXp": {
         "type": "object",
@@ -822,6 +853,59 @@
           "ExpirationDate": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "Document": {
+        "type": "object",
+        "example": {
+          "ID": "",
+          "$schema": "",
+          "Doc": {}
+        },
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "$schema": {
+            "type": "string",
+            "readOnly": true
+          },
+          "Doc": {
+            "type": "object"
+          }
+        }
+      },
+      "DocumentSchema": {
+        "type": "object",
+        "example": {
+          "ID": "",
+          "RestrictedAssignmentTypes": [
+            "Products"
+          ],
+          "Schema": {}
+        },
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "RestrictedAssignmentTypes": {
+            "type": "string",
+            "enum": [
+              "Products",
+              "Categories",
+              "Catalogs",
+              "Promotions",
+              "Suppliers",
+              "Buyers",
+              "ProductFacets"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "Schema": {
+            "type": "object"
           }
         }
       },
@@ -1087,6 +1171,7 @@
         "example": {
           "QuantityToReturn": 0,
           "ReturnReason": "",
+          "Comment": "",
           "Resolved": false
         },
         "properties": {
@@ -1095,6 +1180,9 @@
             "format": "int32"
           },
           "ReturnReason": {
+            "type": "string"
+          },
+          "Comment": {
             "type": "string"
           },
           "Resolved": {
@@ -1187,6 +1275,7 @@
           "LineItemReturnInfo": {
             "QuantityToReturn": 0,
             "ReturnReason": "",
+            "Comment": "",
             "Resolved": false
           },
           "LineItemImageUrl": "",
@@ -1200,7 +1289,8 @@
               "Open",
               "Backordered",
               "Canceled",
-              "Returned"
+              "Returned",
+              "ReturnRequested"
             ],
             "type": "string"
           },
@@ -1241,6 +1331,34 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AssetForDelivery"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListDocument": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Document"
+            }
+          },
+          "Meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        }
+      },
+      "ListDocumentSchema": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentSchema"
             }
           },
           "Meta": {
@@ -1576,7 +1694,9 @@
       "MarketplaceBuyer": {
         "type": "object",
         "example": {
-          "xp": {},
+          "xp": {
+            "MarkupPercent": 0
+          },
           "ID": "",
           "Name": "",
           "DefaultCatalogID": "",
@@ -1618,6 +1738,7 @@
               "Type": "",
               "Role": "",
               "Currency": "CAD",
+              "Country": "",
               "CatalogAssignments": [
                 ""
               ]
@@ -1767,6 +1888,7 @@
             "LineItemReturnInfo": {
               "QuantityToReturn": 0,
               "ReturnReason": "",
+              "Comment": "",
               "Resolved": false
             },
             "LineItemImageUrl": "",
@@ -2066,6 +2188,7 @@
             "Type": "",
             "Role": "",
             "Currency": "CAD",
+            "Country": "",
             "CatalogAssignments": [
               ""
             ]
@@ -2099,6 +2222,7 @@
           "Type": "",
           "Role": "",
           "Currency": "CAD",
+          "Country": "",
           "CatalogAssignments": [
             ""
           ]
@@ -2148,6 +2272,9 @@
             ],
             "type": "string"
           },
+          "Country": {
+            "type": "string"
+          },
           "CatalogAssignments": {
             "type": "array",
             "items": {
@@ -2187,7 +2314,9 @@
             "ClaimStatus": "NoClaim"
           },
           "FromUser": {
-            "xp": {},
+            "xp": {
+              "Country": ""
+            },
             "ID": "",
             "Username": "",
             "Password": "",
@@ -3326,7 +3455,9 @@
       "MarketplaceUser": {
         "type": "object",
         "example": {
-          "xp": {},
+          "xp": {
+            "Country": ""
+          },
           "ID": "",
           "Username": "",
           "Password": "",
@@ -4179,7 +4310,9 @@
               "ClaimStatus": "NoClaim"
             },
             "FromUser": {
-              "xp": {},
+              "xp": {
+                "Country": ""
+              },
               "ID": "",
               "Username": "",
               "Password": "",
@@ -5406,6 +5539,40 @@
           }
         }
       },
+      "SuperMarketplaceBuyer": {
+        "type": "object",
+        "example": {
+          "Buyer": {
+            "xp": {
+              "MarkupPercent": 0
+            },
+            "ID": "",
+            "Name": "",
+            "DefaultCatalogID": "",
+            "Active": false,
+            "DateCreated": "2018-01-01T00:00:00-06:00"
+          },
+          "Markup": {
+            "Percent": 0
+          }
+        },
+        "properties": {
+          "Buyer": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketplaceBuyer"
+              }
+            ]
+          },
+          "Markup": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuyerMarkup"
+              }
+            ]
+          }
+        }
+      },
       "SuperMarketplaceProduct": {
         "type": "object",
         "example": {
@@ -5777,8 +5944,11 @@
         "example": {
           "Display": "",
           "Path": "",
-          "Values": [
-            ""
+          "Items": [
+            {
+              "Text": "",
+              "Value": ""
+            }
           ]
         },
         "properties": {
@@ -5788,11 +5958,26 @@
           "Path": {
             "type": "string"
           },
-          "Values": {
+          "Items": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/SupplierCategoriesFilterItem"
             }
+          }
+        }
+      },
+      "SupplierCategoriesFilterItem": {
+        "type": "object",
+        "example": {
+          "Text": "",
+          "Value": ""
+        },
+        "properties": {
+          "Text": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
           }
         }
       },
@@ -5806,8 +5991,11 @@
             {
               "Display": "",
               "Path": "",
-              "Values": [
-                ""
+              "Items": [
+                {
+                  "Text": "",
+                  "Value": ""
+                }
               ]
             }
           ]
@@ -6105,8 +6293,14 @@
       },
       "UserXp": {
         "type": "object",
-        "example": {},
-        "properties": {}
+        "example": {
+          "Country": ""
+        },
+        "properties": {
+          "Country": {
+            "type": "string"
+          }
+        }
       },
       "VariantInventory": {
         "type": "object",
@@ -6902,12 +7096,12 @@
     "/buyer": {
       "post": {
         "responses": {
-          "201": {
+          "200": {
             "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MarketplaceBuyer"
+                  "$ref": "#/components/schemas/SuperMarketplaceBuyer"
                 }
               }
             }
@@ -6925,11 +7119,8 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/MarketplaceBuyer"
+                    "$ref": "#/components/schemas/SuperMarketplaceBuyer"
                   }
-                ],
-                "required": [
-                  "Name"
                 ]
               }
             }
@@ -6937,6 +7128,101 @@
         },
         "summary": "POST Marketplace Buyer",
         "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
+        "security": [
+          {
+            "OAuth2": [
+              "BuyerAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyer/{buyerID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperMarketplaceBuyer"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Buyers.Get",
+        "tags": [
+          "Buyers"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "GET Marketplace Buyer",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "BuyerAdmin",
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuperMarketplaceBuyer"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Buyers.Put",
+        "tags": [
+          "Buyers"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SuperMarketplaceBuyer"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "PUT Marketplace Buyer",
+        "description": "",
         "security": [
           {
             "OAuth2": [
@@ -8624,6 +8910,221 @@
         ]
       }
     },
+    "/buyers/{buyerID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "BuyerContents.ListDocuments",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/buyers/{buyerID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "BuyerContents.SaveDocumentAssignment",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "BuyerContents.DeleteDocumentAssignment",
+        "tags": [
+          "Buyer Contents"
+        ],
+        "parameters": [
+          {
+            "name": "buyerID",
+            "in": "path",
+            "description": "ID of the buyer.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/catalogs/{catalogID}/assets": {
       "get": {
         "responses": {
@@ -9178,6 +9679,248 @@
         ]
       }
     },
+    "/catalogs/{catalogID}/categories/{categoryID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "CategoryContents.ListDocuments",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/categories/{categoryID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CategoryContents.SaveDocumentAssignment",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CategoryContents.DeleteDocumentAssignment",
+        "tags": [
+          "Category Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryID",
+            "in": "path",
+            "description": "ID of the category.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/catalogs/{catalogID}/image": {
       "get": {
         "responses": {
@@ -9205,6 +9948,221 @@
         "security": [
           {
             "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "CatalogContents.ListDocuments",
+        "tags": [
+          "Catalog Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/catalogs/{catalogID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CatalogContents.SaveDocumentAssignment",
+        "tags": [
+          "Catalog Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "CatalogContents.DeleteDocumentAssignment",
+        "tags": [
+          "Catalog Contents"
+        ],
+        "parameters": [
+          {
+            "name": "catalogID",
+            "in": "path",
+            "description": "ID of the catalog.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -11564,6 +12522,221 @@
         ]
       }
     },
+    "/productFacets/{productFacetID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "FacetContents.ListDocuments",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/productFacets/{productFacetID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "FacetContents.SaveDocumentAssignment",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "FacetContents.DeleteDocumentAssignment",
+        "tags": [
+          "Facet Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productFacetID",
+            "in": "path",
+            "description": "ID of the product facet.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/products": {
       "get": {
         "responses": {
@@ -12104,6 +13277,221 @@
         ]
       }
     },
+    "/products/{productID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "ProductContents.ListDocuments",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/products/{productID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "ProductContents.SaveDocumentAssignment",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "ProductContents.DeleteDocumentAssignment",
+        "tags": [
+          "Product Contents"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "path",
+            "description": "ID of the product.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
     "/promotion/{promotionID}/assets": {
       "get": {
         "responses": {
@@ -12370,6 +13758,699 @@
         "security": [
           {
             "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/promotion/{promotionID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PromotionContents.ListDocuments",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/promotion/{promotionID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "PromotionContents.SaveDocumentAssignment",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "PromotionContents.DeleteDocumentAssignment",
+        "tags": [
+          "Promotion Contents"
+        ],
+        "parameters": [
+          {
+            "name": "promotionID",
+            "in": "path",
+            "description": "ID of the promotion.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/schemas": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocumentSchema"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "DocumentSchemas.List",
+        "tags": [
+          "Document Schemas"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Document Schemas",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/schemas/{schemaID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentSchema"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "DocumentSchemas.Get",
+        "tags": [
+          "Document Schemas"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get a Document Schema",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentSchema"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "DocumentSchemas.Update",
+        "tags": [
+          "Document Schemas"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DocumentSchema"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Update a Document Schema",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "DocumentSchemas.Delete",
+        "tags": [
+          "Document Schemas"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete a Document Schema",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Documents.List",
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Documents",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/schemas/{schemaID}/documents/{documentID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Documents.Get",
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Get a Document",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Documents.Update",
+        "tags": [
+          "Documents"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Document"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Update a Document",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Documents.Delete",
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Delete a Document",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }
@@ -13014,6 +15095,221 @@
         "security": [
           {
             "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/suppliers/{supplierID}/schemas/{schemaID}/documents": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "SupplierContents.ListDocuments",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Word or phrase to search for.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchOn",
+            "in": "query",
+            "description": "Comma-delimited list of fields to search on.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Comma-delimited list of fields to sort by.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ID"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page of results to return. Default: 1",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of results to return per page. Default: 20, max: 100.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+            "required": false,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "Get Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/suppliers/{supplierID}/schemas/{schemaID}/documents/{documentID}/assignments": {
+      "post": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "SupplierContents.SaveDocumentAssignment",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Assign Document to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "SupplierContents.DeleteDocumentAssignment",
+        "tags": [
+          "Supplier Contents"
+        ],
+        "parameters": [
+          {
+            "name": "supplierID",
+            "in": "path",
+            "description": "ID of the supplier.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentID",
+            "in": "path",
+            "description": "ID of the document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Remove Document from Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
           }
         ]
       }

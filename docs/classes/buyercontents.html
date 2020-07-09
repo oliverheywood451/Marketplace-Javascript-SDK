@@ -52,10 +52,13 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#as" class="tsd-kind-icon">As</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#deleteassetassignment" class="tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#deletedocumentassignment" class="tsd-kind-icon">Delete<wbr>Document<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#getfirstimage" class="tsd-kind-icon">Get<wbr>First<wbr>Image</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#listdocuments" class="tsd-kind-icon">List<wbr>Documents</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#moveassetassignment" class="tsd-kind-icon">Move<wbr>Asset<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#saveassetassignment" class="tsd-kind-icon">Save<wbr>Asset<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="buyercontents.html#savedocumentassignment" class="tsd-kind-icon">Save<wbr>Document<wbr>Assignment</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,6 +114,49 @@
 									<h5>assetID: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>ID of the asset.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="deletedocumentassignment" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Document<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Delete<wbr>Document<wbr>Assignment<span class="tsd-signature-symbol">(</span>buyerID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>buyerID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the buyer.</p>
+									</div>
+								</li>
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5>documentID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the document.</p>
 									</div>
 								</li>
 								<li>
@@ -186,6 +232,46 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/assetfordelivery.html" class="tsd-signature-type">AssetForDelivery</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listdocuments" class="tsd-anchor"></a>
+					<h3>List<wbr>Documents</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Documents<span class="tsd-signature-symbol">(</span>buyerID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>buyerID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the buyer.</p>
+									</div>
+								</li>
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -269,6 +355,49 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="savedocumentassignment" class="tsd-anchor"></a>
+					<h3>Save<wbr>Document<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Save<wbr>Document<wbr>Assignment<span class="tsd-signature-symbol">(</span>buyerID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>buyerID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the buyer.</p>
+									</div>
+								</li>
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5>documentID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the document.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -290,16 +419,25 @@
 								<a href="buyercontents.html#deleteassetassignment" class="tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="buyercontents.html#deletedocumentassignment" class="tsd-kind-icon">Delete<wbr>Document<wbr>Assignment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="buyercontents.html#getfirstimage" class="tsd-kind-icon">Get<wbr>First<wbr>Image</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="buyercontents.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="buyercontents.html#listdocuments" class="tsd-kind-icon">List<wbr>Documents</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="buyercontents.html#moveassetassignment" class="tsd-kind-icon">Move<wbr>Asset<wbr>Assignment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="buyercontents.html#saveassetassignment" class="tsd-kind-icon">Save<wbr>Asset<wbr>Assignment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="buyercontents.html#savedocumentassignment" class="tsd-kind-icon">Save<wbr>Document<wbr>Assignment</a>
 							</li>
 						</ul>
 					</li>

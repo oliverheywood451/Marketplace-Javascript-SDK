@@ -24,6 +24,8 @@ import FacetContents from './FacetContents';
 import ProductContents from './ProductContents';
 import PromotionContents from './PromotionContents';
 import SupplierContents from './SupplierContents';
+import DocumentSchemas from './DocumentSchemas';
+import Documents from './Documents';
 import Auth from './Auth';
 import Tokens from './Tokens';
 import Upload from './Upload';
@@ -57,6 +59,8 @@ const MarketplaceSDK: MarketplaceSDK = {
     ProductContents : new ProductContents(),
     PromotionContents : new PromotionContents(),
     SupplierContents : new SupplierContents(),
+    DocumentSchemas : new DocumentSchemas(),
+    Documents : new Documents(),
     Auth: new Auth(),
     Tokens: new Tokens(),
     Upload: new Upload()
@@ -89,6 +93,8 @@ interface MarketplaceSDK {
     ProductContents : ProductContents,
     PromotionContents : PromotionContents,
     SupplierContents : SupplierContents,
+    DocumentSchemas : DocumentSchemas,
+    Documents : Documents,
     Auth: Auth,
     Tokens: Tokens,
     Upload: Upload
