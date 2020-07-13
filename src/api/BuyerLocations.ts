@@ -1,4 +1,6 @@
 import { MarketplaceBuyerLocation } from '../models/MarketplaceBuyerLocation';
+import { LocationApprovalThresholdUpdate } from '../models/LocationApprovalThresholdUpdate';
+import { LocationPermissionUpdate } from '../models/LocationPermissionUpdate';
 import { ListPage } from '../models/ListPage';
 import { MarketplaceUser } from '../models/MarketplaceUser';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -95,13 +97,13 @@ export default class BuyerLocations {
    /**
     * @param buyerID ID of the buyer.
     * @param buyerLocationID ID of the buyer location.
-    * @param options.locationApprovalThresholdUpdate Location approval threshold update of the decimal.
+    * @param locationApprovalThresholdUpdate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SetLocationApprovalThreshold(buyerID: string, buyerLocationID: string,  locationApprovalThresholdUpdate: any, accessToken?: string ): Promise<void> {
+    public async SetLocationApprovalThreshold(buyerID: string, buyerLocationID: string, locationApprovalThresholdUpdate: LocationApprovalThresholdUpdate, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyerlocations/${buyerID}/${buyerLocationID}/approvalthreshold`, {}, { params: { locationApprovalThresholdUpdate,  accessToken, impersonating } } );
+        return await httpClient.post(`/buyerlocations/${buyerID}/${buyerLocationID}/approvalthreshold`, locationApprovalThresholdUpdate, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -118,13 +120,13 @@ export default class BuyerLocations {
    /**
     * @param buyerID ID of the buyer.
     * @param buyerLocationID ID of the buyer location.
-    * @param options.locationPermissionUpdate Location permission update of the user group assignment.
+    * @param locationPermissionUpdate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async UpdateLocationPermissions(buyerID: string, buyerLocationID: string,  locationPermissionUpdate: any, accessToken?: string ): Promise<void> {
+    public async UpdateLocationPermissions(buyerID: string, buyerLocationID: string, locationPermissionUpdate: LocationPermissionUpdate, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyerlocations/${buyerID}/${buyerLocationID}/permissions`, {}, { params: { locationPermissionUpdate,  accessToken, impersonating } } );
+        return await httpClient.post(`/buyerlocations/${buyerID}/${buyerLocationID}/permissions`, locationPermissionUpdate, { params: {  accessToken, impersonating } } );
     }
 
    /**

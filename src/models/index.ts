@@ -23,6 +23,8 @@ export * from './LineItemVariant';
 export * from './LineItemXp';
 export * from './ListFacet';
 export * from './ListFacetValue';
+export * from './LocationApprovalThresholdUpdate';
+export * from './LocationPermissionUpdate';
 export * from './MarketplaceAddressAssignment';
 export * from './MarketplaceAddressBuyer';
 export * from './MarketplaceAddressSupplier';

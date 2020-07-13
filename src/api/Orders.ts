@@ -1,5 +1,6 @@
 import { OrderDetails } from '../models/OrderDetails';
 import { MarketplaceLineItem } from '../models/MarketplaceLineItem';
+import { MarketplaceOrder } from '../models/MarketplaceOrder';
 import { Order } from '../models/Order';
 import { ListPage } from '../models/ListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -16,6 +17,7 @@ export default class Orders {
     constructor() {
         this.GetOrderDetails = this.GetOrderDetails.bind(this);
         this.UpsertLineItem = this.UpsertLineItem.bind(this);
+        this.AddPromotion = this.AddPromotion.bind(this);
         this.ListShipmentsWithItems = this.ListShipmentsWithItems.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
         this.ListLocationOrders = this.ListLocationOrders.bind(this);
@@ -41,6 +43,17 @@ export default class Orders {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/order/${orderID}/lineitems`, marketplaceLineItem, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param promoCode Promo code of the marketplace order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async AddPromotion(orderID: string, promoCode: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceOrder>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/order/${orderID}/promotions/${promoCode}`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**

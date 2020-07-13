@@ -1510,6 +1510,49 @@
           }
         }
       },
+      "LocationApprovalThresholdUpdate": {
+        "type": "object",
+        "example": {
+          "Threshold": 0
+        },
+        "properties": {
+          "Threshold": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "LocationPermissionUpdate": {
+        "type": "object",
+        "example": {
+          "AssignmentsToAdd": [
+            {
+              "UserGroupID": "",
+              "UserID": ""
+            }
+          ],
+          "AssignmentsToDelete": [
+            {
+              "UserGroupID": "",
+              "UserID": ""
+            }
+          ]
+        },
+        "properties": {
+          "AssignmentsToAdd": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserGroupAssignment"
+            }
+          },
+          "AssignmentsToDelete": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserGroupAssignment"
+            }
+          }
+        }
+      },
       "MarketplaceAddressAssignment": {
         "type": "object",
         "example": {
@@ -7568,6 +7611,21 @@
         "tags": [
           "Buyer Locations"
         ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LocationApprovalThresholdUpdate"
+                  }
+                ]
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "name": "buyerID",
@@ -7585,15 +7643,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "locationApprovalThresholdUpdate",
-            "in": "query",
-            "description": "Location approval threshold update of the decimal.",
-            "required": true,
-            "schema": {
-              "type": "object"
             }
           }
         ],
@@ -7681,6 +7730,21 @@
         "tags": [
           "Buyer Locations"
         ],
+        "requestBody": {
+          "required": true,
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/LocationPermissionUpdate"
+                  }
+                ]
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "name": "buyerID",
@@ -7698,15 +7762,6 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "locationPermissionUpdate",
-            "in": "query",
-            "description": "Location permission update of the user group assignment.",
-            "required": true,
-            "schema": {
-              "type": "object"
             }
           }
         ],
@@ -12022,6 +12077,53 @@
               "Shopper",
               "FullAccess"
             ]
+          }
+        ]
+      }
+    },
+    "/order/{orderID}/promotions/{promoCode}": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceOrder"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Orders.AddPromotion",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "orderID",
+            "in": "path",
+            "description": "ID of the order.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "promoCode",
+            "in": "path",
+            "description": "Promo code of the marketplace order.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Apply a promotion to an order",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
           }
         ]
       }
