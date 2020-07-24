@@ -47,7 +47,7 @@
     "generate-sdk": "npm run buildCodegen && oc-codegen -i ./swagger.json -t codegen/templates -o ./src -b codegen/handlebars-extensions -k codegen/hooks.js",
     "debug-template-data": "npm run buildCodegen && oc-codegen -i ./swagger.json -d -k codegen/hooks.js > templateData.json",
     "publish-please": "publish-please --access public",
-    "prepublishOnly": "publish-please guard",
+    "prepublishOnly": "publish-please guard --access public",
     "buildCodegen": "tsc --p codegen/tsconfig.json"
   },
   "devDependencies": {
