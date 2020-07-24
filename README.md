@@ -1,18 +1,18 @@
-# Ordercloud Marketplace
+# Ordercloud HeadStart
 
-The Marketplace SDK for Javascript is a modern client library for building solutions targeting the [Marketplace API](https://marketplace-api-qa.azurewebsites.net/index.html).
+ HeadStart is functional ecommerce site built with Ordercloud that you can start customizing today. This package is a client library for the [Head Start API](https://marketplace-api-test.azurewebsites.net/index.html).
 
 ## ⚙️ Installation
 
 ```shell
-npm install marketplace-javascript-sdk --save
+npm install @ordercloud/headstart-sdk --save
 ```
 
 ## Usage
 
 
 ```typescript
-import { MarketplaceSDK } from 'marketplace-javascript-sdk';
+import { HeadStartSDK } from '@ordercloud/headstart-sdk';
 
 let page = 1;
 let pageSize = 100;
@@ -28,10 +28,10 @@ Marketplace Authentication uses tokens from the Ordercloud auth server
 
 ```javascript
 // Login 
-MarketplaceSDK.Tokens.SetAccessToken("ordercloud-access-token");
+HeadStartSDK.Tokens.SetAccessToken("ordercloud-access-token");
 
 // Logout
-MarketplaceSDK.Tokens.RemoveAccessToken();
+HeadStartSDK.Tokens.RemoveAccessToken();
 ```
 
 ## 🔍 Filtering

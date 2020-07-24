@@ -30,9 +30,9 @@ import Auth from './Auth';
 import Tokens from './Tokens';
 import Upload from './Upload';
 
-export { MarketplaceSDK }
+export { HeadStartSDK }
 
-const MarketplaceSDK: MarketplaceSDK = {
+const HeadStartSDK: HeadStartSDK = {
     OrchestrationProducts : new OrchestrationProducts(),
     OrchestrationUsers : new OrchestrationUsers(),
     OrchestrationLogs : new OrchestrationLogs(),
@@ -66,7 +66,7 @@ const MarketplaceSDK: MarketplaceSDK = {
     Upload: new Upload()
 }
 
-interface MarketplaceSDK {
+interface HeadStartSDK {
     OrchestrationProducts : OrchestrationProducts,
     OrchestrationUsers : OrchestrationUsers,
     OrchestrationLogs : OrchestrationLogs,
