@@ -2,17 +2,17 @@
   "name": "marketplace-javascript-sdk",
   "description": "The offical Javascript SDK for the Ordercloud ecommerce API",
   "author": "Four51 OrderCloud",
-  "version": "1.5.1",
+  "version": "1.6.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "homepage": "https://ordercloud.io/",
   "bugs": {
-    "url": "https://github.com/ordercloud-api/ordercloud-javascript-sdk/issues"
+    "url": "https://github.com/oliverheywood451/Marketplace-Javascript-SDK/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ordercloud-api/ordercloud-javascript-sdk"
+    "url": "https://github.com/oliverheywood451/Marketplace-Javascript-SDK"
   },
   "keywords": [
     "ordercloud",
