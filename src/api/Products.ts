@@ -1,5 +1,6 @@
 import { ListPage } from '../models/ListPage';
 import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
+import { MarketplacePriceSchedule } from '../models/MarketplacePriceSchedule';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -17,6 +18,10 @@ export default class Products {
         this.Get = this.Get.bind(this);
         this.Put = this.Put.bind(this);
         this.Delete = this.Delete.bind(this);
+        this.GetPricingOverride = this.GetPricingOverride.bind(this);
+        this.CreatePricingOverride = this.CreatePricingOverride.bind(this);
+        this.UpdatePricingOverride = this.UpdatePricingOverride.bind(this);
+        this.DeletePricingOverride = this.DeletePricingOverride.bind(this);
     }
 
    /**
@@ -73,6 +78,52 @@ export default class Products {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/products/${id}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param id Id of the marketplace price schedule.
+    * @param buyerID ID of the buyer.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetPricingOverride(id: string, buyerID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/products/${id}/pricingoverride/buyer/${buyerID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param id Id of the marketplace price schedule.
+    * @param buyerID ID of the buyer.
+    * @param marketplacePriceSchedule Required fields: Name
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async CreatePricingOverride(id: string, buyerID: string, marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/products/${id}/pricingoverride/buyer/${buyerID}`, marketplacePriceSchedule, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param id Id of the marketplace price schedule.
+    * @param buyerID ID of the buyer.
+    * @param marketplacePriceSchedule Required fields: Name
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async UpdatePricingOverride(id: string, buyerID: string, marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.put(`/products/${id}/pricingoverride/buyer/${buyerID}`, marketplacePriceSchedule, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param id Id of the product.
+    * @param buyerID ID of the buyer.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async DeletePricingOverride(id: string, buyerID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.delete(`/products/${id}/pricingoverride/buyer/${buyerID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

@@ -6,8 +6,9 @@ import Catalogs from './Catalogs';
 import Orders from './Orders';
 import Shipments from './Shipments';
 import Suppliers from './Suppliers';
+import KitProducts from './KitProducts';
 import Products from './Products';
-import SupplierCategoryConfigs from './SupplierCategoryConfigs';
+import SupplierFilterConfigs from './SupplierFilterConfigs';
 import BuyerLocations from './BuyerLocations';
 import Mes from './Mes';
 import Avalaras from './Avalaras';
@@ -17,14 +18,11 @@ import CreditCardAuthorizations from './CreditCardAuthorizations';
 import ExchangeRates from './ExchangeRates';
 import ValidatedAddresses from './ValidatedAddresses';
 import Assets from './Assets';
-import BuyerContents from './BuyerContents';
-import CatalogContents from './CatalogContents';
-import CategoryContents from './CategoryContents';
-import FacetContents from './FacetContents';
-import ProductContents from './ProductContents';
-import PromotionContents from './PromotionContents';
-import SupplierContents from './SupplierContents';
-import DocumentSchemas from './DocumentSchemas';
+import Schemas from './Schemas';
+import ChiliConfigs from './ChiliConfigs';
+import ChiliSpecOptions from './ChiliSpecOptions';
+import ChiliSpecs from './ChiliSpecs';
+import ChiliTemplates from './ChiliTemplates';
 import Documents from './Documents';
 import Auth from './Auth';
 import Tokens from './Tokens';
@@ -41,8 +39,9 @@ const HeadStartSDK: HeadStartSDK = {
     Orders : new Orders(),
     Shipments : new Shipments(),
     Suppliers : new Suppliers(),
+    KitProducts : new KitProducts(),
     Products : new Products(),
-    SupplierCategoryConfigs : new SupplierCategoryConfigs(),
+    SupplierFilterConfigs : new SupplierFilterConfigs(),
     BuyerLocations : new BuyerLocations(),
     Mes : new Mes(),
     Avalaras : new Avalaras(),
@@ -52,14 +51,11 @@ const HeadStartSDK: HeadStartSDK = {
     ExchangeRates : new ExchangeRates(),
     ValidatedAddresses : new ValidatedAddresses(),
     Assets : new Assets(),
-    BuyerContents : new BuyerContents(),
-    CatalogContents : new CatalogContents(),
-    CategoryContents : new CategoryContents(),
-    FacetContents : new FacetContents(),
-    ProductContents : new ProductContents(),
-    PromotionContents : new PromotionContents(),
-    SupplierContents : new SupplierContents(),
-    DocumentSchemas : new DocumentSchemas(),
+    Schemas : new Schemas(),
+    ChiliConfigs : new ChiliConfigs(),
+    ChiliSpecOptions : new ChiliSpecOptions(),
+    ChiliSpecs : new ChiliSpecs(),
+    ChiliTemplates : new ChiliTemplates(),
     Documents : new Documents(),
     Auth: new Auth(),
     Tokens: new Tokens(),
@@ -75,8 +71,9 @@ interface HeadStartSDK {
     Orders : Orders,
     Shipments : Shipments,
     Suppliers : Suppliers,
+    KitProducts : KitProducts,
     Products : Products,
-    SupplierCategoryConfigs : SupplierCategoryConfigs,
+    SupplierFilterConfigs : SupplierFilterConfigs,
     BuyerLocations : BuyerLocations,
     Mes : Mes,
     Avalaras : Avalaras,
@@ -86,14 +83,11 @@ interface HeadStartSDK {
     ExchangeRates : ExchangeRates,
     ValidatedAddresses : ValidatedAddresses,
     Assets : Assets,
-    BuyerContents : BuyerContents,
-    CatalogContents : CatalogContents,
-    CategoryContents : CategoryContents,
-    FacetContents : FacetContents,
-    ProductContents : ProductContents,
-    PromotionContents : PromotionContents,
-    SupplierContents : SupplierContents,
-    DocumentSchemas : DocumentSchemas,
+    Schemas : Schemas,
+    ChiliConfigs : ChiliConfigs,
+    ChiliSpecOptions : ChiliSpecOptions,
+    ChiliSpecs : ChiliSpecs,
+    ChiliTemplates : ChiliTemplates,
     Documents : Documents,
     Auth: Auth,
     Tokens: Tokens,

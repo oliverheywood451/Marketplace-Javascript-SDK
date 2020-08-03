@@ -1,4 +1,5 @@
 import { AssetMetadata } from './AssetMetadata';
+import { History } from './History';
 
 export interface Asset {
     ID?: string
@@ -9,4 +10,5 @@ export interface Asset {
     Tags?: string[]
     FileName?: string
     readonly Metadata?: AssetMetadata
+    readonly History?: History
 }

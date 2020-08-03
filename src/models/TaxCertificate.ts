@@ -8,5 +8,4 @@ export interface TaxCertificate {
     readonly FileName?: string
     ExemptionNumber?: string
     readonly Expired?: boolean
-    readonly PDFUrl?: string
 }

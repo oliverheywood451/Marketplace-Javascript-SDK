@@ -51,9 +51,14 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#as" class="tsd-kind-icon">As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#create" class="tsd-kind-icon">Create</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#delete" class="tsd-kind-icon">Delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#deleteassignment" class="tsd-kind-icon">Delete<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#get" class="tsd-kind-icon">Get</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#list" class="tsd-kind-icon">List</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#listassignments" class="tsd-kind-icon">List<wbr>Assignments</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#listdocuments" class="tsd-kind-icon">List<wbr>Documents</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#saveassignment" class="tsd-kind-icon">Save<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="documents.html#update" class="tsd-kind-icon">Update</a></li>
 							</ul>
 						</section>
@@ -83,6 +88,40 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>Create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, jDocument<span class="tsd-signature-symbol">: </span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5>jDocument: <a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -124,10 +163,53 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="deleteassignment" class="tsd-anchor"></a>
+					<h3>Delete<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Delete<wbr>Assignment<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, DocumentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5>ResourceID: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>ResourceType: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>ParentResourceID: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>DocumentID: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="get" class="tsd-anchor"></a>
 					<h3>Get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -156,7 +238,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -164,7 +246,7 @@
 					<a name="list" class="tsd-anchor"></a>
 					<h3>List</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -181,7 +263,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -190,7 +272,115 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listassignments" class="tsd-anchor"></a>
+					<h3>List<wbr>Assignments</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Assignments<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/documentassignment.html" class="tsd-signature-type">DocumentAssignment</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/documentassignment.html" class="tsd-signature-type">DocumentAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/documentassignment.html" class="tsd-signature-type">DocumentAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/documentassignment.html" class="tsd-signature-type">DocumentAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listdocuments" class="tsd-anchor"></a>
+					<h3>List<wbr>Documents</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Documents<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5>ResourceID: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>ParentResourceID: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>ResourceType: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="saveassignment" class="tsd-anchor"></a>
+					<h3>Save<wbr>Assignment</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Save<wbr>Assignment<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/documentassignment.html" class="tsd-signature-type">DocumentAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>schemaID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the schema.</p>
+									</div>
+								</li>
+								<li>
+									<h5>documentAssignment: <a href="../interfaces/documentassignment.html" class="tsd-signature-type">DocumentAssignment</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -198,7 +388,7 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Update<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, document<span class="tsd-signature-symbol">: </span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Update<span class="tsd-signature-symbol">(</span>schemaID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, jDocument<span class="tsd-signature-symbol">: </span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -221,7 +411,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>document: <a href="../interfaces/document.html" class="tsd-signature-type">Document</a></h5>
+									<h5>jDocument: <a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -230,7 +420,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/document.html" class="tsd-signature-type">Document</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/jdocument.html" class="tsd-signature-type">JDocument</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -252,13 +442,28 @@
 								<a href="documents.html#as" class="tsd-kind-icon">As</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="documents.html#create" class="tsd-kind-icon">Create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="documents.html#delete" class="tsd-kind-icon">Delete</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="documents.html#deleteassignment" class="tsd-kind-icon">Delete<wbr>Assignment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="documents.html#get" class="tsd-kind-icon">Get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="documents.html#list" class="tsd-kind-icon">List</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="documents.html#listassignments" class="tsd-kind-icon">List<wbr>Assignments</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="documents.html#listdocuments" class="tsd-kind-icon">List<wbr>Documents</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="documents.html#saveassignment" class="tsd-kind-icon">Save<wbr>Assignment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="documents.html#update" class="tsd-kind-icon">Update</a>

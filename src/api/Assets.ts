@@ -1,5 +1,6 @@
 import { ListPage } from '../models/ListPage';
 import { Asset } from '../models/Asset';
+import { AssetAssignment } from '../models/AssetAssignment';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -16,6 +17,11 @@ export default class Assets {
         this.Get = this.Get.bind(this);
         this.Update = this.Update.bind(this);
         this.Delete = this.Delete.bind(this);
+        this.SaveAssetAssignment = this.SaveAssetAssignment.bind(this);
+        this.DeleteAssetAssignment = this.DeleteAssetAssignment.bind(this);
+        this.ReorderAssetAssignment = this.ReorderAssetAssignment.bind(this);
+        this.ListAssets = this.ListAssets.bind(this);
+        this.GetFirstImage = this.GetFirstImage.bind(this);
     }
 
    /**
@@ -62,6 +68,64 @@ export default class Assets {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/assets/${assetID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param assetAssignment 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SaveAssetAssignment(assetAssignment: AssetAssignment, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/assets/assignments`, assetAssignment, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.ResourceID 
+    * @param options.ResourceType 
+    * @param options.ParentResourceID 
+    * @param options.AssetID 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async DeleteAssetAssignment( ResourceID: string, ResourceType: string, ParentResourceID: string, AssetID: string, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.delete(`/assets/assignments`, { params: { ResourceID, ResourceType, ParentResourceID, AssetID,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param listOrderWithinType List order within type of the asset assignment.
+    * @param assetAssignment 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ReorderAssetAssignment(listOrderWithinType: number, assetAssignment: AssetAssignment, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/assets/assignments/moveto/${listOrderWithinType}`, assetAssignment, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.ResourceID 
+    * @param options.ParentResourceID 
+    * @param options.ResourceType 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListAssets( ResourceID: string, ParentResourceID: string, ResourceType: string, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/assets/resource`, { params: { ResourceID, ParentResourceID, ResourceType,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.ResourceID 
+    * @param options.ParentResourceID 
+    * @param options.ResourceType 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetFirstImage( ResourceID: string, ParentResourceID: string, ResourceType: string, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/assets/resource/primary-image`, { params: { ResourceID, ParentResourceID, ResourceType,  accessToken, impersonating } } );
     }
 
     /**

@@ -1,4 +1,5 @@
 import { AssetMetadata } from './AssetMetadata';
+import { History } from './History';
 
 export interface AssetForDelivery {
     ListOrderWithinType?: number
@@ -10,4 +11,5 @@ export interface AssetForDelivery {
     Tags?: string[]
     FileName?: string
     readonly Metadata?: AssetMetadata
+    readonly History?: History
 }

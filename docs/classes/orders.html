@@ -53,10 +53,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#acknowledgequoteorder" class="tsd-kind-icon">Acknowledge<wbr>Quote<wbr>Order</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#addpromotion" class="tsd-kind-icon">Add<wbr>Promotion</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#as" class="tsd-kind-icon">As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#buyerupdatelineitemstatuseswithnotification" class="tsd-kind-icon">Buyer<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#getorderdetails" class="tsd-kind-icon">Get<wbr>Order<wbr>Details</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#listlocationorders" class="tsd-kind-icon">List<wbr>Location<wbr>Orders</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#listshipmentswithitems" class="tsd-kind-icon">List<wbr>Shipments<wbr>With<wbr>Items</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#requestreturnemail" class="tsd-kind-icon">Request<wbr>Return<wbr>Email</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#sellersupplierupdatelineitemstatuseswithnotification" class="tsd-kind-icon">Seller<wbr>Supplier<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#upsertlineitem" class="tsd-kind-icon">Upsert<wbr>Line<wbr>Item</a></li>
 							</ul>
 						</section>
@@ -154,6 +156,40 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="buyerupdatelineitemstatuseswithnotification" class="tsd-anchor"></a>
+					<h3>Buyer<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Buyer<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification<span class="tsd-signature-symbol">(</span>orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, lineItemStatusChange<span class="tsd-signature-symbol">: </span><a href="../interfaces/lineitemstatuschange.html" class="tsd-signature-type">LineItemStatusChange</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>orderID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the order.</p>
+									</div>
+								</li>
+								<li>
+									<h5>lineItemStatusChange: <a href="../interfaces/lineitemstatuschange.html" class="tsd-signature-type">LineItemStatusChange</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -285,6 +321,46 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sellersupplierupdatelineitemstatuseswithnotification" class="tsd-anchor"></a>
+					<h3>Seller<wbr>Supplier<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Seller<wbr>Supplier<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification<span class="tsd-signature-symbol">(</span>orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, orderDirection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, lineItemStatusChange<span class="tsd-signature-symbol">: </span><a href="../interfaces/lineitemstatuschange.html" class="tsd-signature-type">LineItemStatusChange</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>orderID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the order.</p>
+									</div>
+								</li>
+								<li>
+									<h5>orderDirection: <span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Order direction of the line item status change. Possible values: Incoming, Outgoing.</p>
+									</div>
+								</li>
+								<li>
+									<h5>lineItemStatusChange: <a href="../interfaces/lineitemstatuschange.html" class="tsd-signature-type">LineItemStatusChange</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="upsertlineitem" class="tsd-anchor"></a>
 					<h3>Upsert<wbr>Line<wbr>Item</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -345,6 +421,9 @@
 								<a href="orders.html#as" class="tsd-kind-icon">As</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="orders.html#buyerupdatelineitemstatuseswithnotification" class="tsd-kind-icon">Buyer<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="orders.html#getorderdetails" class="tsd-kind-icon">Get<wbr>Order<wbr>Details</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -355,6 +434,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="orders.html#requestreturnemail" class="tsd-kind-icon">Request<wbr>Return<wbr>Email</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="orders.html#sellersupplierupdatelineitemstatuseswithnotification" class="tsd-kind-icon">Seller<wbr>Supplier<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="orders.html#upsertlineitem" class="tsd-kind-icon">Upsert<wbr>Line<wbr>Item</a>

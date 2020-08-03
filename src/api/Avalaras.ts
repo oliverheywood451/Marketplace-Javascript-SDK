@@ -16,7 +16,6 @@ export default class Avalaras {
         this.GetCertificate = this.GetCertificate.bind(this);
         this.CreateCertificate = this.CreateCertificate.bind(this);
         this.UpdateCertificate = this.UpdateCertificate.bind(this);
-        this.DownloadCertificate = this.DownloadCertificate.bind(this);
         this.ListTaxCodes = this.ListTaxCodes.bind(this);
     }
 
@@ -53,17 +52,6 @@ export default class Avalaras {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/avalara/${companyID}/certificate/${locationID}`, taxCertificate, { params: {  accessToken, impersonating } } );
-    }
-
-   /**
-    * @param companyID ID of the company.
-    * @param locationID ID of the location.
-    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
-    */
-    public async DownloadCertificate(companyID: number, locationID: string,  accessToken?: string ): Promise<void> {
-        const impersonating = this.impersonating;
-        this.impersonating = false;
-        return await httpClient.get(`/avalara/${companyID}/certificate/${locationID}/pdf`, { params: {  accessToken, impersonating } } );
     }
 
    /**

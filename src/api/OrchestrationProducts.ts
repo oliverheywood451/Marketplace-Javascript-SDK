@@ -1,5 +1,6 @@
 import { MarketplaceCatalog } from '../models/MarketplaceCatalog';
 import { MarketplaceCatalogAssignment } from '../models/MarketplaceCatalogAssignment';
+import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
 import { MarketplacePriceSchedule } from '../models/MarketplacePriceSchedule';
 import { MarketplaceProduct } from '../models/MarketplaceProduct';
 import { MarketplaceProductAssignment } from '../models/MarketplaceProductAssignment';
@@ -21,6 +22,7 @@ export default class OrchestrationProducts {
     constructor() {
         this.PostCatalog = this.PostCatalog.bind(this);
         this.PostCatalogProductAssignment = this.PostCatalogProductAssignment.bind(this);
+        this.PostHydratedProduct = this.PostHydratedProduct.bind(this);
         this.PostPriceSchedule = this.PostPriceSchedule.bind(this);
         this.PostProduct = this.PostProduct.bind(this);
         this.PostProductAssignment = this.PostProductAssignment.bind(this);
@@ -50,6 +52,17 @@ export default class OrchestrationProducts {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orchestration/${clientId}/catalogproductassignment`, marketplaceCatalogAssignment, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param clientId Client id of the super marketplace product.
+    * @param superMarketplaceProduct 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async PostHydratedProduct(clientId: string, superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/orchestration/${clientId}/hydrated`, superMarketplaceProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**

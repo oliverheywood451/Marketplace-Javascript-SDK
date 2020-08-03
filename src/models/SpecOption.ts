@@ -1,7 +1,7 @@
 
 export interface SpecOption {
     ID?: string
-    Value?: string
+    Value: string
     ListOrder?: number
     IsOpenText?: boolean
     PriceMarkupType?: 'NoMarkup' | 'AmountPerQuantity' | 'AmountTotal' | 'Percentage'

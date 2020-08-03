@@ -1,3 +1,4 @@
+import { LineItemStatusChange } from '../models/LineItemStatusChange';
 import { OrderDetails } from '../models/OrderDetails';
 import { MarketplaceLineItem } from '../models/MarketplaceLineItem';
 import { MarketplaceOrder } from '../models/MarketplaceOrder';
@@ -15,7 +16,9 @@ export default class Orders {
     * not part of public api, don't include in generated docs
     */
     constructor() {
+        this.SellerSupplierUpdateLineItemStatusesWithNotification = this.SellerSupplierUpdateLineItemStatusesWithNotification.bind(this);
         this.GetOrderDetails = this.GetOrderDetails.bind(this);
+        this.BuyerUpdateLineItemStatusesWithNotification = this.BuyerUpdateLineItemStatusesWithNotification.bind(this);
         this.UpsertLineItem = this.UpsertLineItem.bind(this);
         this.AddPromotion = this.AddPromotion.bind(this);
         this.ListShipmentsWithItems = this.ListShipmentsWithItems.bind(this);
@@ -26,12 +29,35 @@ export default class Orders {
 
    /**
     * @param orderID ID of the order.
+    * @param orderDirection Order direction of the line item status change. Possible values: Incoming, Outgoing.
+    * @param lineItemStatusChange 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SellerSupplierUpdateLineItemStatusesWithNotification(orderID: string, orderDirection: 'Incoming' | 'Outgoing', lineItemStatusChange: LineItemStatusChange, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/order/${orderID}/${orderDirection}/lineitem/status`, lineItemStatusChange, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async GetOrderDetails(orderID: string,  accessToken?: string ): Promise<RequiredDeep<OrderDetails>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/order/${orderID}/details`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param lineItemStatusChange 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async BuyerUpdateLineItemStatusesWithNotification(orderID: string, lineItemStatusChange: LineItemStatusChange, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/order/${orderID}/lineitem/status`, lineItemStatusChange, { params: {  accessToken, impersonating } } );
     }
 
    /**
