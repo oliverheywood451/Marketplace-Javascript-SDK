@@ -16,7 +16,7 @@ export default class Documents {
         this.List = this.List.bind(this);
         this.Create = this.Create.bind(this);
         this.Get = this.Get.bind(this);
-        this.Update = this.Update.bind(this);
+        this.SAve = this.SAve.bind(this);
         this.Delete = this.Delete.bind(this);
         this.ListAssignments = this.ListAssignments.bind(this);
         this.SaveAssignment = this.SaveAssignment.bind(this);
@@ -68,7 +68,7 @@ export default class Documents {
     * @param jDocument 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Update(schemaID: string, documentID: string, jDocument: JDocument, accessToken?: string ): Promise<RequiredDeep<JDocument>> {
+    public async SAve(schemaID: string, documentID: string, jDocument: JDocument, accessToken?: string ): Promise<RequiredDeep<JDocument>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/schemas/${schemaID}/documents/${documentID}`, jDocument, { params: {  accessToken, impersonating } } );

@@ -15,7 +15,7 @@ export default class Schemas {
         this.List = this.List.bind(this);
         this.Create = this.Create.bind(this);
         this.Get = this.Get.bind(this);
-        this.Update = this.Update.bind(this);
+        this.Save = this.Save.bind(this);
         this.Delete = this.Delete.bind(this);
     }
 
@@ -59,7 +59,7 @@ export default class Schemas {
     * @param docSchema Required fields: Schema
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Update(schemaID: string, docSchema: DocSchema, accessToken?: string ): Promise<RequiredDeep<DocSchema>> {
+    public async Save(schemaID: string, docSchema: DocSchema, accessToken?: string ): Promise<RequiredDeep<DocSchema>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/schemas/${schemaID}`, docSchema, { params: {  accessToken, impersonating } } );

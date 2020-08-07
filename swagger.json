@@ -499,7 +499,7 @@
         "type": "object",
         "example": {
           "ResourceID": "",
-          "ResourceType": "Products",
+          "ResourceType": "Categories",
           "ParentResourceID": "",
           "AssetID": ""
         },
@@ -509,13 +509,38 @@
           },
           "ResourceType": {
             "enum": [
-              "Products",
               "Categories",
               "Catalogs",
-              "Promotions",
-              "Suppliers",
+              "Products",
+              "PriceSchedules",
+              "ProductFacets",
+              "Specs",
+              "SecurityProfiles",
+              "PasswordResets",
+              "OpenIdConnects",
+              "ImpersonationConfigs",
               "Buyers",
-              "ProductFacets"
+              "Users",
+              "UserGroups",
+              "Addresses",
+              "CostCenters",
+              "CreditCards",
+              "SpendingAccounts",
+              "ApprovalRules",
+              "Suppliers",
+              "SupplierUsers",
+              "SupplierUserGroups",
+              "SupplierAddresses",
+              "Promotions",
+              "AdminUsers",
+              "AdminAddresses",
+              "AdminUserGroups",
+              "MessageSenders",
+              "Webhooks",
+              "ApiClients",
+              "Incrementors",
+              "IntegrationEvents",
+              "XpIndices"
             ],
             "type": "string"
           },
@@ -1286,6 +1311,53 @@
           }
         }
       },
+      "ClaimResolutionStatuses": {
+        "type": "object",
+        "example": {
+          "LineItemID": "",
+          "RMANumber": "",
+          "IsResolved": false
+        },
+        "properties": {
+          "LineItemID": {
+            "type": "string"
+          },
+          "RMANumber": {
+            "type": "string"
+          },
+          "IsResolved": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ClaimsSummary": {
+        "type": "object",
+        "example": {
+          "HasClaims": false,
+          "HasUnresolvedClaims": false,
+          "Resolutions": [
+            {
+              "LineItemID": "",
+              "RMANumber": "",
+              "IsResolved": false
+            }
+          ]
+        },
+        "properties": {
+          "HasClaims": {
+            "type": "boolean"
+          },
+          "HasUnresolvedClaims": {
+            "type": "boolean"
+          },
+          "Resolutions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClaimResolutionStatuses"
+            }
+          }
+        }
+      },
       "Contact": {
         "type": "object",
         "example": {
@@ -1353,7 +1425,7 @@
         "example": {
           "ID": "",
           "RestrictedAssignmentTypes": [
-            "Products"
+            "Categories"
           ],
           "Schema": {},
           "History": {
@@ -1370,13 +1442,38 @@
           "RestrictedAssignmentTypes": {
             "type": "string",
             "enum": [
-              "Products",
               "Categories",
               "Catalogs",
-              "Promotions",
-              "Suppliers",
+              "Products",
+              "PriceSchedules",
+              "ProductFacets",
+              "Specs",
+              "SecurityProfiles",
+              "PasswordResets",
+              "OpenIdConnects",
+              "ImpersonationConfigs",
               "Buyers",
-              "ProductFacets"
+              "Users",
+              "UserGroups",
+              "Addresses",
+              "CostCenters",
+              "CreditCards",
+              "SpendingAccounts",
+              "ApprovalRules",
+              "Suppliers",
+              "SupplierUsers",
+              "SupplierUserGroups",
+              "SupplierAddresses",
+              "Promotions",
+              "AdminUsers",
+              "AdminAddresses",
+              "AdminUserGroups",
+              "MessageSenders",
+              "Webhooks",
+              "ApiClients",
+              "Incrementors",
+              "IntegrationEvents",
+              "XpIndices"
             ],
             "items": {
               "type": "string"
@@ -1399,7 +1496,7 @@
         "type": "object",
         "example": {
           "ResourceID": "",
-          "ResourceType": "Products",
+          "ResourceType": "Categories",
           "ParentResourceID": "",
           "DocumentID": ""
         },
@@ -1409,13 +1506,38 @@
           },
           "ResourceType": {
             "enum": [
-              "Products",
               "Categories",
               "Catalogs",
-              "Promotions",
-              "Suppliers",
+              "Products",
+              "PriceSchedules",
+              "ProductFacets",
+              "Specs",
+              "SecurityProfiles",
+              "PasswordResets",
+              "OpenIdConnects",
+              "ImpersonationConfigs",
               "Buyers",
-              "ProductFacets"
+              "Users",
+              "UserGroups",
+              "Addresses",
+              "CostCenters",
+              "CreditCards",
+              "SpendingAccounts",
+              "ApprovalRules",
+              "Suppliers",
+              "SupplierUsers",
+              "SupplierUserGroups",
+              "SupplierAddresses",
+              "Promotions",
+              "AdminUsers",
+              "AdminAddresses",
+              "AdminUserGroups",
+              "MessageSenders",
+              "Webhooks",
+              "ApiClients",
+              "Incrementors",
+              "IntegrationEvents",
+              "XpIndices"
             ],
             "type": "string"
           },
@@ -1735,26 +1857,30 @@
           }
         }
       },
-      "LineItemCancelInfo": {
+      "LineItemClaim": {
         "type": "object",
         "example": {
-          "QuantityToCancel": 0,
-          "CancelReason": "",
+          "RMANumber": "",
+          "Quantity": 0,
+          "Reason": "",
           "Comment": "",
-          "Resolved": false
+          "IsResolved": false
         },
         "properties": {
-          "QuantityToCancel": {
+          "RMANumber": {
+            "type": "string"
+          },
+          "Quantity": {
             "type": "integer",
             "format": "int32"
           },
-          "CancelReason": {
+          "Reason": {
             "type": "string"
           },
           "Comment": {
             "type": "string"
           },
-          "Resolved": {
+          "IsResolved": {
             "type": "boolean"
           }
         }
@@ -1803,30 +1929,6 @@
           }
         }
       },
-      "LineItemReturnInfo": {
-        "type": "object",
-        "example": {
-          "QuantityToReturn": 0,
-          "ReturnReason": "",
-          "Comment": "",
-          "Resolved": false
-        },
-        "properties": {
-          "QuantityToReturn": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "ReturnReason": {
-            "type": "string"
-          },
-          "Comment": {
-            "type": "string"
-          },
-          "Resolved": {
-            "type": "boolean"
-          }
-        }
-      },
       "LineItemSpec": {
         "type": "object",
         "example": {
@@ -1869,19 +1971,58 @@
       "LineItemStatusChange": {
         "type": "object",
         "example": {
-          "LineItemIDs": [
-            ""
+          "ID": "",
+          "PreviousQuantities": [
+            "Complete"
           ],
-          "LineItemStatus": "Complete"
+          "Reason": "",
+          "Comment": ""
         },
         "properties": {
-          "LineItemIDs": {
-            "type": "array",
+          "ID": {
+            "type": "string"
+          },
+          "PreviousQuantities": {
+            "type": "string",
+            "enum": [
+              "Complete",
+              "Submitted",
+              "Open",
+              "Backordered",
+              "Canceled",
+              "CancelRequested",
+              "Returned",
+              "ReturnRequested"
+            ],
             "items": {
               "type": "string"
             }
           },
-          "LineItemStatus": {
+          "Reason": {
+            "type": "string"
+          },
+          "Comment": {
+            "type": "string"
+          }
+        }
+      },
+      "LineItemStatusChanges": {
+        "type": "object",
+        "example": {
+          "Status": "Complete",
+          "Changes": [
+            {
+              "ID": "",
+              "PreviousQuantities": [
+                "Complete"
+              ],
+              "Reason": "",
+              "Comment": ""
+            }
+          ]
+        },
+        "properties": {
+          "Status": {
             "enum": [
               "Complete",
               "Submitted",
@@ -1893,6 +2034,12 @@
               "ReturnRequested"
             ],
             "type": "string"
+          },
+          "Changes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItemStatusChange"
+            }
           }
         }
       },
@@ -1938,23 +2085,32 @@
       "LineItemXp": {
         "type": "object",
         "example": {
-          "LineItemStatus": "Complete",
-          "LineItemReturnInfo": {
-            "QuantityToReturn": 0,
-            "ReturnReason": "",
-            "Comment": "",
-            "Resolved": false
-          },
-          "LineItemCancelInfo": {
-            "QuantityToCancel": 0,
-            "CancelReason": "",
-            "Comment": "",
-            "Resolved": false
-          },
-          "LineItemImageUrl": ""
+          "StatusByQuantity": [
+            "Complete"
+          ],
+          "Returns": [
+            {
+              "RMANumber": "",
+              "Quantity": 0,
+              "Reason": "",
+              "Comment": "",
+              "IsResolved": false
+            }
+          ],
+          "Cancelations": [
+            {
+              "RMANumber": "",
+              "Quantity": 0,
+              "Reason": "",
+              "Comment": "",
+              "IsResolved": false
+            }
+          ],
+          "ImageUrl": ""
         },
         "properties": {
-          "LineItemStatus": {
+          "StatusByQuantity": {
+            "type": "string",
             "enum": [
               "Complete",
               "Submitted",
@@ -1965,23 +2121,23 @@
               "Returned",
               "ReturnRequested"
             ],
-            "type": "string"
+            "items": {
+              "type": "string"
+            }
           },
-          "LineItemReturnInfo": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LineItemReturnInfo"
-              }
-            ]
+          "Returns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItemClaim"
+            }
           },
-          "LineItemCancelInfo": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LineItemCancelInfo"
-              }
-            ]
+          "Cancelations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LineItemClaim"
+            }
           },
-          "LineItemImageUrl": {
+          "ImageUrl": {
             "type": "string"
           }
         }
@@ -2814,20 +2970,28 @@
         "type": "object",
         "example": {
           "xp": {
-            "LineItemStatus": "Complete",
-            "LineItemReturnInfo": {
-              "QuantityToReturn": 0,
-              "ReturnReason": "",
-              "Comment": "",
-              "Resolved": false
-            },
-            "LineItemCancelInfo": {
-              "QuantityToCancel": 0,
-              "CancelReason": "",
-              "Comment": "",
-              "Resolved": false
-            },
-            "LineItemImageUrl": ""
+            "StatusByQuantity": [
+              "Complete"
+            ],
+            "Returns": [
+              {
+                "RMANumber": "",
+                "Quantity": 0,
+                "Reason": "",
+                "Comment": "",
+                "IsResolved": false
+              }
+            ],
+            "Cancelations": [
+              {
+                "RMANumber": "",
+                "Quantity": 0,
+                "Reason": "",
+                "Comment": "",
+                "IsResolved": false
+              }
+            ],
+            "ImageUrl": ""
           },
           "Product": {
             "xp": {
@@ -3374,17 +3538,30 @@
               "Email": "",
               "Comments": ""
             },
-            "OrderReturnInfo": {
-              "HasReturn": false,
-              "RMANumber": "",
-              "Resolved": false
+            "Returns": {
+              "HasClaims": false,
+              "HasUnresolvedClaims": false,
+              "Resolutions": [
+                {
+                  "LineItemID": "",
+                  "RMANumber": "",
+                  "IsResolved": false
+                }
+              ]
             },
-            "OrderCancelInfo": {
-              "HasCancel": false,
-              "RMANumber": "",
-              "Resolved": false
+            "Cancelations": {
+              "HasClaims": false,
+              "HasUnresolvedClaims": false,
+              "Resolutions": [
+                {
+                  "LineItemID": "",
+                  "RMANumber": "",
+                  "IsResolved": false
+                }
+              ]
             },
             "Currency": "CAD",
+            "SubmittedOrderStatus": "Open",
             "ShippingStatus": "Shipped",
             "ClaimStatus": "NoClaim"
           },
@@ -5187,25 +5364,6 @@
           }
         }
       },
-      "OrderCancelInfo": {
-        "type": "object",
-        "example": {
-          "HasCancel": false,
-          "RMANumber": "",
-          "Resolved": false
-        },
-        "properties": {
-          "HasCancel": {
-            "type": "boolean"
-          },
-          "RMANumber": {
-            "type": "string"
-          },
-          "Resolved": {
-            "type": "boolean"
-          }
-        }
-      },
       "OrderCloudIntegrationsConversionRate": {
         "type": "object",
         "example": {
@@ -5401,17 +5559,30 @@
                 "Email": "",
                 "Comments": ""
               },
-              "OrderReturnInfo": {
-                "HasReturn": false,
-                "RMANumber": "",
-                "Resolved": false
+              "Returns": {
+                "HasClaims": false,
+                "HasUnresolvedClaims": false,
+                "Resolutions": [
+                  {
+                    "LineItemID": "",
+                    "RMANumber": "",
+                    "IsResolved": false
+                  }
+                ]
               },
-              "OrderCancelInfo": {
-                "HasCancel": false,
-                "RMANumber": "",
-                "Resolved": false
+              "Cancelations": {
+                "HasClaims": false,
+                "HasUnresolvedClaims": false,
+                "Resolutions": [
+                  {
+                    "LineItemID": "",
+                    "RMANumber": "",
+                    "IsResolved": false
+                  }
+                ]
               },
               "Currency": "CAD",
+              "SubmittedOrderStatus": "Open",
               "ShippingStatus": "Shipped",
               "ClaimStatus": "NoClaim"
             },
@@ -5748,25 +5919,6 @@
           }
         }
       },
-      "OrderReturnInfo": {
-        "type": "object",
-        "example": {
-          "HasReturn": false,
-          "RMANumber": "",
-          "Resolved": false
-        },
-        "properties": {
-          "HasReturn": {
-            "type": "boolean"
-          },
-          "RMANumber": {
-            "type": "string"
-          },
-          "Resolved": {
-            "type": "boolean"
-          }
-        }
-      },
       "OrderXp": {
         "type": "object",
         "example": {
@@ -5787,17 +5939,30 @@
             "Email": "",
             "Comments": ""
           },
-          "OrderReturnInfo": {
-            "HasReturn": false,
-            "RMANumber": "",
-            "Resolved": false
+          "Returns": {
+            "HasClaims": false,
+            "HasUnresolvedClaims": false,
+            "Resolutions": [
+              {
+                "LineItemID": "",
+                "RMANumber": "",
+                "IsResolved": false
+              }
+            ]
           },
-          "OrderCancelInfo": {
-            "HasCancel": false,
-            "RMANumber": "",
-            "Resolved": false
+          "Cancelations": {
+            "HasClaims": false,
+            "HasUnresolvedClaims": false,
+            "Resolutions": [
+              {
+                "LineItemID": "",
+                "RMANumber": "",
+                "IsResolved": false
+              }
+            ]
           },
           "Currency": "CAD",
+          "SubmittedOrderStatus": "Open",
           "ShippingStatus": "Shipped",
           "ClaimStatus": "NoClaim"
         },
@@ -5837,17 +6002,17 @@
               }
             ]
           },
-          "OrderReturnInfo": {
+          "Returns": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/OrderReturnInfo"
+                "$ref": "#/components/schemas/ClaimsSummary"
               }
             ]
           },
-          "OrderCancelInfo": {
+          "Cancelations": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/OrderCancelInfo"
+                "$ref": "#/components/schemas/ClaimsSummary"
               }
             ]
           },
@@ -5886,6 +6051,14 @@
               "ILS",
               "KRW",
               "PLN"
+            ],
+            "type": "string"
+          },
+          "SubmittedOrderStatus": {
+            "enum": [
+              "Open",
+              "Completed",
+              "Canceled"
             ],
             "type": "string"
           },
@@ -8203,7 +8376,7 @@
       "put": {
         "responses": {
           "200": {
-            "description": "",
+            "description": "If an object with the same ID already exists, it will be overwritten.",
             "content": {
               "application/json": {
                 "schema": {
@@ -8213,7 +8386,7 @@
             }
           }
         },
-        "operationId": "Assets.Update",
+        "operationId": "Assets.Save",
         "tags": [
           "Assets"
         ],
@@ -8244,7 +8417,7 @@
           }
         ],
         "summary": "Update an Asset",
-        "description": "",
+        "description": "If an object with the same ID already exists, it will be overwritten.",
         "security": [
           {
             "OAuth2": [
@@ -13285,7 +13458,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LineItemStatusChange"
+                    "$ref": "#/components/schemas/LineItemStatusChanges"
                   }
                 ]
               }
@@ -13398,7 +13571,7 @@
               "schema": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/LineItemStatusChange"
+                    "$ref": "#/components/schemas/LineItemStatusChanges"
                   }
                 ]
               }
@@ -13716,40 +13889,6 @@
           }
         ],
         "summary": "LIST orders for a specific location as a buyer, ensures user has access to location orders",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "Shopper",
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/order/requestreturn/{orderID}": {
-      "post": {
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "operationId": "Orders.RequestReturnEmail",
-        "tags": [
-          "Orders"
-        ],
-        "parameters": [
-          {
-            "name": "orderID",
-            "in": "path",
-            "description": "ID of the order.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Send return requested email",
         "description": "",
         "security": [
           {
@@ -14438,7 +14577,7 @@
       "put": {
         "responses": {
           "200": {
-            "description": "",
+            "description": "If an object with the same ID already exists, it will be overwritten.",
             "content": {
               "application/json": {
                 "schema": {
@@ -14448,7 +14587,7 @@
             }
           }
         },
-        "operationId": "Schemas.Update",
+        "operationId": "Schemas.Save",
         "tags": [
           "Schemas"
         ],
@@ -14482,7 +14621,7 @@
           }
         ],
         "summary": "Update a Document Schema",
-        "description": "",
+        "description": "If an object with the same ID already exists, it will be overwritten.",
         "security": [
           {
             "OAuth2": [
@@ -14743,7 +14882,7 @@
             }
           }
         },
-        "operationId": "Documents.Update",
+        "operationId": "Documents.SAve",
         "tags": [
           "Documents"
         ],

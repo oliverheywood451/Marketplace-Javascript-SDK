@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LineItemStatusChange | ordercloud-javascript-sdk</title>
+	<title>LineItemClaim | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="lineitemstatuschange.html">LineItemStatusChange</a>
+					<a href="lineitemclaim.html">LineItemClaim</a>
 				</li>
 			</ul>
 		</div>
@@ -50,10 +50,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemstatuschange.html#comment" class="tsd-kind-icon">Comment</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemstatuschange.html#id" class="tsd-kind-icon">ID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemstatuschange.html#previousquantities" class="tsd-kind-icon">Previous<wbr>Quantities</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemstatuschange.html#reason" class="tsd-kind-icon">Reason</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemclaim.html#comment" class="tsd-kind-icon">Comment</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemclaim.html#isresolved" class="tsd-kind-icon">Is<wbr>Resolved</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemclaim.html#quantity" class="tsd-kind-icon">Quantity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemclaim.html#rmanumber" class="tsd-kind-icon">RMANumber</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="lineitemclaim.html#reason" class="tsd-kind-icon">Reason</a></li>
 							</ul>
 						</section>
 					</div>
@@ -69,16 +70,23 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ID</h3>
-					<div class="tsd-signature tsd-kind-icon">ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="isresolved" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Is<wbr>Resolved</h3>
+					<div class="tsd-signature tsd-kind-icon">Is<wbr>Resolved<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="previousquantities" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Previous<wbr>Quantities</h3>
-					<div class="tsd-signature tsd-kind-icon">Previous<wbr>Quantities<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Complete"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Submitted"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Open"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Backordered"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Canceled"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CancelRequested"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Returned"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ReturnRequested"</span></div>
+					<a name="quantity" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Quantity</h3>
+					<div class="tsd-signature tsd-kind-icon">Quantity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="rmanumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> RMANumber</h3>
+					<div class="tsd-signature tsd-kind-icon">RMANumber<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -101,19 +109,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="lineitemstatuschange.html" class="tsd-kind-icon">Line<wbr>Item<wbr>Status<wbr>Change</a>
+						<a href="lineitemclaim.html" class="tsd-kind-icon">Line<wbr>Item<wbr>Claim</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="lineitemstatuschange.html#comment" class="tsd-kind-icon">Comment</a>
+								<a href="lineitemclaim.html#comment" class="tsd-kind-icon">Comment</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="lineitemstatuschange.html#id" class="tsd-kind-icon">ID</a>
+								<a href="lineitemclaim.html#isresolved" class="tsd-kind-icon">Is<wbr>Resolved</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="lineitemstatuschange.html#previousquantities" class="tsd-kind-icon">Previous<wbr>Quantities</a>
+								<a href="lineitemclaim.html#quantity" class="tsd-kind-icon">Quantity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="lineitemstatuschange.html#reason" class="tsd-kind-icon">Reason</a>
+								<a href="lineitemclaim.html#rmanumber" class="tsd-kind-icon">RMANumber</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="lineitemclaim.html#reason" class="tsd-kind-icon">Reason</a>
 							</li>
 						</ul>
 					</li>

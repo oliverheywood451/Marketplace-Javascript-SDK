@@ -15,7 +15,7 @@ export default class Assets {
     constructor() {
         this.List = this.List.bind(this);
         this.Get = this.Get.bind(this);
-        this.Update = this.Update.bind(this);
+        this.Save = this.Save.bind(this);
         this.Delete = this.Delete.bind(this);
         this.SaveAssetAssignment = this.SaveAssetAssignment.bind(this);
         this.DeleteAssetAssignment = this.DeleteAssetAssignment.bind(this);
@@ -54,7 +54,7 @@ export default class Assets {
     * @param asset 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Update(assetID: string, asset: Asset, accessToken?: string ): Promise<RequiredDeep<Asset>> {
+    public async Save(assetID: string, asset: Asset, accessToken?: string ): Promise<RequiredDeep<Asset>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/assets/${assetID}`, asset, { params: {  accessToken, impersonating } } );

@@ -1,5 +1,7 @@
 
 export interface LineItemStatusChange {
-    LineItemIDs?: string[]
-    LineItemStatus?: 'Complete' | 'Submitted' | 'Open' | 'Backordered' | 'Canceled' | 'CancelRequested' | 'Returned' | 'ReturnRequested'
+    ID?: string
+    PreviousQuantities?: 'Complete' | 'Submitted' | 'Open' | 'Backordered' | 'Canceled' | 'CancelRequested' | 'Returned' | 'ReturnRequested'
+    Reason?: string
+    Comment?: string
 }

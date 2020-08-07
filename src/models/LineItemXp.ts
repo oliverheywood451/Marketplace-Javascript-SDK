@@ -1,9 +1,8 @@
-import { LineItemReturnInfo } from './LineItemReturnInfo';
-import { LineItemCancelInfo } from './LineItemCancelInfo';
+import { LineItemClaim } from './LineItemClaim';
 
 export interface LineItemXp {
-    LineItemStatus?: 'Complete' | 'Submitted' | 'Open' | 'Backordered' | 'Canceled' | 'CancelRequested' | 'Returned' | 'ReturnRequested'
-    LineItemReturnInfo?: LineItemReturnInfo
-    LineItemCancelInfo?: LineItemCancelInfo
-    LineItemImageUrl?: string
+    StatusByQuantity?: 'Complete' | 'Submitted' | 'Open' | 'Backordered' | 'Canceled' | 'CancelRequested' | 'Returned' | 'ReturnRequested'
+    Returns?: LineItemClaim[]
+    Cancelations?: LineItemClaim[]
+    ImageUrl?: string
 }
