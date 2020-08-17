@@ -54,9 +54,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#delete" class="tsd-kind-icon">Delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#deleteassetassignment" class="tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#get" class="tsd-kind-icon">Get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#getfirstimage" class="tsd-kind-icon">Get<wbr>First<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#getthumbnail" class="tsd-kind-icon">Get<wbr>Thumbnail</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#getthumbnailonchild" class="tsd-kind-icon">Get<wbr>Thumbnail<wbr>OnChild</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#list" class="tsd-kind-icon">List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#listassetsonchild" class="tsd-kind-icon">List<wbr>Assets<wbr>OnChild</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#reorderassetassignment" class="tsd-kind-icon">Reorder<wbr>Asset<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#save" class="tsd-kind-icon">Save</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#saveassetassignment" class="tsd-kind-icon">Save<wbr>Asset<wbr>Assignment</a></li>
@@ -126,7 +128,7 @@
 					<a name="deleteassetassignment" class="tsd-anchor"></a>
 					<h3>Delete<wbr>Asset<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment<span class="tsd-signature-symbol">(</span>ResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, AssetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Delete<wbr>Asset<wbr>Assignment<span class="tsd-signature-symbol">(</span>AssetID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -137,6 +139,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>AssetID: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
 									<h5>ResourceID: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
@@ -146,7 +151,7 @@
 									<h5>ParentResourceID: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>AssetID: <span class="tsd-signature-type">string</span></h5>
+									<h5>ParentResourceType: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -191,10 +196,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getfirstimage" class="tsd-anchor"></a>
-					<h3>Get<wbr>First<wbr>Image</h3>
+					<a name="getthumbnail" class="tsd-anchor"></a>
+					<h3>Get<wbr>Thumbnail</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<wbr>First<wbr>Image<span class="tsd-signature-symbol">(</span>ResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>Thumbnail<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span>, ID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"S"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"M"</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -205,13 +210,71 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>ResourceID: <span class="tsd-signature-type">string</span></h5>
+									<h5>type: <span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.</p>
+									</div>
 								</li>
 								<li>
-									<h5>ParentResourceID: <span class="tsd-signature-type">string</span></h5>
+									<h5>ID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the asset.</p>
+									</div>
 								</li>
 								<li>
-									<h5>ResourceType: <span class="tsd-signature-type">string</span></h5>
+									<h5>size: <span class="tsd-signature-type">"S"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"M"</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getthumbnailonchild" class="tsd-anchor"></a>
+					<h3>Get<wbr>Thumbnail<wbr>OnChild</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>Thumbnail<wbr>OnChild<span class="tsd-signature-symbol">(</span>parentType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span>, parentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span>, ID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, size<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"S"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"M"</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>parentType: <span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.</p>
+									</div>
+								</li>
+								<li>
+									<h5>parentID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the parent.</p>
+									</div>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.</p>
+									</div>
+								</li>
+								<li>
+									<h5>ID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the asset.</p>
+									</div>
+								</li>
+								<li>
+									<h5>size: <span class="tsd-signature-type">"S"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"M"</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -256,7 +319,7 @@
 					<a name="listassets" class="tsd-anchor"></a>
 					<h3>List<wbr>Assets</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Assets<span class="tsd-signature-symbol">(</span>ResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ParentResourceID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ResourceType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Assets<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span>, ID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -267,13 +330,19 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>ResourceID: <span class="tsd-signature-type">string</span></h5>
+									<h5>type: <span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.</p>
+									</div>
 								</li>
 								<li>
-									<h5>ParentResourceID: <span class="tsd-signature-type">string</span></h5>
+									<h5>ID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the asset.</p>
+									</div>
 								</li>
 								<li>
-									<h5>ResourceType: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -282,7 +351,59 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="listassetsonchild" class="tsd-anchor"></a>
+					<h3>List<wbr>Assets<wbr>OnChild</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Assets<wbr>OnChild<span class="tsd-signature-symbol">(</span>parentType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span>, parentID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span>, ID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>parentType: <span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.</p>
+									</div>
+								</li>
+								<li>
+									<h5>parentID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the parent.</p>
+									</div>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">"Catalogs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Categories"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Products"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Specs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SecurityProfiles"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PasswordResets"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"OpenIdConnects"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ImpersonationConfigs"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Users"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Addresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenters"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreditCards"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpendingAccounts"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovalRules"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Suppliers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SupplierAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Promotions"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUsers"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminAddresses"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AdminUserGroups"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MessageSenders"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Webhooks"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApiClients"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Incrementors"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IntegrationEvents"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"XpIndices"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.</p>
+									</div>
+								</li>
+								<li>
+									<h5>ID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the asset.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <a href="../interfaces/listargs.html" class="tsd-signature-type">ListArgs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -409,13 +530,19 @@
 								<a href="assets.html#get" class="tsd-kind-icon">Get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#getfirstimage" class="tsd-kind-icon">Get<wbr>First<wbr>Image</a>
+								<a href="assets.html#getthumbnail" class="tsd-kind-icon">Get<wbr>Thumbnail</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="assets.html#getthumbnailonchild" class="tsd-kind-icon">Get<wbr>Thumbnail<wbr>OnChild</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assets.html#list" class="tsd-kind-icon">List</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assets.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="assets.html#listassetsonchild" class="tsd-kind-icon">List<wbr>Assets<wbr>OnChild</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assets.html#reorderassetassignment" class="tsd-kind-icon">Reorder<wbr>Asset<wbr>Assignment</a>

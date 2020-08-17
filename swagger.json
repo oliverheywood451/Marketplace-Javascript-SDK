@@ -498,19 +498,23 @@
       "AssetAssignment": {
         "type": "object",
         "example": {
+          "AssetID": "",
           "ResourceID": "",
-          "ResourceType": "Categories",
+          "ResourceType": "Catalogs",
           "ParentResourceID": "",
-          "AssetID": ""
+          "ParentResourceType": "Catalogs"
         },
         "properties": {
+          "AssetID": {
+            "type": "string"
+          },
           "ResourceID": {
             "type": "string"
           },
           "ResourceType": {
             "enum": [
-              "Categories",
               "Catalogs",
+              "Categories",
               "Products",
               "PriceSchedules",
               "ProductFacets",
@@ -547,91 +551,13 @@
           "ParentResourceID": {
             "type": "string"
           },
-          "AssetID": {
-            "type": "string"
-          }
-        }
-      },
-      "AssetForDelivery": {
-        "type": "object",
-        "example": {
-          "ListOrderWithinType": 0,
-          "ID": "",
-          "Title": "",
-          "Active": false,
-          "Url": "",
-          "Type": "Image",
-          "Tags": [
-            ""
-          ],
-          "FileName": "",
-          "Metadata": {
-            "IsUrlOverridden": false,
-            "ContentType": "",
-            "SizeBytes": 0,
-            "ImageHeight": 0,
-            "ImageWidth": 0,
-            "ImageVerticalResolution": 0,
-            "ImageHorizontalResolution": 0
-          },
-          "History": {
-            "DateCreated": "2018-01-01T00:00:00-06:00",
-            "CreatedByUserID": "",
-            "DateUpdated": "2018-01-01T00:00:00-06:00",
-            "UpdatedByUserID": ""
-          }
-        },
-        "properties": {
-          "ListOrderWithinType": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "ID": {
-            "type": "string"
-          },
-          "Title": {
-            "type": "string",
-            "maxLength": 100
-          },
-          "Active": {
-            "type": "boolean"
-          },
-          "Url": {
-            "type": "string"
-          },
-          "Type": {
+          "ParentResourceType": {
             "enum": [
-              "Image",
-              "Theme",
-              "Attachment",
-              "Structured"
+              "Catalogs",
+              "Buyers",
+              "Suppliers"
             ],
             "type": "string"
-          },
-          "Tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "FileName": {
-            "type": "string"
-          },
-          "Metadata": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AssetMetadata"
-              }
-            ],
-            "readOnly": true
-          },
-          "History": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/History"
-              }
-            ],
-            "readOnly": true
           }
         }
       },
@@ -1205,7 +1131,6 @@
             ],
             "Images": [
               {
-                "ListOrderWithinType": 0,
                 "ID": "",
                 "Title": "",
                 "Active": false,
@@ -1234,7 +1159,6 @@
             ],
             "Attachments": [
               {
-                "ListOrderWithinType": 0,
                 "ID": "",
                 "Title": "",
                 "Active": false,
@@ -1425,7 +1349,7 @@
         "example": {
           "ID": "",
           "RestrictedAssignmentTypes": [
-            "Categories"
+            "Catalogs"
           ],
           "Schema": {},
           "History": {
@@ -1442,8 +1366,8 @@
           "RestrictedAssignmentTypes": {
             "type": "string",
             "enum": [
-              "Categories",
               "Catalogs",
+              "Categories",
               "Products",
               "PriceSchedules",
               "ProductFacets",
@@ -1495,19 +1419,23 @@
       "DocumentAssignment": {
         "type": "object",
         "example": {
+          "DocumentID": "",
           "ResourceID": "",
-          "ResourceType": "Categories",
+          "ResourceType": "Catalogs",
           "ParentResourceID": "",
-          "DocumentID": ""
+          "ParentResourceType": "Catalogs"
         },
         "properties": {
+          "DocumentID": {
+            "type": "string"
+          },
           "ResourceID": {
             "type": "string"
           },
           "ResourceType": {
             "enum": [
-              "Categories",
               "Catalogs",
+              "Categories",
               "Products",
               "PriceSchedules",
               "ProductFacets",
@@ -1544,7 +1472,12 @@
           "ParentResourceID": {
             "type": "string"
           },
-          "DocumentID": {
+          "ParentResourceType": {
+            "enum": [
+              "Catalogs",
+              "Buyers",
+              "Suppliers"
+            ],
             "type": "string"
           }
         }
@@ -2870,7 +2803,6 @@
           },
           "Images": [
             {
-              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
@@ -2899,7 +2831,6 @@
           ],
           "Attachments": [
             {
-              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
@@ -2948,13 +2879,13 @@
           "Images": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetForDelivery"
+              "$ref": "#/components/schemas/Asset"
             }
           },
           "Attachments": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetForDelivery"
+              "$ref": "#/components/schemas/Asset"
             }
           },
           "ProductAssignments": {
@@ -7127,7 +7058,6 @@
           ],
           "Images": [
             {
-              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
@@ -7156,7 +7086,6 @@
           ],
           "Attachments": [
             {
-              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
@@ -7217,13 +7146,13 @@
           "Images": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetForDelivery"
+              "$ref": "#/components/schemas/Asset"
             }
           },
           "Attachments": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetForDelivery"
+              "$ref": "#/components/schemas/Asset"
             }
           }
         }
@@ -7356,7 +7285,6 @@
           ],
           "Images": [
             {
-              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
@@ -7385,7 +7313,6 @@
           ],
           "Attachments": [
             {
-              "ListOrderWithinType": 0,
               "ID": "",
               "Title": "",
               "Active": false,
@@ -7446,13 +7373,13 @@
           "Images": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetForDelivery"
+              "$ref": "#/components/schemas/Asset"
             }
           },
           "Attachments": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetForDelivery"
+              "$ref": "#/components/schemas/Asset"
             }
           }
         }
@@ -8458,6 +8385,410 @@
         ]
       }
     },
+    "/assets/{parentType}/{parentID}/{type}/{ID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAsset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.ListAssetsOnChild",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "parentType",
+            "in": "path",
+            "description": "Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Buyers",
+                "Suppliers"
+              ]
+            }
+          },
+          {
+            "name": "parentID",
+            "in": "path",
+            "description": "ID of the parent.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Categories",
+                "Products",
+                "PriceSchedules",
+                "ProductFacets",
+                "Specs",
+                "SecurityProfiles",
+                "PasswordResets",
+                "OpenIdConnects",
+                "ImpersonationConfigs",
+                "Buyers",
+                "Users",
+                "UserGroups",
+                "Addresses",
+                "CostCenters",
+                "CreditCards",
+                "SpendingAccounts",
+                "ApprovalRules",
+                "Suppliers",
+                "SupplierUsers",
+                "SupplierUserGroups",
+                "SupplierAddresses",
+                "Promotions",
+                "AdminUsers",
+                "AdminAddresses",
+                "AdminUserGroups",
+                "MessageSenders",
+                "Webhooks",
+                "ApiClients",
+                "Incrementors",
+                "IntegrationEvents",
+                "XpIndices"
+              ]
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "args",
+            "in": "query",
+            "description": "Args of the asset.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/assets/{parentType}/{parentID}/{type}/{ID}/thumbnail": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Assets.GetThumbnailOnChild",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "parentType",
+            "in": "path",
+            "description": "Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Buyers",
+                "Suppliers"
+              ]
+            }
+          },
+          {
+            "name": "parentID",
+            "in": "path",
+            "description": "ID of the parent.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Categories",
+                "Products",
+                "PriceSchedules",
+                "ProductFacets",
+                "Specs",
+                "SecurityProfiles",
+                "PasswordResets",
+                "OpenIdConnects",
+                "ImpersonationConfigs",
+                "Buyers",
+                "Users",
+                "UserGroups",
+                "Addresses",
+                "CostCenters",
+                "CreditCards",
+                "SpendingAccounts",
+                "ApprovalRules",
+                "Suppliers",
+                "SupplierUsers",
+                "SupplierUserGroups",
+                "SupplierAddresses",
+                "Promotions",
+                "AdminUsers",
+                "AdminAddresses",
+                "AdminUserGroups",
+                "MessageSenders",
+                "Webhooks",
+                "ApiClients",
+                "Incrementors",
+                "IntegrationEvents",
+                "XpIndices"
+              ]
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Size of the asset. Possible values: S, M.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "S",
+                "M"
+              ]
+            }
+          }
+        ],
+        "summary": "Get a Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/assets/{type}/{ID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAsset"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Assets.ListAssets",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Categories",
+                "Products",
+                "PriceSchedules",
+                "ProductFacets",
+                "Specs",
+                "SecurityProfiles",
+                "PasswordResets",
+                "OpenIdConnects",
+                "ImpersonationConfigs",
+                "Buyers",
+                "Users",
+                "UserGroups",
+                "Addresses",
+                "CostCenters",
+                "CreditCards",
+                "SpendingAccounts",
+                "ApprovalRules",
+                "Suppliers",
+                "SupplierUsers",
+                "SupplierUserGroups",
+                "SupplierAddresses",
+                "Promotions",
+                "AdminUsers",
+                "AdminAddresses",
+                "AdminUserGroups",
+                "MessageSenders",
+                "Webhooks",
+                "ApiClients",
+                "Incrementors",
+                "IntegrationEvents",
+                "XpIndices"
+              ]
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "args",
+            "in": "query",
+            "description": "Args of the asset.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Assets Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/assets/{type}/{ID}/thumbnail": {
+      "get": {
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        },
+        "operationId": "Assets.GetThumbnail",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Categories",
+                "Products",
+                "PriceSchedules",
+                "ProductFacets",
+                "Specs",
+                "SecurityProfiles",
+                "PasswordResets",
+                "OpenIdConnects",
+                "ImpersonationConfigs",
+                "Buyers",
+                "Users",
+                "UserGroups",
+                "Addresses",
+                "CostCenters",
+                "CreditCards",
+                "SpendingAccounts",
+                "ApprovalRules",
+                "Suppliers",
+                "SupplierUsers",
+                "SupplierUserGroups",
+                "SupplierAddresses",
+                "Promotions",
+                "AdminUsers",
+                "AdminAddresses",
+                "AdminUserGroups",
+                "MessageSenders",
+                "Webhooks",
+                "ApiClients",
+                "Incrementors",
+                "IntegrationEvents",
+                "XpIndices"
+              ]
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID of the asset.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "Size of the asset. Possible values: S, M.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "S",
+                "M"
+              ]
+            }
+          }
+        ],
+        "summary": "Get a Resource's primary image",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
     "/assets/assignments": {
       "post": {
         "responses": {
@@ -8506,6 +8837,15 @@
         ],
         "parameters": [
           {
+            "name": "AssetID",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "ResourceID",
             "in": "query",
             "description": "",
@@ -8533,7 +8873,7 @@
             }
           },
           {
-            "name": "AssetID",
+            "name": "ParentResourceType",
             "in": "query",
             "description": "",
             "required": false,
@@ -8597,116 +8937,6 @@
             "OAuth2": [
               "FullAccess"
             ]
-          }
-        ]
-      }
-    },
-    "/assets/resource": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AssetForDelivery"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Assets.ListAssets",
-        "tags": [
-          "Assets"
-        ],
-        "parameters": [
-          {
-            "name": "ResourceID",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ParentResourceID",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ResourceType",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "List Assets Assigned to Resource",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/assets/resource/primary-image": {
-      "get": {
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        },
-        "operationId": "Assets.GetFirstImage",
-        "tags": [
-          "Assets"
-        ],
-        "parameters": [
-          {
-            "name": "ResourceID",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ParentResourceID",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ResourceType",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "Get a Resource's primary image",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": []
           }
         ]
       }
@@ -14872,7 +15102,7 @@
       "put": {
         "responses": {
           "200": {
-            "description": "",
+            "description": "If an object with the same ID already exists, it will be overwritten.",
             "content": {
               "application/json": {
                 "schema": {
@@ -14882,7 +15112,7 @@
             }
           }
         },
-        "operationId": "Documents.SAve",
+        "operationId": "Documents.Save",
         "tags": [
           "Documents"
         ],
@@ -14922,7 +15152,7 @@
           }
         ],
         "summary": "Update a Document",
-        "description": "",
+        "description": "If an object with the same ID already exists, it will be overwritten.",
         "security": [
           {
             "OAuth2": [
@@ -14962,6 +15192,231 @@
           }
         ],
         "summary": "Delete a Document",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/schemas/{schemaID}/documents/{parentType}/{parentID}/{type}/{ID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListJDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Documents.ListDocumentsOnChild",
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parentType",
+            "in": "path",
+            "description": "Parent type of the j document. Possible values: Catalogs, Buyers, Suppliers.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Buyers",
+                "Suppliers"
+              ]
+            }
+          },
+          {
+            "name": "parentID",
+            "in": "path",
+            "description": "ID of the parent.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the j document. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Categories",
+                "Products",
+                "PriceSchedules",
+                "ProductFacets",
+                "Specs",
+                "SecurityProfiles",
+                "PasswordResets",
+                "OpenIdConnects",
+                "ImpersonationConfigs",
+                "Buyers",
+                "Users",
+                "UserGroups",
+                "Addresses",
+                "CostCenters",
+                "CreditCards",
+                "SpendingAccounts",
+                "ApprovalRules",
+                "Suppliers",
+                "SupplierUsers",
+                "SupplierUserGroups",
+                "SupplierAddresses",
+                "Promotions",
+                "AdminUsers",
+                "AdminAddresses",
+                "AdminUserGroups",
+                "MessageSenders",
+                "Webhooks",
+                "ApiClients",
+                "Incrementors",
+                "IntegrationEvents",
+                "XpIndices"
+              ]
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID of the j document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "args",
+            "in": "query",
+            "description": "Args of the j document.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Documents Assigned to Resource",
+        "description": "",
+        "security": [
+          {
+            "OAuth2": [
+              "FullAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/schemas/{schemaID}/documents/{type}/{ID}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListJDocument"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "Documents.ListDocuments",
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "schemaID",
+            "in": "path",
+            "description": "ID of the schema.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "Type of the j document. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Catalogs",
+                "Categories",
+                "Products",
+                "PriceSchedules",
+                "ProductFacets",
+                "Specs",
+                "SecurityProfiles",
+                "PasswordResets",
+                "OpenIdConnects",
+                "ImpersonationConfigs",
+                "Buyers",
+                "Users",
+                "UserGroups",
+                "Addresses",
+                "CostCenters",
+                "CreditCards",
+                "SpendingAccounts",
+                "ApprovalRules",
+                "Suppliers",
+                "SupplierUsers",
+                "SupplierUserGroups",
+                "SupplierAddresses",
+                "Promotions",
+                "AdminUsers",
+                "AdminAddresses",
+                "AdminUserGroups",
+                "MessageSenders",
+                "Webhooks",
+                "ApiClients",
+                "Incrementors",
+                "IntegrationEvents",
+                "XpIndices"
+              ]
+            }
+          },
+          {
+            "name": "ID",
+            "in": "path",
+            "description": "ID of the j document.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "args",
+            "in": "query",
+            "description": "Args of the j document.",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "summary": "List Documents Assigned to Resource",
         "description": "",
         "security": [
           {
@@ -15144,6 +15599,15 @@
             }
           },
           {
+            "name": "DocumentID",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "ResourceID",
             "in": "query",
             "description": "",
@@ -15171,7 +15635,7 @@
             }
           },
           {
-            "name": "DocumentID",
+            "name": "ParentResourceType",
             "in": "query",
             "description": "",
             "required": false,
@@ -15181,76 +15645,6 @@
           }
         ],
         "summary": "Delete Document Assignment",
-        "description": "",
-        "security": [
-          {
-            "OAuth2": [
-              "FullAccess"
-            ]
-          }
-        ]
-      }
-    },
-    "/schemas/{schemaID}/documents/resource": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/JDocument"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "Documents.ListDocuments",
-        "tags": [
-          "Documents"
-        ],
-        "parameters": [
-          {
-            "name": "schemaID",
-            "in": "path",
-            "description": "ID of the schema.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ResourceID",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ParentResourceID",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ResourceType",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "summary": "List Documents Assigned to Resource",
         "description": "",
         "security": [
           {

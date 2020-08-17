@@ -2,7 +2,6 @@ export * from './Address';
 export * from './ApiError';
 export * from './Asset';
 export * from './AssetAssignment';
-export * from './AssetForDelivery';
 export * from './AssetMetadata';
 export * from './BuyerAddress';
 export * from './BuyerAddressXP';

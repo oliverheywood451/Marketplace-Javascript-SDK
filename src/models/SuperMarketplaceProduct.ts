@@ -2,7 +2,7 @@ import { MarketplaceProduct } from './MarketplaceProduct';
 import { PriceSchedule } from './PriceSchedule';
 import { Spec } from './Spec';
 import { MarketplaceVariant } from './MarketplaceVariant';
-import { AssetForDelivery } from './AssetForDelivery';
+import { Asset } from './Asset';
 
 export interface SuperMarketplaceProduct {
     ID?: string
@@ -10,6 +10,6 @@ export interface SuperMarketplaceProduct {
     PriceSchedule?: PriceSchedule
     Specs?: Spec[]
     Variants?: MarketplaceVariant[]
-    Images?: AssetForDelivery[]
-    Attachments?: AssetForDelivery[]
+    Images?: Asset[]
+    Attachments?: Asset[]
 }

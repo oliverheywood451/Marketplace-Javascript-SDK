@@ -1,10 +1,10 @@
 import { Product } from './Product';
-import { AssetForDelivery } from './AssetForDelivery';
+import { Asset } from './Asset';
 import { KitProduct } from './KitProduct';
 
 export interface MarketplaceKitProduct {
     Product?: Product
-    Images?: AssetForDelivery[]
-    Attachments?: AssetForDelivery[]
+    Images?: Asset[]
+    Attachments?: Asset[]
     ProductAssignments?: KitProduct
 }

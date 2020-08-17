@@ -16,12 +16,13 @@ export default class Documents {
         this.List = this.List.bind(this);
         this.Create = this.Create.bind(this);
         this.Get = this.Get.bind(this);
-        this.SAve = this.SAve.bind(this);
+        this.Save = this.Save.bind(this);
         this.Delete = this.Delete.bind(this);
+        this.ListDocumentsOnChild = this.ListDocumentsOnChild.bind(this);
+        this.ListDocuments = this.ListDocuments.bind(this);
         this.ListAssignments = this.ListAssignments.bind(this);
         this.SaveAssignment = this.SaveAssignment.bind(this);
         this.DeleteAssignment = this.DeleteAssignment.bind(this);
-        this.ListDocuments = this.ListDocuments.bind(this);
     }
 
    /**
@@ -68,7 +69,7 @@ export default class Documents {
     * @param jDocument 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SAve(schemaID: string, documentID: string, jDocument: JDocument, accessToken?: string ): Promise<RequiredDeep<JDocument>> {
+    public async Save(schemaID: string, documentID: string, jDocument: JDocument, accessToken?: string ): Promise<RequiredDeep<JDocument>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/schemas/${schemaID}/documents/${documentID}`, jDocument, { params: {  accessToken, impersonating } } );
@@ -83,6 +84,34 @@ export default class Documents {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/schemas/${schemaID}/documents/${documentID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param schemaID ID of the schema.
+    * @param parentType Parent type of the j document. Possible values: Catalogs, Buyers, Suppliers.
+    * @param parentID ID of the parent.
+    * @param type Type of the j document. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.
+    * @param ID ID of the j document.
+    * @param options.args Args of the j document.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListDocumentsOnChild(schemaID: string, parentType: 'Catalogs' | 'Buyers' | 'Suppliers', parentID: string, type: 'Catalogs' | 'Categories' | 'Products' | 'PriceSchedules' | 'ProductFacets' | 'Specs' | 'SecurityProfiles' | 'PasswordResets' | 'OpenIdConnects' | 'ImpersonationConfigs' | 'Buyers' | 'Users' | 'UserGroups' | 'Addresses' | 'CostCenters' | 'CreditCards' | 'SpendingAccounts' | 'ApprovalRules' | 'Suppliers' | 'SupplierUsers' | 'SupplierUserGroups' | 'SupplierAddresses' | 'Promotions' | 'AdminUsers' | 'AdminAddresses' | 'AdminUserGroups' | 'MessageSenders' | 'Webhooks' | 'ApiClients' | 'Incrementors' | 'IntegrationEvents' | 'XpIndices', ID: string,  options: ListArgs<JDocument> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<JDocument>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/schemas/${schemaID}/documents/${parentType}/${parentID}/${type}/${ID}`, { params: { ...options,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param schemaID ID of the schema.
+    * @param type Type of the j document. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.
+    * @param ID ID of the j document.
+    * @param options.args Args of the j document.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListDocuments(schemaID: string, type: 'Catalogs' | 'Categories' | 'Products' | 'PriceSchedules' | 'ProductFacets' | 'Specs' | 'SecurityProfiles' | 'PasswordResets' | 'OpenIdConnects' | 'ImpersonationConfigs' | 'Buyers' | 'Users' | 'UserGroups' | 'Addresses' | 'CostCenters' | 'CreditCards' | 'SpendingAccounts' | 'ApprovalRules' | 'Suppliers' | 'SupplierUsers' | 'SupplierUserGroups' | 'SupplierAddresses' | 'Promotions' | 'AdminUsers' | 'AdminAddresses' | 'AdminUserGroups' | 'MessageSenders' | 'Webhooks' | 'ApiClients' | 'Incrementors' | 'IntegrationEvents' | 'XpIndices', ID: string,  options: ListArgs<JDocument> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<JDocument>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/schemas/${schemaID}/documents/${type}/${ID}`, { params: { ...options,  accessToken, impersonating } } );
     }
 
    /**
@@ -114,29 +143,17 @@ export default class Documents {
 
    /**
     * @param schemaID ID of the schema.
-    * @param options.ResourceID 
-    * @param options.ResourceType 
-    * @param options.ParentResourceID 
     * @param options.DocumentID 
-    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
-    */
-    public async DeleteAssignment(schemaID: string,  ResourceID: string, ResourceType: string, ParentResourceID: string, DocumentID: string, accessToken?: string ): Promise<void> {
-        const impersonating = this.impersonating;
-        this.impersonating = false;
-        return await httpClient.delete(`/schemas/${schemaID}/documents/assignments`, { params: { ResourceID, ResourceType, ParentResourceID, DocumentID,  accessToken, impersonating } } );
-    }
-
-   /**
-    * @param schemaID ID of the schema.
     * @param options.ResourceID 
-    * @param options.ParentResourceID 
     * @param options.ResourceType 
+    * @param options.ParentResourceID 
+    * @param options.ParentResourceType 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListDocuments(schemaID: string,  ResourceID: string, ParentResourceID: string, ResourceType: string, accessToken?: string ): Promise<void> {
+    public async DeleteAssignment(schemaID: string,  DocumentID: string, ResourceID: string, ResourceType: string, ParentResourceID: string, ParentResourceType: string, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/schemas/${schemaID}/documents/resource`, { params: { ResourceID, ParentResourceID, ResourceType,  accessToken, impersonating } } );
+        return await httpClient.delete(`/schemas/${schemaID}/documents/assignments`, { params: { DocumentID, ResourceID, ResourceType, ParentResourceID, ParentResourceType,  accessToken, impersonating } } );
     }
 
     /**
