@@ -61,6 +61,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orchestrationproducts.html#postspec" class="tsd-kind-icon">Post<wbr>Spec</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orchestrationproducts.html#postspecoption" class="tsd-kind-icon">Post<wbr>Spec<wbr>Option</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orchestrationproducts.html#postspecproductassignment" class="tsd-kind-icon">Post<wbr>Spec<wbr>Product<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orchestrationproducts.html#posttemplateflatproduct" class="tsd-kind-icon">Post<wbr>Template<wbr>Flat<wbr>Product</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,7 +97,7 @@
 					<a name="postcatalog" class="tsd-anchor"></a>
 					<h3>Post<wbr>Catalog</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Catalog<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceCatalog<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacecatalog.html" class="tsd-signature-type">MarketplaceCatalog</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacecatalog.html" class="tsd-signature-type">MarketplaceCatalog</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Catalog<span class="tsd-signature-symbol">(</span>marketplaceCatalog<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacecatalog.html" class="tsd-signature-type">MarketplaceCatalog</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacecatalog.html" class="tsd-signature-type">MarketplaceCatalog</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -106,12 +107,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace catalog.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceCatalog: <a href="../interfaces/marketplacecatalog.html" class="tsd-signature-type">MarketplaceCatalog</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -133,7 +128,7 @@
 					<a name="postcatalogproductassignment" class="tsd-anchor"></a>
 					<h3>Post<wbr>Catalog<wbr>Product<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Catalog<wbr>Product<wbr>Assignment<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceCatalogAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacecatalogassignment.html" class="tsd-signature-type">MarketplaceCatalogAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacecatalogassignment.html" class="tsd-signature-type">MarketplaceCatalogAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Catalog<wbr>Product<wbr>Assignment<span class="tsd-signature-symbol">(</span>marketplaceCatalogAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacecatalogassignment.html" class="tsd-signature-type">MarketplaceCatalogAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacecatalogassignment.html" class="tsd-signature-type">MarketplaceCatalogAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -143,12 +138,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace catalog assignment.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceCatalogAssignment: <a href="../interfaces/marketplacecatalogassignment.html" class="tsd-signature-type">MarketplaceCatalogAssignment</a></h5>
 								</li>
@@ -167,7 +156,7 @@
 					<a name="posthydratedproduct" class="tsd-anchor"></a>
 					<h3>Post<wbr>Hydrated<wbr>Product</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Hydrated<wbr>Product<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, superMarketplaceProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/supermarketplaceproduct.html" class="tsd-signature-type">SuperMarketplaceProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/supermarketplaceproduct.html" class="tsd-signature-type">SuperMarketplaceProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Hydrated<wbr>Product<span class="tsd-signature-symbol">(</span>superMarketplaceProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/supermarketplaceproduct.html" class="tsd-signature-type">SuperMarketplaceProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/supermarketplaceproduct.html" class="tsd-signature-type">SuperMarketplaceProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -177,12 +166,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the super marketplace product.</p>
-									</div>
-								</li>
 								<li>
 									<h5>superMarketplaceProduct: <a href="../interfaces/supermarketplaceproduct.html" class="tsd-signature-type">SuperMarketplaceProduct</a></h5>
 								</li>
@@ -201,7 +184,7 @@
 					<a name="postpriceschedule" class="tsd-anchor"></a>
 					<h3>Post<wbr>Price<wbr>Schedule</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Price<wbr>Schedule<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplacePriceSchedule<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacepriceschedule.html" class="tsd-signature-type">MarketplacePriceSchedule</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacepriceschedule.html" class="tsd-signature-type">MarketplacePriceSchedule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Price<wbr>Schedule<span class="tsd-signature-symbol">(</span>marketplacePriceSchedule<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacepriceschedule.html" class="tsd-signature-type">MarketplacePriceSchedule</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacepriceschedule.html" class="tsd-signature-type">MarketplacePriceSchedule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -211,12 +194,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace price schedule.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplacePriceSchedule: <a href="../interfaces/marketplacepriceschedule.html" class="tsd-signature-type">MarketplacePriceSchedule</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -238,7 +215,7 @@
 					<a name="postproduct" class="tsd-anchor"></a>
 					<h3>Post<wbr>Product</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Product<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplaceproduct.html" class="tsd-signature-type">MarketplaceProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceproduct.html" class="tsd-signature-type">MarketplaceProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Product<span class="tsd-signature-symbol">(</span>marketplaceProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplaceproduct.html" class="tsd-signature-type">MarketplaceProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceproduct.html" class="tsd-signature-type">MarketplaceProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -248,12 +225,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace product.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceProduct: <a href="../interfaces/marketplaceproduct.html" class="tsd-signature-type">MarketplaceProduct</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -275,7 +246,7 @@
 					<a name="postproductassignment" class="tsd-anchor"></a>
 					<h3>Post<wbr>Product<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Product<wbr>Assignment<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceProductAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplaceproductassignment.html" class="tsd-signature-type">MarketplaceProductAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceproductassignment.html" class="tsd-signature-type">MarketplaceProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Product<wbr>Assignment<span class="tsd-signature-symbol">(</span>marketplaceProductAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplaceproductassignment.html" class="tsd-signature-type">MarketplaceProductAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceproductassignment.html" class="tsd-signature-type">MarketplaceProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -285,12 +256,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace product assignment.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceProductAssignment: <a href="../interfaces/marketplaceproductassignment.html" class="tsd-signature-type">MarketplaceProductAssignment</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -312,7 +277,7 @@
 					<a name="postproductfacet" class="tsd-anchor"></a>
 					<h3>Post<wbr>Product<wbr>Facet</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Product<wbr>Facet<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceProductFacet<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplaceproductfacet.html" class="tsd-signature-type">MarketplaceProductFacet</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceproductfacet.html" class="tsd-signature-type">MarketplaceProductFacet</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Product<wbr>Facet<span class="tsd-signature-symbol">(</span>marketplaceProductFacet<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplaceproductfacet.html" class="tsd-signature-type">MarketplaceProductFacet</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceproductfacet.html" class="tsd-signature-type">MarketplaceProductFacet</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -322,12 +287,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace product facet.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceProductFacet: <a href="../interfaces/marketplaceproductfacet.html" class="tsd-signature-type">MarketplaceProductFacet</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -349,7 +308,7 @@
 					<a name="postspec" class="tsd-anchor"></a>
 					<h3>Post<wbr>Spec</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Spec<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceSpec<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacespec.html" class="tsd-signature-type">MarketplaceSpec</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespec.html" class="tsd-signature-type">MarketplaceSpec</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Spec<span class="tsd-signature-symbol">(</span>marketplaceSpec<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacespec.html" class="tsd-signature-type">MarketplaceSpec</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespec.html" class="tsd-signature-type">MarketplaceSpec</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -359,12 +318,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace spec.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceSpec: <a href="../interfaces/marketplacespec.html" class="tsd-signature-type">MarketplaceSpec</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -386,7 +339,7 @@
 					<a name="postspecoption" class="tsd-anchor"></a>
 					<h3>Post<wbr>Spec<wbr>Option</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Spec<wbr>Option<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceSpecOption<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacespecoption.html" class="tsd-signature-type">MarketplaceSpecOption</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespecoption.html" class="tsd-signature-type">MarketplaceSpecOption</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Spec<wbr>Option<span class="tsd-signature-symbol">(</span>marketplaceSpecOption<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacespecoption.html" class="tsd-signature-type">MarketplaceSpecOption</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespecoption.html" class="tsd-signature-type">MarketplaceSpecOption</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -396,12 +349,6 @@
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace spec option.</p>
-									</div>
-								</li>
 								<li>
 									<h5>marketplaceSpecOption: <a href="../interfaces/marketplacespecoption.html" class="tsd-signature-type">MarketplaceSpecOption</a></h5>
 									<div class="tsd-comment tsd-typography">
@@ -423,7 +370,7 @@
 					<a name="postspecproductassignment" class="tsd-anchor"></a>
 					<h3>Post<wbr>Spec<wbr>Product<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Spec<wbr>Product<wbr>Assignment<span class="tsd-signature-symbol">(</span>clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceSpecProductAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Spec<wbr>Product<wbr>Assignment<span class="tsd-signature-symbol">(</span>marketplaceSpecProductAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a>, clientId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -434,13 +381,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Client id of the marketplace spec product assignment.</p>
-									</div>
+									<h5>marketplaceSpecProductAssignment: <a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a></h5>
 								</li>
 								<li>
-									<h5>marketplaceSpecProductAssignment: <a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a></h5>
+									<h5>clientId: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -450,6 +394,37 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacespecproductassignment.html" class="tsd-signature-type">MarketplaceSpecProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="posttemplateflatproduct" class="tsd-anchor"></a>
+					<h3>Post<wbr>Template<wbr>Flat<wbr>Product</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Template<wbr>Flat<wbr>Product<span class="tsd-signature-symbol">(</span>templateProductFlat<span class="tsd-signature-symbol">: </span><a href="../interfaces/templateproductflat.html" class="tsd-signature-type">TemplateProductFlat</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/templateproductflat.html" class="tsd-signature-type">TemplateProductFlat</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>templateProductFlat: <a href="../interfaces/templateproductflat.html" class="tsd-signature-type">TemplateProductFlat</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: ID, Name, TaxCategory, TaxCode, Price</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/templateproductflat.html" class="tsd-signature-type">TemplateProductFlat</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -499,6 +474,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="orchestrationproducts.html#postspecproductassignment" class="tsd-kind-icon">Post<wbr>Spec<wbr>Product<wbr>Assignment</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="orchestrationproducts.html#posttemplateflatproduct" class="tsd-kind-icon">Post<wbr>Template<wbr>Flat<wbr>Product</a>
 							</li>
 						</ul>
 					</li>

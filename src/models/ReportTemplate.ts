@@ -1,4 +1,4 @@
-import { Filters } from './Filters';
+import { ReportFilters } from './ReportFilters';
 
 export interface ReportTemplate {
     id?: string
@@ -7,6 +7,6 @@ export interface ReportTemplate {
     Name?: string
     Description?: string
     Headers?: string[]
-    Filters?: Filters
+    Filters?: ReportFilters
     AvailableToSuppliers?: boolean
 }
