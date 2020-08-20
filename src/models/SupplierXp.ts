@@ -1,4 +1,5 @@
 import { Contact } from './Contact';
+import { SupplierCategory } from './SupplierCategory';
 
 export interface SupplierXp {
     Description?: string
@@ -8,4 +9,5 @@ export interface SupplierXp {
     Currency?: 'CAD' | 'HKD' | 'ISK' | 'PHP' | 'DKK' | 'HUF' | 'CZK' | 'GBP' | 'RON' | 'SEK' | 'IDR' | 'INR' | 'BRL' | 'RUB' | 'HRK' | 'JPY' | 'THB' | 'CHF' | 'EUR' | 'MYR' | 'BGN' | 'TRY' | 'CNY' | 'NOK' | 'NZD' | 'ZAR' | 'USD' | 'MXN' | 'SGD' | 'AUD' | 'ILS' | 'KRW' | 'PLN'
     ProductTypes?: 'Standard' | 'Quote' | 'PurchaseOrder'
     CountriesServicing?: string[]
+    Categories?: SupplierCategory[]
 }

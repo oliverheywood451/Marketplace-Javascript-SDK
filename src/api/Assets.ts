@@ -19,8 +19,8 @@ export default class Assets {
         this.Delete = this.Delete.bind(this);
         this.ListAssetsOnChild = this.ListAssetsOnChild.bind(this);
         this.GetThumbnailOnChild = this.GetThumbnailOnChild.bind(this);
-        this.ListAssets = this.ListAssets.bind(this);
         this.GetThumbnail = this.GetThumbnail.bind(this);
+        this.ListAssets = this.ListAssets.bind(this);
         this.SaveAssetAssignment = this.SaveAssetAssignment.bind(this);
         this.DeleteAssetAssignment = this.DeleteAssetAssignment.bind(this);
         this.ReorderAssetAssignment = this.ReorderAssetAssignment.bind(this);
@@ -87,6 +87,7 @@ export default class Assets {
     }
 
    /**
+    * @param sellerID ID of the seller.
     * @param parentType Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.
     * @param parentID ID of the parent.
     * @param type Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.
@@ -94,10 +95,23 @@ export default class Assets {
     * @param options.size Size of the asset. Possible values: S, M.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetThumbnailOnChild(parentType: 'Catalogs' | 'Buyers' | 'Suppliers', parentID: string, type: 'Catalogs' | 'Categories' | 'Products' | 'PriceSchedules' | 'ProductFacets' | 'Specs' | 'SecurityProfiles' | 'PasswordResets' | 'OpenIdConnects' | 'ImpersonationConfigs' | 'Buyers' | 'Users' | 'UserGroups' | 'Addresses' | 'CostCenters' | 'CreditCards' | 'SpendingAccounts' | 'ApprovalRules' | 'Suppliers' | 'SupplierUsers' | 'SupplierUserGroups' | 'SupplierAddresses' | 'Promotions' | 'AdminUsers' | 'AdminAddresses' | 'AdminUserGroups' | 'MessageSenders' | 'Webhooks' | 'ApiClients' | 'Incrementors' | 'IntegrationEvents' | 'XpIndices', ID: string,  size: 'S' | 'M', accessToken?: string ): Promise<void> {
+    public async GetThumbnailOnChild(sellerID: string, parentType: 'Catalogs' | 'Buyers' | 'Suppliers', parentID: string, type: 'Catalogs' | 'Categories' | 'Products' | 'PriceSchedules' | 'ProductFacets' | 'Specs' | 'SecurityProfiles' | 'PasswordResets' | 'OpenIdConnects' | 'ImpersonationConfigs' | 'Buyers' | 'Users' | 'UserGroups' | 'Addresses' | 'CostCenters' | 'CreditCards' | 'SpendingAccounts' | 'ApprovalRules' | 'Suppliers' | 'SupplierUsers' | 'SupplierUserGroups' | 'SupplierAddresses' | 'Promotions' | 'AdminUsers' | 'AdminAddresses' | 'AdminUserGroups' | 'MessageSenders' | 'Webhooks' | 'ApiClients' | 'Incrementors' | 'IntegrationEvents' | 'XpIndices', ID: string,  size: 'S' | 'M', accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/assets/${parentType}/${parentID}/${type}/${ID}/thumbnail`, { params: { size,  accessToken, impersonating } } );
+        return await httpClient.get(`/assets/${sellerID}/${parentType}/${parentID}/${type}/${ID}/thumbnail`, { params: { size,  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param sellerID ID of the seller.
+    * @param type Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.
+    * @param ID ID of the asset.
+    * @param options.size Size of the asset. Possible values: S, M.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetThumbnail(sellerID: string, type: 'Catalogs' | 'Categories' | 'Products' | 'PriceSchedules' | 'ProductFacets' | 'Specs' | 'SecurityProfiles' | 'PasswordResets' | 'OpenIdConnects' | 'ImpersonationConfigs' | 'Buyers' | 'Users' | 'UserGroups' | 'Addresses' | 'CostCenters' | 'CreditCards' | 'SpendingAccounts' | 'ApprovalRules' | 'Suppliers' | 'SupplierUsers' | 'SupplierUserGroups' | 'SupplierAddresses' | 'Promotions' | 'AdminUsers' | 'AdminAddresses' | 'AdminUserGroups' | 'MessageSenders' | 'Webhooks' | 'ApiClients' | 'Incrementors' | 'IntegrationEvents' | 'XpIndices', ID: string,  size: 'S' | 'M', accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/assets/${sellerID}/${type}/${ID}/thumbnail`, { params: { size,  accessToken, impersonating } } );
     }
 
    /**
@@ -110,18 +124,6 @@ export default class Assets {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/assets/${type}/${ID}`, { params: { ...options,  accessToken, impersonating } } );
-    }
-
-   /**
-    * @param type Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.
-    * @param ID ID of the asset.
-    * @param options.size Size of the asset. Possible values: S, M.
-    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
-    */
-    public async GetThumbnail(type: 'Catalogs' | 'Categories' | 'Products' | 'PriceSchedules' | 'ProductFacets' | 'Specs' | 'SecurityProfiles' | 'PasswordResets' | 'OpenIdConnects' | 'ImpersonationConfigs' | 'Buyers' | 'Users' | 'UserGroups' | 'Addresses' | 'CostCenters' | 'CreditCards' | 'SpendingAccounts' | 'ApprovalRules' | 'Suppliers' | 'SupplierUsers' | 'SupplierUserGroups' | 'SupplierAddresses' | 'Promotions' | 'AdminUsers' | 'AdminAddresses' | 'AdminUserGroups' | 'MessageSenders' | 'Webhooks' | 'ApiClients' | 'Incrementors' | 'IntegrationEvents' | 'XpIndices', ID: string,  size: 'S' | 'M', accessToken?: string ): Promise<void> {
-        const impersonating = this.impersonating;
-        this.impersonating = false;
-        return await httpClient.get(`/assets/${type}/${ID}/thumbnail`, { params: { size,  accessToken, impersonating } } );
     }
 
    /**

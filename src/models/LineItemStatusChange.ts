@@ -1,7 +1,7 @@
 
 export interface LineItemStatusChange {
     ID?: string
-    PreviousQuantities?: 'Complete' | 'Submitted' | 'Open' | 'Backordered' | 'Canceled' | 'CancelRequested' | 'Returned' | 'ReturnRequested'
+    Quantity?: number
     Reason?: string
     Comment?: string
 }

@@ -28,85 +28,78 @@ export default class OrchestrationUsers {
 
    /**
     * @param buyerId Buyer id of the marketplace address buyer.
-    * @param clientId Client id of the marketplace address buyer.
     * @param marketplaceAddressBuyer Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostAddress(buyerId: string, clientId: string, marketplaceAddressBuyer: MarketplaceAddressBuyer, accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressBuyer>> {
+    public async PostAddress(buyerId: string, marketplaceAddressBuyer: MarketplaceAddressBuyer, accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/${buyerId}/address`, marketplaceAddressBuyer, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${buyerId}/address`, marketplaceAddressBuyer, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param buyerId Buyer id of the marketplace address assignment.
-    * @param clientId Client id of the marketplace address assignment.
     * @param marketplaceAddressAssignment Required fields: AddressID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostAddressAssignment(buyerId: string, clientId: string, marketplaceAddressAssignment: MarketplaceAddressAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressAssignment>> {
+    public async PostAddressAssignment(buyerId: string, marketplaceAddressAssignment: MarketplaceAddressAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceAddressAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/${buyerId}/addressassignment`, marketplaceAddressAssignment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${buyerId}/addressassignment`, marketplaceAddressAssignment, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param buyerId Buyer id of the marketplace cost center.
-    * @param clientId Client id of the marketplace cost center.
     * @param marketplaceCostCenter Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostCostCenter(buyerId: string, clientId: string, marketplaceCostCenter: MarketplaceCostCenter, accessToken?: string ): Promise<RequiredDeep<MarketplaceCostCenter>> {
+    public async PostCostCenter(buyerId: string, marketplaceCostCenter: MarketplaceCostCenter, accessToken?: string ): Promise<RequiredDeep<MarketplaceCostCenter>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/${buyerId}/costcenter`, marketplaceCostCenter, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${buyerId}/costcenter`, marketplaceCostCenter, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param buyerId Buyer id of the marketplace user.
-    * @param clientId Client id of the marketplace user.
     * @param marketplaceUser Required fields: Username, FirstName, LastName, Email, Active
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostUser(buyerId: string, clientId: string, marketplaceUser: MarketplaceUser, accessToken?: string ): Promise<RequiredDeep<MarketplaceUser>> {
+    public async PostUser(buyerId: string, marketplaceUser: MarketplaceUser, accessToken?: string ): Promise<RequiredDeep<MarketplaceUser>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/${buyerId}/user`, marketplaceUser, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${buyerId}/user`, marketplaceUser, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param buyerId Buyer id of the marketplace user group.
-    * @param clientId Client id of the marketplace user group.
     * @param marketplaceUserGroup Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostUserGroup(buyerId: string, clientId: string, marketplaceUserGroup: MarketplaceUserGroup, accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroup>> {
+    public async PostUserGroup(buyerId: string, marketplaceUserGroup: MarketplaceUserGroup, accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/${buyerId}/usergroup`, marketplaceUserGroup, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${buyerId}/usergroup`, marketplaceUserGroup, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param buyerId Buyer id of the marketplace user group assignment.
-    * @param clientId Client id of the marketplace user group assignment.
     * @param marketplaceUserGroupAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostUserGroupAssignment(buyerId: string, clientId: string, marketplaceUserGroupAssignment: MarketplaceUserGroupAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroupAssignment>> {
+    public async PostUserGroupAssignment(buyerId: string, marketplaceUserGroupAssignment: MarketplaceUserGroupAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceUserGroupAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/${buyerId}/usergroupassignment`, marketplaceUserGroupAssignment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/${buyerId}/usergroupassignment`, marketplaceUserGroupAssignment, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param clientId Client id of the marketplace buyer.
     * @param marketplaceBuyer Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostBuyer(clientId: string, marketplaceBuyer: MarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyer>> {
+    public async PostBuyer(marketplaceBuyer: MarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/${clientId}/buyer`, marketplaceBuyer, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/buyer`, marketplaceBuyer, { params: {  accessToken, impersonating } } );
     }
 
     /**

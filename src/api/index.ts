@@ -11,6 +11,7 @@ import Products from './Products';
 import SupplierFilterConfigs from './SupplierFilterConfigs';
 import BuyerLocations from './BuyerLocations';
 import Mes from './Mes';
+import Reports from './Reports';
 import Avalaras from './Avalaras';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
@@ -44,6 +45,7 @@ const HeadStartSDK: HeadStartSDK = {
     SupplierFilterConfigs : new SupplierFilterConfigs(),
     BuyerLocations : new BuyerLocations(),
     Mes : new Mes(),
+    Reports : new Reports(),
     Avalaras : new Avalaras(),
     MePayments : new MePayments(),
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
@@ -76,6 +78,7 @@ interface HeadStartSDK {
     SupplierFilterConfigs : SupplierFilterConfigs,
     BuyerLocations : BuyerLocations,
     Mes : Mes,
+    Reports : Reports,
     Avalaras : Avalaras,
     MePayments : MePayments,
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,
