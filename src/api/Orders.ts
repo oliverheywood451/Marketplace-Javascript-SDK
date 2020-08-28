@@ -1,7 +1,7 @@
 import { LineItemStatusChanges } from '../models/LineItemStatusChanges';
+import { MarketplaceOrder } from '../models/MarketplaceOrder';
 import { OrderDetails } from '../models/OrderDetails';
 import { MarketplaceLineItem } from '../models/MarketplaceLineItem';
-import { MarketplaceOrder } from '../models/MarketplaceOrder';
 import { Order } from '../models/Order';
 import { ListPage } from '../models/ListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -17,9 +17,11 @@ export default class Orders {
     */
     constructor() {
         this.SellerSupplierUpdateLineItemStatusesWithNotification = this.SellerSupplierUpdateLineItemStatusesWithNotification.bind(this);
+        this.ApplyAutomaticPromotions = this.ApplyAutomaticPromotions.bind(this);
         this.GetOrderDetails = this.GetOrderDetails.bind(this);
         this.BuyerUpdateLineItemStatusesWithNotification = this.BuyerUpdateLineItemStatusesWithNotification.bind(this);
         this.UpsertLineItem = this.UpsertLineItem.bind(this);
+        this.DeleteLineItem = this.DeleteLineItem.bind(this);
         this.AddPromotion = this.AddPromotion.bind(this);
         this.ListShipmentsWithItems = this.ListShipmentsWithItems.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
@@ -36,6 +38,16 @@ export default class Orders {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/order/${orderID}/${orderDirection}/lineitem/status`, lineItemStatusChanges, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ApplyAutomaticPromotions(orderID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceOrder>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/order/${orderID}/applypromotions`, {}, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -68,6 +80,17 @@ export default class Orders {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/order/${orderID}/lineitems`, marketplaceLineItem, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param lineItemID ID of the line item.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async DeleteLineItem(orderID: string, lineItemID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.delete(`/order/${orderID}/lineitems/${lineItemID}`, { params: {  accessToken, impersonating } } );
     }
 
    /**

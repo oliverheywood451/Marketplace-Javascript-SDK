@@ -17,7 +17,7 @@ export default class BuyerLocations {
     constructor() {
         this.Create = this.Create.bind(this);
         this.Get = this.Get.bind(this);
-        this.Update = this.Update.bind(this);
+        this.Save = this.Save.bind(this);
         this.Delete = this.Delete.bind(this);
         this.ListLocationApprovalPermissionAsssignments = this.ListLocationApprovalPermissionAsssignments.bind(this);
         this.GetApprovalThreshold = this.GetApprovalThreshold.bind(this);
@@ -55,7 +55,7 @@ export default class BuyerLocations {
     * @param marketplaceBuyerLocation 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Update(buyerID: string, buyerLocationID: string, marketplaceBuyerLocation: MarketplaceBuyerLocation, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
+    public async Save(buyerID: string, buyerLocationID: string, marketplaceBuyerLocation: MarketplaceBuyerLocation, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/buyerlocations/${buyerID}/${buyerLocationID}`, marketplaceBuyerLocation, { params: {  accessToken, impersonating } } );

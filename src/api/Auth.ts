@@ -1,11 +1,10 @@
-import axios, { AxiosInstance } from 'axios'
+import axios from 'axios'
 import { AccessToken } from '../models/AccessToken'
 import Configuration from '../Configuration'
 import { SecurityProfile } from '../models/SecurityProfile'
 import serialize from '../utils/ParamsSerializer'
 
 export default class Auth {
-  private _http: AxiosInstance
   constructor() {
     // create a new instance so we avoid clashes with any
     // configurations done on default axios instance that
@@ -14,8 +13,6 @@ export default class Auth {
       throw new Error(
         'Ordercloud is missing required peer dependency axios. This must be installed and loaded before the OrderCloud SDK'
       )
-    } else {
-      this._http = axios.create()
     }
 
     /**
@@ -51,7 +48,7 @@ export default class Auth {
       scope: scope.join(' '),
     }
     const configuration = Configuration.Get()
-    const response = await this._http.post(
+    const response = await axios.post(
       configuration.baseAuthUrl,
       serialize(body),
       {
@@ -91,7 +88,7 @@ export default class Auth {
       client_secret: clientSecret,
     }
     const configuration = Configuration.Get()
-    const response = await this._http.post(
+    const response = await axios.post(
       configuration.baseAuthUrl,
       serialize(body),
       {
@@ -125,7 +122,7 @@ export default class Auth {
       client_secret: clientSecret,
     }
     const configuration = Configuration.Get()
-    const response = await this._http.post(
+    const response = await axios.post(
       configuration.baseAuthUrl,
       serialize(body),
       {
@@ -156,7 +153,7 @@ export default class Auth {
       refresh_token: refreshToken,
     }
     const configuration = Configuration.Get()
-    const response = await this._http.post(
+    const response = await axios.post(
       configuration.baseAuthUrl,
       serialize(body),
       {
@@ -187,7 +184,7 @@ export default class Auth {
       scope: scope.join(' '),
     }
     const configuration = Configuration.Get()
-    const response = await this._http.post(
+    const response = await axios.post(
       configuration.baseAuthUrl,
       serialize(body),
       {

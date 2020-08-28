@@ -13,7 +13,7 @@ export interface TemplateProductFlat {
     TaxCategory?: string
     TaxCode?: string
     TaxDescription?: string
-    UnitOfMeasureQty?: number
+    UnitOfMeasureQuantity?: number
     UnitOfMeasure?: string
     IsResale?: boolean
     ApplyTax?: boolean

@@ -1,7 +1,9 @@
 
 export interface ProductInKit {
     ID?: string
-    Required?: boolean
     MinQty?: number
     MaxQty?: number
+    Static?: boolean
+    Variants?: any[]
+    SpecCombo?: string
 }
