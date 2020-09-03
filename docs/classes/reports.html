@@ -54,8 +54,14 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#buyerlocation" class="tsd-kind-icon">Buyer<wbr>Location</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#deletereporttemplate" class="tsd-kind-icon">Delete<wbr>Report<wbr>Template</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#downloadbuyerlocation" class="tsd-kind-icon">Download<wbr>Buyer<wbr>Location</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#downloadsalesorderdetail" class="tsd-kind-icon">Download<wbr>Sales<wbr>Order<wbr>Detail</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#fetchallreporttypes" class="tsd-kind-icon">Fetch<wbr>All<wbr>Report<wbr>Types</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#getreporttemplate" class="tsd-kind-icon">Get<wbr>Report<wbr>Template</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#getsharedaccesssignature" class="tsd-kind-icon">Get<wbr>Shared<wbr>Access<wbr>Signature</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#listreporttemplatesbyreporttype" class="tsd-kind-icon">List<wbr>Report<wbr>Templates<wbr>ByReport<wbr>Type</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#postreporttemplate" class="tsd-kind-icon">Post<wbr>Report<wbr>Template</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#salesorderdetail" class="tsd-kind-icon">Sales<wbr>Order<wbr>Detail</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="reports.html#updatereporttemplate" class="tsd-kind-icon">Update<wbr>Report<wbr>Template</a></li>
 							</ul>
 						</section>
 					</div>
@@ -153,7 +159,7 @@
 					<a name="downloadbuyerlocation" class="tsd-anchor"></a>
 					<h3>Download<wbr>Buyer<wbr>Location</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Download<wbr>Buyer<wbr>Location<span class="tsd-signature-symbol">(</span>templateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, requestBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Download<wbr>Buyer<wbr>Location<span class="tsd-signature-symbol">(</span>templateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, reportTemplate<span class="tsd-signature-symbol">: </span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -170,7 +176,140 @@
 									</div>
 								</li>
 								<li>
-									<h5>requestBody: <span class="tsd-signature-type">any</span></h5>
+									<h5>reportTemplate: <a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="downloadsalesorderdetail" class="tsd-anchor"></a>
+					<h3>Download<wbr>Sales<wbr>Order<wbr>Detail</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Download<wbr>Sales<wbr>Order<wbr>Detail<span class="tsd-signature-symbol">(</span>templateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, lowDateRange<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, highDateRange<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, reportTemplate<span class="tsd-signature-symbol">: </span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>templateID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the template.</p>
+									</div>
+								</li>
+								<li>
+									<h5>lowDateRange: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Low date range of the report template.</p>
+									</div>
+								</li>
+								<li>
+									<h5>highDateRange: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>High date range of the report template.</p>
+									</div>
+								</li>
+								<li>
+									<h5>reportTemplate: <a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fetchallreporttypes" class="tsd-anchor"></a>
+					<h3>Fetch<wbr>All<wbr>Report<wbr>Types</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Fetch<wbr>All<wbr>Report<wbr>Types<span class="tsd-signature-symbol">(</span>accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttyperesource.html" class="tsd-signature-type">ReportTypeResource</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listpage.html" class="tsd-signature-type">ListPage</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttyperesource.html" class="tsd-signature-type">ReportTypeResource</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getreporttemplate" class="tsd-anchor"></a>
+					<h3>Get<wbr>Report<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>Report<wbr>Template<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Id of the report template.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getsharedaccesssignature" class="tsd-anchor"></a>
+					<h3>Get<wbr>Shared<wbr>Access<wbr>Signature</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Get<wbr>Shared<wbr>Access<wbr>Signature<span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fileName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>File name of the string.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -187,7 +326,7 @@
 					<a name="listreporttemplatesbyreporttype" class="tsd-anchor"></a>
 					<h3>List<wbr>Report<wbr>Templates<wbr>ByReport<wbr>Type</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Report<wbr>Templates<wbr>ByReport<wbr>Type<span class="tsd-signature-symbol">(</span>reportType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"BuyerLocation"</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Report<wbr>Templates<wbr>ByReport<wbr>Type<span class="tsd-signature-symbol">(</span>reportType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"BuyerLocation"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SalesOrderDetail"</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -198,9 +337,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>reportType: <span class="tsd-signature-type">"BuyerLocation"</span></h5>
+									<h5>reportType: <span class="tsd-signature-type">"BuyerLocation"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SalesOrderDetail"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Report type of the report template. Possible values: BuyerLocation.</p>
+										<p>Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.</p>
 									</div>
 								</li>
 								<li>
@@ -218,7 +357,7 @@
 					<a name="postreporttemplate" class="tsd-anchor"></a>
 					<h3>Post<wbr>Report<wbr>Template</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<wbr>Report<wbr>Template<span class="tsd-signature-symbol">(</span>reportType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"BuyerLocation"</span>, reportTemplate<span class="tsd-signature-symbol">: </span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Post<wbr>Report<wbr>Template<span class="tsd-signature-symbol">(</span>reportType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"BuyerLocation"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SalesOrderDetail"</span>, reportTemplate<span class="tsd-signature-symbol">: </span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -229,9 +368,86 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>reportType: <span class="tsd-signature-type">"BuyerLocation"</span></h5>
+									<h5>reportType: <span class="tsd-signature-type">"BuyerLocation"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SalesOrderDetail"</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Report type of the report template. Possible values: BuyerLocation.</p>
+										<p>Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.</p>
+									</div>
+								</li>
+								<li>
+									<h5>reportTemplate: <a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="salesorderdetail" class="tsd-anchor"></a>
+					<h3>Sales<wbr>Order<wbr>Detail</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Sales<wbr>Order<wbr>Detail<span class="tsd-signature-symbol">(</span>templateID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, lowDateRange<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, highDateRange<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>templateID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the template.</p>
+									</div>
+								</li>
+								<li>
+									<h5>lowDateRange: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Low date range of the marketplace order.</p>
+									</div>
+								</li>
+								<li>
+									<h5>highDateRange: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>High date range of the marketplace order.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="updatereporttemplate" class="tsd-anchor"></a>
+					<h3>Update<wbr>Report<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Update<wbr>Report<wbr>Template<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, reportTemplate<span class="tsd-signature-symbol">: </span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/reporttemplate.html" class="tsd-signature-type">ReportTemplate</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Id of the report template.</p>
 									</div>
 								</li>
 								<li>
@@ -275,10 +491,28 @@
 								<a href="reports.html#downloadbuyerlocation" class="tsd-kind-icon">Download<wbr>Buyer<wbr>Location</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="reports.html#downloadsalesorderdetail" class="tsd-kind-icon">Download<wbr>Sales<wbr>Order<wbr>Detail</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="reports.html#fetchallreporttypes" class="tsd-kind-icon">Fetch<wbr>All<wbr>Report<wbr>Types</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="reports.html#getreporttemplate" class="tsd-kind-icon">Get<wbr>Report<wbr>Template</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="reports.html#getsharedaccesssignature" class="tsd-kind-icon">Get<wbr>Shared<wbr>Access<wbr>Signature</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="reports.html#listreporttemplatesbyreporttype" class="tsd-kind-icon">List<wbr>Report<wbr>Templates<wbr>ByReport<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="reports.html#postreporttemplate" class="tsd-kind-icon">Post<wbr>Report<wbr>Template</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="reports.html#salesorderdetail" class="tsd-kind-icon">Sales<wbr>Order<wbr>Detail</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="reports.html#updatereporttemplate" class="tsd-kind-icon">Update<wbr>Report<wbr>Template</a>
 							</li>
 						</ul>
 					</li>

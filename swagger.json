@@ -1032,7 +1032,8 @@
                                 "Accessorials": [
                                     "Freezable"
                                 ],
-                                "Currency": "CAD"
+                                "Currency": "CAD",
+                                "ArtworkRequired": false
                             },
                             "OwnerID": "",
                             "DefaultPriceScheduleID": "",
@@ -2311,6 +2312,20 @@
                     }
                 }
             },
+            "ListReportTypeResource": {
+                "type": "object",
+                "properties": {
+                    "Items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReportTypeResource"
+                        }
+                    },
+                    "Meta": {
+                        "$ref": "#/components/schemas/Meta"
+                    }
+                }
+            },
             "ListSuperMarketplaceProduct": {
                 "type": "object",
                 "properties": {
@@ -2950,7 +2965,8 @@
                             "Accessorials": [
                                 "Freezable"
                             ],
-                            "Currency": "CAD"
+                            "Currency": "CAD",
+                            "ArtworkRequired": false
                         },
                         "ID": "",
                         "Name": "",
@@ -3169,7 +3185,8 @@
                         "Accessorials": [
                             "Freezable"
                         ],
-                        "Currency": "CAD"
+                        "Currency": "CAD",
+                        "ArtworkRequired": false
                     },
                     "ID": "",
                     "Name": "",
@@ -3343,7 +3360,8 @@
                         "Accessorials": [
                             "Freezable"
                         ],
-                        "Currency": "CAD"
+                        "Currency": "CAD",
+                        "ArtworkRequired": false
                     },
                     "PriceSchedule": {
                         "xp": {},
@@ -3504,7 +3522,32 @@
                         "SubmittedOrderStatus": "Open",
                         "ApprovalNeeded": "",
                         "ShippingStatus": "Shipped",
-                        "ClaimStatus": "NoClaim"
+                        "ClaimStatus": "NoClaim",
+                        "PaymentMethod": "",
+                        "ShippingAddress": {
+                            "xp": {
+                                "Accessorials": [
+                                    "DestinationInsideDelivery"
+                                ],
+                                "Email": "",
+                                "LocationID": "",
+                                "AvalaraCertificateID": 0,
+                                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+                            },
+                            "ID": "",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "CompanyName": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Street1": "",
+                            "Street2": "",
+                            "City": "",
+                            "State": "",
+                            "Zip": "",
+                            "Country": "",
+                            "Phone": "",
+                            "AddressName": ""
+                        }
                     },
                     "FromUser": {
                         "xp": {
@@ -3775,7 +3818,8 @@
                         "Accessorials": [
                             "Freezable"
                         ],
-                        "Currency": "CAD"
+                        "Currency": "CAD",
+                        "ArtworkRequired": false
                     },
                     "OwnerID": "",
                     "DefaultPriceScheduleID": "",
@@ -5534,7 +5578,32 @@
                             "SubmittedOrderStatus": "Open",
                             "ApprovalNeeded": "",
                             "ShippingStatus": "Shipped",
-                            "ClaimStatus": "NoClaim"
+                            "ClaimStatus": "NoClaim",
+                            "PaymentMethod": "",
+                            "ShippingAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "DestinationInsideDelivery"
+                                    ],
+                                    "Email": "",
+                                    "LocationID": "",
+                                    "AvalaraCertificateID": 0,
+                                    "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            }
                         },
                         "FromUser": {
                             "xp": {
@@ -5915,7 +5984,32 @@
                     "SubmittedOrderStatus": "Open",
                     "ApprovalNeeded": "",
                     "ShippingStatus": "Shipped",
-                    "ClaimStatus": "NoClaim"
+                    "ClaimStatus": "NoClaim",
+                    "PaymentMethod": "",
+                    "ShippingAddress": {
+                        "xp": {
+                            "Accessorials": [
+                                "DestinationInsideDelivery"
+                            ],
+                            "Email": "",
+                            "LocationID": "",
+                            "AvalaraCertificateID": 0,
+                            "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00"
+                        },
+                        "ID": "",
+                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                        "CompanyName": "",
+                        "FirstName": "",
+                        "LastName": "",
+                        "Street1": "",
+                        "Street2": "",
+                        "City": "",
+                        "State": "",
+                        "Zip": "",
+                        "Country": "",
+                        "Phone": "",
+                        "AddressName": ""
+                    }
                 },
                 "properties": {
                     "AvalaraTaxTransactionCode": {
@@ -6033,6 +6127,16 @@
                             "Complete"
                         ],
                         "type": "string"
+                    },
+                    "PaymentMethod": {
+                        "type": "string"
+                    },
+                    "ShippingAddress": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceAddressBuyer"
+                            }
+                        ]
                     }
                 }
             },
@@ -6388,7 +6492,8 @@
                     "Accessorials": [
                         "Freezable"
                     ],
-                    "Currency": "CAD"
+                    "Currency": "CAD",
+                    "ArtworkRequired": false
                 },
                 "properties": {
                     "Status": {
@@ -6490,6 +6595,9 @@
                             "PLN"
                         ],
                         "type": "string"
+                    },
+                    "ArtworkRequired": {
+                        "type": "boolean"
                     }
                 }
             },
@@ -6532,6 +6640,12 @@
                     ],
                     "State": [
                         ""
+                    ],
+                    "Status": [
+                        ""
+                    ],
+                    "OrderType": [
+                        ""
                     ]
                 },
                 "properties": {
@@ -6552,13 +6666,25 @@
                         "items": {
                             "type": "string"
                         }
+                    },
+                    "Status": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "OrderType": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
             "ReportTemplate": {
                 "type": "object",
                 "example": {
-                    "id": "",
+                    "TemplateID": "",
                     "SellerID": "",
                     "ReportType": "BuyerLocation",
                     "Name": "",
@@ -6575,12 +6701,18 @@
                         ],
                         "State": [
                             ""
+                        ],
+                        "Status": [
+                            ""
+                        ],
+                        "OrderType": [
+                            ""
                         ]
                     },
                     "AvailableToSuppliers": false
                 },
                 "properties": {
-                    "id": {
+                    "TemplateID": {
                         "type": "string"
                     },
                     "SellerID": {
@@ -6588,7 +6720,8 @@
                     },
                     "ReportType": {
                         "enum": [
-                            "BuyerLocation"
+                            "BuyerLocation",
+                            "SalesOrderDetail"
                         ],
                         "type": "string"
                     },
@@ -6613,6 +6746,46 @@
                     },
                     "AvailableToSuppliers": {
                         "type": "boolean"
+                    }
+                }
+            },
+            "ReportTypeResource": {
+                "type": "object",
+                "example": {
+                    "ID": "BuyerLocation",
+                    "Name": "",
+                    "ReportCategory": "",
+                    "AvailableToSuppliers": false,
+                    "Value": "",
+                    "AdHocFilters": [
+                        ""
+                    ]
+                },
+                "properties": {
+                    "ID": {
+                        "enum": [
+                            "BuyerLocation",
+                            "SalesOrderDetail"
+                        ],
+                        "type": "string"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "ReportCategory": {
+                        "type": "string"
+                    },
+                    "AvailableToSuppliers": {
+                        "type": "boolean"
+                    },
+                    "Value": {
+                        "type": "string"
+                    },
+                    "AdHocFilters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             },
@@ -7084,7 +7257,8 @@
                             "Accessorials": [
                                 "Freezable"
                             ],
-                            "Currency": "CAD"
+                            "Currency": "CAD",
+                            "ArtworkRequired": false
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -7326,7 +7500,8 @@
                             "Accessorials": [
                                 "Freezable"
                             ],
-                            "Currency": "CAD"
+                            "Currency": "CAD",
+                            "ArtworkRequired": false
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",
@@ -14919,6 +15094,99 @@
             }
         },
         "/reports/{id}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReportTemplate"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.GetReportTemplate",
+                "tags": [
+                    "Reports"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the report template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get a single report report template.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "AdminUserAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReportTemplate"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.UpdateReportTemplate",
+                "tags": [
+                    "Reports"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReportTemplate"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the report template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Update a report template.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "AdminUserAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            },
             "delete": {
                 "responses": {
                     "204": {
@@ -14955,7 +15223,7 @@
         "/reports/{reportType}": {
             "post": {
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "",
                         "content": {
                             "application/json": {
@@ -14989,12 +15257,13 @@
                     {
                         "name": "reportType",
                         "in": "path",
-                        "description": "Report type of the report template. Possible values: BuyerLocation.",
+                        "description": "Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.",
                         "required": true,
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "BuyerLocation"
+                                "BuyerLocation",
+                                "SalesOrderDetail"
                             ]
                         }
                     }
@@ -15036,12 +15305,13 @@
                     {
                         "name": "reportType",
                         "in": "path",
-                        "description": "Report type of the report template. Possible values: BuyerLocation.",
+                        "description": "Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.",
                         "required": true,
                         "schema": {
                             "type": "string",
                             "enum": [
-                                "BuyerLocation"
+                                "BuyerLocation",
+                                "SalesOrderDetail"
                             ]
                         }
                     }
@@ -15057,17 +15327,39 @@
                 ]
             }
         },
-        "/reports/buyerLocation/download/{templateID}": {
+        "/reports/BuyerLocation/download/{templateID}": {
             "post": {
                 "responses": {
-                    "204": {
-                        "description": ""
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 },
                 "operationId": "Reports.DownloadBuyerLocation",
                 "tags": [
                     "Reports"
                 ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReportTemplate"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
                 "parameters": [
                     {
                         "name": "templateID",
@@ -15076,15 +15368,6 @@
                         "required": true,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "requestBody",
-                        "in": "query",
-                        "description": "Request body of the report.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
                         }
                     }
                 ],
@@ -15099,7 +15382,7 @@
                 ]
             }
         },
-        "/reports/buyerLocation/preview/{templateID}": {
+        "/reports/BuyerLocation/preview/{templateID}": {
             "get": {
                 "responses": {
                     "200": {
@@ -15132,6 +15415,209 @@
                     }
                 ],
                 "summary": "Buyer a location.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/reports/download-shared-access/{fileName}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.GetSharedAccessSignature",
+                "tags": [
+                    "Reports"
+                ],
+                "parameters": [
+                    {
+                        "name": "fileName",
+                        "in": "path",
+                        "description": "File name of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get a single report shared access signature.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/reports/fetchAllReportTypes": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListReportTypeResource"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.FetchAllReportTypes",
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Fetch an all report types.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/reports/SalesOrderDetail/download/{templateID}/{lowDateRange}/{highDateRange}": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.DownloadSalesOrderDetail",
+                "tags": [
+                    "Reports"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReportTemplate"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "templateID",
+                        "in": "path",
+                        "description": "ID of the template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lowDateRange",
+                        "in": "path",
+                        "description": "Low date range of the report template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "highDateRange",
+                        "in": "path",
+                        "description": "High date range of the report template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Download a sales order detail.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/reports/SalesOrderDetail/preview/{templateID}/{lowDateRange}/{highDateRange}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MarketplaceOrder"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.SalesOrderDetail",
+                "tags": [
+                    "Reports"
+                ],
+                "parameters": [
+                    {
+                        "name": "templateID",
+                        "in": "path",
+                        "description": "ID of the template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lowDateRange",
+                        "in": "path",
+                        "description": "Low date range of the marketplace order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "highDateRange",
+                        "in": "path",
+                        "description": "High date range of the marketplace order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Sales an order detail.",
                 "description": "",
                 "security": [
                     {

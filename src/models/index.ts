@@ -95,6 +95,7 @@ export * from './ProductXp';
 export * from './QuoteOrderInfo';
 export * from './ReportFilters';
 export * from './ReportTemplate';
+export * from './ReportTypeResource';
 export * from './ShipmentCreateResponse';
 export * from './ShipmentItem';
 export * from './ShipmentRate';

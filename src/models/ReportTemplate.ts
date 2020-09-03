@@ -1,9 +1,9 @@
 import { ReportFilters } from './ReportFilters';
 
 export interface ReportTemplate {
-    id?: string
+    TemplateID?: string
     SellerID?: string
-    ReportType?: 'BuyerLocation'
+    ReportType?: 'BuyerLocation' | 'SalesOrderDetail'
     Name?: string
     Description?: string
     Headers?: string[]
