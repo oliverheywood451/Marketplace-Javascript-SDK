@@ -10,4 +10,5 @@ export interface SupplierXp {
     ProductTypes?: 'Standard' | 'Quote' | 'PurchaseOrder'
     CountriesServicing?: string[]
     Categories?: SupplierCategory[]
+    NotificationRcpts?: string[]
 }

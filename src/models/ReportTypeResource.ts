@@ -1,6 +1,6 @@
 
 export interface ReportTypeResource {
-    ID?: 'BuyerLocation' | 'SalesOrderDetail'
+    ID?: 'BuyerLocation' | 'SalesOrderDetail' | 'PurchaseOrderDetail'
     Name?: string
     ReportCategory?: string
     AvailableToSuppliers?: boolean

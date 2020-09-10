@@ -22,6 +22,8 @@ export default class Reports {
         this.BuyerLocation = this.BuyerLocation.bind(this);
         this.GetSharedAccessSignature = this.GetSharedAccessSignature.bind(this);
         this.FetchAllReportTypes = this.FetchAllReportTypes.bind(this);
+        this.DownloadPurchaseOrderDetail = this.DownloadPurchaseOrderDetail.bind(this);
+        this.PurchaseOrderDetail = this.PurchaseOrderDetail.bind(this);
         this.DownloadSalesOrderDetail = this.DownloadSalesOrderDetail.bind(this);
         this.SalesOrderDetail = this.SalesOrderDetail.bind(this);
     }
@@ -58,21 +60,21 @@ export default class Reports {
     }
 
    /**
-    * @param reportType Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.
+    * @param reportType Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail, PurchaseOrderDetail.
     * @param reportTemplate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostReportTemplate(reportType: 'BuyerLocation' | 'SalesOrderDetail', reportTemplate: ReportTemplate, accessToken?: string ): Promise<RequiredDeep<ReportTemplate>> {
+    public async PostReportTemplate(reportType: 'BuyerLocation' | 'SalesOrderDetail' | 'PurchaseOrderDetail', reportTemplate: ReportTemplate, accessToken?: string ): Promise<RequiredDeep<ReportTemplate>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/reports/${reportType}`, reportTemplate, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param reportType Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.
+    * @param reportType Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail, PurchaseOrderDetail.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListReportTemplatesByReportType(reportType: 'BuyerLocation' | 'SalesOrderDetail',  accessToken?: string ): Promise<void> {
+    public async ListReportTemplatesByReportType(reportType: 'BuyerLocation' | 'SalesOrderDetail' | 'PurchaseOrderDetail',  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/reports/${reportType}/listtemplates`, { params: {  accessToken, impersonating } } );
@@ -116,6 +118,31 @@ export default class Reports {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/reports/fetchAllReportTypes`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param templateID ID of the template.
+    * @param lowDateRange Low date range of the report template.
+    * @param highDateRange High date range of the report template.
+    * @param reportTemplate 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async DownloadPurchaseOrderDetail(templateID: string, lowDateRange: string, highDateRange: string, reportTemplate: ReportTemplate, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/reports/PurchaseOrderDetail/download/${templateID}/${lowDateRange}/${highDateRange}`, reportTemplate, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param templateID ID of the template.
+    * @param lowDateRange Low date range of the marketplace order.
+    * @param highDateRange High date range of the marketplace order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async PurchaseOrderDetail(templateID: string, lowDateRange: string, highDateRange: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/reports/PurchaseOrderDetail/preview/${templateID}/${lowDateRange}/${highDateRange}`, { params: {  accessToken, impersonating } } );
     }
 
    /**

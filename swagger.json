@@ -4671,6 +4671,9 @@
                                 "ServiceCategory": "",
                                 "VendorLevel": ""
                             }
+                        ],
+                        "NotificationRcpts": [
+                            ""
                         ]
                     },
                     "ID": "",
@@ -6721,7 +6724,8 @@
                     "ReportType": {
                         "enum": [
                             "BuyerLocation",
-                            "SalesOrderDetail"
+                            "SalesOrderDetail",
+                            "PurchaseOrderDetail"
                         ],
                         "type": "string"
                     },
@@ -6765,7 +6769,8 @@
                     "ID": {
                         "enum": [
                             "BuyerLocation",
-                            "SalesOrderDetail"
+                            "SalesOrderDetail",
+                            "PurchaseOrderDetail"
                         ],
                         "type": "string"
                     },
@@ -7985,6 +7990,9 @@
                             "ServiceCategory": "",
                             "VendorLevel": ""
                         }
+                    ],
+                    "NotificationRcpts": [
+                        ""
                     ]
                 },
                 "properties": {
@@ -8063,6 +8071,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/SupplierCategory"
+                        }
+                    },
+                    "NotificationRcpts": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
                         }
                     }
                 }
@@ -15257,13 +15271,14 @@
                     {
                         "name": "reportType",
                         "in": "path",
-                        "description": "Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.",
+                        "description": "Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail, PurchaseOrderDetail.",
                         "required": true,
                         "schema": {
                             "type": "string",
                             "enum": [
                                 "BuyerLocation",
-                                "SalesOrderDetail"
+                                "SalesOrderDetail",
+                                "PurchaseOrderDetail"
                             ]
                         }
                     }
@@ -15305,13 +15320,14 @@
                     {
                         "name": "reportType",
                         "in": "path",
-                        "description": "Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail.",
+                        "description": "Report type of the report template. Possible values: BuyerLocation, SalesOrderDetail, PurchaseOrderDetail.",
                         "required": true,
                         "schema": {
                             "type": "string",
                             "enum": [
                                 "BuyerLocation",
-                                "SalesOrderDetail"
+                                "SalesOrderDetail",
+                                "PurchaseOrderDetail"
                             ]
                         }
                     }
@@ -15484,6 +15500,140 @@
                     "Reports"
                 ],
                 "summary": "Fetch an all report types.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/reports/PurchaseOrderDetail/download/{templateID}/{lowDateRange}/{highDateRange}": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.DownloadPurchaseOrderDetail",
+                "tags": [
+                    "Reports"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ReportTemplate"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "templateID",
+                        "in": "path",
+                        "description": "ID of the template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lowDateRange",
+                        "in": "path",
+                        "description": "Low date range of the report template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "highDateRange",
+                        "in": "path",
+                        "description": "High date range of the report template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Download a purchase order detail.",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/reports/PurchaseOrderDetail/preview/{templateID}/{lowDateRange}/{highDateRange}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MarketplaceOrder"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Reports.PurchaseOrderDetail",
+                "tags": [
+                    "Reports"
+                ],
+                "parameters": [
+                    {
+                        "name": "templateID",
+                        "in": "path",
+                        "description": "ID of the template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lowDateRange",
+                        "in": "path",
+                        "description": "Low date range of the marketplace order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "highDateRange",
+                        "in": "path",
+                        "description": "High date range of the marketplace order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Purchase an order detail.",
                 "description": "",
                 "security": [
                     {
