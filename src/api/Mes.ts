@@ -1,3 +1,4 @@
+import { MarketplaceMeKitProduct } from '../models/MarketplaceMeKitProduct';
 import { ListPageFacet } from '../models/ListPageFacet';
 import { MarketplaceMeProduct } from '../models/MarketplaceMeProduct';
 import { SuperMarketplaceMeProduct } from '../models/SuperMarketplaceMeProduct';
@@ -13,8 +14,20 @@ export default class Mes {
     * not part of public api, don't include in generated docs
     */
     constructor() {
+        this.GetMeKit = this.GetMeKit.bind(this);
         this.ListMeProducts = this.ListMeProducts.bind(this);
         this.GetSuperProduct = this.GetSuperProduct.bind(this);
+        this.RequestProductInfo = this.RequestProductInfo.bind(this);
+    }
+
+   /**
+    * @param kitProductID ID of the kit product.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetMeKit(kitProductID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceMeKitProduct>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/me/kitproducts/${kitProductID}`, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -40,6 +53,16 @@ export default class Mes {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/me/products/${productID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.template Template of the me.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async RequestProductInfo( template: any, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/me/products/requestinfo`, {}, { params: { template,  accessToken, impersonating } } );
     }
 
     /**

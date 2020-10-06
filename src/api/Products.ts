@@ -1,6 +1,7 @@
 import { ListPage } from '../models/ListPage';
 import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
 import { MarketplacePriceSchedule } from '../models/MarketplacePriceSchedule';
+import { Product } from '../models/Product';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -22,6 +23,7 @@ export default class Products {
         this.CreatePricingOverride = this.CreatePricingOverride.bind(this);
         this.UpdatePricingOverride = this.UpdatePricingOverride.bind(this);
         this.DeletePricingOverride = this.DeletePricingOverride.bind(this);
+        this.FilterOptionOverride = this.FilterOptionOverride.bind(this);
     }
 
    /**
@@ -124,6 +126,17 @@ export default class Products {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/products/${id}/pricingoverride/buyer/${buyerID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param id Id of the product.
+    * @param product 
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async FilterOptionOverride(id: string, product: Product, accessToken?: string ): Promise<RequiredDeep<Product>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.patch(`/products/filteroptionoverride/${id}`, product, { params: {  accessToken, impersonating } } );
     }
 
     /**

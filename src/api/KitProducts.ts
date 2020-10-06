@@ -17,6 +17,7 @@ export default class KitProducts {
         this.Get = this.Get.bind(this);
         this.Put = this.Put.bind(this);
         this.Delete = this.Delete.bind(this);
+        this.ListMeKits = this.ListMeKits.bind(this);
     }
 
    /**
@@ -73,6 +74,21 @@ export default class KitProducts {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/kitproducts/${id}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListMeKits( options: ListArgs<MarketplaceKitProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceKitProduct>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/kitproducts/me`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
     /**

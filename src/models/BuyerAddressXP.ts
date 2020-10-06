@@ -5,4 +5,9 @@ export interface BuyerAddressXP {
     LocationID?: string
     AvalaraCertificateID?: number
     AvalaraCertificateExpiration?: string
+    OpeningDate?: string
+    BillingNumber?: string
+    Status?: string
+    LegalEntity?: string
+    PrimaryContactName?: string
 }
