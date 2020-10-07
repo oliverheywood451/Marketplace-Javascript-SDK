@@ -164,6 +164,7 @@ class HttpClient {
     const sdkConfig = Configuration.Get()
     const requestConfig = {
       ...config,
+      paramsSerializer,
       timeout: sdkConfig.timeoutInMilliseconds,
       headers: {
         'Content-Type': 'application/json',
