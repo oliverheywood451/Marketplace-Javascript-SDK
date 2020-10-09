@@ -6,5 +6,5 @@ export interface SupplierFilterConfig {
     Items?: Filter[]
     AllowSupplierEdit?: boolean
     AllowSellerEdit?: boolean
-    BuyerAppFilterType?: 'SelectOption' | 'NonUI'
+    BuyerAppFilterType?: string
 }

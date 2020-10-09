@@ -2,6 +2,7 @@
 export interface TemplateProductFlat {
     ID?: string
     Active?: boolean
+    ProductType?: 'Standard' | 'Quote' | 'PurchaseOrder' | 'Kit'
     Name?: string
     Description?: string
     QuantityMultiplier?: number
@@ -25,7 +26,7 @@ export interface TemplateProductFlat {
     Price?: number
     ImageTitle?: string
     Url?: string
-    Type?: 'Image' | 'Theme' | 'Attachment' | 'Structured'
+    Type?: 'Image' | 'Text' | 'Audio' | 'Video' | 'Presentation' | 'SpreadSheet' | 'PDF' | 'Compressed' | 'Code' | 'JSON' | 'Markup' | 'Unknown'
     Tags?: string
     FileName?: string
 }

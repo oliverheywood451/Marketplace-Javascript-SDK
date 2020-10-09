@@ -467,9 +467,17 @@
                     "Type": {
                         "enum": [
                             "Image",
-                            "Theme",
-                            "Attachment",
-                            "Structured"
+                            "Text",
+                            "Audio",
+                            "Video",
+                            "Presentation",
+                            "SpreadSheet",
+                            "PDF",
+                            "Compressed",
+                            "Code",
+                            "JSON",
+                            "Markup",
+                            "Unknown"
                         ],
                         "type": "string"
                     },
@@ -694,7 +702,8 @@
                     "OpeningDate": "2018-01-01T00:00:00-06:00",
                     "BillingNumber": "",
                     "Status": "",
-                    "LegalEntity": ""
+                    "LegalEntity": "",
+                    "PrimaryContactName": ""
                 },
                 "properties": {
                     "Accessorials": {
@@ -734,6 +743,9 @@
                         "type": "string"
                     },
                     "LegalEntity": {
+                        "type": "string"
+                    },
+                    "PrimaryContactName": {
                         "type": "string"
                     }
                 }
@@ -1624,10 +1636,132 @@
                             "MinQty": 0,
                             "MaxQty": 0,
                             "Static": false,
+                            "SpecCombo": "",
                             "Variants": [
-                                {}
+                                {
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "Active": false,
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0,
+                                    "Inventory": {
+                                        "QuantityAvailable": 0,
+                                        "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                    },
+                                    "Specs": [
+                                        {
+                                            "SpecID": "",
+                                            "Name": "",
+                                            "OptionID": "",
+                                            "Value": "",
+                                            "PriceMarkupType": "NoMarkup",
+                                            "PriceMarkup": 0
+                                        }
+                                    ]
+                                }
                             ],
-                            "SpecCombo": ""
+                            "Specs": [
+                                {
+                                    "ID": "",
+                                    "ListOrder": 0,
+                                    "Name": "",
+                                    "DefaultValue": "",
+                                    "Required": false,
+                                    "AllowOpenText": false,
+                                    "DefaultOptionID": "",
+                                    "DefinesVariant": false,
+                                    "OptionCount": 0,
+                                    "Options": [
+                                        {
+                                            "ID": "",
+                                            "Value": "",
+                                            "ListOrder": 0,
+                                            "IsOpenText": false,
+                                            "PriceMarkupType": "NoMarkup",
+                                            "PriceMarkup": 0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "Product": {
+                                "xp": {
+                                    "Status": "Draft",
+                                    "HasVariants": false,
+                                    "Note": "",
+                                    "Tax": {
+                                        "Category": "",
+                                        "Code": "",
+                                        "Description": ""
+                                    },
+                                    "UnitOfMeasure": {
+                                        "Qty": 0,
+                                        "Unit": ""
+                                    },
+                                    "ProductType": "Standard",
+                                    "SizeTier": "G",
+                                    "IsResale": false,
+                                    "Accessorials": [
+                                        "Freezable"
+                                    ],
+                                    "Currency": "CAD",
+                                    "ArtworkRequired": false
+                                },
+                                "OwnerID": "",
+                                "DefaultPriceScheduleID": "",
+                                "AutoForward": false,
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "QuantityMultiplier": 0,
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0,
+                                "Active": false,
+                                "SpecCount": 0,
+                                "VariantCount": 0,
+                                "ShipFromAddressID": "",
+                                "Inventory": {
+                                    "Enabled": false,
+                                    "NotificationPoint": 0,
+                                    "VariantLevelTracking": false,
+                                    "OrderCanExceed": false,
+                                    "QuantityAvailable": 0,
+                                    "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                },
+                                "DefaultSupplierID": ""
+                            },
+                            "Images": [
+                                {
+                                    "ID": "",
+                                    "Title": "",
+                                    "Active": false,
+                                    "Url": "",
+                                    "Type": "Image",
+                                    "Tags": [
+                                        ""
+                                    ],
+                                    "FileName": "",
+                                    "Metadata": {
+                                        "IsUrlOverridden": false,
+                                        "ContentType": "",
+                                        "SizeBytes": 0,
+                                        "ImageHeight": 0,
+                                        "ImageWidth": 0,
+                                        "ImageVerticalResolution": 0,
+                                        "ImageHorizontalResolution": 0
+                                    },
+                                    "History": {
+                                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                                        "CreatedByUserID": "",
+                                        "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                        "UpdatedByUserID": ""
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2051,7 +2185,9 @@
                             "IsResolved": false
                         }
                     ],
-                    "ImageUrl": ""
+                    "ImageUrl": "",
+                    "KitProductImageUrl": "",
+                    "KitProductID": ""
                 },
                 "properties": {
                     "StatusByQuantity": {
@@ -2083,6 +2219,12 @@
                         }
                     },
                     "ImageUrl": {
+                        "type": "string"
+                    },
+                    "KitProductImageUrl": {
+                        "type": "string"
+                    },
+                    "KitProductID": {
                         "type": "string"
                     }
                 }
@@ -2252,6 +2394,20 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/MarketplaceKitProduct"
+                        }
+                    },
+                    "Meta": {
+                        "$ref": "#/components/schemas/Meta"
+                    }
+                }
+            },
+            "ListMarketplaceLocationUserGroup": {
+                "type": "object",
+                "properties": {
+                    "Items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplaceLocationUserGroup"
                         }
                     },
                     "Meta": {
@@ -2473,7 +2629,8 @@
                         "OpeningDate": "2018-01-01T00:00:00-06:00",
                         "BillingNumber": "",
                         "Status": "",
-                        "LegalEntity": ""
+                        "LegalEntity": "",
+                        "PrimaryContactName": ""
                     },
                     "ID": "",
                     "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -2681,7 +2838,8 @@
                             "OpeningDate": "2018-01-01T00:00:00-06:00",
                             "BillingNumber": "",
                             "Status": "",
-                            "LegalEntity": ""
+                            "LegalEntity": "",
+                            "PrimaryContactName": ""
                         },
                         "ID": "",
                         "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -2900,10 +3058,132 @@
                                 "MinQty": 0,
                                 "MaxQty": 0,
                                 "Static": false,
+                                "SpecCombo": "",
                                 "Variants": [
-                                    {}
+                                    {
+                                        "ID": "",
+                                        "Name": "",
+                                        "Description": "",
+                                        "Active": false,
+                                        "ShipWeight": 0,
+                                        "ShipHeight": 0,
+                                        "ShipWidth": 0,
+                                        "ShipLength": 0,
+                                        "Inventory": {
+                                            "QuantityAvailable": 0,
+                                            "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                        },
+                                        "Specs": [
+                                            {
+                                                "SpecID": "",
+                                                "Name": "",
+                                                "OptionID": "",
+                                                "Value": "",
+                                                "PriceMarkupType": "NoMarkup",
+                                                "PriceMarkup": 0
+                                            }
+                                        ]
+                                    }
                                 ],
-                                "SpecCombo": ""
+                                "Specs": [
+                                    {
+                                        "ID": "",
+                                        "ListOrder": 0,
+                                        "Name": "",
+                                        "DefaultValue": "",
+                                        "Required": false,
+                                        "AllowOpenText": false,
+                                        "DefaultOptionID": "",
+                                        "DefinesVariant": false,
+                                        "OptionCount": 0,
+                                        "Options": [
+                                            {
+                                                "ID": "",
+                                                "Value": "",
+                                                "ListOrder": 0,
+                                                "IsOpenText": false,
+                                                "PriceMarkupType": "NoMarkup",
+                                                "PriceMarkup": 0
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "Product": {
+                                    "xp": {
+                                        "Status": "Draft",
+                                        "HasVariants": false,
+                                        "Note": "",
+                                        "Tax": {
+                                            "Category": "",
+                                            "Code": "",
+                                            "Description": ""
+                                        },
+                                        "UnitOfMeasure": {
+                                            "Qty": 0,
+                                            "Unit": ""
+                                        },
+                                        "ProductType": "Standard",
+                                        "SizeTier": "G",
+                                        "IsResale": false,
+                                        "Accessorials": [
+                                            "Freezable"
+                                        ],
+                                        "Currency": "CAD",
+                                        "ArtworkRequired": false
+                                    },
+                                    "OwnerID": "",
+                                    "DefaultPriceScheduleID": "",
+                                    "AutoForward": false,
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "QuantityMultiplier": 0,
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0,
+                                    "Active": false,
+                                    "SpecCount": 0,
+                                    "VariantCount": 0,
+                                    "ShipFromAddressID": "",
+                                    "Inventory": {
+                                        "Enabled": false,
+                                        "NotificationPoint": 0,
+                                        "VariantLevelTracking": false,
+                                        "OrderCanExceed": false,
+                                        "QuantityAvailable": 0,
+                                        "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                    },
+                                    "DefaultSupplierID": ""
+                                },
+                                "Images": [
+                                    {
+                                        "ID": "",
+                                        "Title": "",
+                                        "Active": false,
+                                        "Url": "",
+                                        "Type": "Image",
+                                        "Tags": [
+                                            ""
+                                        ],
+                                        "FileName": "",
+                                        "Metadata": {
+                                            "IsUrlOverridden": false,
+                                            "ContentType": "",
+                                            "SizeBytes": 0,
+                                            "ImageHeight": 0,
+                                            "ImageWidth": 0,
+                                            "ImageVerticalResolution": 0,
+                                            "ImageHorizontalResolution": 0
+                                        },
+                                        "History": {
+                                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                                            "CreatedByUserID": "",
+                                            "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                            "UpdatedByUserID": ""
+                                        }
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -2968,7 +3248,9 @@
                                 "IsResolved": false
                             }
                         ],
-                        "ImageUrl": ""
+                        "ImageUrl": "",
+                        "KitProductImageUrl": "",
+                        "KitProductID": ""
                     },
                     "Product": {
                         "xp": {
@@ -3023,7 +3305,8 @@
                             "OpeningDate": "2018-01-01T00:00:00-06:00",
                             "BillingNumber": "",
                             "Status": "",
-                            "LegalEntity": ""
+                            "LegalEntity": "",
+                            "PrimaryContactName": ""
                         },
                         "ID": "",
                         "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -3189,6 +3472,323 @@
                         "items": {
                             "$ref": "#/components/schemas/LineItemSpec"
                         }
+                    }
+                }
+            },
+            "MarketplaceLineItemOrder": {
+                "type": "object",
+                "example": {
+                    "MarketplaceOrder": {
+                        "xp": {
+                            "AvalaraTaxTransactionCode": "",
+                            "ShipFromAddressIDs": [
+                                ""
+                            ],
+                            "SupplierIDs": [
+                                ""
+                            ],
+                            "NeedsAttention": false,
+                            "StopShipSync": false,
+                            "OrderType": "Standard",
+                            "QuoteOrderInfo": {
+                                "FirstName": "",
+                                "LastName": "",
+                                "BuyerLocation": "",
+                                "Phone": "",
+                                "Email": "",
+                                "Comments": ""
+                            },
+                            "Returns": {
+                                "HasClaims": false,
+                                "HasUnresolvedClaims": false,
+                                "Resolutions": [
+                                    {
+                                        "LineItemID": "",
+                                        "RMANumber": "",
+                                        "IsResolved": false
+                                    }
+                                ]
+                            },
+                            "Cancelations": {
+                                "HasClaims": false,
+                                "HasUnresolvedClaims": false,
+                                "Resolutions": [
+                                    {
+                                        "LineItemID": "",
+                                        "RMANumber": "",
+                                        "IsResolved": false
+                                    }
+                                ]
+                            },
+                            "Currency": "CAD",
+                            "SubmittedOrderStatus": "Open",
+                            "ApprovalNeeded": "",
+                            "ShippingStatus": "Shipped",
+                            "ClaimStatus": "NoClaim",
+                            "PaymentMethod": "",
+                            "ShippingAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "DestinationInsideDelivery"
+                                    ],
+                                    "Email": "",
+                                    "LocationID": "",
+                                    "AvalaraCertificateID": 0,
+                                    "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                    "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                    "BillingNumber": "",
+                                    "Status": "",
+                                    "LegalEntity": "",
+                                    "PrimaryContactName": ""
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            }
+                        },
+                        "FromUser": {
+                            "xp": {
+                                "Country": "",
+                                "OrderEmails": "",
+                                "RequestInfoEmails": "",
+                                "AddtlRcpts": [
+                                    ""
+                                ]
+                            },
+                            "ID": "",
+                            "Username": "",
+                            "Password": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Email": "",
+                            "Phone": "",
+                            "TermsAccepted": "2018-01-01T00:00:00-06:00",
+                            "Active": false,
+                            "AvailableRoles": [
+                                ""
+                            ],
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+                        },
+                        "BillingAddress": {
+                            "xp": {
+                                "Accessorials": [
+                                    "DestinationInsideDelivery"
+                                ],
+                                "Email": "",
+                                "LocationID": "",
+                                "AvalaraCertificateID": 0,
+                                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                "BillingNumber": "",
+                                "Status": "",
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
+                            },
+                            "ID": "",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "CompanyName": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Street1": "",
+                            "Street2": "",
+                            "City": "",
+                            "State": "",
+                            "Zip": "",
+                            "Country": "",
+                            "Phone": "",
+                            "AddressName": ""
+                        },
+                        "ID": "",
+                        "FromCompanyID": "",
+                        "ToCompanyID": "",
+                        "FromUserID": "",
+                        "BillingAddressID": "",
+                        "ShippingAddressID": "",
+                        "Comments": "",
+                        "LineItemCount": 0,
+                        "Status": "Unsubmitted",
+                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                        "DateSubmitted": "2018-01-01T00:00:00-06:00",
+                        "DateApproved": "2018-01-01T00:00:00-06:00",
+                        "DateDeclined": "2018-01-01T00:00:00-06:00",
+                        "DateCanceled": "2018-01-01T00:00:00-06:00",
+                        "DateCompleted": "2018-01-01T00:00:00-06:00",
+                        "Subtotal": 0,
+                        "ShippingCost": 0,
+                        "TaxCost": 0,
+                        "PromotionDiscount": 0,
+                        "Total": 0,
+                        "IsSubmitted": false
+                    },
+                    "MarketplaceLineItem": {
+                        "xp": {
+                            "StatusByQuantity": [
+                                "Complete"
+                            ],
+                            "Returns": [
+                                {
+                                    "RMANumber": "",
+                                    "Quantity": 0,
+                                    "Reason": "",
+                                    "Comment": "",
+                                    "IsResolved": false
+                                }
+                            ],
+                            "Cancelations": [
+                                {
+                                    "RMANumber": "",
+                                    "Quantity": 0,
+                                    "Reason": "",
+                                    "Comment": "",
+                                    "IsResolved": false
+                                }
+                            ],
+                            "ImageUrl": "",
+                            "KitProductImageUrl": "",
+                            "KitProductID": ""
+                        },
+                        "Product": {
+                            "xp": {
+                                "Status": "Draft",
+                                "HasVariants": false,
+                                "Note": "",
+                                "Tax": {
+                                    "Category": "",
+                                    "Code": "",
+                                    "Description": ""
+                                },
+                                "UnitOfMeasure": {
+                                    "Qty": 0,
+                                    "Unit": ""
+                                },
+                                "ProductType": "Standard",
+                                "SizeTier": "G",
+                                "IsResale": false,
+                                "Accessorials": [
+                                    "Freezable"
+                                ],
+                                "Currency": "CAD",
+                                "ArtworkRequired": false
+                            },
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "QuantityMultiplier": 0,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0
+                        },
+                        "Variant": {
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0
+                        },
+                        "ShippingAddress": {
+                            "xp": {
+                                "Accessorials": [
+                                    "DestinationInsideDelivery"
+                                ],
+                                "Email": "",
+                                "LocationID": "",
+                                "AvalaraCertificateID": 0,
+                                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                "BillingNumber": "",
+                                "Status": "",
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
+                            },
+                            "ID": "",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "CompanyName": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Street1": "",
+                            "Street2": "",
+                            "City": "",
+                            "State": "",
+                            "Zip": "",
+                            "Country": "",
+                            "Phone": "",
+                            "AddressName": ""
+                        },
+                        "ShipFromAddress": {
+                            "xp": {
+                                "Accessorials": [
+                                    "LimitedAccessPickup"
+                                ]
+                            },
+                            "ID": "",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "CompanyName": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Street1": "",
+                            "Street2": "",
+                            "City": "",
+                            "State": "",
+                            "Zip": "",
+                            "Country": "",
+                            "Phone": "",
+                            "AddressName": ""
+                        },
+                        "ID": "",
+                        "ProductID": "",
+                        "Quantity": 0,
+                        "DateAdded": "2018-01-01T00:00:00-06:00",
+                        "QuantityShipped": 0,
+                        "UnitPrice": 0,
+                        "PromotionDiscount": 0,
+                        "LineTotal": 0,
+                        "LineSubtotal": 0,
+                        "CostCenter": "",
+                        "DateNeeded": "2018-01-01T00:00:00-06:00",
+                        "ShippingAccount": "",
+                        "ShippingAddressID": "",
+                        "ShipFromAddressID": "",
+                        "SupplierID": "",
+                        "Specs": [
+                            {
+                                "SpecID": "",
+                                "Name": "",
+                                "OptionID": "",
+                                "Value": "",
+                                "PriceMarkupType": "NoMarkup",
+                                "PriceMarkup": 0
+                            }
+                        ]
+                    }
+                },
+                "properties": {
+                    "MarketplaceOrder": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceOrder"
+                            }
+                        ]
+                    },
+                    "MarketplaceLineItem": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceLineItem"
+                            }
+                        ]
                     }
                 }
             },
@@ -3497,10 +4097,146 @@
                                 "MinQty": 0,
                                 "MaxQty": 0,
                                 "Static": false,
+                                "SpecCombo": "",
                                 "Variants": [
-                                    {}
+                                    {
+                                        "ID": "",
+                                        "Name": "",
+                                        "Description": "",
+                                        "Active": false,
+                                        "ShipWeight": 0,
+                                        "ShipHeight": 0,
+                                        "ShipWidth": 0,
+                                        "ShipLength": 0,
+                                        "Inventory": {
+                                            "QuantityAvailable": 0,
+                                            "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                        },
+                                        "Specs": [
+                                            {
+                                                "SpecID": "",
+                                                "Name": "",
+                                                "OptionID": "",
+                                                "Value": "",
+                                                "PriceMarkupType": "NoMarkup",
+                                                "PriceMarkup": 0
+                                            }
+                                        ]
+                                    }
                                 ],
-                                "SpecCombo": ""
+                                "Specs": [
+                                    {
+                                        "ID": "",
+                                        "ListOrder": 0,
+                                        "Name": "",
+                                        "DefaultValue": "",
+                                        "Required": false,
+                                        "AllowOpenText": false,
+                                        "DefaultOptionID": "",
+                                        "DefinesVariant": false,
+                                        "OptionCount": 0,
+                                        "Options": [
+                                            {
+                                                "ID": "",
+                                                "Value": "",
+                                                "ListOrder": 0,
+                                                "IsOpenText": false,
+                                                "PriceMarkupType": "NoMarkup",
+                                                "PriceMarkup": 0
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "Product": {
+                                    "xp": {
+                                        "Status": "Draft",
+                                        "HasVariants": false,
+                                        "Note": "",
+                                        "Tax": {
+                                            "Category": "",
+                                            "Code": "",
+                                            "Description": ""
+                                        },
+                                        "UnitOfMeasure": {
+                                            "Qty": 0,
+                                            "Unit": ""
+                                        },
+                                        "ProductType": "Standard",
+                                        "SizeTier": "G",
+                                        "IsResale": false,
+                                        "Accessorials": [
+                                            "Freezable"
+                                        ],
+                                        "Currency": "CAD",
+                                        "ArtworkRequired": false
+                                    },
+                                    "PriceSchedule": {
+                                        "xp": {},
+                                        "ID": "",
+                                        "Name": "",
+                                        "ApplyTax": false,
+                                        "ApplyShipping": false,
+                                        "MinQuantity": 0,
+                                        "MaxQuantity": 0,
+                                        "UseCumulativeQuantity": false,
+                                        "RestrictedQuantity": false,
+                                        "PriceBreaks": [
+                                            {
+                                                "Quantity": 0,
+                                                "Price": 0
+                                            }
+                                        ]
+                                    },
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "QuantityMultiplier": 0,
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0,
+                                    "Active": false,
+                                    "SpecCount": 0,
+                                    "VariantCount": 0,
+                                    "ShipFromAddressID": "",
+                                    "Inventory": {
+                                        "Enabled": false,
+                                        "NotificationPoint": 0,
+                                        "VariantLevelTracking": false,
+                                        "OrderCanExceed": false,
+                                        "QuantityAvailable": 0,
+                                        "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                    },
+                                    "DefaultSupplierID": ""
+                                },
+                                "Images": [
+                                    {
+                                        "ID": "",
+                                        "Title": "",
+                                        "Active": false,
+                                        "Url": "",
+                                        "Type": "Image",
+                                        "Tags": [
+                                            ""
+                                        ],
+                                        "FileName": "",
+                                        "Metadata": {
+                                            "IsUrlOverridden": false,
+                                            "ContentType": "",
+                                            "SizeBytes": 0,
+                                            "ImageHeight": 0,
+                                            "ImageWidth": 0,
+                                            "ImageVerticalResolution": 0,
+                                            "ImageHorizontalResolution": 0
+                                        },
+                                        "History": {
+                                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                                            "CreatedByUserID": "",
+                                            "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                            "UpdatedByUserID": ""
+                                        }
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -3534,7 +4270,7 @@
                     "ProductAssignments": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/KitProduct"
+                                "$ref": "#/components/schemas/MeKitProduct"
                             }
                         ]
                     }
@@ -3739,7 +4475,8 @@
                                 "OpeningDate": "2018-01-01T00:00:00-06:00",
                                 "BillingNumber": "",
                                 "Status": "",
-                                "LegalEntity": ""
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
                             },
                             "ID": "",
                             "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -3792,7 +4529,8 @@
                             "OpeningDate": "2018-01-01T00:00:00-06:00",
                             "BillingNumber": "",
                             "Status": "",
-                            "LegalEntity": ""
+                            "LegalEntity": "",
+                            "PrimaryContactName": ""
                         },
                         "ID": "",
                         "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -4253,7 +4991,8 @@
                             "OpeningDate": "2018-01-01T00:00:00-06:00",
                             "BillingNumber": "",
                             "Status": "",
-                            "LegalEntity": ""
+                            "LegalEntity": "",
+                            "PrimaryContactName": ""
                         },
                         "ID": "",
                         "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -4887,6 +5626,9 @@
                         "CountriesServicing": [
                             ""
                         ],
+                        "BuyersServicing": [
+                            ""
+                        ],
                         "Categories": [
                             {
                                 "ServiceCategory": "",
@@ -5172,6 +5914,360 @@
                     },
                     "NewID": {
                         "type": "string"
+                    }
+                }
+            },
+            "MeKitProduct": {
+                "type": "object",
+                "example": {
+                    "ProductsInKit": [
+                        {
+                            "ID": "",
+                            "MinQty": 0,
+                            "MaxQty": 0,
+                            "Static": false,
+                            "SpecCombo": "",
+                            "Variants": [
+                                {
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "Active": false,
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0,
+                                    "Inventory": {
+                                        "QuantityAvailable": 0,
+                                        "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                    },
+                                    "Specs": [
+                                        {
+                                            "SpecID": "",
+                                            "Name": "",
+                                            "OptionID": "",
+                                            "Value": "",
+                                            "PriceMarkupType": "NoMarkup",
+                                            "PriceMarkup": 0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "Specs": [
+                                {
+                                    "ID": "",
+                                    "ListOrder": 0,
+                                    "Name": "",
+                                    "DefaultValue": "",
+                                    "Required": false,
+                                    "AllowOpenText": false,
+                                    "DefaultOptionID": "",
+                                    "DefinesVariant": false,
+                                    "OptionCount": 0,
+                                    "Options": [
+                                        {
+                                            "ID": "",
+                                            "Value": "",
+                                            "ListOrder": 0,
+                                            "IsOpenText": false,
+                                            "PriceMarkupType": "NoMarkup",
+                                            "PriceMarkup": 0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "Product": {
+                                "xp": {
+                                    "Status": "Draft",
+                                    "HasVariants": false,
+                                    "Note": "",
+                                    "Tax": {
+                                        "Category": "",
+                                        "Code": "",
+                                        "Description": ""
+                                    },
+                                    "UnitOfMeasure": {
+                                        "Qty": 0,
+                                        "Unit": ""
+                                    },
+                                    "ProductType": "Standard",
+                                    "SizeTier": "G",
+                                    "IsResale": false,
+                                    "Accessorials": [
+                                        "Freezable"
+                                    ],
+                                    "Currency": "CAD",
+                                    "ArtworkRequired": false
+                                },
+                                "PriceSchedule": {
+                                    "xp": {},
+                                    "ID": "",
+                                    "Name": "",
+                                    "ApplyTax": false,
+                                    "ApplyShipping": false,
+                                    "MinQuantity": 0,
+                                    "MaxQuantity": 0,
+                                    "UseCumulativeQuantity": false,
+                                    "RestrictedQuantity": false,
+                                    "PriceBreaks": [
+                                        {
+                                            "Quantity": 0,
+                                            "Price": 0
+                                        }
+                                    ]
+                                },
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "QuantityMultiplier": 0,
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0,
+                                "Active": false,
+                                "SpecCount": 0,
+                                "VariantCount": 0,
+                                "ShipFromAddressID": "",
+                                "Inventory": {
+                                    "Enabled": false,
+                                    "NotificationPoint": 0,
+                                    "VariantLevelTracking": false,
+                                    "OrderCanExceed": false,
+                                    "QuantityAvailable": 0,
+                                    "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                },
+                                "DefaultSupplierID": ""
+                            },
+                            "Images": [
+                                {
+                                    "ID": "",
+                                    "Title": "",
+                                    "Active": false,
+                                    "Url": "",
+                                    "Type": "Image",
+                                    "Tags": [
+                                        ""
+                                    ],
+                                    "FileName": "",
+                                    "Metadata": {
+                                        "IsUrlOverridden": false,
+                                        "ContentType": "",
+                                        "SizeBytes": 0,
+                                        "ImageHeight": 0,
+                                        "ImageWidth": 0,
+                                        "ImageVerticalResolution": 0,
+                                        "ImageHorizontalResolution": 0
+                                    },
+                                    "History": {
+                                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                                        "CreatedByUserID": "",
+                                        "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                        "UpdatedByUserID": ""
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "properties": {
+                    "ProductsInKit": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MeProductInKit"
+                        }
+                    }
+                }
+            },
+            "MeProductInKit": {
+                "type": "object",
+                "example": {
+                    "ID": "",
+                    "MinQty": 0,
+                    "MaxQty": 0,
+                    "Static": false,
+                    "SpecCombo": "",
+                    "Variants": [
+                        {
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "Active": false,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Inventory": {
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "Specs": [
+                                {
+                                    "SpecID": "",
+                                    "Name": "",
+                                    "OptionID": "",
+                                    "Value": "",
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "Specs": [
+                        {
+                            "ID": "",
+                            "ListOrder": 0,
+                            "Name": "",
+                            "DefaultValue": "",
+                            "Required": false,
+                            "AllowOpenText": false,
+                            "DefaultOptionID": "",
+                            "DefinesVariant": false,
+                            "OptionCount": 0,
+                            "Options": [
+                                {
+                                    "ID": "",
+                                    "Value": "",
+                                    "ListOrder": 0,
+                                    "IsOpenText": false,
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "Product": {
+                        "xp": {
+                            "Status": "Draft",
+                            "HasVariants": false,
+                            "Note": "",
+                            "Tax": {
+                                "Category": "",
+                                "Code": "",
+                                "Description": ""
+                            },
+                            "UnitOfMeasure": {
+                                "Qty": 0,
+                                "Unit": ""
+                            },
+                            "ProductType": "Standard",
+                            "SizeTier": "G",
+                            "IsResale": false,
+                            "Accessorials": [
+                                "Freezable"
+                            ],
+                            "Currency": "CAD",
+                            "ArtworkRequired": false
+                        },
+                        "PriceSchedule": {
+                            "xp": {},
+                            "ID": "",
+                            "Name": "",
+                            "ApplyTax": false,
+                            "ApplyShipping": false,
+                            "MinQuantity": 0,
+                            "MaxQuantity": 0,
+                            "UseCumulativeQuantity": false,
+                            "RestrictedQuantity": false,
+                            "PriceBreaks": [
+                                {
+                                    "Quantity": 0,
+                                    "Price": 0
+                                }
+                            ]
+                        },
+                        "ID": "",
+                        "Name": "",
+                        "Description": "",
+                        "QuantityMultiplier": 0,
+                        "ShipWeight": 0,
+                        "ShipHeight": 0,
+                        "ShipWidth": 0,
+                        "ShipLength": 0,
+                        "Active": false,
+                        "SpecCount": 0,
+                        "VariantCount": 0,
+                        "ShipFromAddressID": "",
+                        "Inventory": {
+                            "Enabled": false,
+                            "NotificationPoint": 0,
+                            "VariantLevelTracking": false,
+                            "OrderCanExceed": false,
+                            "QuantityAvailable": 0,
+                            "LastUpdated": "2018-01-01T00:00:00-06:00"
+                        },
+                        "DefaultSupplierID": ""
+                    },
+                    "Images": [
+                        {
+                            "ID": "",
+                            "Title": "",
+                            "Active": false,
+                            "Url": "",
+                            "Type": "Image",
+                            "Tags": [
+                                ""
+                            ],
+                            "FileName": "",
+                            "Metadata": {
+                                "IsUrlOverridden": false,
+                                "ContentType": "",
+                                "SizeBytes": 0,
+                                "ImageHeight": 0,
+                                "ImageWidth": 0,
+                                "ImageVerticalResolution": 0,
+                                "ImageHorizontalResolution": 0
+                            },
+                            "History": {
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CreatedByUserID": "",
+                                "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                "UpdatedByUserID": ""
+                            }
+                        }
+                    ]
+                },
+                "properties": {
+                    "ID": {
+                        "type": "string"
+                    },
+                    "MinQty": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "MaxQty": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Static": {
+                        "type": "boolean"
+                    },
+                    "SpecCombo": {
+                        "type": "string"
+                    },
+                    "Variants": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Variant"
+                        }
+                    },
+                    "Specs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Spec"
+                        }
+                    },
+                    "Product": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceMeProduct"
+                            }
+                        ]
+                    },
+                    "Images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Asset"
+                        }
                     }
                 }
             },
@@ -5823,7 +6919,8 @@
                                     "OpeningDate": "2018-01-01T00:00:00-06:00",
                                     "BillingNumber": "",
                                     "Status": "",
-                                    "LegalEntity": ""
+                                    "LegalEntity": "",
+                                    "PrimaryContactName": ""
                                 },
                                 "ID": "",
                                 "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -5876,7 +6973,8 @@
                                 "OpeningDate": "2018-01-01T00:00:00-06:00",
                                 "BillingNumber": "",
                                 "Status": "",
-                                "LegalEntity": ""
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
                             },
                             "ID": "",
                             "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -6243,7 +7341,8 @@
                             "OpeningDate": "2018-01-01T00:00:00-06:00",
                             "BillingNumber": "",
                             "Status": "",
-                            "LegalEntity": ""
+                            "LegalEntity": "",
+                            "PrimaryContactName": ""
                         },
                         "ID": "",
                         "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -6689,10 +7788,132 @@
                     "MinQty": 0,
                     "MaxQty": 0,
                     "Static": false,
+                    "SpecCombo": "",
                     "Variants": [
-                        {}
+                        {
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "Active": false,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Inventory": {
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "Specs": [
+                                {
+                                    "SpecID": "",
+                                    "Name": "",
+                                    "OptionID": "",
+                                    "Value": "",
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ]
+                        }
                     ],
-                    "SpecCombo": ""
+                    "Specs": [
+                        {
+                            "ID": "",
+                            "ListOrder": 0,
+                            "Name": "",
+                            "DefaultValue": "",
+                            "Required": false,
+                            "AllowOpenText": false,
+                            "DefaultOptionID": "",
+                            "DefinesVariant": false,
+                            "OptionCount": 0,
+                            "Options": [
+                                {
+                                    "ID": "",
+                                    "Value": "",
+                                    "ListOrder": 0,
+                                    "IsOpenText": false,
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "Product": {
+                        "xp": {
+                            "Status": "Draft",
+                            "HasVariants": false,
+                            "Note": "",
+                            "Tax": {
+                                "Category": "",
+                                "Code": "",
+                                "Description": ""
+                            },
+                            "UnitOfMeasure": {
+                                "Qty": 0,
+                                "Unit": ""
+                            },
+                            "ProductType": "Standard",
+                            "SizeTier": "G",
+                            "IsResale": false,
+                            "Accessorials": [
+                                "Freezable"
+                            ],
+                            "Currency": "CAD",
+                            "ArtworkRequired": false
+                        },
+                        "OwnerID": "",
+                        "DefaultPriceScheduleID": "",
+                        "AutoForward": false,
+                        "ID": "",
+                        "Name": "",
+                        "Description": "",
+                        "QuantityMultiplier": 0,
+                        "ShipWeight": 0,
+                        "ShipHeight": 0,
+                        "ShipWidth": 0,
+                        "ShipLength": 0,
+                        "Active": false,
+                        "SpecCount": 0,
+                        "VariantCount": 0,
+                        "ShipFromAddressID": "",
+                        "Inventory": {
+                            "Enabled": false,
+                            "NotificationPoint": 0,
+                            "VariantLevelTracking": false,
+                            "OrderCanExceed": false,
+                            "QuantityAvailable": 0,
+                            "LastUpdated": "2018-01-01T00:00:00-06:00"
+                        },
+                        "DefaultSupplierID": ""
+                    },
+                    "Images": [
+                        {
+                            "ID": "",
+                            "Title": "",
+                            "Active": false,
+                            "Url": "",
+                            "Type": "Image",
+                            "Tags": [
+                                ""
+                            ],
+                            "FileName": "",
+                            "Metadata": {
+                                "IsUrlOverridden": false,
+                                "ContentType": "",
+                                "SizeBytes": 0,
+                                "ImageHeight": 0,
+                                "ImageWidth": 0,
+                                "ImageVerticalResolution": 0,
+                                "ImageHorizontalResolution": 0
+                            },
+                            "History": {
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CreatedByUserID": "",
+                                "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                "UpdatedByUserID": ""
+                            }
+                        }
+                    ]
                 },
                 "properties": {
                     "ID": {
@@ -6709,14 +7930,33 @@
                     "Static": {
                         "type": "boolean"
                     },
+                    "SpecCombo": {
+                        "type": "string"
+                    },
                     "Variants": {
                         "type": "array",
                         "items": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/Variant"
                         }
                     },
-                    "SpecCombo": {
-                        "type": "string"
+                    "Specs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Spec"
+                        }
+                    },
+                    "Product": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceProduct"
+                            }
+                        ]
+                    },
+                    "Images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Asset"
+                        }
                     }
                 }
             },
@@ -6777,7 +8017,8 @@
                         "enum": [
                             "Standard",
                             "Quote",
-                            "PurchaseOrder"
+                            "PurchaseOrder",
+                            "Kit"
                         ],
                         "type": "string"
                     },
@@ -7094,7 +8335,8 @@
                                 "OpeningDate": "2018-01-01T00:00:00-06:00",
                                 "BillingNumber": "",
                                 "Status": "",
-                                "LegalEntity": ""
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
                             },
                             "ID": "",
                             "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -8019,7 +9261,8 @@
                                 "OpeningDate": "2018-01-01T00:00:00-06:00",
                                 "BillingNumber": "",
                                 "Status": "",
-                                "LegalEntity": ""
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
                             },
                             "ID": "",
                             "DateCreated": "2018-01-01T00:00:00-06:00",
@@ -8153,7 +9396,7 @@
                     ],
                     "AllowSupplierEdit": false,
                     "AllowSellerEdit": false,
-                    "BuyerAppFilterType": "SelectOption"
+                    "BuyerAppFilterType": ""
                 },
                 "properties": {
                     "Display": {
@@ -8175,10 +9418,6 @@
                         "type": "boolean"
                     },
                     "BuyerAppFilterType": {
-                        "enum": [
-                            "SelectOption",
-                            "NonUI"
-                        ],
                         "type": "string"
                     }
                 }
@@ -8198,7 +9437,7 @@
                         ],
                         "AllowSupplierEdit": false,
                         "AllowSellerEdit": false,
-                        "BuyerAppFilterType": "SelectOption"
+                        "BuyerAppFilterType": ""
                     },
                     "SchemaSpecUrl": "",
                     "History": {
@@ -8249,6 +9488,9 @@
                         "Standard"
                     ],
                     "CountriesServicing": [
+                        ""
+                    ],
+                    "BuyersServicing": [
                         ""
                     ],
                     "Categories": [
@@ -8322,13 +9564,20 @@
                         "enum": [
                             "Standard",
                             "Quote",
-                            "PurchaseOrder"
+                            "PurchaseOrder",
+                            "Kit"
                         ],
                         "items": {
                             "type": "string"
                         }
                     },
                     "CountriesServicing": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "BuyersServicing": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -8433,6 +9682,159 @@
                     "Description": {
                         "type": "string",
                         "maxLength": 200
+                    }
+                }
+            },
+            "TemplateProductFlat": {
+                "type": "object",
+                "example": {
+                    "ID": "",
+                    "Active": false,
+                    "ProductType": "Standard",
+                    "Name": "",
+                    "Description": "",
+                    "QuantityMultiplier": 0,
+                    "ShipFromAddressID": "",
+                    "ShipWeight": 0,
+                    "ShipHeight": 0,
+                    "ShipWidth": 0,
+                    "ShipLength": 0,
+                    "TaxCategory": "",
+                    "TaxCode": "",
+                    "TaxDescription": "",
+                    "UnitOfMeasureQuantity": 0,
+                    "UnitOfMeasure": "",
+                    "IsResale": false,
+                    "ApplyTax": false,
+                    "ApplyShipping": false,
+                    "MinQuantity": 0,
+                    "MaxQuantity": 0,
+                    "UseCumulativeQuantity": false,
+                    "RestrictedQuantity": false,
+                    "Price": 0,
+                    "ImageTitle": "",
+                    "Url": "",
+                    "Type": "Image",
+                    "Tags": "",
+                    "FileName": ""
+                },
+                "properties": {
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Active": {
+                        "type": "boolean"
+                    },
+                    "ProductType": {
+                        "enum": [
+                            "Standard",
+                            "Quote",
+                            "PurchaseOrder",
+                            "Kit"
+                        ],
+                        "type": "string"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
+                    },
+                    "QuantityMultiplier": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 1
+                    },
+                    "ShipFromAddressID": {
+                        "type": "string"
+                    },
+                    "ShipWeight": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipHeight": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipWidth": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipLength": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "TaxCategory": {
+                        "type": "string"
+                    },
+                    "TaxCode": {
+                        "type": "string"
+                    },
+                    "TaxDescription": {
+                        "type": "string"
+                    },
+                    "UnitOfMeasureQuantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "UnitOfMeasure": {
+                        "type": "string"
+                    },
+                    "IsResale": {
+                        "type": "boolean"
+                    },
+                    "ApplyTax": {
+                        "type": "boolean"
+                    },
+                    "ApplyShipping": {
+                        "type": "boolean"
+                    },
+                    "MinQuantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "MaxQuantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "UseCumulativeQuantity": {
+                        "type": "boolean"
+                    },
+                    "RestrictedQuantity": {
+                        "type": "boolean"
+                    },
+                    "Price": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ImageTitle": {
+                        "type": "string"
+                    },
+                    "Url": {
+                        "type": "string"
+                    },
+                    "Type": {
+                        "enum": [
+                            "Image",
+                            "Text",
+                            "Audio",
+                            "Video",
+                            "Presentation",
+                            "SpreadSheet",
+                            "PDF",
+                            "Compressed",
+                            "Code",
+                            "JSON",
+                            "Markup",
+                            "Unknown"
+                        ],
+                        "type": "string"
+                    },
+                    "Tags": {
+                        "type": "string"
+                    },
+                    "FileName": {
+                        "type": "string"
                     }
                 }
             },
@@ -8574,6 +9976,77 @@
                         "items": {
                             "type": "string"
                         }
+                    }
+                }
+            },
+            "Variant": {
+                "type": "object",
+                "example": {
+                    "ID": "",
+                    "Name": "",
+                    "Description": "",
+                    "Active": false,
+                    "ShipWeight": 0,
+                    "ShipHeight": 0,
+                    "ShipWidth": 0,
+                    "ShipLength": 0,
+                    "Inventory": {
+                        "QuantityAvailable": 0,
+                        "LastUpdated": "2018-01-01T00:00:00-06:00"
+                    },
+                    "Specs": [
+                        {
+                            "SpecID": "",
+                            "Name": "",
+                            "OptionID": "",
+                            "Value": "",
+                            "PriceMarkupType": "NoMarkup",
+                            "PriceMarkup": 0
+                        }
+                    ]
+                },
+                "properties": {
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
+                    },
+                    "Active": {
+                        "type": "boolean"
+                    },
+                    "ShipWeight": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipHeight": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipWidth": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipLength": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "Inventory": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/VariantInventory"
+                            }
+                        ]
+                    },
+                    "Specs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/VariantSpec"
+                        },
+                        "readOnly": true
                     }
                 }
             },
@@ -9561,14 +11034,14 @@
                 ]
             }
         },
-        "/assets/assignments/moveto/{listOrderWithinType}": {
+        "/assets/assignments/moveto/{newPosition}": {
             "post": {
                 "responses": {
                     "204": {
                         "description": ""
                     }
                 },
-                "operationId": "Assets.ReorderAssetAssignment",
+                "operationId": "Assets.MoveImageAssignment",
                 "tags": [
                     "Assets"
                 ],
@@ -9589,16 +11062,16 @@
                 },
                 "parameters": [
                     {
-                        "name": "listOrderWithinType",
+                        "name": "newPosition",
                         "in": "path",
-                        "description": "List order within type of the asset assignment.",
+                        "description": "New position of the asset assignment.",
                         "required": true,
                         "schema": {
                             "type": "integer"
                         }
                     }
                 ],
-                "summary": "Reorder Asset Assignment",
+                "summary": "Move Image Assignment",
                 "description": "",
                 "security": [
                     {
@@ -10646,6 +12119,300 @@
                     {
                         "OAuth2": [
                             "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/buyerlocations/{buyerID}/{homeCountry}/usergroups": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMarketplaceLocationUserGroup"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "BuyerLocations.ListUserGroupsForNewUser",
+                "tags": [
+                    "Buyer Locations"
+                ],
+                "parameters": [
+                    {
+                        "name": "buyerID",
+                        "in": "path",
+                        "description": "ID of the buyer.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "homeCountry",
+                        "in": "path",
+                        "description": "Home country of the marketplace location user group.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "summary": "LIST user groups for new user",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "UserGroupAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/buyerlocations/{buyerID}/usergroups/{userID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ListMarketplaceLocationUserGroup"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "BuyerLocations.ListUserGroupsByCountry",
+                "tags": [
+                    "Buyer Locations"
+                ],
+                "parameters": [
+                    {
+                        "name": "buyerID",
+                        "in": "path",
+                        "description": "ID of the buyer.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userID",
+                        "in": "path",
+                        "description": "ID of the user.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "summary": "LIST user groups for home country",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "UserGroupAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/buyerlocations/{userGroupType}/{parentID}/usergroupassignments/{userID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/UserGroupAssignment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "BuyerLocations.ListUserUserGroupAssignments",
+                "tags": [
+                    "Buyer Locations"
+                ],
+                "parameters": [
+                    {
+                        "name": "userGroupType",
+                        "in": "path",
+                        "description": "User group type of the user group assignment.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parentID",
+                        "in": "path",
+                        "description": "ID of the parent.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userID",
+                        "in": "path",
+                        "description": "ID of the user.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "LIST all of a user's user group assignments",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "UserGroupAdmin",
                             "FullAccess"
                         ]
                     }
@@ -12720,47 +14487,6 @@
                 ]
             }
         },
-        "/kitproducts/me/{id}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/MarketplaceMeKitProduct"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "KitProducts.GetMeKit",
-                "tags": [
-                    "Kit Products"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Id of the marketplace me kit product.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "GET Me Kit Product",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "Shopper",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
         "/me/addresses": {
             "post": {
                 "responses": {
@@ -12967,6 +14693,47 @@
                         "OAuth2": [
                             "MeCreditCardAdmin",
                             "CreditCardAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/me/kitproducts/{kitProductID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MarketplaceMeKitProduct"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Mes.GetMeKit",
+                "tags": [
+                    "Mes"
+                ],
+                "parameters": [
+                    {
+                        "name": "kitProductID",
+                        "in": "path",
+                        "description": "ID of the kit product.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "GET Kit Product",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "Shopper",
                             "FullAccess"
                         ]
                     }
@@ -14200,17 +15967,28 @@
                 "tags": [
                     "Orchestration Products"
                 ],
-                "parameters": [
-                    {
-                        "name": "obj",
-                        "in": "query",
-                        "description": "Obj of the template product flat.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/TemplateProductFlat"
+                                    }
+                                ],
+                                "required": [
+                                    "ID",
+                                    "Name",
+                                    "TaxCategory",
+                                    "TaxCode",
+                                    "Price"
+                                ]
+                            }
                         }
                     }
-                ],
+                },
                 "summary": "POST FlatProduct",
                 "description": "",
                 "security": [
@@ -15416,6 +17194,62 @@
                     {
                         "OAuth2": [
                             "ProductAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/products/filteroptionoverride/{id}": {
+            "patch": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Products.FilterOptionOverride",
+                "tags": [
+                    "Products"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the product.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "PATCH Product filter option override",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "AdminUserAdmin",
                             "FullAccess"
                         ]
                     }

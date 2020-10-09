@@ -6,7 +6,7 @@ export interface Asset {
     Title?: string
     Active?: boolean
     Url?: string
-    Type?: 'Image' | 'Theme' | 'Attachment' | 'Structured'
+    Type?: 'Image' | 'Text' | 'Audio' | 'Video' | 'Presentation' | 'SpreadSheet' | 'PDF' | 'Compressed' | 'Code' | 'JSON' | 'Markup' | 'Unknown'
     Tags?: string[]
     FileName?: string
     readonly Metadata?: AssetMetadata

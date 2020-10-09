@@ -3,6 +3,7 @@ import { LocationApprovalThresholdUpdate } from '../models/LocationApprovalThres
 import { LocationPermissionUpdate } from '../models/LocationPermissionUpdate';
 import { ListPage } from '../models/ListPage';
 import { MarketplaceUser } from '../models/MarketplaceUser';
+import { MarketplaceLocationUserGroup } from '../models/MarketplaceLocationUserGroup';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -25,6 +26,9 @@ export default class BuyerLocations {
         this.ListLocationPermissionUserGroups = this.ListLocationPermissionUserGroups.bind(this);
         this.UpdateLocationPermissions = this.UpdateLocationPermissions.bind(this);
         this.ListLocationUsers = this.ListLocationUsers.bind(this);
+        this.ListUserGroupsForNewUser = this.ListUserGroupsForNewUser.bind(this);
+        this.ListUserGroupsByCountry = this.ListUserGroupsByCountry.bind(this);
+        this.ListUserUserGroupAssignments = this.ListUserUserGroupAssignments.bind(this);
     }
 
    /**
@@ -144,6 +148,52 @@ export default class BuyerLocations {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}/users`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param homeCountry Home country of the marketplace location user group.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListUserGroupsForNewUser(buyerID: string, homeCountry: string,  options: ListArgs<MarketplaceLocationUserGroup> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceLocationUserGroup>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${buyerID}/${homeCountry}/usergroups`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+   /**
+    * @param buyerID ID of the buyer.
+    * @param userID ID of the user.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListUserGroupsByCountry(buyerID: string, userID: string,  options: ListArgs<MarketplaceLocationUserGroup> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceLocationUserGroup>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${buyerID}/usergroups/${userID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+   /**
+    * @param userGroupType User group type of the user group assignment.
+    * @param parentID ID of the parent.
+    * @param userID ID of the user.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListUserUserGroupAssignments(userGroupType: string, parentID: string, userID: string,  accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/buyerlocations/${userGroupType}/${parentID}/usergroupassignments/${userID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

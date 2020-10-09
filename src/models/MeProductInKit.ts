@@ -1,9 +1,9 @@
 import { Variant } from './Variant';
 import { Spec } from './Spec';
-import { MarketplaceProduct } from './MarketplaceProduct';
+import { MarketplaceMeProduct } from './MarketplaceMeProduct';
 import { Asset } from './Asset';
 
-export interface ProductInKit {
+export interface MeProductInKit {
     ID?: string
     MinQty?: number
     MaxQty?: number
@@ -11,6 +11,6 @@ export interface ProductInKit {
     SpecCombo?: string
     Variants?: Variant[]
     Specs?: Spec[]
-    Product?: MarketplaceProduct
+    Product?: MarketplaceMeProduct
     Images?: Asset[]
 }

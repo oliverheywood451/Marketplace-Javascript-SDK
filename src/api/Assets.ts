@@ -23,7 +23,7 @@ export default class Assets {
         this.ListAssets = this.ListAssets.bind(this);
         this.SaveAssetAssignment = this.SaveAssetAssignment.bind(this);
         this.DeleteAssetAssignment = this.DeleteAssetAssignment.bind(this);
-        this.ReorderAssetAssignment = this.ReorderAssetAssignment.bind(this);
+        this.MoveImageAssignment = this.MoveImageAssignment.bind(this);
     }
 
    /**
@@ -151,14 +151,14 @@ export default class Assets {
     }
 
    /**
-    * @param listOrderWithinType List order within type of the asset assignment.
+    * @param newPosition New position of the asset assignment.
     * @param assetAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ReorderAssetAssignment(listOrderWithinType: number, assetAssignment: AssetAssignment, accessToken?: string ): Promise<void> {
+    public async MoveImageAssignment(newPosition: number, assetAssignment: AssetAssignment, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/assets/assignments/moveto/${listOrderWithinType}`, assetAssignment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/assets/assignments/moveto/${newPosition}`, assetAssignment, { params: {  accessToken, impersonating } } );
     }
 
     /**

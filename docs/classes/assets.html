@@ -59,7 +59,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#list" class="tsd-kind-icon">List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#listassets" class="tsd-kind-icon">List<wbr>Assets</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#listassetsonchild" class="tsd-kind-icon">List<wbr>Assets<wbr>OnChild</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#reorderassetassignment" class="tsd-kind-icon">Reorder<wbr>Asset<wbr>Assignment</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#moveimageassignment" class="tsd-kind-icon">Move<wbr>Image<wbr>Assignment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#save" class="tsd-kind-icon">Save</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="assets.html#saveassetassignment" class="tsd-kind-icon">Save<wbr>Asset<wbr>Assignment</a></li>
 							</ul>
@@ -420,10 +420,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="reorderassetassignment" class="tsd-anchor"></a>
-					<h3>Reorder<wbr>Asset<wbr>Assignment</h3>
+					<a name="moveimageassignment" class="tsd-anchor"></a>
+					<h3>Move<wbr>Image<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Reorder<wbr>Asset<wbr>Assignment<span class="tsd-signature-symbol">(</span>listOrderWithinType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, assetAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/assetassignment.html" class="tsd-signature-type">AssetAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Move<wbr>Image<wbr>Assignment<span class="tsd-signature-symbol">(</span>newPosition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, assetAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/assetassignment.html" class="tsd-signature-type">AssetAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -434,9 +434,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>listOrderWithinType: <span class="tsd-signature-type">number</span></h5>
+									<h5>newPosition: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>List order within type of the asset assignment.</p>
+										<p>New position of the asset assignment.</p>
 									</div>
 								</li>
 								<li>
@@ -557,7 +557,7 @@
 								<a href="assets.html#listassetsonchild" class="tsd-kind-icon">List<wbr>Assets<wbr>OnChild</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="assets.html#reorderassetassignment" class="tsd-kind-icon">Reorder<wbr>Asset<wbr>Assignment</a>
+								<a href="assets.html#moveimageassignment" class="tsd-kind-icon">Move<wbr>Image<wbr>Assignment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="assets.html#save" class="tsd-kind-icon">Save</a>

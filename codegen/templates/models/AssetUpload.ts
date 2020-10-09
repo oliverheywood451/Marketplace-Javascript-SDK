@@ -4,7 +4,6 @@ export interface AssetUpload {
   Active?: boolean
   File?: File
   Url?: string
-  Type: 'Image' | 'Theme' | 'Attachment' | 'Structured'
   Tags?: string[]
   FileName?: string
 }
