@@ -171,6 +171,31 @@
             "name": "Documents",
             "description": "\"Integration\" represents Documents",
             "x-section-id": "Content"
+        },
+        {
+            "name": "Tecra Documents",
+            "description": "\"Integration\" represents an array of Tecra Documents",
+            "x-section-id": "Content"
+        },
+        {
+            "name": "Tecra Specs",
+            "description": "\"Integration\" represents an array of Tecra Specs",
+            "x-section-id": "Content"
+        },
+        {
+            "name": "Tecra Frames",
+            "description": "\"Integration\" represents a URL to a Tecra Frame",
+            "x-section-id": "Content"
+        },
+        {
+            "name": "Tecra Proofs",
+            "description": "\"Integration\" represents a URL to a Tecra Proof",
+            "x-section-id": "Content"
+        },
+        {
+            "name": "Tecra PD Fs",
+            "description": "\"Integration\" represents a URL to a Tecra PDF",
+            "x-section-id": "Content"
         }
     ],
     "components": {
@@ -834,17 +859,24 @@
                 "example": {
                     "SupplierProductID": "",
                     "ChiliTemplateID": "",
+                    "ChiliTemplateName": "",
                     "Specs": [
                         ""
                     ],
                     "ID": "",
-                    "timeStamp": "2018-01-01T00:00:00-06:00"
+                    "timeStamp": "2018-01-01T00:00:00-06:00",
+                    "BuyerID": "",
+                    "CatalogID": "",
+                    "ReadOnly": false
                 },
                 "properties": {
                     "SupplierProductID": {
                         "type": "string"
                     },
                     "ChiliTemplateID": {
+                        "type": "string"
+                    },
+                    "ChiliTemplateName": {
                         "type": "string"
                     },
                     "Specs": {
@@ -859,6 +891,15 @@
                     "timeStamp": {
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "BuyerID": {
+                        "type": "string"
+                    },
+                    "CatalogID": {
+                        "type": "string"
+                    },
+                    "ReadOnly": {
+                        "type": "boolean"
                     }
                 }
             },
@@ -2186,6 +2227,7 @@
                         }
                     ],
                     "ImageUrl": "",
+                    "PrintArtworkURL": "",
                     "KitProductImageUrl": "",
                     "KitProductID": ""
                 },
@@ -2219,6 +2261,9 @@
                         }
                     },
                     "ImageUrl": {
+                        "type": "string"
+                    },
+                    "PrintArtworkURL": {
                         "type": "string"
                     },
                     "KitProductImageUrl": {
@@ -3249,6 +3294,7 @@
                             }
                         ],
                         "ImageUrl": "",
+                        "PrintArtworkURL": "",
                         "KitProductImageUrl": "",
                         "KitProductID": ""
                     },
@@ -3655,6 +3701,7 @@
                                 }
                             ],
                             "ImageUrl": "",
+                            "PrintArtworkURL": "",
                             "KitProductImageUrl": "",
                             "KitProductID": ""
                         },
@@ -4948,14 +4995,6 @@
                 "type": "object",
                 "example": {
                     "xp": {
-                        "FreightPopShipmentRate": {
-                            "Id": "",
-                            "Currency": "",
-                            "DiscountedCost": 0,
-                            "ListCost": 0,
-                            "Service": "",
-                            "TransitDays": ""
-                        },
                         "Service": "",
                         "Comment": ""
                     },
@@ -6367,14 +6406,7 @@
                             "PatchGeneralError",
                             "GetGeneralError",
                             "AuthenticateSupplierError",
-                            "FreightPopAuthenticateError",
-                            "GetOrdersNeedingShipmentError",
-                            "GetShipmentSyncOrders",
-                            "GetShipmentDetailsForShipmentSyncOrders",
-                            "CreateShipmentsInOrderCloudIfNeeded",
-                            "GetFreightPopShipments",
-                            "NoRelatedOrderCloudOrderFound",
-                            "ShipmentOrderIDParsingError"
+                            "NoRelatedOrderCloudOrderFound"
                         ],
                         "type": "string"
                     },
@@ -8287,138 +8319,6 @@
                     }
                 }
             },
-            "ShipmentCreateResponse": {
-                "type": "object",
-                "example": {
-                    "Shipment": {
-                        "xp": {
-                            "FreightPopShipmentRate": {
-                                "Id": "",
-                                "Currency": "",
-                                "DiscountedCost": 0,
-                                "ListCost": 0,
-                                "Service": "",
-                                "TransitDays": ""
-                            },
-                            "Service": "",
-                            "Comment": ""
-                        },
-                        "FromAddress": {
-                            "xp": {
-                                "Accessorials": [
-                                    "LimitedAccessPickup"
-                                ]
-                            },
-                            "ID": "",
-                            "DateCreated": "2018-01-01T00:00:00-06:00",
-                            "CompanyName": "",
-                            "FirstName": "",
-                            "LastName": "",
-                            "Street1": "",
-                            "Street2": "",
-                            "City": "",
-                            "State": "",
-                            "Zip": "",
-                            "Country": "",
-                            "Phone": "",
-                            "AddressName": ""
-                        },
-                        "ToAddress": {
-                            "xp": {
-                                "Accessorials": [
-                                    "DestinationInsideDelivery"
-                                ],
-                                "Email": "",
-                                "LocationID": "",
-                                "AvalaraCertificateID": 0,
-                                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
-                                "OpeningDate": "2018-01-01T00:00:00-06:00",
-                                "BillingNumber": "",
-                                "Status": "",
-                                "LegalEntity": "",
-                                "PrimaryContactName": ""
-                            },
-                            "ID": "",
-                            "DateCreated": "2018-01-01T00:00:00-06:00",
-                            "CompanyName": "",
-                            "FirstName": "",
-                            "LastName": "",
-                            "Street1": "",
-                            "Street2": "",
-                            "City": "",
-                            "State": "",
-                            "Zip": "",
-                            "Country": "",
-                            "Phone": "",
-                            "AddressName": ""
-                        },
-                        "ID": "",
-                        "BuyerID": "",
-                        "Shipper": "",
-                        "DateShipped": "2018-01-01T00:00:00-06:00",
-                        "DateDelivered": "2018-01-01T00:00:00-06:00",
-                        "TrackingNumber": "",
-                        "Cost": 0,
-                        "Account": "",
-                        "FromAddressID": "",
-                        "ToAddressID": ""
-                    },
-                    "ShipmentItems": [
-                        {
-                            "OrderID": "",
-                            "LineItemID": "",
-                            "QuantityShipped": 0,
-                            "UnitPrice": 0,
-                            "CostCenter": "",
-                            "DateNeeded": "2018-01-01T00:00:00-06:00",
-                            "Product": {
-                                "ID": "",
-                                "Name": "",
-                                "Description": "",
-                                "QuantityMultiplier": 0,
-                                "ShipWeight": 0,
-                                "ShipHeight": 0,
-                                "ShipWidth": 0,
-                                "ShipLength": 0
-                            },
-                            "Variant": {
-                                "ID": "",
-                                "Name": "",
-                                "Description": "",
-                                "ShipWeight": 0,
-                                "ShipHeight": 0,
-                                "ShipWidth": 0,
-                                "ShipLength": 0
-                            },
-                            "Specs": [
-                                {
-                                    "SpecID": "",
-                                    "Name": "",
-                                    "OptionID": "",
-                                    "Value": "",
-                                    "PriceMarkupType": "NoMarkup",
-                                    "PriceMarkup": 0
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "properties": {
-                    "Shipment": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/MarketplaceShipment"
-                            }
-                        ]
-                    },
-                    "ShipmentItems": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShipmentItem"
-                        }
-                    }
-                }
-            },
             "ShipmentItem": {
                 "type": "object",
                 "example": {
@@ -8508,61 +8408,13 @@
                     }
                 }
             },
-            "ShipmentRate": {
-                "type": "object",
-                "example": {
-                    "Id": "",
-                    "Currency": "",
-                    "DiscountedCost": 0,
-                    "ListCost": 0,
-                    "Service": "",
-                    "TransitDays": ""
-                },
-                "properties": {
-                    "Id": {
-                        "type": "string"
-                    },
-                    "Currency": {
-                        "type": "string"
-                    },
-                    "DiscountedCost": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "ListCost": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "Service": {
-                        "type": "string"
-                    },
-                    "TransitDays": {
-                        "type": "string"
-                    }
-                }
-            },
             "ShipmentXp": {
                 "type": "object",
                 "example": {
-                    "FreightPopShipmentRate": {
-                        "Id": "",
-                        "Currency": "",
-                        "DiscountedCost": 0,
-                        "ListCost": 0,
-                        "Service": "",
-                        "TransitDays": ""
-                    },
                     "Service": "",
                     "Comment": ""
                 },
                 "properties": {
-                    "FreightPopShipmentRate": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/ShipmentRate"
-                            }
-                        ]
-                    },
                     "Service": {
                         "type": "string"
                     },
@@ -9218,14 +9070,6 @@
                 "example": {
                     "Shipment": {
                         "xp": {
-                            "FreightPopShipmentRate": {
-                                "Id": "",
-                                "Currency": "",
-                                "DiscountedCost": 0,
-                                "ListCost": 0,
-                                "Service": "",
-                                "TransitDays": ""
-                            },
                             "Service": "",
                             "Comment": ""
                         },
@@ -9682,6 +9526,61 @@
                     "Description": {
                         "type": "string",
                         "maxLength": 200
+                    }
+                }
+            },
+            "TecraDocument": {
+                "type": "object",
+                "example": {
+                    "id": "",
+                    "name": "",
+                    "pages": 0
+                },
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "pages": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "TecraSpec": {
+                "type": "object",
+                "example": {
+                    "name": "",
+                    "dataType": "",
+                    "displayName": "",
+                    "displayValue": "",
+                    "required": "",
+                    "value": "",
+                    "visible": ""
+                },
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "displayValue": {
+                        "type": "string"
+                    },
+                    "required": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    },
+                    "visible": {
+                        "type": "string"
                     }
                 }
             },
@@ -19103,7 +19002,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ShipmentCreateResponse"
+                                    "$ref": "#/components/schemas/SuperShipment"
                                 }
                             }
                         }
@@ -19263,8 +19162,6 @@
                 "security": [
                     {
                         "OAuth2": [
-                            "SupplierAdmin",
-                            "SupplierReader",
                             "FullAccess"
                         ]
                     }
@@ -19496,6 +19393,232 @@
                             "SupplierAddressAdmin",
                             "FullAccess"
                         ]
+                    }
+                ]
+            }
+        },
+        "/tecra/documents": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TecraDocument"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "TecraDocuments.Get",
+                "tags": [
+                    "Tecra Documents"
+                ],
+                "summary": "Get Tecra Documents",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/tecra/documents/byfolder": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TecraDocument"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "TecraDocuments.GetByFolder",
+                "tags": [
+                    "Tecra Documents"
+                ],
+                "parameters": [
+                    {
+                        "name": "folder",
+                        "in": "path",
+                        "description": "Folder of the tecra document.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Tecra Documents By Folder",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/tecra/frame": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "TecraFrames.Get",
+                "tags": [
+                    "Tecra Frames"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Tecra Frame",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/tecra/pdf": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "TecraPDFs.Get",
+                "tags": [
+                    "Tecra PD Fs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Tecra PDF",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/tecra/proof": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "TecraProofs.Get",
+                "tags": [
+                    "Tecra Proofs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Tecra Proof",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/tecra/specs": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TecraSpec"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "TecraSpecs.Get",
+                "tags": [
+                    "Tecra Specs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the tecra spec.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Tecra Specs",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
                     }
                 ]
             }

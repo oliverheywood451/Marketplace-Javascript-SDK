@@ -5,6 +5,7 @@ export interface LineItemXp {
     Returns?: LineItemClaim[]
     Cancelations?: LineItemClaim[]
     ImageUrl?: string
+    PrintArtworkURL?: string
     KitProductImageUrl?: string
     KitProductID?: string
 }

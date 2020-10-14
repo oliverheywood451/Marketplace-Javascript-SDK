@@ -25,6 +25,11 @@ import ChiliSpecOptions from './ChiliSpecOptions';
 import ChiliSpecs from './ChiliSpecs';
 import ChiliTemplates from './ChiliTemplates';
 import Documents from './Documents';
+import TecraDocuments from './TecraDocuments';
+import TecraSpecs from './TecraSpecs';
+import TecraFrames from './TecraFrames';
+import TecraProofs from './TecraProofs';
+import TecraPdFs from './TecraPdFs';
 import Auth from './Auth';
 import Tokens from './Tokens';
 import Upload from './Upload';
@@ -59,6 +64,11 @@ const HeadStartSDK: HeadStartSDK = {
     ChiliSpecs : new ChiliSpecs(),
     ChiliTemplates : new ChiliTemplates(),
     Documents : new Documents(),
+    TecraDocuments : new TecraDocuments(),
+    TecraSpecs : new TecraSpecs(),
+    TecraFrames : new TecraFrames(),
+    TecraProofs : new TecraProofs(),
+    TecraPdFs : new TecraPdFs(),
     Auth: new Auth(),
     Tokens: new Tokens(),
     Upload: new Upload()
@@ -92,6 +102,11 @@ interface HeadStartSDK {
     ChiliSpecs : ChiliSpecs,
     ChiliTemplates : ChiliTemplates,
     Documents : Documents,
+    TecraDocuments : TecraDocuments,
+    TecraSpecs : TecraSpecs,
+    TecraFrames : TecraFrames,
+    TecraProofs : TecraProofs,
+    TecraPdFs : TecraPdFs,
     Auth: Auth,
     Tokens: Tokens,
     Upload: Upload

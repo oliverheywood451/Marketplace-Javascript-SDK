@@ -1,7 +1,7 @@
 import { ApiError } from './ApiError';
 
 export interface OrchestrationLog {
-    ErrorType?: 'WorkItemDefinition' | 'QueuedGetError' | 'CachedGetError' | 'DiffCalculationError' | 'ActionEvaluationError' | 'CacheUpdateError' | 'QueueCleanupError' | 'SyncCommandError' | 'CreateExistsError' | 'CreateGeneralError' | 'UpdateGeneralError' | 'PatchGeneralError' | 'GetGeneralError' | 'AuthenticateSupplierError' | 'FreightPopAuthenticateError' | 'GetOrdersNeedingShipmentError' | 'GetShipmentSyncOrders' | 'GetShipmentDetailsForShipmentSyncOrders' | 'CreateShipmentsInOrderCloudIfNeeded' | 'GetFreightPopShipments' | 'NoRelatedOrderCloudOrderFound' | 'ShipmentOrderIDParsingError'
+    ErrorType?: 'WorkItemDefinition' | 'QueuedGetError' | 'CachedGetError' | 'DiffCalculationError' | 'ActionEvaluationError' | 'CacheUpdateError' | 'QueueCleanupError' | 'SyncCommandError' | 'CreateExistsError' | 'CreateGeneralError' | 'UpdateGeneralError' | 'PatchGeneralError' | 'GetGeneralError' | 'AuthenticateSupplierError' | 'NoRelatedOrderCloudOrderFound'
     Message?: string
     Level?: 'Progress' | 'Error' | 'Warn' | 'Success'
     ResourceId?: string
