@@ -30,7 +30,7 @@ export default class TecraDocuments {
     public async GetByFolder(folder: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/tecra/documents/byfolder`, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/tecra/documents/byfolder/${folder}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

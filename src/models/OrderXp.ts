@@ -1,6 +1,7 @@
 import { QuoteOrderInfo } from './QuoteOrderInfo';
 import { ClaimsSummary } from './ClaimsSummary';
 import { MarketplaceAddressBuyer } from './MarketplaceAddressBuyer';
+import { ShipMethodSupplierView } from './ShipMethodSupplierView';
 
 export interface OrderXp {
     AvalaraTaxTransactionCode?: string
@@ -19,4 +20,5 @@ export interface OrderXp {
     ClaimStatus?: 'NoClaim' | 'Pending' | 'Complete'
     PaymentMethod?: string
     ShippingAddress?: MarketplaceAddressBuyer
+    SelectedShipMethodsSupplierView?: ShipMethodSupplierView[]
 }

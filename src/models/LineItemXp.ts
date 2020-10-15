@@ -8,4 +8,5 @@ export interface LineItemXp {
     PrintArtworkURL?: string
     KitProductImageUrl?: string
     KitProductID?: string
+    KitProductName?: string
 }
