@@ -134,7 +134,7 @@ export default class Orders {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListLocationOrders(locationID: string,  options: ListArgs<Order> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<Order>>> {
+    public async ListLocationOrders(locationID: string,  options: ListArgs<MarketplaceOrder> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceOrder>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/order/location/${locationID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );

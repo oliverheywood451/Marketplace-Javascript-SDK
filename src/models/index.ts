@@ -102,6 +102,7 @@ export * from './ReportTemplate';
 export * from './ReportTypeResource';
 export * from './ShipmentItem';
 export * from './ShipmentXp';
+export * from './ShipMethodSupplierView';
 export * from './Spec';
 export * from './SpecOption';
 export * from './SpecOptionXp';

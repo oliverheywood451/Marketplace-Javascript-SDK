@@ -834,12 +834,16 @@
             "BuyerXp": {
                 "type": "object",
                 "example": {
-                    "MarkupPercent": 0
+                    "MarkupPercent": 0,
+                    "ChiliPublishFolder": ""
                 },
                 "properties": {
                     "MarkupPercent": {
                         "type": "integer",
                         "format": "int32"
+                    },
+                    "ChiliPublishFolder": {
+                        "type": "string"
                     }
                 }
             },
@@ -2233,7 +2237,8 @@
                     "ImageUrl": "",
                     "PrintArtworkURL": "",
                     "KitProductImageUrl": "",
-                    "KitProductID": ""
+                    "KitProductID": "",
+                    "KitProductName": ""
                 },
                 "properties": {
                     "StatusByQuantity": {
@@ -2274,6 +2279,9 @@
                         "type": "string"
                     },
                     "KitProductID": {
+                        "type": "string"
+                    },
+                    "KitProductName": {
                         "type": "string"
                     }
                 }
@@ -2478,6 +2486,20 @@
                     }
                 }
             },
+            "ListMarketplaceOrder": {
+                "type": "object",
+                "properties": {
+                    "Items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplaceOrder"
+                        }
+                    },
+                    "Meta": {
+                        "$ref": "#/components/schemas/Meta"
+                    }
+                }
+            },
             "ListMarketplaceUser": {
                 "type": "object",
                 "properties": {
@@ -2499,20 +2521,6 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/OrchestrationLog"
-                        }
-                    },
-                    "Meta": {
-                        "$ref": "#/components/schemas/Meta"
-                    }
-                }
-            },
-            "ListOrder": {
-                "type": "object",
-                "properties": {
-                    "Items": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Order"
                         }
                     },
                     "Meta": {
@@ -2823,7 +2831,8 @@
                 "type": "object",
                 "example": {
                     "xp": {
-                        "MarkupPercent": 0
+                        "MarkupPercent": 0,
+                        "ChiliPublishFolder": ""
                     },
                     "ID": "",
                     "Name": "",
@@ -3300,7 +3309,8 @@
                         "ImageUrl": "",
                         "PrintArtworkURL": "",
                         "KitProductImageUrl": "",
-                        "KitProductID": ""
+                        "KitProductID": "",
+                        "KitProductName": ""
                     },
                     "Product": {
                         "xp": {
@@ -3604,7 +3614,14 @@
                                 "Country": "",
                                 "Phone": "",
                                 "AddressName": ""
-                            }
+                            },
+                            "SelectedShipMethodsSupplierView": [
+                                {
+                                    "EstimatedTransitDays": 0,
+                                    "Name": "",
+                                    "ShipFromAddressID": ""
+                                }
+                            ]
                         },
                         "FromUser": {
                             "xp": {
@@ -3707,7 +3724,8 @@
                             "ImageUrl": "",
                             "PrintArtworkURL": "",
                             "KitProductImageUrl": "",
-                            "KitProductID": ""
+                            "KitProductID": "",
+                            "KitProductName": ""
                         },
                         "Product": {
                             "xp": {
@@ -4542,7 +4560,14 @@
                             "Country": "",
                             "Phone": "",
                             "AddressName": ""
-                        }
+                        },
+                        "SelectedShipMethodsSupplierView": [
+                            {
+                                "EstimatedTransitDays": 0,
+                                "Name": "",
+                                "ShipFromAddressID": ""
+                            }
+                        ]
                     },
                     "FromUser": {
                         "xp": {
@@ -6971,7 +6996,14 @@
                                 "Country": "",
                                 "Phone": "",
                                 "AddressName": ""
-                            }
+                            },
+                            "SelectedShipMethodsSupplierView": [
+                                {
+                                    "EstimatedTransitDays": 0,
+                                    "Name": "",
+                                    "ShipFromAddressID": ""
+                                }
+                            ]
                         },
                         "FromUser": {
                             "xp": {
@@ -7393,7 +7425,14 @@
                         "Country": "",
                         "Phone": "",
                         "AddressName": ""
-                    }
+                    },
+                    "SelectedShipMethodsSupplierView": [
+                        {
+                            "EstimatedTransitDays": 0,
+                            "Name": "",
+                            "ShipFromAddressID": ""
+                        }
+                    ]
                 },
                 "properties": {
                     "AvalaraTaxTransactionCode": {
@@ -7521,6 +7560,12 @@
                                 "$ref": "#/components/schemas/MarketplaceAddressBuyer"
                             }
                         ]
+                    },
+                    "SelectedShipMethodsSupplierView": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ShipMethodSupplierView"
+                        }
                     }
                 }
             },
@@ -8427,6 +8472,26 @@
                     }
                 }
             },
+            "ShipMethodSupplierView": {
+                "type": "object",
+                "example": {
+                    "EstimatedTransitDays": 0,
+                    "Name": "",
+                    "ShipFromAddressID": ""
+                },
+                "properties": {
+                    "EstimatedTransitDays": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "ShipFromAddressID": {
+                        "type": "string"
+                    }
+                }
+            },
             "Spec": {
                 "type": "object",
                 "example": {
@@ -8568,7 +8633,8 @@
                 "example": {
                     "Buyer": {
                         "xp": {
-                            "MarkupPercent": 0
+                            "MarkupPercent": 0,
+                            "ChiliPublishFolder": ""
                         },
                         "ID": "",
                         "Name": "",
@@ -16511,7 +16577,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ListOrder"
+                                    "$ref": "#/components/schemas/ListMarketplaceOrder"
                                 }
                             }
                         }
@@ -19431,7 +19497,7 @@
                 ]
             }
         },
-        "/tecra/documents/byfolder": {
+        "/tecra/documents/byfolder/{folder}": {
             "get": {
                 "responses": {
                     "200": {
