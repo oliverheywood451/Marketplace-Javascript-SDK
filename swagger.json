@@ -1107,7 +1107,8 @@
                                     "Freezable"
                                 ],
                                 "Currency": "CAD",
-                                "ArtworkRequired": false
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false
                             },
                             "OwnerID": "",
                             "DefaultPriceScheduleID": "",
@@ -1756,7 +1757,8 @@
                                         "Freezable"
                                     ],
                                     "Currency": "CAD",
-                                    "ArtworkRequired": false
+                                    "ArtworkRequired": false,
+                                    "PromotionEligible": false
                                 },
                                 "OwnerID": "",
                                 "DefaultPriceScheduleID": "",
@@ -1784,6 +1786,34 @@
                                 "DefaultSupplierID": ""
                             },
                             "Images": [
+                                {
+                                    "ID": "",
+                                    "Title": "",
+                                    "Active": false,
+                                    "Url": "",
+                                    "Type": "Image",
+                                    "Tags": [
+                                        ""
+                                    ],
+                                    "FileName": "",
+                                    "Metadata": {
+                                        "IsUrlOverridden": false,
+                                        "ContentType": "",
+                                        "SizeBytes": 0,
+                                        "ImageHeight": 0,
+                                        "ImageWidth": 0,
+                                        "ImageVerticalResolution": 0,
+                                        "ImageHorizontalResolution": 0
+                                    },
+                                    "History": {
+                                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                                        "CreatedByUserID": "",
+                                        "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                        "UpdatedByUserID": ""
+                                    }
+                                }
+                            ],
+                            "Attachments": [
                                 {
                                     "ID": "",
                                     "Title": "",
@@ -3187,7 +3217,8 @@
                                             "Freezable"
                                         ],
                                         "Currency": "CAD",
-                                        "ArtworkRequired": false
+                                        "ArtworkRequired": false,
+                                        "PromotionEligible": false
                                     },
                                     "OwnerID": "",
                                     "DefaultPriceScheduleID": "",
@@ -3215,6 +3246,34 @@
                                     "DefaultSupplierID": ""
                                 },
                                 "Images": [
+                                    {
+                                        "ID": "",
+                                        "Title": "",
+                                        "Active": false,
+                                        "Url": "",
+                                        "Type": "Image",
+                                        "Tags": [
+                                            ""
+                                        ],
+                                        "FileName": "",
+                                        "Metadata": {
+                                            "IsUrlOverridden": false,
+                                            "ContentType": "",
+                                            "SizeBytes": 0,
+                                            "ImageHeight": 0,
+                                            "ImageWidth": 0,
+                                            "ImageVerticalResolution": 0,
+                                            "ImageHorizontalResolution": 0
+                                        },
+                                        "History": {
+                                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                                            "CreatedByUserID": "",
+                                            "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                            "UpdatedByUserID": ""
+                                        }
+                                    }
+                                ],
+                                "Attachments": [
                                     {
                                         "ID": "",
                                         "Title": "",
@@ -3333,7 +3392,8 @@
                                 "Freezable"
                             ],
                             "Currency": "CAD",
-                            "ArtworkRequired": false
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false
                         },
                         "ID": "",
                         "Name": "",
@@ -3748,7 +3808,8 @@
                                     "Freezable"
                                 ],
                                 "Currency": "CAD",
-                                "ArtworkRequired": false
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false
                             },
                             "ID": "",
                             "Name": "",
@@ -3884,7 +3945,8 @@
                             "Freezable"
                         ],
                         "Currency": "CAD",
-                        "ArtworkRequired": false
+                        "ArtworkRequired": false,
+                        "PromotionEligible": false
                     },
                     "ID": "",
                     "Name": "",
@@ -4062,7 +4124,8 @@
                                 "Freezable"
                             ],
                             "Currency": "CAD",
-                            "ArtworkRequired": false
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -4237,7 +4300,8 @@
                                             "Freezable"
                                         ],
                                         "Currency": "CAD",
-                                        "ArtworkRequired": false
+                                        "ArtworkRequired": false,
+                                        "PromotionEligible": false
                                     },
                                     "PriceSchedule": {
                                         "xp": {},
@@ -4279,6 +4343,34 @@
                                     "DefaultSupplierID": ""
                                 },
                                 "Images": [
+                                    {
+                                        "ID": "",
+                                        "Title": "",
+                                        "Active": false,
+                                        "Url": "",
+                                        "Type": "Image",
+                                        "Tags": [
+                                            ""
+                                        ],
+                                        "FileName": "",
+                                        "Metadata": {
+                                            "IsUrlOverridden": false,
+                                            "ContentType": "",
+                                            "SizeBytes": 0,
+                                            "ImageHeight": 0,
+                                            "ImageWidth": 0,
+                                            "ImageVerticalResolution": 0,
+                                            "ImageHorizontalResolution": 0
+                                        },
+                                        "History": {
+                                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                                            "CreatedByUserID": "",
+                                            "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                            "UpdatedByUserID": ""
+                                        }
+                                    }
+                                ],
+                                "Attachments": [
                                     {
                                         "ID": "",
                                         "Title": "",
@@ -4368,7 +4460,8 @@
                             "Freezable"
                         ],
                         "Currency": "CAD",
-                        "ArtworkRequired": false
+                        "ArtworkRequired": false,
+                        "PromotionEligible": false
                     },
                     "PriceSchedule": {
                         "xp": {},
@@ -4849,7 +4942,8 @@
                             "Freezable"
                         ],
                         "Currency": "CAD",
-                        "ArtworkRequired": false
+                        "ArtworkRequired": false,
+                        "PromotionEligible": false
                     },
                     "OwnerID": "",
                     "DefaultPriceScheduleID": "",
@@ -6065,7 +6159,8 @@
                                         "Freezable"
                                     ],
                                     "Currency": "CAD",
-                                    "ArtworkRequired": false
+                                    "ArtworkRequired": false,
+                                    "PromotionEligible": false
                                 },
                                 "PriceSchedule": {
                                     "xp": {},
@@ -6107,6 +6202,34 @@
                                 "DefaultSupplierID": ""
                             },
                             "Images": [
+                                {
+                                    "ID": "",
+                                    "Title": "",
+                                    "Active": false,
+                                    "Url": "",
+                                    "Type": "Image",
+                                    "Tags": [
+                                        ""
+                                    ],
+                                    "FileName": "",
+                                    "Metadata": {
+                                        "IsUrlOverridden": false,
+                                        "ContentType": "",
+                                        "SizeBytes": 0,
+                                        "ImageHeight": 0,
+                                        "ImageWidth": 0,
+                                        "ImageVerticalResolution": 0,
+                                        "ImageHorizontalResolution": 0
+                                    },
+                                    "History": {
+                                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                                        "CreatedByUserID": "",
+                                        "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                        "UpdatedByUserID": ""
+                                    }
+                                }
+                            ],
+                            "Attachments": [
                                 {
                                     "ID": "",
                                     "Title": "",
@@ -6224,7 +6347,8 @@
                                 "Freezable"
                             ],
                             "Currency": "CAD",
-                            "ArtworkRequired": false
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -6292,6 +6416,34 @@
                                 "UpdatedByUserID": ""
                             }
                         }
+                    ],
+                    "Attachments": [
+                        {
+                            "ID": "",
+                            "Title": "",
+                            "Active": false,
+                            "Url": "",
+                            "Type": "Image",
+                            "Tags": [
+                                ""
+                            ],
+                            "FileName": "",
+                            "Metadata": {
+                                "IsUrlOverridden": false,
+                                "ContentType": "",
+                                "SizeBytes": 0,
+                                "ImageHeight": 0,
+                                "ImageWidth": 0,
+                                "ImageVerticalResolution": 0,
+                                "ImageHorizontalResolution": 0
+                            },
+                            "History": {
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CreatedByUserID": "",
+                                "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                "UpdatedByUserID": ""
+                            }
+                        }
                     ]
                 },
                 "properties": {
@@ -6332,6 +6484,12 @@
                         ]
                     },
                     "Images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Asset"
+                        }
+                    },
+                    "Attachments": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Asset"
@@ -7940,7 +8098,8 @@
                                 "Freezable"
                             ],
                             "Currency": "CAD",
-                            "ArtworkRequired": false
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",
@@ -7968,6 +8127,34 @@
                         "DefaultSupplierID": ""
                     },
                     "Images": [
+                        {
+                            "ID": "",
+                            "Title": "",
+                            "Active": false,
+                            "Url": "",
+                            "Type": "Image",
+                            "Tags": [
+                                ""
+                            ],
+                            "FileName": "",
+                            "Metadata": {
+                                "IsUrlOverridden": false,
+                                "ContentType": "",
+                                "SizeBytes": 0,
+                                "ImageHeight": 0,
+                                "ImageWidth": 0,
+                                "ImageVerticalResolution": 0,
+                                "ImageHorizontalResolution": 0
+                            },
+                            "History": {
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CreatedByUserID": "",
+                                "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                "UpdatedByUserID": ""
+                            }
+                        }
+                    ],
+                    "Attachments": [
                         {
                             "ID": "",
                             "Title": "",
@@ -8038,6 +8225,12 @@
                         "items": {
                             "$ref": "#/components/schemas/Asset"
                         }
+                    },
+                    "Attachments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Asset"
+                        }
                     }
                 }
             },
@@ -8063,7 +8256,8 @@
                         "Freezable"
                     ],
                     "Currency": "CAD",
-                    "ArtworkRequired": false
+                    "ArtworkRequired": false,
+                    "PromotionEligible": false
                 },
                 "properties": {
                     "Status": {
@@ -8168,6 +8362,9 @@
                         "type": "string"
                     },
                     "ArtworkRequired": {
+                        "type": "boolean"
+                    },
+                    "PromotionEligible": {
                         "type": "boolean"
                     }
                 }
@@ -8688,7 +8885,8 @@
                                 "Freezable"
                             ],
                             "Currency": "CAD",
-                            "ArtworkRequired": false
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -8931,7 +9129,8 @@
                                 "Freezable"
                             ],
                             "Currency": "CAD",
-                            "ArtworkRequired": false
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",

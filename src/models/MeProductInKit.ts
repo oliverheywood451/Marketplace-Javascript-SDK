@@ -13,4 +13,5 @@ export interface MeProductInKit {
     Specs?: Spec[]
     Product?: MarketplaceMeProduct
     Images?: Asset[]
+    Attachments?: Asset[]
 }
