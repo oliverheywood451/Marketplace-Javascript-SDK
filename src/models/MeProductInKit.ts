@@ -8,6 +8,7 @@ export interface MeProductInKit {
     MinQty?: number
     MaxQty?: number
     Static?: boolean
+    Optional?: boolean
     SpecCombo?: string
     Variants?: Variant[]
     Specs?: Spec[]

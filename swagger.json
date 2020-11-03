@@ -1686,6 +1686,7 @@
                             "MinQty": 0,
                             "MaxQty": 0,
                             "Static": false,
+                            "Optional": false,
                             "SpecCombo": "",
                             "Variants": [
                                 {
@@ -3146,6 +3147,7 @@
                                 "MinQty": 0,
                                 "MaxQty": 0,
                                 "Static": false,
+                                "Optional": false,
                                 "SpecCombo": "",
                                 "Variants": [
                                     {
@@ -4229,6 +4231,7 @@
                                 "MinQty": 0,
                                 "MaxQty": 0,
                                 "Static": false,
+                                "Optional": false,
                                 "SpecCombo": "",
                                 "Variants": [
                                     {
@@ -6088,6 +6091,7 @@
                             "MinQty": 0,
                             "MaxQty": 0,
                             "Static": false,
+                            "Optional": false,
                             "SpecCombo": "",
                             "Variants": [
                                 {
@@ -6276,6 +6280,7 @@
                     "MinQty": 0,
                     "MaxQty": 0,
                     "Static": false,
+                    "Optional": false,
                     "SpecCombo": "",
                     "Variants": [
                         {
@@ -6459,6 +6464,9 @@
                         "format": "int32"
                     },
                     "Static": {
+                        "type": "boolean"
+                    },
+                    "Optional": {
                         "type": "boolean"
                     },
                     "SpecCombo": {
@@ -8027,6 +8035,7 @@
                     "MinQty": 0,
                     "MaxQty": 0,
                     "Static": false,
+                    "Optional": false,
                     "SpecCombo": "",
                     "Variants": [
                         {
@@ -8196,6 +8205,9 @@
                         "format": "int32"
                     },
                     "Static": {
+                        "type": "boolean"
+                    },
+                    "Optional": {
                         "type": "boolean"
                     },
                     "SpecCombo": {
@@ -9880,6 +9892,7 @@
                     "UseCumulativeQuantity": false,
                     "RestrictedQuantity": false,
                     "Price": 0,
+                    "Currency": "CAD",
                     "ImageTitle": "",
                     "Url": "",
                     "Type": "Image",
@@ -9974,6 +9987,44 @@
                     "Price": {
                         "type": "number",
                         "format": "float"
+                    },
+                    "Currency": {
+                        "enum": [
+                            "CAD",
+                            "HKD",
+                            "ISK",
+                            "PHP",
+                            "DKK",
+                            "HUF",
+                            "CZK",
+                            "GBP",
+                            "RON",
+                            "SEK",
+                            "IDR",
+                            "INR",
+                            "BRL",
+                            "RUB",
+                            "HRK",
+                            "JPY",
+                            "THB",
+                            "CHF",
+                            "EUR",
+                            "MYR",
+                            "BGN",
+                            "TRY",
+                            "CNY",
+                            "NOK",
+                            "NZD",
+                            "ZAR",
+                            "USD",
+                            "MXN",
+                            "SGD",
+                            "AUD",
+                            "ILS",
+                            "KRW",
+                            "PLN"
+                        ],
+                        "type": "string"
                     },
                     "ImageTitle": {
                         "type": "string"
@@ -10901,7 +10952,7 @@
                         }
                     }
                 ],
-                "summary": "Get a Resource's primary image",
+                "summary": "Get a Resource Child's primary image",
                 "description": "",
                 "security": [
                     {
