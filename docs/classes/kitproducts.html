@@ -51,12 +51,12 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#as" class="tsd-kind-icon">As</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#create" class="tsd-kind-icon">Create</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#delete" class="tsd-kind-icon">Delete</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#get" class="tsd-kind-icon">Get</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#list" class="tsd-kind-icon">List</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#listmekits" class="tsd-kind-icon">List<wbr>MeKits</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#post" class="tsd-kind-icon">Post</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#put" class="tsd-kind-icon">Put</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="kitproducts.html#save" class="tsd-kind-icon">Save</a></li>
 							</ul>
 						</section>
 					</div>
@@ -85,6 +85,34 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>Create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>marketplaceKitProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>marketplaceKitProduct: <a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -207,38 +235,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="post" class="tsd-anchor"></a>
-					<h3>Post</h3>
+					<a name="save" class="tsd-anchor"></a>
+					<h3>Save</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Post<span class="tsd-signature-symbol">(</span>marketplaceKitProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>marketplaceKitProduct: <a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="put" class="tsd-anchor"></a>
-					<h3>Put</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Put<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceKitProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, marketplaceKitProduct<span class="tsd-signature-symbol">: </span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplacekitproduct.html" class="tsd-signature-type">MarketplaceKitProduct</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -286,6 +286,9 @@
 								<a href="kitproducts.html#as" class="tsd-kind-icon">As</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="kitproducts.html#create" class="tsd-kind-icon">Create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="kitproducts.html#delete" class="tsd-kind-icon">Delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -298,10 +301,7 @@
 								<a href="kitproducts.html#listmekits" class="tsd-kind-icon">List<wbr>MeKits</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="kitproducts.html#post" class="tsd-kind-icon">Post</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="kitproducts.html#put" class="tsd-kind-icon">Put</a>
+								<a href="kitproducts.html#save" class="tsd-kind-icon">Save</a>
 							</li>
 						</ul>
 					</li>

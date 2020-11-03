@@ -13,9 +13,9 @@ export default class KitProducts {
     */
     constructor() {
         this.List = this.List.bind(this);
-        this.Post = this.Post.bind(this);
+        this.Create = this.Create.bind(this);
         this.Get = this.Get.bind(this);
-        this.Put = this.Put.bind(this);
+        this.Save = this.Save.bind(this);
         this.Delete = this.Delete.bind(this);
         this.ListMeKits = this.ListMeKits.bind(this);
     }
@@ -39,7 +39,7 @@ export default class KitProducts {
     * @param marketplaceKitProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(marketplaceKitProduct: MarketplaceKitProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
+    public async Create(marketplaceKitProduct: MarketplaceKitProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/kitproducts`, marketplaceKitProduct, { params: {  accessToken, impersonating } } );
@@ -60,7 +60,7 @@ export default class KitProducts {
     * @param marketplaceKitProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Put(id: string, marketplaceKitProduct: MarketplaceKitProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
+    public async Save(id: string, marketplaceKitProduct: MarketplaceKitProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/kitproducts/${id}`, marketplaceKitProduct, { params: {  accessToken, impersonating } } );

@@ -14426,7 +14426,7 @@
                         }
                     }
                 ],
-                "summary": "LIST Kit Products",
+                "summary": "List Kit Products",
                 "description": "",
                 "security": [
                     {
@@ -14440,7 +14440,7 @@
             "post": {
                 "responses": {
                     "201": {
-                        "description": "",
+                        "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -14450,7 +14450,7 @@
                         }
                     }
                 },
-                "operationId": "KitProducts.Post",
+                "operationId": "KitProducts.Create",
                 "tags": [
                     "Kit Products"
                 ],
@@ -14469,8 +14469,8 @@
                         }
                     }
                 },
-                "summary": "POST Kit Product",
-                "description": "",
+                "summary": "Create Kit Product",
+                "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
                 "security": [
                     {
                         "OAuth2": [
@@ -14510,7 +14510,7 @@
                         }
                     }
                 ],
-                "summary": "GET Kit Product",
+                "summary": "Get Kit Product",
                 "description": "",
                 "security": [
                     {
@@ -14524,7 +14524,7 @@
             "put": {
                 "responses": {
                     "200": {
-                        "description": "",
+                        "description": "If an object with the same ID already exists, it will be overwritten.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -14534,7 +14534,7 @@
                         }
                     }
                 },
-                "operationId": "KitProducts.Put",
+                "operationId": "KitProducts.Save",
                 "tags": [
                     "Kit Products"
                 ],
@@ -14564,8 +14564,8 @@
                         }
                     }
                 ],
-                "summary": "PUT Kit Product",
-                "description": "",
+                "summary": "Save Kit Product",
+                "description": "If an object with the same ID already exists, it will be overwritten.",
                 "security": [
                     {
                         "OAuth2": [
@@ -14596,7 +14596,7 @@
                         }
                     }
                 ],
-                "summary": "DELETE Kit Product",
+                "summary": "Delete Kit Product",
                 "description": "",
                 "security": [
                     {
@@ -14694,7 +14694,7 @@
                         }
                     }
                 ],
-                "summary": "LIST Me Kit Products",
+                "summary": "List Me Kit Products",
                 "description": "",
                 "security": [
                     {
