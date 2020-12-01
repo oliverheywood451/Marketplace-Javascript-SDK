@@ -9,4 +9,5 @@ export interface LineItemXp {
     KitProductImageUrl?: string
     KitProductID?: string
     KitProductName?: string
+    ShipMethod?: string
 }

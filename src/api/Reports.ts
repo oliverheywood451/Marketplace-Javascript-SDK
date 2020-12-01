@@ -1,6 +1,4 @@
 import { ReportTemplate } from '../models/ReportTemplate';
-import { ListPage } from '../models/ListPage';
-import { ReportTypeResource } from '../models/ReportTypeResource';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -34,7 +32,7 @@ export default class Reports {
     * @param id Id of the report template.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetReportTemplate(id: string,  accessToken?: string ): Promise<RequiredDeep<ReportTemplate>> {
+    public async GetReportTemplate(id: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/reports/${id}`, { params: {  accessToken, impersonating } } );
@@ -45,7 +43,7 @@ export default class Reports {
     * @param reportTemplate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async UpdateReportTemplate(id: string, reportTemplate: ReportTemplate, accessToken?: string ): Promise<RequiredDeep<ReportTemplate>> {
+    public async UpdateReportTemplate(id: string, reportTemplate: ReportTemplate, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/reports/${id}`, reportTemplate, { params: {  accessToken, impersonating } } );
@@ -66,7 +64,7 @@ export default class Reports {
     * @param reportTemplate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostReportTemplate(reportType: 'BuyerLocation' | 'SalesOrderDetail' | 'PurchaseOrderDetail' | 'LineItemDetail', reportTemplate: ReportTemplate, accessToken?: string ): Promise<RequiredDeep<ReportTemplate>> {
+    public async PostReportTemplate(reportType: 'BuyerLocation' | 'SalesOrderDetail' | 'PurchaseOrderDetail' | 'LineItemDetail', reportTemplate: ReportTemplate, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/reports/${reportType}`, reportTemplate, { params: {  accessToken, impersonating } } );
@@ -116,7 +114,7 @@ export default class Reports {
    /**
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async FetchAllReportTypes( accessToken?: string ): Promise<RequiredDeep<ListPage<ReportTypeResource>>> {
+    public async FetchAllReportTypes( accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/reports/fetchAllReportTypes`, { params: {  accessToken, impersonating } } );
@@ -124,77 +122,101 @@ export default class Reports {
 
    /**
     * @param templateID ID of the template.
-    * @param lowDateRange Low date range of the report template.
-    * @param highDateRange High date range of the report template.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param reportTemplate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async DownloadLineItemDetail(templateID: string, lowDateRange: string, highDateRange: string, reportTemplate: ReportTemplate, accessToken?: string ): Promise<void> {
+    public async DownloadLineItemDetail(templateID: string, reportTemplate: ReportTemplate, options: ListArgs<any> = {}, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/reports/LineItemDetail/download/${templateID}/${lowDateRange}/${highDateRange}`, reportTemplate, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/reports/LineItemDetail/download/${templateID}`, reportTemplate, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
     * @param templateID ID of the template.
-    * @param lowDateRange Low date range of the marketplace line item order.
-    * @param highDateRange High date range of the marketplace line item order.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async LineItemDetail(templateID: string, lowDateRange: string, highDateRange: string,  accessToken?: string ): Promise<void> {
+    public async LineItemDetail(templateID: string,  options: ListArgs<any> = {}, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/reports/LineItemDetail/preview/${templateID}/${lowDateRange}/${highDateRange}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/reports/LineItemDetail/preview/${templateID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
     * @param templateID ID of the template.
-    * @param lowDateRange Low date range of the report template.
-    * @param highDateRange High date range of the report template.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param reportTemplate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async DownloadPurchaseOrderDetail(templateID: string, lowDateRange: string, highDateRange: string, reportTemplate: ReportTemplate, accessToken?: string ): Promise<void> {
+    public async DownloadPurchaseOrderDetail(templateID: string, reportTemplate: ReportTemplate, options: ListArgs<any> = {}, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/reports/PurchaseOrderDetail/download/${templateID}/${lowDateRange}/${highDateRange}`, reportTemplate, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/reports/PurchaseOrderDetail/download/${templateID}`, reportTemplate, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
     * @param templateID ID of the template.
-    * @param lowDateRange Low date range of the marketplace order.
-    * @param highDateRange High date range of the marketplace order.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PurchaseOrderDetail(templateID: string, lowDateRange: string, highDateRange: string,  accessToken?: string ): Promise<void> {
+    public async PurchaseOrderDetail(templateID: string,  options: ListArgs<any> = {}, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/reports/PurchaseOrderDetail/preview/${templateID}/${lowDateRange}/${highDateRange}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/reports/PurchaseOrderDetail/preview/${templateID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
     * @param templateID ID of the template.
-    * @param lowDateRange Low date range of the report template.
-    * @param highDateRange High date range of the report template.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param reportTemplate 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async DownloadSalesOrderDetail(templateID: string, lowDateRange: string, highDateRange: string, reportTemplate: ReportTemplate, accessToken?: string ): Promise<void> {
+    public async DownloadSalesOrderDetail(templateID: string, reportTemplate: ReportTemplate, options: ListArgs<any> = {}, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/reports/SalesOrderDetail/download/${templateID}/${lowDateRange}/${highDateRange}`, reportTemplate, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/reports/SalesOrderDetail/download/${templateID}`, reportTemplate, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
     * @param templateID ID of the template.
-    * @param lowDateRange Low date range of the marketplace order.
-    * @param highDateRange High date range of the marketplace order.
+    * @param options.search Word or phrase to search for.
+    * @param options.searchOn Comma-delimited list of fields to search on.
+    * @param options.sortBy Comma-delimited list of fields to sort by.
+    * @param options.page Page of results to return. Default: 1
+    * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
+    * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SalesOrderDetail(templateID: string, lowDateRange: string, highDateRange: string,  accessToken?: string ): Promise<void> {
+    public async SalesOrderDetail(templateID: string,  options: ListArgs<any> = {}, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/reports/SalesOrderDetail/preview/${templateID}/${lowDateRange}/${highDateRange}`, { params: {  accessToken, impersonating } } );
+        return await httpClient.get(`/reports/SalesOrderDetail/preview/${templateID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
     /**

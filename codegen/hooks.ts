@@ -35,9 +35,6 @@ const postFormatModel: PostFormatModelHook = function(model, models) {
 }
 
 const postFormatOperation: PostFormatOperationHook = function(operation) {
-  if (operation['id'] === 'Orders.ListShipmentsWithItems') {
-    console.log(operation)
-  }
   // add prop.typescriptType to props on operations
   operation.allParams.forEach(param => {
     param['typescriptType'] = findTypeForOperationProps(param, operation)

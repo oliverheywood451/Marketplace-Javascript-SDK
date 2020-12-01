@@ -12,7 +12,7 @@
     },
     "servers": [
         {
-            "url": "https://marketplace-middleware-test.azurewebsites.net",
+            "url": "https://marketplace-middleware-staging.azurewebsites.net",
             "description": "Marketplace API"
         }
     ],
@@ -639,6 +639,53 @@
                     }
                 }
             },
+            "BatchProcessResult": {
+                "type": "object",
+                "example": {
+                    "Meta": {
+                        "TotalCount": 0,
+                        "SuccessfulCount": 0,
+                        "ProcessFailureListCount": 0,
+                        "DocumentFailureListCount": 0
+                    }
+                },
+                "properties": {
+                    "Meta": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BatchProcessSummary"
+                            }
+                        ]
+                    }
+                }
+            },
+            "BatchProcessSummary": {
+                "type": "object",
+                "example": {
+                    "TotalCount": 0,
+                    "SuccessfulCount": 0,
+                    "ProcessFailureListCount": 0,
+                    "DocumentFailureListCount": 0
+                },
+                "properties": {
+                    "TotalCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "SuccessfulCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ProcessFailureListCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "DocumentFailureListCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
             "BuyerAddress": {
                 "type": "object",
                 "example": {
@@ -1108,7 +1155,9 @@
                                 ],
                                 "Currency": "CAD",
                                 "ArtworkRequired": false,
-                                "PromotionEligible": false
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": ""
                             },
                             "OwnerID": "",
                             "DefaultPriceScheduleID": "",
@@ -1759,7 +1808,9 @@
                                     ],
                                     "Currency": "CAD",
                                     "ArtworkRequired": false,
-                                    "PromotionEligible": false
+                                    "PromotionEligible": false,
+                                    "FreeShipping": false,
+                                    "FreeShippingMessage": ""
                                 },
                                 "OwnerID": "",
                                 "DefaultPriceScheduleID": "",
@@ -2269,7 +2320,8 @@
                     "PrintArtworkURL": "",
                     "KitProductImageUrl": "",
                     "KitProductID": "",
-                    "KitProductName": ""
+                    "KitProductName": "",
+                    "ShipMethod": ""
                 },
                 "properties": {
                     "StatusByQuantity": {
@@ -2313,6 +2365,9 @@
                         "type": "string"
                     },
                     "KitProductName": {
+                        "type": "string"
+                    },
+                    "ShipMethod": {
                         "type": "string"
                     }
                 }
@@ -3220,7 +3275,9 @@
                                         ],
                                         "Currency": "CAD",
                                         "ArtworkRequired": false,
-                                        "PromotionEligible": false
+                                        "PromotionEligible": false,
+                                        "FreeShipping": false,
+                                        "FreeShippingMessage": ""
                                     },
                                     "OwnerID": "",
                                     "DefaultPriceScheduleID": "",
@@ -3371,7 +3428,8 @@
                         "PrintArtworkURL": "",
                         "KitProductImageUrl": "",
                         "KitProductID": "",
-                        "KitProductName": ""
+                        "KitProductName": "",
+                        "ShipMethod": ""
                     },
                     "Product": {
                         "xp": {
@@ -3395,7 +3453,9 @@
                             ],
                             "Currency": "CAD",
                             "ArtworkRequired": false,
-                            "PromotionEligible": false
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": ""
                         },
                         "ID": "",
                         "Name": "",
@@ -3683,7 +3743,8 @@
                                     "Name": "",
                                     "ShipFromAddressID": ""
                                 }
-                            ]
+                            ],
+                            "IsResubmitting": false
                         },
                         "FromUser": {
                             "xp": {
@@ -3787,7 +3848,8 @@
                             "PrintArtworkURL": "",
                             "KitProductImageUrl": "",
                             "KitProductID": "",
-                            "KitProductName": ""
+                            "KitProductName": "",
+                            "ShipMethod": ""
                         },
                         "Product": {
                             "xp": {
@@ -3811,7 +3873,9 @@
                                 ],
                                 "Currency": "CAD",
                                 "ArtworkRequired": false,
-                                "PromotionEligible": false
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": ""
                             },
                             "ID": "",
                             "Name": "",
@@ -3948,7 +4012,9 @@
                         ],
                         "Currency": "CAD",
                         "ArtworkRequired": false,
-                        "PromotionEligible": false
+                        "PromotionEligible": false,
+                        "FreeShipping": false,
+                        "FreeShippingMessage": ""
                     },
                     "ID": "",
                     "Name": "",
@@ -4127,7 +4193,9 @@
                             ],
                             "Currency": "CAD",
                             "ArtworkRequired": false,
-                            "PromotionEligible": false
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": ""
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -4304,7 +4372,9 @@
                                         ],
                                         "Currency": "CAD",
                                         "ArtworkRequired": false,
-                                        "PromotionEligible": false
+                                        "PromotionEligible": false,
+                                        "FreeShipping": false,
+                                        "FreeShippingMessage": ""
                                     },
                                     "PriceSchedule": {
                                         "xp": {},
@@ -4464,7 +4534,9 @@
                         ],
                         "Currency": "CAD",
                         "ArtworkRequired": false,
-                        "PromotionEligible": false
+                        "PromotionEligible": false,
+                        "FreeShipping": false,
+                        "FreeShippingMessage": ""
                     },
                     "PriceSchedule": {
                         "xp": {},
@@ -4663,7 +4735,8 @@
                                 "Name": "",
                                 "ShipFromAddressID": ""
                             }
-                        ]
+                        ],
+                        "IsResubmitting": false
                     },
                     "FromUser": {
                         "xp": {
@@ -4946,7 +5019,9 @@
                         ],
                         "Currency": "CAD",
                         "ArtworkRequired": false,
-                        "PromotionEligible": false
+                        "PromotionEligible": false,
+                        "FreeShipping": false,
+                        "FreeShippingMessage": ""
                     },
                     "OwnerID": "",
                     "DefaultPriceScheduleID": "",
@@ -6164,7 +6239,9 @@
                                     ],
                                     "Currency": "CAD",
                                     "ArtworkRequired": false,
-                                    "PromotionEligible": false
+                                    "PromotionEligible": false,
+                                    "FreeShipping": false,
+                                    "FreeShippingMessage": ""
                                 },
                                 "PriceSchedule": {
                                     "xp": {},
@@ -6353,7 +6430,9 @@
                             ],
                             "Currency": "CAD",
                             "ArtworkRequired": false,
-                            "PromotionEligible": false
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": ""
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -7169,7 +7248,8 @@
                                     "Name": "",
                                     "ShipFromAddressID": ""
                                 }
-                            ]
+                            ],
+                            "IsResubmitting": false
                         },
                         "FromUser": {
                             "xp": {
@@ -7598,7 +7678,8 @@
                             "Name": "",
                             "ShipFromAddressID": ""
                         }
-                    ]
+                    ],
+                    "IsResubmitting": false
                 },
                 "properties": {
                     "AvalaraTaxTransactionCode": {
@@ -7732,6 +7813,9 @@
                         "items": {
                             "$ref": "#/components/schemas/ShipMethodSupplierView"
                         }
+                    },
+                    "IsResubmitting": {
+                        "type": "boolean"
                     }
                 }
             },
@@ -8108,7 +8192,9 @@
                             ],
                             "Currency": "CAD",
                             "ArtworkRequired": false,
-                            "PromotionEligible": false
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": ""
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",
@@ -8269,7 +8355,9 @@
                     ],
                     "Currency": "CAD",
                     "ArtworkRequired": false,
-                    "PromotionEligible": false
+                    "PromotionEligible": false,
+                    "FreeShipping": false,
+                    "FreeShippingMessage": ""
                 },
                 "properties": {
                     "Status": {
@@ -8378,6 +8466,12 @@
                     },
                     "PromotionEligible": {
                         "type": "boolean"
+                    },
+                    "FreeShipping": {
+                        "type": "boolean"
+                    },
+                    "FreeShippingMessage": {
+                        "type": "string"
                     }
                 }
             },
@@ -8410,6 +8504,29 @@
                     "Comments": {
                         "type": "string",
                         "maxLength": 200
+                    }
+                }
+            },
+            "ReportAdHocFilters": {
+                "type": "object",
+                "example": {
+                    "LowDate": "",
+                    "HighDate": "",
+                    "LowTime": "",
+                    "HighTime": ""
+                },
+                "properties": {
+                    "LowDate": {
+                        "type": "string"
+                    },
+                    "HighDate": {
+                        "type": "string"
+                    },
+                    "LowTime": {
+                        "type": "string"
+                    },
+                    "HighTime": {
+                        "type": "string"
                     }
                 }
             },
@@ -8898,7 +9015,9 @@
                             ],
                             "Currency": "CAD",
                             "ArtworkRequired": false,
-                            "PromotionEligible": false
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": ""
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -9142,7 +9261,9 @@
                             ],
                             "Currency": "CAD",
                             "ArtworkRequired": false,
-                            "PromotionEligible": false
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": ""
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",
@@ -9897,7 +10018,8 @@
                     "Url": "",
                     "Type": "Image",
                     "Tags": "",
-                    "FileName": ""
+                    "FileName": "",
+                    "SizeTier": "G"
                 },
                 "properties": {
                     "ID": {
@@ -10053,6 +10175,18 @@
                         "type": "string"
                     },
                     "FileName": {
+                        "type": "string"
+                    },
+                    "SizeTier": {
+                        "enum": [
+                            "G",
+                            "A",
+                            "B",
+                            "C",
+                            "D",
+                            "E",
+                            "F"
+                        ],
                         "type": "string"
                     }
                 }
@@ -16778,6 +16912,81 @@
                 ]
             }
         },
+        "/order/{orderID}/submit": {
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Performs validation, submits credit card payment and finally submits order via OrderCloud",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MarketplaceOrder"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Orders.SubmitOrder",
+                "tags": [
+                    "Orders"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardPayment"
+                                    }
+                                ],
+                                "required": [
+                                    "OrderID",
+                                    "PaymentID",
+                                    "Currency",
+                                    "MerchantID"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "orderID",
+                        "in": "path",
+                        "description": "ID of the order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "direction",
+                        "in": "query",
+                        "description": "Direction of the order cloud integrations credit card payment. Possible values: Incoming, Outgoing.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "Incoming",
+                                "Outgoing"
+                            ]
+                        }
+                    }
+                ],
+                "summary": "Submit Order",
+                "description": "Performs validation, submits credit card payment and finally submits order via OrderCloud",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
         "/order/acknowledgequote/{orderID}": {
             "post": {
                 "responses": {
@@ -17880,7 +18089,7 @@
                 ]
             }
         },
-        "/reports/LineItemDetail/download/{templateID}/{lowDateRange}/{highDateRange}": {
+        "/reports/LineItemDetail/download/{templateID}": {
             "post": {
                 "responses": {
                     "200": {
@@ -17924,21 +18133,69 @@
                         }
                     },
                     {
-                        "name": "lowDateRange",
-                        "in": "path",
-                        "description": "Low date range of the report template.",
-                        "required": true,
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "highDateRange",
-                        "in": "path",
-                        "description": "High date range of the report template.",
-                        "required": true,
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 ],
@@ -17953,7 +18210,7 @@
                 ]
             }
         },
-        "/reports/LineItemDetail/preview/{templateID}/{lowDateRange}/{highDateRange}": {
+        "/reports/LineItemDetail/preview/{templateID}": {
             "get": {
                 "responses": {
                     "200": {
@@ -17985,21 +18242,69 @@
                         }
                     },
                     {
-                        "name": "lowDateRange",
-                        "in": "path",
-                        "description": "Low date range of the marketplace line item order.",
-                        "required": true,
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "highDateRange",
-                        "in": "path",
-                        "description": "High date range of the marketplace line item order.",
-                        "required": true,
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 ],
@@ -18014,7 +18319,7 @@
                 ]
             }
         },
-        "/reports/PurchaseOrderDetail/download/{templateID}/{lowDateRange}/{highDateRange}": {
+        "/reports/PurchaseOrderDetail/download/{templateID}": {
             "post": {
                 "responses": {
                     "200": {
@@ -18058,21 +18363,69 @@
                         }
                     },
                     {
-                        "name": "lowDateRange",
-                        "in": "path",
-                        "description": "Low date range of the report template.",
-                        "required": true,
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "highDateRange",
-                        "in": "path",
-                        "description": "High date range of the report template.",
-                        "required": true,
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 ],
@@ -18087,7 +18440,7 @@
                 ]
             }
         },
-        "/reports/PurchaseOrderDetail/preview/{templateID}/{lowDateRange}/{highDateRange}": {
+        "/reports/PurchaseOrderDetail/preview/{templateID}": {
             "get": {
                 "responses": {
                     "200": {
@@ -18119,21 +18472,69 @@
                         }
                     },
                     {
-                        "name": "lowDateRange",
-                        "in": "path",
-                        "description": "Low date range of the marketplace order.",
-                        "required": true,
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "highDateRange",
-                        "in": "path",
-                        "description": "High date range of the marketplace order.",
-                        "required": true,
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 ],
@@ -18148,7 +18549,7 @@
                 ]
             }
         },
-        "/reports/SalesOrderDetail/download/{templateID}/{lowDateRange}/{highDateRange}": {
+        "/reports/SalesOrderDetail/download/{templateID}": {
             "post": {
                 "responses": {
                     "200": {
@@ -18192,21 +18593,69 @@
                         }
                     },
                     {
-                        "name": "lowDateRange",
-                        "in": "path",
-                        "description": "Low date range of the report template.",
-                        "required": true,
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "highDateRange",
-                        "in": "path",
-                        "description": "High date range of the report template.",
-                        "required": true,
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 ],
@@ -18221,7 +18670,7 @@
                 ]
             }
         },
-        "/reports/SalesOrderDetail/preview/{templateID}/{lowDateRange}/{highDateRange}": {
+        "/reports/SalesOrderDetail/preview/{templateID}": {
             "get": {
                 "responses": {
                     "200": {
@@ -18253,21 +18702,69 @@
                         }
                     },
                     {
-                        "name": "lowDateRange",
-                        "in": "path",
-                        "description": "Low date range of the marketplace order.",
-                        "required": true,
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "highDateRange",
-                        "in": "path",
-                        "description": "High date range of the marketplace order.",
-                        "required": true,
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
                         }
                     }
                 ],
@@ -19349,6 +19846,47 @@
                 },
                 "summary": "POST Marketplace Shipment",
                 "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "ShipmentAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/shipment/batch/uploadshipment": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BatchProcessResult"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Shipments.UploadShipments",
+                "tags": [
+                    "Shipments"
+                ],
+                "parameters": [
+                    {
+                        "name": "fileRequest",
+                        "in": "query",
+                        "description": "File request of the batch process result.",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "summary": "POST Batch Shipment Update",
+                "description": "",
                 "security": [
                     {
                         "OAuth2": [

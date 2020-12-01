@@ -1,4 +1,5 @@
 import { SuperShipment } from '../models/SuperShipment';
+import { BatchProcessResult } from '../models/BatchProcessResult';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -12,6 +13,7 @@ export default class Shipments {
     */
     constructor() {
         this.Create = this.Create.bind(this);
+        this.UploadShipments = this.UploadShipments.bind(this);
     }
 
    /**
@@ -22,6 +24,16 @@ export default class Shipments {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/shipment`, superShipment, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.fileRequest File request of the batch process result.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async UploadShipments( fileRequest: any, accessToken?: string ): Promise<RequiredDeep<BatchProcessResult>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/shipment/batch/uploadshipment`, {}, { params: { fileRequest,  accessToken, impersonating } } );
     }
 
     /**

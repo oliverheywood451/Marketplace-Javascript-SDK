@@ -60,6 +60,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#listlocationorders" class="tsd-kind-icon">List<wbr>Location<wbr>Orders</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#listshipmentswithitems" class="tsd-kind-icon">List<wbr>Shipments<wbr>With<wbr>Items</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#sellersupplierupdatelineitemstatuseswithnotification" class="tsd-kind-icon">Seller<wbr>Supplier<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#submitorder" class="tsd-kind-icon">Submit<wbr>Order</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="orders.html#upsertlineitem" class="tsd-kind-icon">Upsert<wbr>Line<wbr>Item</a></li>
 							</ul>
 						</section>
@@ -399,6 +400,46 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="submitorder" class="tsd-anchor"></a>
+					<h3>Submit<wbr>Order</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Submit<wbr>Order<span class="tsd-signature-symbol">(</span>orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, orderCloudIntegrationsCreditCardPayment<span class="tsd-signature-symbol">: </span><a href="../interfaces/ordercloudintegrationscreditcardpayment.html" class="tsd-signature-type">OrderCloudIntegrationsCreditCardPayment</a>, direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceorder.html" class="tsd-signature-type">MarketplaceOrder</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>orderID: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>ID of the order.</p>
+									</div>
+								</li>
+								<li>
+									<h5>orderCloudIntegrationsCreditCardPayment: <a href="../interfaces/ordercloudintegrationscreditcardpayment.html" class="tsd-signature-type">OrderCloudIntegrationsCreditCardPayment</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: OrderID, PaymentID, Currency, MerchantID</p>
+									</div>
+								</li>
+								<li>
+									<h5>direction: <span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#requireddeep" class="tsd-signature-type">RequiredDeep</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/marketplaceorder.html" class="tsd-signature-type">MarketplaceOrder</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="upsertlineitem" class="tsd-anchor"></a>
 					<h3>Upsert<wbr>Line<wbr>Item</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -478,6 +519,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="orders.html#sellersupplierupdatelineitemstatuseswithnotification" class="tsd-kind-icon">Seller<wbr>Supplier<wbr>Update<wbr>Line<wbr>Item<wbr>Statuses<wbr>With<wbr>Notification</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="orders.html#submitorder" class="tsd-kind-icon">Submit<wbr>Order</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="orders.html#upsertlineitem" class="tsd-kind-icon">Upsert<wbr>Line<wbr>Item</a>

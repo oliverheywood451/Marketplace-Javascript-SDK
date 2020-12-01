@@ -30,4 +30,5 @@ export interface TemplateProductFlat {
     Type?: 'Image' | 'Text' | 'Audio' | 'Video' | 'Presentation' | 'SpreadSheet' | 'PDF' | 'Compressed' | 'Code' | 'JSON' | 'Markup' | 'Unknown'
     Tags?: string
     FileName?: string
+    SizeTier?: 'G' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
 }

@@ -2,6 +2,7 @@ import { LineItemStatusChanges } from '../models/LineItemStatusChanges';
 import { MarketplaceOrder } from '../models/MarketplaceOrder';
 import { OrderDetails } from '../models/OrderDetails';
 import { MarketplaceLineItem } from '../models/MarketplaceLineItem';
+import { OrderCloudIntegrationsCreditCardPayment } from '../models/OrderCloudIntegrationsCreditCardPayment';
 import { Order } from '../models/Order';
 import { ListPage } from '../models/ListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -24,6 +25,7 @@ export default class Orders {
         this.DeleteLineItem = this.DeleteLineItem.bind(this);
         this.AddPromotion = this.AddPromotion.bind(this);
         this.ListShipmentsWithItems = this.ListShipmentsWithItems.bind(this);
+        this.SubmitOrder = this.SubmitOrder.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
         this.ListLocationOrders = this.ListLocationOrders.bind(this);
     }
@@ -112,6 +114,18 @@ export default class Orders {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/order/${orderID}/shipmentswithitems`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param options.direction Direction of the order cloud integrations credit card payment. Possible values: Incoming, Outgoing.
+    * @param orderCloudIntegrationsCreditCardPayment Required fields: OrderID, PaymentID, Currency, MerchantID
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async SubmitOrder(orderID: string, orderCloudIntegrationsCreditCardPayment: OrderCloudIntegrationsCreditCardPayment, direction: 'Incoming' | 'Outgoing', accessToken?: string ): Promise<RequiredDeep<MarketplaceOrder>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.post(`/order/${orderID}/submit`, orderCloudIntegrationsCreditCardPayment, { params: { direction,  accessToken, impersonating } } );
     }
 
    /**

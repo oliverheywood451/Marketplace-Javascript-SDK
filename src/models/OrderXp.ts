@@ -21,4 +21,5 @@ export interface OrderXp {
     PaymentMethod?: string
     ShippingAddress?: MarketplaceAddressBuyer
     SelectedShipMethodsSupplierView?: ShipMethodSupplierView[]
+    IsResubmitting?: boolean
 }
