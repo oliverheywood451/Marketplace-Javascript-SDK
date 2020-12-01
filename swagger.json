@@ -12,7 +12,7 @@
     },
     "servers": [
         {
-            "url": "https://marketplace-middleware-staging.azurewebsites.net",
+            "url": "https://marketplace-middleware-test.azurewebsites.net",
             "description": "Marketplace API"
         }
     ],
@@ -16508,6 +16508,81 @@
                 ]
             }
         },
+        "/order/{direction}/{orderID}/submit": {
+            "post": {
+                "responses": {
+                    "201": {
+                        "description": "Performs validation, submits credit card payment and finally submits order via OrderCloud",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MarketplaceOrder"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Orders.Submit",
+                "tags": [
+                    "Orders"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardPayment"
+                                    }
+                                ],
+                                "required": [
+                                    "OrderID",
+                                    "PaymentID",
+                                    "Currency",
+                                    "MerchantID"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "direction",
+                        "in": "path",
+                        "description": "Direction of the order cloud integrations credit card payment. Possible values: Incoming, Outgoing.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "Incoming",
+                                "Outgoing"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "orderID",
+                        "in": "path",
+                        "description": "ID of the order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Submit Order",
+                "description": "Performs validation, submits credit card payment and finally submits order via OrderCloud",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
         "/order/{orderID}/{orderDirection}/lineitem/status": {
             "post": {
                 "responses": {
@@ -16902,81 +16977,6 @@
                 ],
                 "summary": "GET order shipments as buyer, ensures user has access to location orders or created the order themselves",
                 "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "Shopper",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/order/{orderID}/submit": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "Performs validation, submits credit card payment and finally submits order via OrderCloud",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/MarketplaceOrder"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Orders.SubmitOrder",
-                "tags": [
-                    "Orders"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/OrderCloudIntegrationsCreditCardPayment"
-                                    }
-                                ],
-                                "required": [
-                                    "OrderID",
-                                    "PaymentID",
-                                    "Currency",
-                                    "MerchantID"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "orderID",
-                        "in": "path",
-                        "description": "ID of the order.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "direction",
-                        "in": "query",
-                        "description": "Direction of the order cloud integrations credit card payment. Possible values: Incoming, Outgoing.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Incoming",
-                                "Outgoing"
-                            ]
-                        }
-                    }
-                ],
-                "summary": "Submit Order",
-                "description": "Performs validation, submits credit card payment and finally submits order via OrderCloud",
                 "security": [
                     {
                         "OAuth2": [
