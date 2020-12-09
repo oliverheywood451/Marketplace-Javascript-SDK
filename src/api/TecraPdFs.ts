@@ -14,13 +14,13 @@ export default class TecraPdFs {
     }
 
    /**
-    * @param options.id Id of the string.
+    * @param id Id of the string.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get( id: string, accessToken?: string ): Promise<void> {
+    public async Get(id: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.get(`/tecra/pdf`, { params: { id,  accessToken, impersonating } } );
+        return await httpClient.get(`/tecra/pdf/${id}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

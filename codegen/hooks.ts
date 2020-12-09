@@ -204,7 +204,9 @@ function inspectModelForTypeParams(
       const toInspect = allModels.find(model => {
         return model.name === prop.type || model.type === prop.type
       })
+
       if (!toInspect) {
+        console.log(prop)
         throw new Error(`Unable to find next model to inspect for ${prop.type}`)
       }
       if (!rootProp && !parentProp) {

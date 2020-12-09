@@ -1,4 +1,5 @@
 import { MarketplaceSupplier } from '../models/MarketplaceSupplier';
+import { MarketplaceSupplierOrderData } from '../models/MarketplaceSupplierOrderData';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -14,6 +15,7 @@ export default class Suppliers {
         this.Create = this.Create.bind(this);
         this.CanDeleteLocation = this.CanDeleteLocation.bind(this);
         this.GetMySupplier = this.GetMySupplier.bind(this);
+        this.GetSupplierOrder = this.GetSupplierOrder.bind(this);
     }
 
    /**
@@ -44,6 +46,16 @@ export default class Suppliers {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/supplier/me/${supplierID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param supplierOrderID ID of the supplier order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetSupplierOrder(supplierOrderID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplierOrderData>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/supplier/orderdetails/${supplierOrderID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

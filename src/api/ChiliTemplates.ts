@@ -1,4 +1,5 @@
 import { ChiliTemplate } from '../models/ChiliTemplate';
+import { MeChiliTemplate } from '../models/MeChiliTemplate';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -12,6 +13,7 @@ export default class ChiliTemplates {
     */
     constructor() {
         this.Get = this.Get.bind(this);
+        this.GetMe = this.GetMe.bind(this);
     }
 
    /**
@@ -22,6 +24,16 @@ export default class ChiliTemplates {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/chili/template/${templateID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param templateID ID of the template.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetMe(templateID: string,  accessToken?: string ): Promise<RequiredDeep<MeChiliTemplate>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/chili/template/me/${templateID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

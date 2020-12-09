@@ -4934,6 +4934,338 @@
                     }
                 }
             },
+            "MarketplaceOrderLineItemData": {
+                "type": "object",
+                "example": {
+                    "Order": {
+                        "xp": {
+                            "AvalaraTaxTransactionCode": "",
+                            "ShipFromAddressIDs": [
+                                ""
+                            ],
+                            "SupplierIDs": [
+                                ""
+                            ],
+                            "NeedsAttention": false,
+                            "StopShipSync": false,
+                            "OrderType": "Standard",
+                            "QuoteOrderInfo": {
+                                "FirstName": "",
+                                "LastName": "",
+                                "BuyerLocation": "",
+                                "Phone": "",
+                                "Email": "",
+                                "Comments": ""
+                            },
+                            "Returns": {
+                                "HasClaims": false,
+                                "HasUnresolvedClaims": false,
+                                "Resolutions": [
+                                    {
+                                        "LineItemID": "",
+                                        "RMANumber": "",
+                                        "IsResolved": false
+                                    }
+                                ]
+                            },
+                            "Cancelations": {
+                                "HasClaims": false,
+                                "HasUnresolvedClaims": false,
+                                "Resolutions": [
+                                    {
+                                        "LineItemID": "",
+                                        "RMANumber": "",
+                                        "IsResolved": false
+                                    }
+                                ]
+                            },
+                            "Currency": "CAD",
+                            "SubmittedOrderStatus": "Open",
+                            "ApprovalNeeded": "",
+                            "ShippingStatus": "Shipped",
+                            "ClaimStatus": "NoClaim",
+                            "PaymentMethod": "",
+                            "ShippingAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "DestinationInsideDelivery"
+                                    ],
+                                    "Email": "",
+                                    "LocationID": "",
+                                    "AvalaraCertificateID": 0,
+                                    "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                    "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                    "BillingNumber": "",
+                                    "Status": "",
+                                    "LegalEntity": "",
+                                    "PrimaryContactName": ""
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            },
+                            "SelectedShipMethodsSupplierView": [
+                                {
+                                    "EstimatedTransitDays": 0,
+                                    "Name": "",
+                                    "ShipFromAddressID": ""
+                                }
+                            ],
+                            "IsResubmitting": false
+                        },
+                        "FromUser": {
+                            "xp": {
+                                "Country": "",
+                                "OrderEmails": "",
+                                "RequestInfoEmails": "",
+                                "AddtlRcpts": [
+                                    ""
+                                ]
+                            },
+                            "ID": "",
+                            "Username": "",
+                            "Password": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Email": "",
+                            "Phone": "",
+                            "TermsAccepted": "2018-01-01T00:00:00-06:00",
+                            "Active": false,
+                            "AvailableRoles": [
+                                ""
+                            ],
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+                        },
+                        "BillingAddress": {
+                            "xp": {
+                                "Accessorials": [
+                                    "DestinationInsideDelivery"
+                                ],
+                                "Email": "",
+                                "LocationID": "",
+                                "AvalaraCertificateID": 0,
+                                "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                "BillingNumber": "",
+                                "Status": "",
+                                "LegalEntity": "",
+                                "PrimaryContactName": ""
+                            },
+                            "ID": "",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "CompanyName": "",
+                            "FirstName": "",
+                            "LastName": "",
+                            "Street1": "",
+                            "Street2": "",
+                            "City": "",
+                            "State": "",
+                            "Zip": "",
+                            "Country": "",
+                            "Phone": "",
+                            "AddressName": ""
+                        },
+                        "ID": "",
+                        "FromCompanyID": "",
+                        "ToCompanyID": "",
+                        "FromUserID": "",
+                        "BillingAddressID": "",
+                        "ShippingAddressID": "",
+                        "Comments": "",
+                        "LineItemCount": 0,
+                        "Status": "Unsubmitted",
+                        "DateCreated": "2018-01-01T00:00:00-06:00",
+                        "DateSubmitted": "2018-01-01T00:00:00-06:00",
+                        "DateApproved": "2018-01-01T00:00:00-06:00",
+                        "DateDeclined": "2018-01-01T00:00:00-06:00",
+                        "DateCanceled": "2018-01-01T00:00:00-06:00",
+                        "DateCompleted": "2018-01-01T00:00:00-06:00",
+                        "Subtotal": 0,
+                        "ShippingCost": 0,
+                        "TaxCost": 0,
+                        "PromotionDiscount": 0,
+                        "Total": 0,
+                        "IsSubmitted": false
+                    },
+                    "LineItems": [
+                        {
+                            "xp": {
+                                "StatusByQuantity": [
+                                    "Complete"
+                                ],
+                                "Returns": [
+                                    {
+                                        "RMANumber": "",
+                                        "Quantity": 0,
+                                        "Reason": "",
+                                        "Comment": "",
+                                        "IsResolved": false
+                                    }
+                                ],
+                                "Cancelations": [
+                                    {
+                                        "RMANumber": "",
+                                        "Quantity": 0,
+                                        "Reason": "",
+                                        "Comment": "",
+                                        "IsResolved": false
+                                    }
+                                ],
+                                "ImageUrl": "",
+                                "PrintArtworkURL": "",
+                                "KitProductImageUrl": "",
+                                "KitProductID": "",
+                                "KitProductName": "",
+                                "ShipMethod": ""
+                            },
+                            "Product": {
+                                "xp": {
+                                    "Status": "Draft",
+                                    "HasVariants": false,
+                                    "Note": "",
+                                    "Tax": {
+                                        "Category": "",
+                                        "Code": "",
+                                        "Description": ""
+                                    },
+                                    "UnitOfMeasure": {
+                                        "Qty": 0,
+                                        "Unit": ""
+                                    },
+                                    "ProductType": "Standard",
+                                    "SizeTier": "G",
+                                    "IsResale": false,
+                                    "Accessorials": [
+                                        "Freezable"
+                                    ],
+                                    "Currency": "CAD",
+                                    "ArtworkRequired": false,
+                                    "PromotionEligible": false,
+                                    "FreeShipping": false,
+                                    "FreeShippingMessage": ""
+                                },
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "QuantityMultiplier": 0,
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0
+                            },
+                            "Variant": {
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0
+                            },
+                            "ShippingAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "DestinationInsideDelivery"
+                                    ],
+                                    "Email": "",
+                                    "LocationID": "",
+                                    "AvalaraCertificateID": 0,
+                                    "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                    "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                    "BillingNumber": "",
+                                    "Status": "",
+                                    "LegalEntity": "",
+                                    "PrimaryContactName": ""
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            },
+                            "ShipFromAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "LimitedAccessPickup"
+                                    ]
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            },
+                            "ID": "",
+                            "ProductID": "",
+                            "Quantity": 0,
+                            "DateAdded": "2018-01-01T00:00:00-06:00",
+                            "QuantityShipped": 0,
+                            "UnitPrice": 0,
+                            "PromotionDiscount": 0,
+                            "LineTotal": 0,
+                            "LineSubtotal": 0,
+                            "CostCenter": "",
+                            "DateNeeded": "2018-01-01T00:00:00-06:00",
+                            "ShippingAccount": "",
+                            "ShippingAddressID": "",
+                            "ShipFromAddressID": "",
+                            "SupplierID": "",
+                            "Specs": [
+                                {
+                                    "SpecID": "",
+                                    "Name": "",
+                                    "OptionID": "",
+                                    "Value": "",
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "properties": {
+                    "Order": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceOrder"
+                            }
+                        ]
+                    },
+                    "LineItems": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplaceLineItem"
+                        }
+                    }
+                }
+            },
             "MarketplacePriceSchedule": {
                 "type": "object",
                 "example": {
@@ -5189,6 +5521,90 @@
                     "MinCount": {
                         "type": "integer",
                         "format": "int32"
+                    }
+                }
+            },
+            "MarketplaceShipEstimate": {
+                "type": "object",
+                "example": {
+                    "xp": {
+                        "AllShipMethods": [
+                            {
+                                "xp": {
+                                    "Carrier": "",
+                                    "CarrierAccountID": "",
+                                    "ListRate": 0,
+                                    "Guaranteed": false,
+                                    "OriginalCost": 0,
+                                    "FreeShippingApplied": false,
+                                    "FreeShippingThreshold": 0,
+                                    "OriginalCurrency": "CAD",
+                                    "OrderCurrency": "CAD",
+                                    "ExchangeRate": 0
+                                },
+                                "ID": "",
+                                "Name": "",
+                                "Cost": 0,
+                                "EstimatedTransitDays": 0
+                            }
+                        ],
+                        "SupplierID": "",
+                        "ShipFromAddressID": ""
+                    },
+                    "ShipMethods": [
+                        {
+                            "xp": {
+                                "Carrier": "",
+                                "CarrierAccountID": "",
+                                "ListRate": 0,
+                                "Guaranteed": false,
+                                "OriginalCost": 0,
+                                "FreeShippingApplied": false,
+                                "FreeShippingThreshold": 0,
+                                "OriginalCurrency": "CAD",
+                                "OrderCurrency": "CAD",
+                                "ExchangeRate": 0
+                            },
+                            "ID": "",
+                            "Name": "",
+                            "Cost": 0,
+                            "EstimatedTransitDays": 0
+                        }
+                    ],
+                    "ID": "",
+                    "SelectedShipMethodID": "",
+                    "ShipEstimateItems": [
+                        {
+                            "LineItemID": "",
+                            "Quantity": 0
+                        }
+                    ]
+                },
+                "properties": {
+                    "xp": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ShipEstimateXP"
+                            }
+                        ]
+                    },
+                    "ShipMethods": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplaceShipMethod"
+                        }
+                    },
+                    "ID": {
+                        "type": "string"
+                    },
+                    "SelectedShipMethodID": {
+                        "type": "string"
+                    },
+                    "ShipEstimateItems": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ShipEstimateItem"
+                        }
                     }
                 }
             },
@@ -5707,6 +6123,50 @@
                     }
                 }
             },
+            "MarketplaceShipMethod": {
+                "type": "object",
+                "example": {
+                    "xp": {
+                        "Carrier": "",
+                        "CarrierAccountID": "",
+                        "ListRate": 0,
+                        "Guaranteed": false,
+                        "OriginalCost": 0,
+                        "FreeShippingApplied": false,
+                        "FreeShippingThreshold": 0,
+                        "OriginalCurrency": "CAD",
+                        "OrderCurrency": "CAD",
+                        "ExchangeRate": 0
+                    },
+                    "ID": "",
+                    "Name": "",
+                    "Cost": 0,
+                    "EstimatedTransitDays": 0
+                },
+                "properties": {
+                    "xp": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ShipMethodXP"
+                            }
+                        ]
+                    },
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Cost": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "EstimatedTransitDays": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
             "MarketplaceSpec": {
                 "type": "object",
                 "example": {
@@ -5906,6 +6366,716 @@
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true
+                    }
+                }
+            },
+            "MarketplaceSupplierOrderData": {
+                "type": "object",
+                "example": {
+                    "SupplierOrder": {
+                        "Order": {
+                            "xp": {
+                                "AvalaraTaxTransactionCode": "",
+                                "ShipFromAddressIDs": [
+                                    ""
+                                ],
+                                "SupplierIDs": [
+                                    ""
+                                ],
+                                "NeedsAttention": false,
+                                "StopShipSync": false,
+                                "OrderType": "Standard",
+                                "QuoteOrderInfo": {
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "BuyerLocation": "",
+                                    "Phone": "",
+                                    "Email": "",
+                                    "Comments": ""
+                                },
+                                "Returns": {
+                                    "HasClaims": false,
+                                    "HasUnresolvedClaims": false,
+                                    "Resolutions": [
+                                        {
+                                            "LineItemID": "",
+                                            "RMANumber": "",
+                                            "IsResolved": false
+                                        }
+                                    ]
+                                },
+                                "Cancelations": {
+                                    "HasClaims": false,
+                                    "HasUnresolvedClaims": false,
+                                    "Resolutions": [
+                                        {
+                                            "LineItemID": "",
+                                            "RMANumber": "",
+                                            "IsResolved": false
+                                        }
+                                    ]
+                                },
+                                "Currency": "CAD",
+                                "SubmittedOrderStatus": "Open",
+                                "ApprovalNeeded": "",
+                                "ShippingStatus": "Shipped",
+                                "ClaimStatus": "NoClaim",
+                                "PaymentMethod": "",
+                                "ShippingAddress": {
+                                    "xp": {
+                                        "Accessorials": [
+                                            "DestinationInsideDelivery"
+                                        ],
+                                        "Email": "",
+                                        "LocationID": "",
+                                        "AvalaraCertificateID": 0,
+                                        "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                        "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                        "BillingNumber": "",
+                                        "Status": "",
+                                        "LegalEntity": "",
+                                        "PrimaryContactName": ""
+                                    },
+                                    "ID": "",
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CompanyName": "",
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "Street1": "",
+                                    "Street2": "",
+                                    "City": "",
+                                    "State": "",
+                                    "Zip": "",
+                                    "Country": "",
+                                    "Phone": "",
+                                    "AddressName": ""
+                                },
+                                "SelectedShipMethodsSupplierView": [
+                                    {
+                                        "EstimatedTransitDays": 0,
+                                        "Name": "",
+                                        "ShipFromAddressID": ""
+                                    }
+                                ],
+                                "IsResubmitting": false
+                            },
+                            "FromUser": {
+                                "xp": {
+                                    "Country": "",
+                                    "OrderEmails": "",
+                                    "RequestInfoEmails": "",
+                                    "AddtlRcpts": [
+                                        ""
+                                    ]
+                                },
+                                "ID": "",
+                                "Username": "",
+                                "Password": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Email": "",
+                                "Phone": "",
+                                "TermsAccepted": "2018-01-01T00:00:00-06:00",
+                                "Active": false,
+                                "AvailableRoles": [
+                                    ""
+                                ],
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+                            },
+                            "BillingAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "DestinationInsideDelivery"
+                                    ],
+                                    "Email": "",
+                                    "LocationID": "",
+                                    "AvalaraCertificateID": 0,
+                                    "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                    "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                    "BillingNumber": "",
+                                    "Status": "",
+                                    "LegalEntity": "",
+                                    "PrimaryContactName": ""
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            },
+                            "ID": "",
+                            "FromCompanyID": "",
+                            "ToCompanyID": "",
+                            "FromUserID": "",
+                            "BillingAddressID": "",
+                            "ShippingAddressID": "",
+                            "Comments": "",
+                            "LineItemCount": 0,
+                            "Status": "Unsubmitted",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "DateSubmitted": "2018-01-01T00:00:00-06:00",
+                            "DateApproved": "2018-01-01T00:00:00-06:00",
+                            "DateDeclined": "2018-01-01T00:00:00-06:00",
+                            "DateCanceled": "2018-01-01T00:00:00-06:00",
+                            "DateCompleted": "2018-01-01T00:00:00-06:00",
+                            "Subtotal": 0,
+                            "ShippingCost": 0,
+                            "TaxCost": 0,
+                            "PromotionDiscount": 0,
+                            "Total": 0,
+                            "IsSubmitted": false
+                        },
+                        "LineItems": [
+                            {
+                                "xp": {
+                                    "StatusByQuantity": [
+                                        "Complete"
+                                    ],
+                                    "Returns": [
+                                        {
+                                            "RMANumber": "",
+                                            "Quantity": 0,
+                                            "Reason": "",
+                                            "Comment": "",
+                                            "IsResolved": false
+                                        }
+                                    ],
+                                    "Cancelations": [
+                                        {
+                                            "RMANumber": "",
+                                            "Quantity": 0,
+                                            "Reason": "",
+                                            "Comment": "",
+                                            "IsResolved": false
+                                        }
+                                    ],
+                                    "ImageUrl": "",
+                                    "PrintArtworkURL": "",
+                                    "KitProductImageUrl": "",
+                                    "KitProductID": "",
+                                    "KitProductName": "",
+                                    "ShipMethod": ""
+                                },
+                                "Product": {
+                                    "xp": {
+                                        "Status": "Draft",
+                                        "HasVariants": false,
+                                        "Note": "",
+                                        "Tax": {
+                                            "Category": "",
+                                            "Code": "",
+                                            "Description": ""
+                                        },
+                                        "UnitOfMeasure": {
+                                            "Qty": 0,
+                                            "Unit": ""
+                                        },
+                                        "ProductType": "Standard",
+                                        "SizeTier": "G",
+                                        "IsResale": false,
+                                        "Accessorials": [
+                                            "Freezable"
+                                        ],
+                                        "Currency": "CAD",
+                                        "ArtworkRequired": false,
+                                        "PromotionEligible": false,
+                                        "FreeShipping": false,
+                                        "FreeShippingMessage": ""
+                                    },
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "QuantityMultiplier": 0,
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0
+                                },
+                                "Variant": {
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0
+                                },
+                                "ShippingAddress": {
+                                    "xp": {
+                                        "Accessorials": [
+                                            "DestinationInsideDelivery"
+                                        ],
+                                        "Email": "",
+                                        "LocationID": "",
+                                        "AvalaraCertificateID": 0,
+                                        "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                        "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                        "BillingNumber": "",
+                                        "Status": "",
+                                        "LegalEntity": "",
+                                        "PrimaryContactName": ""
+                                    },
+                                    "ID": "",
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CompanyName": "",
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "Street1": "",
+                                    "Street2": "",
+                                    "City": "",
+                                    "State": "",
+                                    "Zip": "",
+                                    "Country": "",
+                                    "Phone": "",
+                                    "AddressName": ""
+                                },
+                                "ShipFromAddress": {
+                                    "xp": {
+                                        "Accessorials": [
+                                            "LimitedAccessPickup"
+                                        ]
+                                    },
+                                    "ID": "",
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CompanyName": "",
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "Street1": "",
+                                    "Street2": "",
+                                    "City": "",
+                                    "State": "",
+                                    "Zip": "",
+                                    "Country": "",
+                                    "Phone": "",
+                                    "AddressName": ""
+                                },
+                                "ID": "",
+                                "ProductID": "",
+                                "Quantity": 0,
+                                "DateAdded": "2018-01-01T00:00:00-06:00",
+                                "QuantityShipped": 0,
+                                "UnitPrice": 0,
+                                "PromotionDiscount": 0,
+                                "LineTotal": 0,
+                                "LineSubtotal": 0,
+                                "CostCenter": "",
+                                "DateNeeded": "2018-01-01T00:00:00-06:00",
+                                "ShippingAccount": "",
+                                "ShippingAddressID": "",
+                                "ShipFromAddressID": "",
+                                "SupplierID": "",
+                                "Specs": [
+                                    {
+                                        "SpecID": "",
+                                        "Name": "",
+                                        "OptionID": "",
+                                        "Value": "",
+                                        "PriceMarkupType": "NoMarkup",
+                                        "PriceMarkup": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "BuyerOrder": {
+                        "Order": {
+                            "xp": {
+                                "AvalaraTaxTransactionCode": "",
+                                "ShipFromAddressIDs": [
+                                    ""
+                                ],
+                                "SupplierIDs": [
+                                    ""
+                                ],
+                                "NeedsAttention": false,
+                                "StopShipSync": false,
+                                "OrderType": "Standard",
+                                "QuoteOrderInfo": {
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "BuyerLocation": "",
+                                    "Phone": "",
+                                    "Email": "",
+                                    "Comments": ""
+                                },
+                                "Returns": {
+                                    "HasClaims": false,
+                                    "HasUnresolvedClaims": false,
+                                    "Resolutions": [
+                                        {
+                                            "LineItemID": "",
+                                            "RMANumber": "",
+                                            "IsResolved": false
+                                        }
+                                    ]
+                                },
+                                "Cancelations": {
+                                    "HasClaims": false,
+                                    "HasUnresolvedClaims": false,
+                                    "Resolutions": [
+                                        {
+                                            "LineItemID": "",
+                                            "RMANumber": "",
+                                            "IsResolved": false
+                                        }
+                                    ]
+                                },
+                                "Currency": "CAD",
+                                "SubmittedOrderStatus": "Open",
+                                "ApprovalNeeded": "",
+                                "ShippingStatus": "Shipped",
+                                "ClaimStatus": "NoClaim",
+                                "PaymentMethod": "",
+                                "ShippingAddress": {
+                                    "xp": {
+                                        "Accessorials": [
+                                            "DestinationInsideDelivery"
+                                        ],
+                                        "Email": "",
+                                        "LocationID": "",
+                                        "AvalaraCertificateID": 0,
+                                        "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                        "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                        "BillingNumber": "",
+                                        "Status": "",
+                                        "LegalEntity": "",
+                                        "PrimaryContactName": ""
+                                    },
+                                    "ID": "",
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CompanyName": "",
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "Street1": "",
+                                    "Street2": "",
+                                    "City": "",
+                                    "State": "",
+                                    "Zip": "",
+                                    "Country": "",
+                                    "Phone": "",
+                                    "AddressName": ""
+                                },
+                                "SelectedShipMethodsSupplierView": [
+                                    {
+                                        "EstimatedTransitDays": 0,
+                                        "Name": "",
+                                        "ShipFromAddressID": ""
+                                    }
+                                ],
+                                "IsResubmitting": false
+                            },
+                            "FromUser": {
+                                "xp": {
+                                    "Country": "",
+                                    "OrderEmails": "",
+                                    "RequestInfoEmails": "",
+                                    "AddtlRcpts": [
+                                        ""
+                                    ]
+                                },
+                                "ID": "",
+                                "Username": "",
+                                "Password": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Email": "",
+                                "Phone": "",
+                                "TermsAccepted": "2018-01-01T00:00:00-06:00",
+                                "Active": false,
+                                "AvailableRoles": [
+                                    ""
+                                ],
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "PasswordLastSetDate": "2018-01-01T00:00:00-06:00"
+                            },
+                            "BillingAddress": {
+                                "xp": {
+                                    "Accessorials": [
+                                        "DestinationInsideDelivery"
+                                    ],
+                                    "Email": "",
+                                    "LocationID": "",
+                                    "AvalaraCertificateID": 0,
+                                    "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                    "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                    "BillingNumber": "",
+                                    "Status": "",
+                                    "LegalEntity": "",
+                                    "PrimaryContactName": ""
+                                },
+                                "ID": "",
+                                "DateCreated": "2018-01-01T00:00:00-06:00",
+                                "CompanyName": "",
+                                "FirstName": "",
+                                "LastName": "",
+                                "Street1": "",
+                                "Street2": "",
+                                "City": "",
+                                "State": "",
+                                "Zip": "",
+                                "Country": "",
+                                "Phone": "",
+                                "AddressName": ""
+                            },
+                            "ID": "",
+                            "FromCompanyID": "",
+                            "ToCompanyID": "",
+                            "FromUserID": "",
+                            "BillingAddressID": "",
+                            "ShippingAddressID": "",
+                            "Comments": "",
+                            "LineItemCount": 0,
+                            "Status": "Unsubmitted",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "DateSubmitted": "2018-01-01T00:00:00-06:00",
+                            "DateApproved": "2018-01-01T00:00:00-06:00",
+                            "DateDeclined": "2018-01-01T00:00:00-06:00",
+                            "DateCanceled": "2018-01-01T00:00:00-06:00",
+                            "DateCompleted": "2018-01-01T00:00:00-06:00",
+                            "Subtotal": 0,
+                            "ShippingCost": 0,
+                            "TaxCost": 0,
+                            "PromotionDiscount": 0,
+                            "Total": 0,
+                            "IsSubmitted": false
+                        },
+                        "LineItems": [
+                            {
+                                "xp": {
+                                    "StatusByQuantity": [
+                                        "Complete"
+                                    ],
+                                    "Returns": [
+                                        {
+                                            "RMANumber": "",
+                                            "Quantity": 0,
+                                            "Reason": "",
+                                            "Comment": "",
+                                            "IsResolved": false
+                                        }
+                                    ],
+                                    "Cancelations": [
+                                        {
+                                            "RMANumber": "",
+                                            "Quantity": 0,
+                                            "Reason": "",
+                                            "Comment": "",
+                                            "IsResolved": false
+                                        }
+                                    ],
+                                    "ImageUrl": "",
+                                    "PrintArtworkURL": "",
+                                    "KitProductImageUrl": "",
+                                    "KitProductID": "",
+                                    "KitProductName": "",
+                                    "ShipMethod": ""
+                                },
+                                "Product": {
+                                    "xp": {
+                                        "Status": "Draft",
+                                        "HasVariants": false,
+                                        "Note": "",
+                                        "Tax": {
+                                            "Category": "",
+                                            "Code": "",
+                                            "Description": ""
+                                        },
+                                        "UnitOfMeasure": {
+                                            "Qty": 0,
+                                            "Unit": ""
+                                        },
+                                        "ProductType": "Standard",
+                                        "SizeTier": "G",
+                                        "IsResale": false,
+                                        "Accessorials": [
+                                            "Freezable"
+                                        ],
+                                        "Currency": "CAD",
+                                        "ArtworkRequired": false,
+                                        "PromotionEligible": false,
+                                        "FreeShipping": false,
+                                        "FreeShippingMessage": ""
+                                    },
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "QuantityMultiplier": 0,
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0
+                                },
+                                "Variant": {
+                                    "ID": "",
+                                    "Name": "",
+                                    "Description": "",
+                                    "ShipWeight": 0,
+                                    "ShipHeight": 0,
+                                    "ShipWidth": 0,
+                                    "ShipLength": 0
+                                },
+                                "ShippingAddress": {
+                                    "xp": {
+                                        "Accessorials": [
+                                            "DestinationInsideDelivery"
+                                        ],
+                                        "Email": "",
+                                        "LocationID": "",
+                                        "AvalaraCertificateID": 0,
+                                        "AvalaraCertificateExpiration": "2018-01-01T00:00:00-06:00",
+                                        "OpeningDate": "2018-01-01T00:00:00-06:00",
+                                        "BillingNumber": "",
+                                        "Status": "",
+                                        "LegalEntity": "",
+                                        "PrimaryContactName": ""
+                                    },
+                                    "ID": "",
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CompanyName": "",
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "Street1": "",
+                                    "Street2": "",
+                                    "City": "",
+                                    "State": "",
+                                    "Zip": "",
+                                    "Country": "",
+                                    "Phone": "",
+                                    "AddressName": ""
+                                },
+                                "ShipFromAddress": {
+                                    "xp": {
+                                        "Accessorials": [
+                                            "LimitedAccessPickup"
+                                        ]
+                                    },
+                                    "ID": "",
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CompanyName": "",
+                                    "FirstName": "",
+                                    "LastName": "",
+                                    "Street1": "",
+                                    "Street2": "",
+                                    "City": "",
+                                    "State": "",
+                                    "Zip": "",
+                                    "Country": "",
+                                    "Phone": "",
+                                    "AddressName": ""
+                                },
+                                "ID": "",
+                                "ProductID": "",
+                                "Quantity": 0,
+                                "DateAdded": "2018-01-01T00:00:00-06:00",
+                                "QuantityShipped": 0,
+                                "UnitPrice": 0,
+                                "PromotionDiscount": 0,
+                                "LineTotal": 0,
+                                "LineSubtotal": 0,
+                                "CostCenter": "",
+                                "DateNeeded": "2018-01-01T00:00:00-06:00",
+                                "ShippingAccount": "",
+                                "ShippingAddressID": "",
+                                "ShipFromAddressID": "",
+                                "SupplierID": "",
+                                "Specs": [
+                                    {
+                                        "SpecID": "",
+                                        "Name": "",
+                                        "OptionID": "",
+                                        "Value": "",
+                                        "PriceMarkupType": "NoMarkup",
+                                        "PriceMarkup": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "ShipMethod": {
+                        "xp": {
+                            "AllShipMethods": [
+                                {
+                                    "xp": {
+                                        "Carrier": "",
+                                        "CarrierAccountID": "",
+                                        "ListRate": 0,
+                                        "Guaranteed": false,
+                                        "OriginalCost": 0,
+                                        "FreeShippingApplied": false,
+                                        "FreeShippingThreshold": 0,
+                                        "OriginalCurrency": "CAD",
+                                        "OrderCurrency": "CAD",
+                                        "ExchangeRate": 0
+                                    },
+                                    "ID": "",
+                                    "Name": "",
+                                    "Cost": 0,
+                                    "EstimatedTransitDays": 0
+                                }
+                            ],
+                            "SupplierID": "",
+                            "ShipFromAddressID": ""
+                        },
+                        "ShipMethods": [
+                            {
+                                "xp": {
+                                    "Carrier": "",
+                                    "CarrierAccountID": "",
+                                    "ListRate": 0,
+                                    "Guaranteed": false,
+                                    "OriginalCost": 0,
+                                    "FreeShippingApplied": false,
+                                    "FreeShippingThreshold": 0,
+                                    "OriginalCurrency": "CAD",
+                                    "OrderCurrency": "CAD",
+                                    "ExchangeRate": 0
+                                },
+                                "ID": "",
+                                "Name": "",
+                                "Cost": 0,
+                                "EstimatedTransitDays": 0
+                            }
+                        ],
+                        "ID": "",
+                        "SelectedShipMethodID": "",
+                        "ShipEstimateItems": [
+                            {
+                                "LineItemID": "",
+                                "Quantity": 0
+                            }
+                        ]
+                    }
+                },
+                "properties": {
+                    "SupplierOrder": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceOrderLineItemData"
+                            }
+                        ]
+                    },
+                    "BuyerOrder": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceOrderLineItemData"
+                            }
+                        ]
+                    },
+                    "ShipMethod": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/MarketplaceShipEstimate"
+                            }
+                        ]
                     }
                 }
             },
@@ -6153,6 +7323,262 @@
                         }
                     },
                     "NewID": {
+                        "type": "string"
+                    }
+                }
+            },
+            "MeChiliTemplate": {
+                "type": "object",
+                "example": {
+                    "Product": {
+                        "ID": "",
+                        "Product": {
+                            "xp": {
+                                "Status": "Draft",
+                                "HasVariants": false,
+                                "Note": "",
+                                "Tax": {
+                                    "Category": "",
+                                    "Code": "",
+                                    "Description": ""
+                                },
+                                "UnitOfMeasure": {
+                                    "Qty": 0,
+                                    "Unit": ""
+                                },
+                                "ProductType": "Standard",
+                                "SizeTier": "G",
+                                "IsResale": false,
+                                "Accessorials": [
+                                    "Freezable"
+                                ],
+                                "Currency": "CAD",
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": ""
+                            },
+                            "PriceSchedule": {
+                                "xp": {},
+                                "ID": "",
+                                "Name": "",
+                                "ApplyTax": false,
+                                "ApplyShipping": false,
+                                "MinQuantity": 0,
+                                "MaxQuantity": 0,
+                                "UseCumulativeQuantity": false,
+                                "RestrictedQuantity": false,
+                                "PriceBreaks": [
+                                    {
+                                        "Quantity": 0,
+                                        "Price": 0
+                                    }
+                                ]
+                            },
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "QuantityMultiplier": 0,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Active": false,
+                            "SpecCount": 0,
+                            "VariantCount": 0,
+                            "ShipFromAddressID": "",
+                            "Inventory": {
+                                "Enabled": false,
+                                "NotificationPoint": 0,
+                                "VariantLevelTracking": false,
+                                "OrderCanExceed": false,
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "DefaultSupplierID": ""
+                        },
+                        "PriceSchedule": {
+                            "ID": "",
+                            "Name": "",
+                            "ApplyTax": false,
+                            "ApplyShipping": false,
+                            "MinQuantity": 0,
+                            "MaxQuantity": 0,
+                            "UseCumulativeQuantity": false,
+                            "RestrictedQuantity": false,
+                            "PriceBreaks": [
+                                {
+                                    "Quantity": 0,
+                                    "Price": 0
+                                }
+                            ]
+                        },
+                        "Specs": [
+                            {
+                                "ID": "",
+                                "ListOrder": 0,
+                                "Name": "",
+                                "DefaultValue": "",
+                                "Required": false,
+                                "AllowOpenText": false,
+                                "DefaultOptionID": "",
+                                "DefinesVariant": false,
+                                "OptionCount": 0,
+                                "Options": [
+                                    {
+                                        "ID": "",
+                                        "Value": "",
+                                        "ListOrder": 0,
+                                        "IsOpenText": false,
+                                        "PriceMarkupType": "NoMarkup",
+                                        "PriceMarkup": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "Variants": [
+                            {
+                                "xp": {
+                                    "SpecCombo": "",
+                                    "SpecValues": [
+                                        {
+                                            "SpecName": "",
+                                            "SpecOptionValue": "",
+                                            "PriceMarkup": ""
+                                        }
+                                    ],
+                                    "NewID": ""
+                                },
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "Active": false,
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0,
+                                "Inventory": {
+                                    "QuantityAvailable": 0,
+                                    "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                },
+                                "Specs": [
+                                    {
+                                        "SpecID": "",
+                                        "Name": "",
+                                        "OptionID": "",
+                                        "Value": "",
+                                        "PriceMarkupType": "NoMarkup",
+                                        "PriceMarkup": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "Images": [
+                            {
+                                "ID": "",
+                                "Title": "",
+                                "Active": false,
+                                "Url": "",
+                                "Type": "Image",
+                                "Tags": [
+                                    ""
+                                ],
+                                "FileName": "",
+                                "Metadata": {
+                                    "IsUrlOverridden": false,
+                                    "ContentType": "",
+                                    "SizeBytes": 0,
+                                    "ImageHeight": 0,
+                                    "ImageWidth": 0,
+                                    "ImageVerticalResolution": 0,
+                                    "ImageHorizontalResolution": 0
+                                },
+                                "History": {
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CreatedByUserID": "",
+                                    "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                    "UpdatedByUserID": ""
+                                }
+                            }
+                        ],
+                        "Attachments": [
+                            {
+                                "ID": "",
+                                "Title": "",
+                                "Active": false,
+                                "Url": "",
+                                "Type": "Image",
+                                "Tags": [
+                                    ""
+                                ],
+                                "FileName": "",
+                                "Metadata": {
+                                    "IsUrlOverridden": false,
+                                    "ContentType": "",
+                                    "SizeBytes": 0,
+                                    "ImageHeight": 0,
+                                    "ImageWidth": 0,
+                                    "ImageVerticalResolution": 0,
+                                    "ImageHorizontalResolution": 0
+                                },
+                                "History": {
+                                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                                    "CreatedByUserID": "",
+                                    "DateUpdated": "2018-01-01T00:00:00-06:00",
+                                    "UpdatedByUserID": ""
+                                }
+                            }
+                        ]
+                    },
+                    "TemplateSpecs": [
+                        {
+                            "xp": {
+                                "UI": {
+                                    "ControlType": "Text"
+                                }
+                            },
+                            "Options": [
+                                {
+                                    "ID": "",
+                                    "Value": "",
+                                    "ListOrder": 0,
+                                    "IsOpenText": false,
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ],
+                            "ID": "",
+                            "ListOrder": 0,
+                            "Name": "",
+                            "DefaultValue": "",
+                            "Required": false,
+                            "AllowOpenText": false,
+                            "DefaultOptionID": "",
+                            "DefinesVariant": false,
+                            "OptionCount": 0
+                        }
+                    ],
+                    "ChiliTemplateID": "",
+                    "Frame": ""
+                },
+                "properties": {
+                    "Product": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/SuperMarketplaceMeProduct"
+                            }
+                        ]
+                    },
+                    "TemplateSpecs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ChiliSpec"
+                        }
+                    },
+                    "ChiliTemplateID": {
+                        "type": "string"
+                    },
+                    "Frame": {
                         "type": "string"
                     }
                 }
@@ -8694,6 +10120,63 @@
                     }
                 }
             },
+            "ShipEstimateItem": {
+                "type": "object",
+                "example": {
+                    "LineItemID": "",
+                    "Quantity": 0
+                },
+                "properties": {
+                    "LineItemID": {
+                        "type": "string"
+                    },
+                    "Quantity": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "ShipEstimateXP": {
+                "type": "object",
+                "example": {
+                    "AllShipMethods": [
+                        {
+                            "xp": {
+                                "Carrier": "",
+                                "CarrierAccountID": "",
+                                "ListRate": 0,
+                                "Guaranteed": false,
+                                "OriginalCost": 0,
+                                "FreeShippingApplied": false,
+                                "FreeShippingThreshold": 0,
+                                "OriginalCurrency": "CAD",
+                                "OrderCurrency": "CAD",
+                                "ExchangeRate": 0
+                            },
+                            "ID": "",
+                            "Name": "",
+                            "Cost": 0,
+                            "EstimatedTransitDays": 0
+                        }
+                    ],
+                    "SupplierID": "",
+                    "ShipFromAddressID": ""
+                },
+                "properties": {
+                    "AllShipMethods": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplaceShipMethod"
+                        }
+                    },
+                    "SupplierID": {
+                        "type": "string"
+                    },
+                    "ShipFromAddressID": {
+                        "type": "string"
+                    }
+                }
+            },
             "ShipmentItem": {
                 "type": "object",
                 "example": {
@@ -8798,6 +10281,31 @@
                     }
                 }
             },
+            "ShipMethod": {
+                "type": "object",
+                "example": {
+                    "ID": "",
+                    "Name": "",
+                    "Cost": 0,
+                    "EstimatedTransitDays": 0
+                },
+                "properties": {
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Cost": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "EstimatedTransitDays": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
             "ShipMethodSupplierView": {
                 "type": "object",
                 "example": {
@@ -8815,6 +10323,127 @@
                     },
                     "ShipFromAddressID": {
                         "type": "string"
+                    }
+                }
+            },
+            "ShipMethodXP": {
+                "type": "object",
+                "example": {
+                    "Carrier": "",
+                    "CarrierAccountID": "",
+                    "ListRate": 0,
+                    "Guaranteed": false,
+                    "OriginalCost": 0,
+                    "FreeShippingApplied": false,
+                    "FreeShippingThreshold": 0,
+                    "OriginalCurrency": "CAD",
+                    "OrderCurrency": "CAD",
+                    "ExchangeRate": 0
+                },
+                "properties": {
+                    "Carrier": {
+                        "type": "string"
+                    },
+                    "CarrierAccountID": {
+                        "type": "string"
+                    },
+                    "ListRate": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "Guaranteed": {
+                        "type": "boolean"
+                    },
+                    "OriginalCost": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "FreeShippingApplied": {
+                        "type": "boolean"
+                    },
+                    "FreeShippingThreshold": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "OriginalCurrency": {
+                        "enum": [
+                            "CAD",
+                            "HKD",
+                            "ISK",
+                            "PHP",
+                            "DKK",
+                            "HUF",
+                            "CZK",
+                            "GBP",
+                            "RON",
+                            "SEK",
+                            "IDR",
+                            "INR",
+                            "BRL",
+                            "RUB",
+                            "HRK",
+                            "JPY",
+                            "THB",
+                            "CHF",
+                            "EUR",
+                            "MYR",
+                            "BGN",
+                            "TRY",
+                            "CNY",
+                            "NOK",
+                            "NZD",
+                            "ZAR",
+                            "USD",
+                            "MXN",
+                            "SGD",
+                            "AUD",
+                            "ILS",
+                            "KRW",
+                            "PLN"
+                        ],
+                        "type": "string"
+                    },
+                    "OrderCurrency": {
+                        "enum": [
+                            "CAD",
+                            "HKD",
+                            "ISK",
+                            "PHP",
+                            "DKK",
+                            "HUF",
+                            "CZK",
+                            "GBP",
+                            "RON",
+                            "SEK",
+                            "IDR",
+                            "INR",
+                            "BRL",
+                            "RUB",
+                            "HRK",
+                            "JPY",
+                            "THB",
+                            "CHF",
+                            "EUR",
+                            "MYR",
+                            "BGN",
+                            "TRY",
+                            "CNY",
+                            "NOK",
+                            "NZD",
+                            "ZAR",
+                            "USD",
+                            "MXN",
+                            "SGD",
+                            "AUD",
+                            "ILS",
+                            "KRW",
+                            "PLN"
+                        ],
+                        "type": "string"
+                    },
+                    "ExchangeRate": {
+                        "type": "number",
+                        "format": "double"
                     }
                 }
             },
@@ -14283,6 +15912,46 @@
                     }
                 },
                 "operationId": "ChiliTemplates.Get",
+                "tags": [
+                    "Chili Templates"
+                ],
+                "parameters": [
+                    {
+                        "name": "templateID",
+                        "in": "path",
+                        "description": "ID of the template.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get a Chili Template",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/chili/template/me/{templateID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MeChiliTemplate"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliTemplates.GetMe",
                 "tags": [
                     "Chili Templates"
                 ],
@@ -20026,6 +21695,48 @@
                 ]
             }
         },
+        "/supplier/orderdetails/{supplierOrderID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MarketplaceSupplierOrderData"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Suppliers.GetSupplierOrder",
+                "tags": [
+                    "Suppliers"
+                ],
+                "parameters": [
+                    {
+                        "name": "supplierOrderID",
+                        "in": "path",
+                        "description": "ID of the supplier order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "GET Supplier Order Details",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "OrderAdmin",
+                            "OrderReader",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
         "/supplierfilterconfig": {
             "get": {
                 "responses": {
@@ -20364,7 +22075,7 @@
                 ]
             }
         },
-        "/tecra/pdf": {
+        "/tecra/pdf/{id}": {
             "get": {
                 "responses": {
                     "200": {
@@ -20385,7 +22096,7 @@
                 "parameters": [
                     {
                         "name": "id",
-                        "in": "query",
+                        "in": "path",
                         "description": "Id of the string.",
                         "required": true,
                         "schema": {
