@@ -9,6 +9,6 @@ export interface Asset {
     Type?: 'Image' | 'Text' | 'Audio' | 'Video' | 'Presentation' | 'SpreadSheet' | 'PDF' | 'Compressed' | 'Code' | 'JSON' | 'Markup' | 'Unknown'
     Tags?: string[]
     FileName?: string
-    readonly Metadata?: AssetMetadata
-    readonly History?: History
+    Metadata?: AssetMetadata
+    History?: History
 }

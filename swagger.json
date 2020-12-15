@@ -12,7 +12,7 @@
     },
     "servers": [
         {
-            "url": "https://marketplace-middleware-test.azurewebsites.net",
+            "url": "https://marketplace-middleware-staging.azurewebsites.net",
             "description": "Marketplace API"
         }
     ],
@@ -138,16 +138,6 @@
             "x-id": "Content"
         },
         {
-            "name": "Assets",
-            "description": "\"Integration\" represents Assets",
-            "x-section-id": "Content"
-        },
-        {
-            "name": "Schemas",
-            "description": "\"Integration\" represents Document Schemas",
-            "x-section-id": "Content"
-        },
-        {
             "name": "Chili Configs",
             "description": "\"Integration\" represents Chili Template Configurations",
             "x-section-id": "Content"
@@ -165,11 +155,6 @@
         {
             "name": "Chili Templates",
             "description": "\"Integration\" represents a Chili Template Product",
-            "x-section-id": "Content"
-        },
-        {
-            "name": "Documents",
-            "description": "\"Integration\" represents Documents",
             "x-section-id": "Content"
         },
         {
@@ -480,8 +465,7 @@
                         "type": "string"
                     },
                     "Title": {
-                        "type": "string",
-                        "maxLength": 100
+                        "type": "string"
                     },
                     "Active": {
                         "type": "boolean"
@@ -520,82 +504,14 @@
                             {
                                 "$ref": "#/components/schemas/AssetMetadata"
                             }
-                        ],
-                        "readOnly": true
+                        ]
                     },
                     "History": {
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/History"
                             }
-                        ],
-                        "readOnly": true
-                    }
-                }
-            },
-            "AssetAssignment": {
-                "type": "object",
-                "example": {
-                    "AssetID": "",
-                    "ResourceID": "",
-                    "ResourceType": "Catalogs",
-                    "ParentResourceID": "",
-                    "ParentResourceType": "Catalogs"
-                },
-                "properties": {
-                    "AssetID": {
-                        "type": "string"
-                    },
-                    "ResourceID": {
-                        "type": "string"
-                    },
-                    "ResourceType": {
-                        "enum": [
-                            "Catalogs",
-                            "Categories",
-                            "Products",
-                            "PriceSchedules",
-                            "ProductFacets",
-                            "Specs",
-                            "SecurityProfiles",
-                            "PasswordResets",
-                            "OpenIdConnects",
-                            "ImpersonationConfigs",
-                            "Buyers",
-                            "Users",
-                            "UserGroups",
-                            "Addresses",
-                            "CostCenters",
-                            "CreditCards",
-                            "SpendingAccounts",
-                            "ApprovalRules",
-                            "Suppliers",
-                            "SupplierUsers",
-                            "SupplierUserGroups",
-                            "SupplierAddresses",
-                            "Promotions",
-                            "AdminUsers",
-                            "AdminAddresses",
-                            "AdminUserGroups",
-                            "MessageSenders",
-                            "Webhooks",
-                            "ApiClients",
-                            "Incrementors",
-                            "IntegrationEvents",
-                            "XpIndices"
-                        ],
-                        "type": "string"
-                    },
-                    "ParentResourceID": {
-                        "type": "string"
-                    },
-                    "ParentResourceType": {
-                        "enum": [
-                            "Catalogs",
-                            "Buyers",
-                            "Suppliers"
-                        ],
-                        "type": "string"
+                        ]
                     }
                 }
             },
@@ -1346,6 +1262,7 @@
                         }
                     ],
                     "ChiliTemplateID": "",
+                    "ChiliConfigID": "",
                     "Frame": ""
                 },
                 "properties": {
@@ -1363,6 +1280,9 @@
                         }
                     },
                     "ChiliTemplateID": {
+                        "type": "string"
+                    },
+                    "ChiliConfigID": {
                         "type": "string"
                     },
                     "Frame": {
@@ -1479,144 +1399,6 @@
                     }
                 }
             },
-            "DocSchema": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "RestrictedAssignmentTypes": [
-                        "Catalogs"
-                    ],
-                    "Schema": {},
-                    "History": {
-                        "DateCreated": "2018-01-01T00:00:00-06:00",
-                        "CreatedByUserID": "",
-                        "DateUpdated": "2018-01-01T00:00:00-06:00",
-                        "UpdatedByUserID": ""
-                    }
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "RestrictedAssignmentTypes": {
-                        "type": "string",
-                        "enum": [
-                            "Catalogs",
-                            "Categories",
-                            "Products",
-                            "PriceSchedules",
-                            "ProductFacets",
-                            "Specs",
-                            "SecurityProfiles",
-                            "PasswordResets",
-                            "OpenIdConnects",
-                            "ImpersonationConfigs",
-                            "Buyers",
-                            "Users",
-                            "UserGroups",
-                            "Addresses",
-                            "CostCenters",
-                            "CreditCards",
-                            "SpendingAccounts",
-                            "ApprovalRules",
-                            "Suppliers",
-                            "SupplierUsers",
-                            "SupplierUserGroups",
-                            "SupplierAddresses",
-                            "Promotions",
-                            "AdminUsers",
-                            "AdminAddresses",
-                            "AdminUserGroups",
-                            "MessageSenders",
-                            "Webhooks",
-                            "ApiClients",
-                            "Incrementors",
-                            "IntegrationEvents",
-                            "XpIndices"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "Schema": {
-                        "type": "object"
-                    },
-                    "History": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/History"
-                            }
-                        ],
-                        "readOnly": true
-                    }
-                }
-            },
-            "DocumentAssignment": {
-                "type": "object",
-                "example": {
-                    "DocumentID": "",
-                    "ResourceID": "",
-                    "ResourceType": "Catalogs",
-                    "ParentResourceID": "",
-                    "ParentResourceType": "Catalogs"
-                },
-                "properties": {
-                    "DocumentID": {
-                        "type": "string"
-                    },
-                    "ResourceID": {
-                        "type": "string"
-                    },
-                    "ResourceType": {
-                        "enum": [
-                            "Catalogs",
-                            "Categories",
-                            "Products",
-                            "PriceSchedules",
-                            "ProductFacets",
-                            "Specs",
-                            "SecurityProfiles",
-                            "PasswordResets",
-                            "OpenIdConnects",
-                            "ImpersonationConfigs",
-                            "Buyers",
-                            "Users",
-                            "UserGroups",
-                            "Addresses",
-                            "CostCenters",
-                            "CreditCards",
-                            "SpendingAccounts",
-                            "ApprovalRules",
-                            "Suppliers",
-                            "SupplierUsers",
-                            "SupplierUserGroups",
-                            "SupplierAddresses",
-                            "Promotions",
-                            "AdminUsers",
-                            "AdminAddresses",
-                            "AdminUserGroups",
-                            "MessageSenders",
-                            "Webhooks",
-                            "ApiClients",
-                            "Incrementors",
-                            "IntegrationEvents",
-                            "XpIndices"
-                        ],
-                        "type": "string"
-                    },
-                    "ParentResourceID": {
-                        "type": "string"
-                    },
-                    "ParentResourceType": {
-                        "enum": [
-                            "Catalogs",
-                            "Buyers",
-                            "Suppliers"
-                        ],
-                        "type": "string"
-                    }
-                }
-            },
             "Filter": {
                 "type": "object",
                 "example": {
@@ -1688,40 +1470,6 @@
                     "LastUpdated": {
                         "type": "string",
                         "format": "date-time",
-                        "readOnly": true
-                    }
-                }
-            },
-            "JDocument": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "Doc": {},
-                    "SchemaSpecUrl": "",
-                    "History": {
-                        "DateCreated": "2018-01-01T00:00:00-06:00",
-                        "CreatedByUserID": "",
-                        "DateUpdated": "2018-01-01T00:00:00-06:00",
-                        "UpdatedByUserID": ""
-                    }
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "Doc": {
-                        "type": "object"
-                    },
-                    "SchemaSpecUrl": {
-                        "type": "string",
-                        "readOnly": true
-                    },
-                    "History": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/History"
-                            }
-                        ],
                         "readOnly": true
                     }
                 }
@@ -2318,10 +2066,13 @@
                     ],
                     "ImageUrl": "",
                     "PrintArtworkURL": "",
+                    "ConfigurationID": "",
+                    "DocumentID": "",
                     "KitProductImageUrl": "",
                     "KitProductID": "",
                     "KitProductName": "",
-                    "ShipMethod": ""
+                    "ShipMethod": "",
+                    "SupplierComments": ""
                 },
                 "properties": {
                     "StatusByQuantity": {
@@ -2358,6 +2109,12 @@
                     "PrintArtworkURL": {
                         "type": "string"
                     },
+                    "ConfigurationID": {
+                        "type": "string"
+                    },
+                    "DocumentID": {
+                        "type": "string"
+                    },
                     "KitProductImageUrl": {
                         "type": "string"
                     },
@@ -2369,20 +2126,9 @@
                     },
                     "ShipMethod": {
                         "type": "string"
-                    }
-                }
-            },
-            "ListAsset": {
-                "type": "object",
-                "properties": {
-                    "Items": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Asset"
-                        }
                     },
-                    "Meta": {
-                        "$ref": "#/components/schemas/Meta"
+                    "SupplierComments": {
+                        "type": "string"
                     }
                 }
             },
@@ -2428,34 +2174,6 @@
                     }
                 }
             },
-            "ListDocSchema": {
-                "type": "object",
-                "properties": {
-                    "Items": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/DocSchema"
-                        }
-                    },
-                    "Meta": {
-                        "$ref": "#/components/schemas/Meta"
-                    }
-                }
-            },
-            "ListDocumentAssignment": {
-                "type": "object",
-                "properties": {
-                    "Items": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/DocumentAssignment"
-                        }
-                    },
-                    "Meta": {
-                        "$ref": "#/components/schemas/Meta"
-                    }
-                }
-            },
             "ListFacet": {
                 "type": "object",
                 "properties": {
@@ -2485,20 +2203,6 @@
                     "Count": {
                         "type": "integer",
                         "format": "int32"
-                    }
-                }
-            },
-            "ListJDocument": {
-                "type": "object",
-                "properties": {
-                    "Items": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/JDocument"
-                        }
-                    },
-                    "Meta": {
-                        "$ref": "#/components/schemas/Meta"
                     }
                 }
             },
@@ -3426,10 +3130,13 @@
                         ],
                         "ImageUrl": "",
                         "PrintArtworkURL": "",
+                        "ConfigurationID": "",
+                        "DocumentID": "",
                         "KitProductImageUrl": "",
                         "KitProductID": "",
                         "KitProductName": "",
-                        "ShipMethod": ""
+                        "ShipMethod": "",
+                        "SupplierComments": ""
                     },
                     "Product": {
                         "xp": {
@@ -3846,10 +3553,13 @@
                             ],
                             "ImageUrl": "",
                             "PrintArtworkURL": "",
+                            "ConfigurationID": "",
+                            "DocumentID": "",
                             "KitProductImageUrl": "",
                             "KitProductID": "",
                             "KitProductName": "",
-                            "ShipMethod": ""
+                            "ShipMethod": "",
+                            "SupplierComments": ""
                         },
                         "Product": {
                             "xp": {
@@ -5124,10 +4834,13 @@
                                 ],
                                 "ImageUrl": "",
                                 "PrintArtworkURL": "",
+                                "ConfigurationID": "",
+                                "DocumentID": "",
                                 "KitProductImageUrl": "",
                                 "KitProductID": "",
                                 "KitProductName": "",
-                                "ShipMethod": ""
+                                "ShipMethod": "",
+                                "SupplierComments": ""
                             },
                             "Product": {
                                 "xp": {
@@ -6560,10 +6273,13 @@
                                     ],
                                     "ImageUrl": "",
                                     "PrintArtworkURL": "",
+                                    "ConfigurationID": "",
+                                    "DocumentID": "",
                                     "KitProductImageUrl": "",
                                     "KitProductID": "",
                                     "KitProductName": "",
-                                    "ShipMethod": ""
+                                    "ShipMethod": "",
+                                    "SupplierComments": ""
                                 },
                                 "Product": {
                                     "xp": {
@@ -6874,10 +6590,13 @@
                                     ],
                                     "ImageUrl": "",
                                     "PrintArtworkURL": "",
+                                    "ConfigurationID": "",
+                                    "DocumentID": "",
                                     "KitProductImageUrl": "",
                                     "KitProductID": "",
                                     "KitProductName": "",
-                                    "ShipMethod": ""
+                                    "ShipMethod": "",
+                                    "SupplierComments": ""
                                 },
                                 "Product": {
                                     "xp": {
@@ -7559,6 +7278,7 @@
                         }
                     ],
                     "ChiliTemplateID": "",
+                    "ChiliConfigID": "",
                     "Frame": ""
                 },
                 "properties": {
@@ -7576,6 +7296,9 @@
                         }
                     },
                     "ChiliTemplateID": {
+                        "type": "string"
+                    },
+                    "ChiliConfigID": {
                         "type": "string"
                     },
                     "Frame": {
@@ -11334,16 +11057,14 @@
                         ]
                     },
                     "SchemaSpecUrl": {
-                        "type": "string",
-                        "readOnly": true
+                        "type": "string"
                     },
                     "History": {
                         "allOf": [
                             {
                                 "$ref": "#/components/schemas/History"
                             }
-                        ],
-                        "readOnly": true
+                        ]
                     }
                 }
             },
@@ -12269,802 +11990,7 @@
                 ]
             }
         },
-        "/assets": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListAsset"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Assets.List",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "search",
-                        "in": "query",
-                        "description": "Word or phrase to search for.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "searchOn",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to search on.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to sort by.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page of results to return. Default: 1",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "pageSize",
-                        "in": "query",
-                        "description": "Number of results to return per page. Default: 20, max: 100.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-                        "required": false,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Assets",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/assets/{assetID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Asset"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Assets.Get",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "assetID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get an Asset",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "put": {
-                "responses": {
-                    "200": {
-                        "description": "If an object with the same ID already exists, it will be overwritten.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Asset"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Assets.Save",
-                "tags": [
-                    "Assets"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Asset"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "assetID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Update an Asset",
-                "description": "If an object with the same ID already exists, it will be overwritten.",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Assets.Delete",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "assetID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Delete an Asset",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/assets/{parentType}/{parentID}/{type}/{ID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListAsset"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Assets.ListAssetsOnChild",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "parentType",
-                        "in": "path",
-                        "description": "Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Buyers",
-                                "Suppliers"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "parentID",
-                        "in": "path",
-                        "description": "ID of the parent.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Categories",
-                                "Products",
-                                "PriceSchedules",
-                                "ProductFacets",
-                                "Specs",
-                                "SecurityProfiles",
-                                "PasswordResets",
-                                "OpenIdConnects",
-                                "ImpersonationConfigs",
-                                "Buyers",
-                                "Users",
-                                "UserGroups",
-                                "Addresses",
-                                "CostCenters",
-                                "CreditCards",
-                                "SpendingAccounts",
-                                "ApprovalRules",
-                                "Suppliers",
-                                "SupplierUsers",
-                                "SupplierUserGroups",
-                                "SupplierAddresses",
-                                "Promotions",
-                                "AdminUsers",
-                                "AdminAddresses",
-                                "AdminUserGroups",
-                                "MessageSenders",
-                                "Webhooks",
-                                "ApiClients",
-                                "Incrementors",
-                                "IntegrationEvents",
-                                "XpIndices"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "ID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "args",
-                        "in": "query",
-                        "description": "Args of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Assets Assigned to Resource",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/assets/{sellerID}/{parentType}/{parentID}/{type}/{ID}/thumbnail": {
-            "get": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Assets.GetThumbnailOnChild",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "sellerID",
-                        "in": "path",
-                        "description": "ID of the seller.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "parentType",
-                        "in": "path",
-                        "description": "Parent type of the asset. Possible values: Catalogs, Buyers, Suppliers.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Buyers",
-                                "Suppliers"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "parentID",
-                        "in": "path",
-                        "description": "ID of the parent.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Categories",
-                                "Products",
-                                "PriceSchedules",
-                                "ProductFacets",
-                                "Specs",
-                                "SecurityProfiles",
-                                "PasswordResets",
-                                "OpenIdConnects",
-                                "ImpersonationConfigs",
-                                "Buyers",
-                                "Users",
-                                "UserGroups",
-                                "Addresses",
-                                "CostCenters",
-                                "CreditCards",
-                                "SpendingAccounts",
-                                "ApprovalRules",
-                                "Suppliers",
-                                "SupplierUsers",
-                                "SupplierUserGroups",
-                                "SupplierAddresses",
-                                "Promotions",
-                                "AdminUsers",
-                                "AdminAddresses",
-                                "AdminUserGroups",
-                                "MessageSenders",
-                                "Webhooks",
-                                "ApiClients",
-                                "Incrementors",
-                                "IntegrationEvents",
-                                "XpIndices"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "ID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "size",
-                        "in": "query",
-                        "description": "Size of the asset. Possible values: S, M.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "S",
-                                "M"
-                            ]
-                        }
-                    }
-                ],
-                "summary": "Get a Resource Child's primary image",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/assets/{sellerID}/{type}/{ID}/thumbnail": {
-            "get": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Assets.GetThumbnail",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "sellerID",
-                        "in": "path",
-                        "description": "ID of the seller.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Categories",
-                                "Products",
-                                "PriceSchedules",
-                                "ProductFacets",
-                                "Specs",
-                                "SecurityProfiles",
-                                "PasswordResets",
-                                "OpenIdConnects",
-                                "ImpersonationConfigs",
-                                "Buyers",
-                                "Users",
-                                "UserGroups",
-                                "Addresses",
-                                "CostCenters",
-                                "CreditCards",
-                                "SpendingAccounts",
-                                "ApprovalRules",
-                                "Suppliers",
-                                "SupplierUsers",
-                                "SupplierUserGroups",
-                                "SupplierAddresses",
-                                "Promotions",
-                                "AdminUsers",
-                                "AdminAddresses",
-                                "AdminUserGroups",
-                                "MessageSenders",
-                                "Webhooks",
-                                "ApiClients",
-                                "Incrementors",
-                                "IntegrationEvents",
-                                "XpIndices"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "ID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "size",
-                        "in": "query",
-                        "description": "Size of the asset. Possible values: S, M.",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "S",
-                                "M"
-                            ]
-                        }
-                    }
-                ],
-                "summary": "Get a Resource's primary image",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/assets/{type}/{ID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListAsset"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Assets.ListAssets",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "Type of the asset. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Categories",
-                                "Products",
-                                "PriceSchedules",
-                                "ProductFacets",
-                                "Specs",
-                                "SecurityProfiles",
-                                "PasswordResets",
-                                "OpenIdConnects",
-                                "ImpersonationConfigs",
-                                "Buyers",
-                                "Users",
-                                "UserGroups",
-                                "Addresses",
-                                "CostCenters",
-                                "CreditCards",
-                                "SpendingAccounts",
-                                "ApprovalRules",
-                                "Suppliers",
-                                "SupplierUsers",
-                                "SupplierUserGroups",
-                                "SupplierAddresses",
-                                "Promotions",
-                                "AdminUsers",
-                                "AdminAddresses",
-                                "AdminUserGroups",
-                                "MessageSenders",
-                                "Webhooks",
-                                "ApiClients",
-                                "Incrementors",
-                                "IntegrationEvents",
-                                "XpIndices"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "ID",
-                        "in": "path",
-                        "description": "ID of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "args",
-                        "in": "query",
-                        "description": "Args of the asset.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Assets Assigned to Resource",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/assets/assignments": {
-            "post": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Assets.SaveAssetAssignment",
-                "tags": [
-                    "Assets"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/AssetAssignment"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "Create Asset Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Assets.DeleteAssetAssignment",
-                "tags": [
-                    "Assets"
-                ],
-                "parameters": [
-                    {
-                        "name": "AssetID",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ResourceID",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ResourceType",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ParentResourceID",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ParentResourceType",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Delete Asset Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/assets/assignments/moveto/{newPosition}": {
-            "post": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Assets.MoveImageAssignment",
-                "tags": [
-                    "Assets"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/AssetAssignment"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "newPosition",
-                        "in": "path",
-                        "description": "New position of the asset assignment.",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "summary": "Move Image Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/avalara/{companyID}/certificate/{locationID}": {
+        "/avalara/certificate/{locationID}": {
             "get": {
                 "responses": {
                     "200": {
@@ -13083,15 +12009,6 @@
                     "Avalaras"
                 ],
                 "parameters": [
-                    {
-                        "name": "companyID",
-                        "in": "path",
-                        "description": "ID of the company.",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
                     {
                         "name": "locationID",
                         "in": "path",
@@ -13153,15 +12070,6 @@
                 },
                 "parameters": [
                     {
-                        "name": "companyID",
-                        "in": "path",
-                        "description": "ID of the company.",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
                         "name": "locationID",
                         "in": "path",
                         "description": "ID of the location.",
@@ -13221,15 +12129,6 @@
                     }
                 },
                 "parameters": [
-                    {
-                        "name": "companyID",
-                        "in": "path",
-                        "description": "ID of the company.",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
                     {
                         "name": "locationID",
                         "in": "path",
@@ -20438,1038 +19337,6 @@
                     }
                 ],
                 "summary": "Sales an order detail.",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListDocSchema"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Schemas.List",
-                "tags": [
-                    "Schemas"
-                ],
-                "parameters": [
-                    {
-                        "name": "search",
-                        "in": "query",
-                        "description": "Word or phrase to search for.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "searchOn",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to search on.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to sort by.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page of results to return. Default: 1",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "pageSize",
-                        "in": "query",
-                        "description": "Number of results to return per page. Default: 20, max: 100.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-                        "required": false,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Document Schemas",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/DocSchema"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Schemas.Create",
-                "tags": [
-                    "Schemas"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/DocSchema"
-                                    }
-                                ],
-                                "required": [
-                                    "Schema"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "Create a Document Schema",
-                "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas/{schemaID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/DocSchema"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Schemas.Get",
-                "tags": [
-                    "Schemas"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get a Document Schema",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "put": {
-                "responses": {
-                    "200": {
-                        "description": "If an object with the same ID already exists, it will be overwritten.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/DocSchema"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Schemas.Save",
-                "tags": [
-                    "Schemas"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/DocSchema"
-                                    }
-                                ],
-                                "required": [
-                                    "Schema"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Update a Document Schema",
-                "description": "If an object with the same ID already exists, it will be overwritten.",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Schemas.Delete",
-                "tags": [
-                    "Schemas"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Delete a Document Schema",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas/{schemaID}/documents": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListJDocument"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.List",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "search",
-                        "in": "query",
-                        "description": "Word or phrase to search for.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "searchOn",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to search on.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to sort by.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page of results to return. Default: 1",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "pageSize",
-                        "in": "query",
-                        "description": "Number of results to return per page. Default: 20, max: 100.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-                        "required": false,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Documents",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/JDocument"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.Create",
-                "tags": [
-                    "Documents"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/JDocument"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Create a Document",
-                "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas/{schemaID}/documents/{documentID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/JDocument"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.Get",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "documentID",
-                        "in": "path",
-                        "description": "ID of the document.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get a Document",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "put": {
-                "responses": {
-                    "200": {
-                        "description": "If an object with the same ID already exists, it will be overwritten.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/JDocument"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.Save",
-                "tags": [
-                    "Documents"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/JDocument"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "documentID",
-                        "in": "path",
-                        "description": "ID of the document.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Update a Document",
-                "description": "If an object with the same ID already exists, it will be overwritten.",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Documents.Delete",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "documentID",
-                        "in": "path",
-                        "description": "ID of the document.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Delete a Document",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas/{schemaID}/documents/{parentType}/{parentID}/{type}/{ID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListJDocument"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.ListDocumentsOnChild",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "parentType",
-                        "in": "path",
-                        "description": "Parent type of the j document. Possible values: Catalogs, Buyers, Suppliers.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Buyers",
-                                "Suppliers"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "parentID",
-                        "in": "path",
-                        "description": "ID of the parent.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "Type of the j document. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Categories",
-                                "Products",
-                                "PriceSchedules",
-                                "ProductFacets",
-                                "Specs",
-                                "SecurityProfiles",
-                                "PasswordResets",
-                                "OpenIdConnects",
-                                "ImpersonationConfigs",
-                                "Buyers",
-                                "Users",
-                                "UserGroups",
-                                "Addresses",
-                                "CostCenters",
-                                "CreditCards",
-                                "SpendingAccounts",
-                                "ApprovalRules",
-                                "Suppliers",
-                                "SupplierUsers",
-                                "SupplierUserGroups",
-                                "SupplierAddresses",
-                                "Promotions",
-                                "AdminUsers",
-                                "AdminAddresses",
-                                "AdminUserGroups",
-                                "MessageSenders",
-                                "Webhooks",
-                                "ApiClients",
-                                "Incrementors",
-                                "IntegrationEvents",
-                                "XpIndices"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "ID",
-                        "in": "path",
-                        "description": "ID of the j document.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "args",
-                        "in": "query",
-                        "description": "Args of the j document.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Documents Assigned to Resource",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas/{schemaID}/documents/{type}/{ID}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListJDocument"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.ListDocuments",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "Type of the j document. Possible values: Catalogs, Categories, Products, PriceSchedules, ProductFacets, Specs, SecurityProfiles, PasswordResets, OpenIdConnects, ImpersonationConfigs, Buyers, Users, UserGroups, Addresses, CostCenters, CreditCards, SpendingAccounts, ApprovalRules, Suppliers, SupplierUsers, SupplierUserGroups, SupplierAddresses, Promotions, AdminUsers, AdminAddresses, AdminUserGroups, MessageSenders, Webhooks, ApiClients, Incrementors, IntegrationEvents, XpIndices.",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "Catalogs",
-                                "Categories",
-                                "Products",
-                                "PriceSchedules",
-                                "ProductFacets",
-                                "Specs",
-                                "SecurityProfiles",
-                                "PasswordResets",
-                                "OpenIdConnects",
-                                "ImpersonationConfigs",
-                                "Buyers",
-                                "Users",
-                                "UserGroups",
-                                "Addresses",
-                                "CostCenters",
-                                "CreditCards",
-                                "SpendingAccounts",
-                                "ApprovalRules",
-                                "Suppliers",
-                                "SupplierUsers",
-                                "SupplierUserGroups",
-                                "SupplierAddresses",
-                                "Promotions",
-                                "AdminUsers",
-                                "AdminAddresses",
-                                "AdminUserGroups",
-                                "MessageSenders",
-                                "Webhooks",
-                                "ApiClients",
-                                "Incrementors",
-                                "IntegrationEvents",
-                                "XpIndices"
-                            ]
-                        }
-                    },
-                    {
-                        "name": "ID",
-                        "in": "path",
-                        "description": "ID of the j document.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "args",
-                        "in": "query",
-                        "description": "Args of the j document.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Documents Assigned to Resource",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/schemas/{schemaID}/documents/assignments": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListDocumentAssignment"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "Documents.ListAssignments",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "search",
-                        "in": "query",
-                        "description": "Word or phrase to search for.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "searchOn",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to search on.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to sort by.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page of results to return. Default: 1",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "pageSize",
-                        "in": "query",
-                        "description": "Number of results to return per page. Default: 20, max: 100.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-                        "required": false,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "List Document Assignments",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "post": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Documents.SaveAssignment",
-                "tags": [
-                    "Documents"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/DocumentAssignment"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Create Document Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            },
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Documents.DeleteAssignment",
-                "tags": [
-                    "Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "schemaID",
-                        "in": "path",
-                        "description": "ID of the schema.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "DocumentID",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ResourceID",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ResourceType",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ParentResourceID",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "ParentResourceType",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Delete Document Assignment",
                 "description": "",
                 "security": [
                     {

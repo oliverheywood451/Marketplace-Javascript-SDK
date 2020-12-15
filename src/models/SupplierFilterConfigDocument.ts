@@ -4,6 +4,6 @@ import { History } from './History';
 export interface SupplierFilterConfigDocument {
     ID?: string
     Doc?: SupplierFilterConfig
-    readonly SchemaSpecUrl?: string
-    readonly History?: History
+    SchemaSpecUrl?: string
+    History?: History
 }

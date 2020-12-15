@@ -18,13 +18,10 @@ import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
 import CreditCardAuthorizations from './CreditCardAuthorizations';
 import ExchangeRates from './ExchangeRates';
 import ValidatedAddresses from './ValidatedAddresses';
-import Assets from './Assets';
-import Schemas from './Schemas';
 import ChiliConfigs from './ChiliConfigs';
 import ChiliSpecOptions from './ChiliSpecOptions';
 import ChiliSpecs from './ChiliSpecs';
 import ChiliTemplates from './ChiliTemplates';
-import Documents from './Documents';
 import TecraDocuments from './TecraDocuments';
 import TecraSpecs from './TecraSpecs';
 import TecraFrames from './TecraFrames';
@@ -57,13 +54,10 @@ const HeadStartSDK: HeadStartSDK = {
     CreditCardAuthorizations : new CreditCardAuthorizations(),
     ExchangeRates : new ExchangeRates(),
     ValidatedAddresses : new ValidatedAddresses(),
-    Assets : new Assets(),
-    Schemas : new Schemas(),
     ChiliConfigs : new ChiliConfigs(),
     ChiliSpecOptions : new ChiliSpecOptions(),
     ChiliSpecs : new ChiliSpecs(),
     ChiliTemplates : new ChiliTemplates(),
-    Documents : new Documents(),
     TecraDocuments : new TecraDocuments(),
     TecraSpecs : new TecraSpecs(),
     TecraFrames : new TecraFrames(),
@@ -95,13 +89,10 @@ interface HeadStartSDK {
     CreditCardAuthorizations : CreditCardAuthorizations,
     ExchangeRates : ExchangeRates,
     ValidatedAddresses : ValidatedAddresses,
-    Assets : Assets,
-    Schemas : Schemas,
     ChiliConfigs : ChiliConfigs,
     ChiliSpecOptions : ChiliSpecOptions,
     ChiliSpecs : ChiliSpecs,
     ChiliTemplates : ChiliTemplates,
-    Documents : Documents,
     TecraDocuments : TecraDocuments,
     TecraSpecs : TecraSpecs,
     TecraFrames : TecraFrames,

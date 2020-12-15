@@ -5,5 +5,6 @@ export interface ChiliTemplate {
     Product?: SuperMarketplaceProduct
     TemplateSpecs?: ChiliSpec[]
     ChiliTemplateID?: string
+    ChiliConfigID?: string
     Frame?: string
 }
