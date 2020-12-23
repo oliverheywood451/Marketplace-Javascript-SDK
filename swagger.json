@@ -607,6 +607,65 @@
                     }
                 }
             },
+            "BinInfo": {
+                "type": "object",
+                "example": {
+                    "country": "",
+                    "product": "",
+                    "bin": "",
+                    "cardusestring": "",
+                    "gsa": false,
+                    "corporate": false,
+                    "fsa": false,
+                    "subtype": "",
+                    "purchase": false,
+                    "prepaid": false,
+                    "issuer": "",
+                    "binlo": "",
+                    "binhi": ""
+                },
+                "properties": {
+                    "country": {
+                        "type": "string"
+                    },
+                    "product": {
+                        "type": "string"
+                    },
+                    "bin": {
+                        "type": "string"
+                    },
+                    "cardusestring": {
+                        "type": "string"
+                    },
+                    "gsa": {
+                        "type": "boolean"
+                    },
+                    "corporate": {
+                        "type": "boolean"
+                    },
+                    "fsa": {
+                        "type": "boolean"
+                    },
+                    "subtype": {
+                        "type": "string"
+                    },
+                    "purchase": {
+                        "type": "boolean"
+                    },
+                    "prepaid": {
+                        "type": "boolean"
+                    },
+                    "issuer": {
+                        "type": "string"
+                    },
+                    "binlo": {
+                        "type": "string"
+                    },
+                    "binhi": {
+                        "type": "string"
+                    }
+                }
+            },
             "BuyerAddress": {
                 "type": "object",
                 "example": {
@@ -811,6 +870,104 @@
                         "format": "int32"
                     },
                     "ChiliPublishFolder": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CardConnectAuthorizationResponse": {
+                "type": "object",
+                "example": {
+                    "token": "",
+                    "account": "",
+                    "retref": "",
+                    "amount": 0,
+                    "expiry": "",
+                    "merchid": "",
+                    "avsresp": "",
+                    "cvvresp": "",
+                    "signature": "",
+                    "bintype": "",
+                    "commcard": "",
+                    "emv": "",
+                    "binInfo": {
+                        "country": "",
+                        "product": "",
+                        "bin": "",
+                        "cardusestring": "",
+                        "gsa": false,
+                        "corporate": false,
+                        "fsa": false,
+                        "subtype": "",
+                        "purchase": false,
+                        "prepaid": false,
+                        "issuer": "",
+                        "binlo": "",
+                        "binhi": ""
+                    },
+                    "authcode": "",
+                    "respcode": "",
+                    "respproc": "",
+                    "respstat": "",
+                    "resptext": ""
+                },
+                "properties": {
+                    "token": {
+                        "type": "string"
+                    },
+                    "account": {
+                        "type": "string"
+                    },
+                    "retref": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "expiry": {
+                        "type": "string"
+                    },
+                    "merchid": {
+                        "type": "string"
+                    },
+                    "avsresp": {
+                        "type": "string"
+                    },
+                    "cvvresp": {
+                        "type": "string"
+                    },
+                    "signature": {
+                        "type": "string"
+                    },
+                    "bintype": {
+                        "type": "string"
+                    },
+                    "commcard": {
+                        "type": "string"
+                    },
+                    "emv": {
+                        "type": "string"
+                    },
+                    "binInfo": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/BinInfo"
+                            }
+                        ]
+                    },
+                    "authcode": {
+                        "type": "string"
+                    },
+                    "respcode": {
+                        "type": "string"
+                    },
+                    "respproc": {
+                        "type": "string"
+                    },
+                    "respstat": {
+                        "type": "string"
+                    },
+                    "resptext": {
                         "type": "string"
                     }
                 }
@@ -4984,6 +5141,198 @@
                     }
                 }
             },
+            "MarketplacePayment": {
+                "type": "object",
+                "example": {
+                    "xp": {
+                        "partialAccountNumber": "",
+                        "cardType": ""
+                    },
+                    "Transactions": [
+                        {
+                            "xp": {
+                                "CardConnectResponse": {
+                                    "token": "",
+                                    "account": "",
+                                    "retref": "",
+                                    "amount": 0,
+                                    "expiry": "",
+                                    "merchid": "",
+                                    "avsresp": "",
+                                    "cvvresp": "",
+                                    "signature": "",
+                                    "bintype": "",
+                                    "commcard": "",
+                                    "emv": "",
+                                    "binInfo": {
+                                        "country": "",
+                                        "product": "",
+                                        "bin": "",
+                                        "cardusestring": "",
+                                        "gsa": false,
+                                        "corporate": false,
+                                        "fsa": false,
+                                        "subtype": "",
+                                        "purchase": false,
+                                        "prepaid": false,
+                                        "issuer": "",
+                                        "binlo": "",
+                                        "binhi": ""
+                                    },
+                                    "authcode": "",
+                                    "respcode": "",
+                                    "respproc": "",
+                                    "respstat": "",
+                                    "resptext": ""
+                                }
+                            },
+                            "ID": "",
+                            "Type": "",
+                            "DateExecuted": "2018-01-01T00:00:00-06:00",
+                            "Amount": 0,
+                            "Succeeded": false,
+                            "ResultCode": "",
+                            "ResultMessage": ""
+                        }
+                    ],
+                    "ID": "",
+                    "Type": "PurchaseOrder",
+                    "DateCreated": "2018-01-01T00:00:00-06:00",
+                    "CreditCardID": "",
+                    "SpendingAccountID": "",
+                    "Description": "",
+                    "Amount": 0,
+                    "Accepted": false
+                },
+                "properties": {
+                    "xp": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/PaymentXP"
+                            }
+                        ]
+                    },
+                    "Transactions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplacePaymentTransaction"
+                        },
+                        "readOnly": true
+                    },
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Type": {
+                        "enum": [
+                            "PurchaseOrder",
+                            "CreditCard",
+                            "SpendingAccount"
+                        ],
+                        "type": "string"
+                    },
+                    "DateCreated": {
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true
+                    },
+                    "CreditCardID": {
+                        "type": "string"
+                    },
+                    "SpendingAccountID": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
+                    },
+                    "Amount": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "Accepted": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "MarketplacePaymentTransaction": {
+                "type": "object",
+                "example": {
+                    "xp": {
+                        "CardConnectResponse": {
+                            "token": "",
+                            "account": "",
+                            "retref": "",
+                            "amount": 0,
+                            "expiry": "",
+                            "merchid": "",
+                            "avsresp": "",
+                            "cvvresp": "",
+                            "signature": "",
+                            "bintype": "",
+                            "commcard": "",
+                            "emv": "",
+                            "binInfo": {
+                                "country": "",
+                                "product": "",
+                                "bin": "",
+                                "cardusestring": "",
+                                "gsa": false,
+                                "corporate": false,
+                                "fsa": false,
+                                "subtype": "",
+                                "purchase": false,
+                                "prepaid": false,
+                                "issuer": "",
+                                "binlo": "",
+                                "binhi": ""
+                            },
+                            "authcode": "",
+                            "respcode": "",
+                            "respproc": "",
+                            "respstat": "",
+                            "resptext": ""
+                        }
+                    },
+                    "ID": "",
+                    "Type": "",
+                    "DateExecuted": "2018-01-01T00:00:00-06:00",
+                    "Amount": 0,
+                    "Succeeded": false,
+                    "ResultCode": "",
+                    "ResultMessage": ""
+                },
+                "properties": {
+                    "xp": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TransactionXP"
+                            }
+                        ]
+                    },
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Type": {
+                        "type": "string"
+                    },
+                    "DateExecuted": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "Amount": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "Succeeded": {
+                        "type": "boolean"
+                    },
+                    "ResultCode": {
+                        "type": "string"
+                    },
+                    "ResultMessage": {
+                        "type": "string"
+                    }
+                }
+            },
             "MarketplacePriceSchedule": {
                 "type": "object",
                 "example": {
@@ -9075,6 +9424,97 @@
                     }
                 }
             },
+            "PaymentUpdateRequest": {
+                "type": "object",
+                "example": {
+                    "Payments": [
+                        {
+                            "xp": {
+                                "partialAccountNumber": "",
+                                "cardType": ""
+                            },
+                            "Transactions": [
+                                {
+                                    "xp": {
+                                        "CardConnectResponse": {
+                                            "token": "",
+                                            "account": "",
+                                            "retref": "",
+                                            "amount": 0,
+                                            "expiry": "",
+                                            "merchid": "",
+                                            "avsresp": "",
+                                            "cvvresp": "",
+                                            "signature": "",
+                                            "bintype": "",
+                                            "commcard": "",
+                                            "emv": "",
+                                            "binInfo": {
+                                                "country": "",
+                                                "product": "",
+                                                "bin": "",
+                                                "cardusestring": "",
+                                                "gsa": false,
+                                                "corporate": false,
+                                                "fsa": false,
+                                                "subtype": "",
+                                                "purchase": false,
+                                                "prepaid": false,
+                                                "issuer": "",
+                                                "binlo": "",
+                                                "binhi": ""
+                                            },
+                                            "authcode": "",
+                                            "respcode": "",
+                                            "respproc": "",
+                                            "respstat": "",
+                                            "resptext": ""
+                                        }
+                                    },
+                                    "ID": "",
+                                    "Type": "",
+                                    "DateExecuted": "2018-01-01T00:00:00-06:00",
+                                    "Amount": 0,
+                                    "Succeeded": false,
+                                    "ResultCode": "",
+                                    "ResultMessage": ""
+                                }
+                            ],
+                            "ID": "",
+                            "Type": "PurchaseOrder",
+                            "DateCreated": "2018-01-01T00:00:00-06:00",
+                            "CreditCardID": "",
+                            "SpendingAccountID": "",
+                            "Description": "",
+                            "Amount": 0,
+                            "Accepted": false
+                        }
+                    ]
+                },
+                "properties": {
+                    "Payments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarketplacePayment"
+                        }
+                    }
+                }
+            },
+            "PaymentXP": {
+                "type": "object",
+                "example": {
+                    "partialAccountNumber": "",
+                    "cardType": ""
+                },
+                "properties": {
+                    "partialAccountNumber": {
+                        "type": "string"
+                    },
+                    "cardType": {
+                        "type": "string"
+                    }
+                }
+            },
             "PriceBreak": {
                 "type": "object",
                 "example": {
@@ -11543,6 +11983,54 @@
                             "F"
                         ],
                         "type": "string"
+                    }
+                }
+            },
+            "TransactionXP": {
+                "type": "object",
+                "example": {
+                    "CardConnectResponse": {
+                        "token": "",
+                        "account": "",
+                        "retref": "",
+                        "amount": 0,
+                        "expiry": "",
+                        "merchid": "",
+                        "avsresp": "",
+                        "cvvresp": "",
+                        "signature": "",
+                        "bintype": "",
+                        "commcard": "",
+                        "emv": "",
+                        "binInfo": {
+                            "country": "",
+                            "product": "",
+                            "bin": "",
+                            "cardusestring": "",
+                            "gsa": false,
+                            "corporate": false,
+                            "fsa": false,
+                            "subtype": "",
+                            "purchase": false,
+                            "prepaid": false,
+                            "issuer": "",
+                            "binlo": "",
+                            "binhi": ""
+                        },
+                        "authcode": "",
+                        "respcode": "",
+                        "respproc": "",
+                        "respstat": "",
+                        "resptext": ""
+                    }
+                },
+                "properties": {
+                    "CardConnectResponse": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/CardConnectAuthorizationResponse"
+                            }
+                        ]
                     }
                 }
             },
@@ -17729,6 +18217,21 @@
                 "tags": [
                     "Payments"
                 ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/PaymentUpdateRequest"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
                 "parameters": [
                     {
                         "name": "orderID",
@@ -17737,15 +18240,6 @@
                         "required": true,
                         "schema": {
                             "type": "string"
-                        }
-                    },
-                    {
-                        "name": "request",
-                        "in": "query",
-                        "description": "Request of the marketplace payment.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
                         }
                     }
                 ],

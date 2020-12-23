@@ -1,3 +1,4 @@
+import { PaymentUpdateRequest } from '../models/PaymentUpdateRequest';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -15,13 +16,13 @@ export default class Payments {
 
    /**
     * @param orderID ID of the order.
-    * @param options.request Request of the marketplace payment.
+    * @param paymentUpdateRequest 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SavePayments(orderID: string,  request: any, accessToken?: string ): Promise<void> {
+    public async SavePayments(orderID: string, paymentUpdateRequest: PaymentUpdateRequest, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/payments/${orderID}/update`, {}, { params: { request,  accessToken, impersonating } } );
+        return await httpClient.put(`/payments/${orderID}/update`, paymentUpdateRequest, { params: {  accessToken, impersonating } } );
     }
 
     /**

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Payments | ordercloud-javascript-sdk</title>
+	<title>PaymentUpdateRequest | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="payments.html">Payments</a>
+					<a href="paymentupdaterequest.html">PaymentUpdateRequest</a>
 				</li>
 			</ul>
 		</div>
@@ -48,74 +48,22 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="payments.html#as" class="tsd-kind-icon">As</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="payments.html#savepayments" class="tsd-kind-icon">Save<wbr>Payments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="paymentupdaterequest.html#payments" class="tsd-kind-icon">Payments</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="as" class="tsd-anchor"></a>
-					<h3>As</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">As<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>description</dt>
-									<dd><p>enables impersonation by calling the subsequent method with the stored impersonation token</p>
-									</dd>
-									<dt>example</dt>
-									<dd><p>Payments.As().List() // lists Payments using the impersonated users&#39; token</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="savepayments" class="tsd-anchor"></a>
-					<h3>Save<wbr>Payments</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Save<wbr>Payments<span class="tsd-signature-symbol">(</span>orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, paymentUpdateRequest<span class="tsd-signature-symbol">: </span><a href="../interfaces/paymentupdaterequest.html" class="tsd-signature-type">PaymentUpdateRequest</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>orderID: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>ID of the order.</p>
-									</div>
-								</li>
-								<li>
-									<h5>paymentUpdateRequest: <a href="../interfaces/paymentupdaterequest.html" class="tsd-signature-type">PaymentUpdateRequest</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Provide an alternative token to the one stored in the sdk instance (useful for impersonation).</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="payments" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Payments</h3>
+					<div class="tsd-signature tsd-kind-icon">Payments<span class="tsd-signature-symbol">:</span> <a href="marketplacepayment.html" class="tsd-signature-type">MarketplacePayment</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -128,14 +76,11 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="payments.html" class="tsd-kind-icon">Payments</a>
+					<li class="current tsd-kind-interface">
+						<a href="paymentupdaterequest.html" class="tsd-kind-icon">Payment<wbr>Update<wbr>Request</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="payments.html#as" class="tsd-kind-icon">As</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="payments.html#savepayments" class="tsd-kind-icon">Save<wbr>Payments</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="paymentupdaterequest.html#payments" class="tsd-kind-icon">Payments</a>
 							</li>
 						</ul>
 					</li>
