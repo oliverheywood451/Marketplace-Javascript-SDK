@@ -4,6 +4,7 @@ import OrchestrationLogs from './OrchestrationLogs';
 import Buyers from './Buyers';
 import Catalogs from './Catalogs';
 import Orders from './Orders';
+import Payments from './Payments';
 import Shipments from './Shipments';
 import Suppliers from './Suppliers';
 import KitProducts from './KitProducts';
@@ -15,7 +16,7 @@ import Reports from './Reports';
 import Avalaras from './Avalaras';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
-import CreditCardAuthorizations from './CreditCardAuthorizations';
+import CreditCards from './CreditCards';
 import ExchangeRates from './ExchangeRates';
 import ValidatedAddresses from './ValidatedAddresses';
 import ChiliConfigs from './ChiliConfigs';
@@ -40,6 +41,7 @@ const HeadStartSDK: HeadStartSDK = {
     Buyers : new Buyers(),
     Catalogs : new Catalogs(),
     Orders : new Orders(),
+    Payments : new Payments(),
     Shipments : new Shipments(),
     Suppliers : new Suppliers(),
     KitProducts : new KitProducts(),
@@ -51,7 +53,7 @@ const HeadStartSDK: HeadStartSDK = {
     Avalaras : new Avalaras(),
     MePayments : new MePayments(),
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
-    CreditCardAuthorizations : new CreditCardAuthorizations(),
+    CreditCards : new CreditCards(),
     ExchangeRates : new ExchangeRates(),
     ValidatedAddresses : new ValidatedAddresses(),
     ChiliConfigs : new ChiliConfigs(),
@@ -75,6 +77,7 @@ interface HeadStartSDK {
     Buyers : Buyers,
     Catalogs : Catalogs,
     Orders : Orders,
+    Payments : Payments,
     Shipments : Shipments,
     Suppliers : Suppliers,
     KitProducts : KitProducts,
@@ -86,7 +89,7 @@ interface HeadStartSDK {
     Avalaras : Avalaras,
     MePayments : MePayments,
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,
-    CreditCardAuthorizations : CreditCardAuthorizations,
+    CreditCards : CreditCards,
     ExchangeRates : ExchangeRates,
     ValidatedAddresses : ValidatedAddresses,
     ChiliConfigs : ChiliConfigs,

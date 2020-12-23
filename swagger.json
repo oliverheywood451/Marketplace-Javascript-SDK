@@ -12,7 +12,7 @@
     },
     "servers": [
         {
-            "url": "https://marketplace-middleware-staging.azurewebsites.net",
+            "url": "https://middleware-api-staging.sebvendorportal.com",
             "description": "Marketplace API"
         }
     ],
@@ -55,6 +55,11 @@
         {
             "name": "Orders",
             "description": "\"Marketplace Orders\" for handling order commands in Marketplace",
+            "x-section-id": "Marketplace"
+        },
+        {
+            "name": "Payments",
+            "description": "\"Marketplace Orders\" for handling payment commands in Marketplace",
             "x-section-id": "Marketplace"
         },
         {
@@ -118,7 +123,7 @@
             "x-section-id": "Integration"
         },
         {
-            "name": "Credit Card Authorizations",
+            "name": "Credit Cards",
             "description": "\"Integration\" represents Credit Card Tokenization for Marketplace",
             "x-section-id": "Integration"
         },
@@ -14056,9 +14061,9 @@
                         }
                     }
                 },
-                "operationId": "CreditCardAuthorizations.Post",
+                "operationId": "CreditCards.Post",
                 "tags": [
-                    "Credit Card Authorizations"
+                    "Credit Cards"
                 ],
                 "requestBody": {
                     "required": true,
@@ -17693,6 +17698,59 @@
                 ],
                 "summary": "LIST orders for a specific location as a buyer, ensures user has access to location orders",
                 "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/payments/{orderID}/update": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "Creates or updates payments as needed for this order",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MarketplacePayment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Payments.SavePayments",
+                "tags": [
+                    "Payments"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderID",
+                        "in": "path",
+                        "description": "ID of the order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "request",
+                        "in": "query",
+                        "description": "Request of the marketplace payment.",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "summary": "Save payments",
+                "description": "Creates or updates payments as needed for this order",
                 "security": [
                     {
                         "OAuth2": [
