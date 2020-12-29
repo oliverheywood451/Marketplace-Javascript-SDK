@@ -1038,7 +1038,9 @@
                     "xp": {
                         "UI": {
                             "ControlType": "Text"
-                        }
+                        },
+                        "SpecFormOrder": 0,
+                        "Label": ""
                     },
                     "Options": [
                         {
@@ -1194,7 +1196,9 @@
                 "example": {
                     "UI": {
                         "ControlType": "Text"
-                    }
+                    },
+                    "SpecFormOrder": 0,
+                    "Label": ""
                 },
                 "properties": {
                     "UI": {
@@ -1203,6 +1207,13 @@
                                 "$ref": "#/components/schemas/ChiliSpecUI"
                             }
                         ]
+                    },
+                    "SpecFormOrder": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Label": {
+                        "type": "string"
                     }
                 }
             },
@@ -1400,7 +1411,9 @@
                             "xp": {
                                 "UI": {
                                     "ControlType": "Text"
-                                }
+                                },
+                                "SpecFormOrder": 0,
+                                "Label": ""
                             },
                             "Options": [
                                 {
@@ -7608,7 +7621,9 @@
                             "xp": {
                                 "UI": {
                                     "ControlType": "Text"
-                                }
+                                },
+                                "SpecFormOrder": 0,
+                                "Label": ""
                             },
                             "Options": [
                                 {
@@ -10136,7 +10151,7 @@
                     "State": [
                         ""
                     ],
-                    "Status": [
+                    "SubmittedOrderStatus": [
                         ""
                     ],
                     "OrderType": [
@@ -10162,7 +10177,7 @@
                             "type": "string"
                         }
                     },
-                    "Status": {
+                    "SubmittedOrderStatus": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -10197,7 +10212,7 @@
                         "State": [
                             ""
                         ],
-                        "Status": [
+                        "SubmittedOrderStatus": [
                             ""
                         ],
                         "OrderType": [
