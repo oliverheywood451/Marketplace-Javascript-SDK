@@ -1,7 +1,9 @@
 import OrchestrationProducts from './OrchestrationProducts';
 import OrchestrationUsers from './OrchestrationUsers';
 import OrchestrationLogs from './OrchestrationLogs';
+import AnytimeWebhooks from './AnytimeWebhooks';
 import Buyers from './Buyers';
+import SsoLogins from './SsoLogins';
 import Catalogs from './Catalogs';
 import Orders from './Orders';
 import Payments from './Payments';
@@ -38,7 +40,9 @@ const HeadStartSDK: HeadStartSDK = {
     OrchestrationProducts : new OrchestrationProducts(),
     OrchestrationUsers : new OrchestrationUsers(),
     OrchestrationLogs : new OrchestrationLogs(),
+    AnytimeWebhooks : new AnytimeWebhooks(),
     Buyers : new Buyers(),
+    SsoLogins : new SsoLogins(),
     Catalogs : new Catalogs(),
     Orders : new Orders(),
     Payments : new Payments(),
@@ -74,7 +78,9 @@ interface HeadStartSDK {
     OrchestrationProducts : OrchestrationProducts,
     OrchestrationUsers : OrchestrationUsers,
     OrchestrationLogs : OrchestrationLogs,
+    AnytimeWebhooks : AnytimeWebhooks,
     Buyers : Buyers,
+    SsoLogins : SsoLogins,
     Catalogs : Catalogs,
     Orders : Orders,
     Payments : Payments,

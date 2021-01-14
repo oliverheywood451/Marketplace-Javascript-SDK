@@ -1,4 +1,4 @@
-import { SuperMarketplaceBuyer } from '../models/SuperMarketplaceBuyer';
+import { SuperHSBuyer } from '../models/SuperHSBuyer';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -17,20 +17,20 @@ export default class Buyers {
     }
 
    /**
-    * @param superMarketplaceBuyer 
+    * @param superHSBuyer 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create(superMarketplaceBuyer: SuperMarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceBuyer>> {
+    public async Create(superHSBuyer: SuperHSBuyer, accessToken?: string ): Promise<RequiredDeep<SuperHSBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyer`, superMarketplaceBuyer, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyer`, superHSBuyer, { params: {  accessToken, impersonating } } );
     }
 
    /**
     * @param buyerID ID of the buyer.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get(buyerID: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceBuyer>> {
+    public async Get(buyerID: string,  accessToken?: string ): Promise<RequiredDeep<SuperHSBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyer/${buyerID}`, { params: {  accessToken, impersonating } } );
@@ -38,13 +38,13 @@ export default class Buyers {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param superMarketplaceBuyer 
+    * @param superHSBuyer 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Put(buyerID: string, superMarketplaceBuyer: SuperMarketplaceBuyer, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceBuyer>> {
+    public async Put(buyerID: string, superHSBuyer: SuperHSBuyer, accessToken?: string ): Promise<RequiredDeep<SuperHSBuyer>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/buyer/${buyerID}`, superMarketplaceBuyer, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/buyer/${buyerID}`, superHSBuyer, { params: {  accessToken, impersonating } } );
     }
 
     /**

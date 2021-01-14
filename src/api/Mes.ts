@@ -1,7 +1,7 @@
-import { MarketplaceMeKitProduct } from '../models/MarketplaceMeKitProduct';
+import { HSMeKitProduct } from '../models/HSMeKitProduct';
 import { ListPageFacet } from '../models/ListPageFacet';
-import { MarketplaceMeProduct } from '../models/MarketplaceMeProduct';
-import { SuperMarketplaceMeProduct } from '../models/SuperMarketplaceMeProduct';
+import { HSMeProduct } from '../models/HSMeProduct';
+import { SuperHSMeProduct } from '../models/SuperHSMeProduct';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -24,7 +24,7 @@ export default class Mes {
     * @param kitProductID ID of the kit product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetMeKit(kitProductID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceMeKitProduct>> {
+    public async GetMeKit(kitProductID: string,  accessToken?: string ): Promise<RequiredDeep<HSMeKitProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/me/kitproducts/${kitProductID}`, { params: {  accessToken, impersonating } } );
@@ -39,7 +39,7 @@ export default class Mes {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListMeProducts( options: ListArgs<MarketplaceMeProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPageFacet<MarketplaceMeProduct>>> {
+    public async ListMeProducts( options: ListArgs<HSMeProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPageFacet<HSMeProduct>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/me/products`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
@@ -49,7 +49,7 @@ export default class Mes {
     * @param productID ID of the product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetSuperProduct(productID: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceMeProduct>> {
+    public async GetSuperProduct(productID: string,  accessToken?: string ): Promise<RequiredDeep<SuperHSMeProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/me/products/${productID}`, { params: {  accessToken, impersonating } } );

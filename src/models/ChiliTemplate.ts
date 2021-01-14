@@ -1,8 +1,8 @@
-import { SuperMarketplaceProduct } from './SuperMarketplaceProduct';
+import { SuperHSProduct } from './SuperHSProduct';
 import { ChiliSpec } from './ChiliSpec';
 
 export interface ChiliTemplate {
-    Product?: SuperMarketplaceProduct
+    Product?: SuperHSProduct
     TemplateSpecs?: ChiliSpec[]
     ChiliTemplateID?: string
     ChiliConfigID?: string

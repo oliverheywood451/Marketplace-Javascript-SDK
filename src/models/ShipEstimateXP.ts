@@ -1,7 +1,7 @@
-import { MarketplaceShipMethod } from './MarketplaceShipMethod';
+import { HSShipMethod } from './HSShipMethod';
 
 export interface ShipEstimateXP {
-    AllShipMethods?: MarketplaceShipMethod[]
+    AllShipMethods?: HSShipMethod[]
     SupplierID?: string
     ShipFromAddressID?: string
 }

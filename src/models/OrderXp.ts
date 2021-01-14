@@ -1,6 +1,6 @@
 import { QuoteOrderInfo } from './QuoteOrderInfo';
 import { ClaimsSummary } from './ClaimsSummary';
-import { MarketplaceAddressBuyer } from './MarketplaceAddressBuyer';
+import { HSAddressBuyer } from './HSAddressBuyer';
 import { ShipMethodSupplierView } from './ShipMethodSupplierView';
 
 export interface OrderXp {
@@ -19,7 +19,7 @@ export interface OrderXp {
     ShippingStatus?: 'Shipped' | 'PartiallyShipped' | 'Canceled' | 'Processing' | 'Backordered'
     ClaimStatus?: 'NoClaim' | 'Pending' | 'Complete'
     PaymentMethod?: string
-    ShippingAddress?: MarketplaceAddressBuyer
+    ShippingAddress?: HSAddressBuyer
     SelectedShipMethodsSupplierView?: ShipMethodSupplierView[]
     IsResubmitting?: boolean
 }

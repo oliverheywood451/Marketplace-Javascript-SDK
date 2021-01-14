@@ -1,9 +1,9 @@
-import { MarketplaceBuyerLocation } from '../models/MarketplaceBuyerLocation';
+import { HSBuyerLocation } from '../models/HSBuyerLocation';
 import { LocationApprovalThresholdUpdate } from '../models/LocationApprovalThresholdUpdate';
 import { LocationPermissionUpdate } from '../models/LocationPermissionUpdate';
 import { ListPage } from '../models/ListPage';
-import { MarketplaceUser } from '../models/MarketplaceUser';
-import { MarketplaceLocationUserGroup } from '../models/MarketplaceLocationUserGroup';
+import { HSUser } from '../models/HSUser';
+import { HSLocationUserGroup } from '../models/HSLocationUserGroup';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -33,13 +33,13 @@ export default class BuyerLocations {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param marketplaceBuyerLocation 
+    * @param hSBuyerLocation 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create(buyerID: string, marketplaceBuyerLocation: MarketplaceBuyerLocation, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
+    public async Create(buyerID: string, hSBuyerLocation: HSBuyerLocation, accessToken?: string ): Promise<RequiredDeep<HSBuyerLocation>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyerlocations/${buyerID}`, marketplaceBuyerLocation, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyerlocations/${buyerID}`, hSBuyerLocation, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -47,7 +47,7 @@ export default class BuyerLocations {
     * @param buyerLocationID ID of the buyer location.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get(buyerID: string, buyerLocationID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
+    public async Get(buyerID: string, buyerLocationID: string,  accessToken?: string ): Promise<RequiredDeep<HSBuyerLocation>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}`, { params: {  accessToken, impersonating } } );
@@ -56,13 +56,13 @@ export default class BuyerLocations {
    /**
     * @param buyerID ID of the buyer.
     * @param buyerLocationID ID of the buyer location.
-    * @param marketplaceBuyerLocation 
+    * @param hSBuyerLocation 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save(buyerID: string, buyerLocationID: string, marketplaceBuyerLocation: MarketplaceBuyerLocation, accessToken?: string ): Promise<RequiredDeep<MarketplaceBuyerLocation>> {
+    public async Save(buyerID: string, buyerLocationID: string, hSBuyerLocation: HSBuyerLocation, accessToken?: string ): Promise<RequiredDeep<HSBuyerLocation>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/buyerlocations/${buyerID}/${buyerLocationID}`, marketplaceBuyerLocation, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/buyerlocations/${buyerID}/${buyerLocationID}`, hSBuyerLocation, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -144,7 +144,7 @@ export default class BuyerLocations {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListLocationUsers(buyerID: string, buyerLocationID: string,  options: ListArgs<MarketplaceUser> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceUser>>> {
+    public async ListLocationUsers(buyerID: string, buyerLocationID: string,  options: ListArgs<HSUser> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSUser>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyerlocations/${buyerID}/${buyerLocationID}/users`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
@@ -152,7 +152,7 @@ export default class BuyerLocations {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param homeCountry Home country of the marketplace location user group.
+    * @param homeCountry Home country of the hs location user group.
     * @param options.search Word or phrase to search for.
     * @param options.searchOn Comma-delimited list of fields to search on.
     * @param options.sortBy Comma-delimited list of fields to sort by.
@@ -161,7 +161,7 @@ export default class BuyerLocations {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListUserGroupsForNewUser(buyerID: string, homeCountry: string,  options: ListArgs<MarketplaceLocationUserGroup> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceLocationUserGroup>>> {
+    public async ListUserGroupsForNewUser(buyerID: string, homeCountry: string,  options: ListArgs<HSLocationUserGroup> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSLocationUserGroup>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyerlocations/${buyerID}/${homeCountry}/usergroups`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
@@ -178,7 +178,7 @@ export default class BuyerLocations {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListUserGroupsByCountry(buyerID: string, userID: string,  options: ListArgs<MarketplaceLocationUserGroup> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceLocationUserGroup>>> {
+    public async ListUserGroupsByCountry(buyerID: string, userID: string,  options: ListArgs<HSLocationUserGroup> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSLocationUserGroup>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyerlocations/${buyerID}/usergroups/${userID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );

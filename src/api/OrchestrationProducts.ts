@@ -1,13 +1,13 @@
-import { MarketplaceCatalog } from '../models/MarketplaceCatalog';
-import { MarketplaceCatalogAssignment } from '../models/MarketplaceCatalogAssignment';
-import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
-import { MarketplacePriceSchedule } from '../models/MarketplacePriceSchedule';
-import { MarketplaceProduct } from '../models/MarketplaceProduct';
-import { MarketplaceProductAssignment } from '../models/MarketplaceProductAssignment';
-import { MarketplaceProductFacet } from '../models/MarketplaceProductFacet';
-import { MarketplaceSpec } from '../models/MarketplaceSpec';
-import { MarketplaceSpecOption } from '../models/MarketplaceSpecOption';
-import { MarketplaceSpecProductAssignment } from '../models/MarketplaceSpecProductAssignment';
+import { HSCatalog } from '../models/HSCatalog';
+import { HSCatalogAssignment } from '../models/HSCatalogAssignment';
+import { SuperHSProduct } from '../models/SuperHSProduct';
+import { HSPriceSchedule } from '../models/HSPriceSchedule';
+import { HSProduct } from '../models/HSProduct';
+import { HSProductAssignment } from '../models/HSProductAssignment';
+import { HSProductFacet } from '../models/HSProductFacet';
+import { HSSpec } from '../models/HSSpec';
+import { HSSpecOption } from '../models/HSSpecOption';
+import { HSSpecProductAssignment } from '../models/HSSpecProductAssignment';
 import { TemplateProductFlat } from '../models/TemplateProductFlat';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -35,104 +35,104 @@ export default class OrchestrationProducts {
     }
 
    /**
-    * @param marketplaceCatalog Required fields: Name
+    * @param hSCatalog Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostCatalog(marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+    public async PostCatalog(hSCatalog: HSCatalog, accessToken?: string ): Promise<RequiredDeep<HSCatalog>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/catalog`, marketplaceCatalog, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/catalog`, hSCatalog, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceCatalogAssignment 
+    * @param hSCatalogAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostCatalogProductAssignment(marketplaceCatalogAssignment: MarketplaceCatalogAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalogAssignment>> {
+    public async PostCatalogProductAssignment(hSCatalogAssignment: HSCatalogAssignment, accessToken?: string ): Promise<RequiredDeep<HSCatalogAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/catalogproductassignment`, marketplaceCatalogAssignment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/catalogproductassignment`, hSCatalogAssignment, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param superMarketplaceProduct 
+    * @param superHSProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostHydratedProduct(superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+    public async PostHydratedProduct(superHSProduct: SuperHSProduct, accessToken?: string ): Promise<RequiredDeep<SuperHSProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/hydrated`, superMarketplaceProduct, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/hydrated`, superHSProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplacePriceSchedule Required fields: Name
+    * @param hSPriceSchedule Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostPriceSchedule(marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+    public async PostPriceSchedule(hSPriceSchedule: HSPriceSchedule, accessToken?: string ): Promise<RequiredDeep<HSPriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/priceschedule`, marketplacePriceSchedule, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/priceschedule`, hSPriceSchedule, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceProduct Required fields: Name, QuantityMultiplier
+    * @param hSProduct Required fields: Name, QuantityMultiplier
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostProduct(marketplaceProduct: MarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceProduct>> {
+    public async PostProduct(hSProduct: HSProduct, accessToken?: string ): Promise<RequiredDeep<HSProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/product`, marketplaceProduct, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/product`, hSProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceProductAssignment Required fields: ProductID, BuyerID
+    * @param hSProductAssignment Required fields: ProductID, BuyerID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostProductAssignment(marketplaceProductAssignment: MarketplaceProductAssignment, accessToken?: string ): Promise<RequiredDeep<MarketplaceProductAssignment>> {
+    public async PostProductAssignment(hSProductAssignment: HSProductAssignment, accessToken?: string ): Promise<RequiredDeep<HSProductAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/productassignment`, marketplaceProductAssignment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/productassignment`, hSProductAssignment, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceProductFacet Required fields: Name, MinCount
+    * @param hSProductFacet Required fields: Name, MinCount
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostProductFacet(marketplaceProductFacet: MarketplaceProductFacet, accessToken?: string ): Promise<RequiredDeep<MarketplaceProductFacet>> {
+    public async PostProductFacet(hSProductFacet: HSProductFacet, accessToken?: string ): Promise<RequiredDeep<HSProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/productfacet`, marketplaceProductFacet, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/productfacet`, hSProductFacet, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceSpec Required fields: Name
+    * @param hSSpec Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostSpec(marketplaceSpec: MarketplaceSpec, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpec>> {
+    public async PostSpec(hSSpec: HSSpec, accessToken?: string ): Promise<RequiredDeep<HSSpec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/spec`, marketplaceSpec, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/spec`, hSSpec, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceSpecOption Required fields: Value
+    * @param hSSpecOption Required fields: Value
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostSpecOption(marketplaceSpecOption: MarketplaceSpecOption, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecOption>> {
+    public async PostSpecOption(hSSpecOption: HSSpecOption, accessToken?: string ): Promise<RequiredDeep<HSSpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/specoption`, marketplaceSpecOption, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/specoption`, hSSpecOption, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param options.clientId Client id of the marketplace spec product assignment.
-    * @param marketplaceSpecProductAssignment 
+    * @param options.clientId Client id of the hs spec product assignment.
+    * @param hSSpecProductAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PostSpecProductAssignment(marketplaceSpecProductAssignment: MarketplaceSpecProductAssignment, clientId: string, accessToken?: string ): Promise<RequiredDeep<MarketplaceSpecProductAssignment>> {
+    public async PostSpecProductAssignment(hSSpecProductAssignment: HSSpecProductAssignment, clientId: string, accessToken?: string ): Promise<RequiredDeep<HSSpecProductAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/orchestration/specproductassignment`, marketplaceSpecProductAssignment, { params: { clientId,  accessToken, impersonating } } );
+        return await httpClient.post(`/orchestration/specproductassignment`, hSSpecProductAssignment, { params: { clientId,  accessToken, impersonating } } );
     }
 
    /**

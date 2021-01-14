@@ -1,5 +1,5 @@
 import { ListPage } from '../models/ListPage';
-import { MarketplaceKitProduct } from '../models/MarketplaceKitProduct';
+import { HSKitProduct } from '../models/HSKitProduct';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -29,41 +29,41 @@ export default class KitProducts {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List( options: ListArgs<MarketplaceKitProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceKitProduct>>> {
+    public async List( options: ListArgs<HSKitProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSKitProduct>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/kitproducts`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
-    * @param marketplaceKitProduct 
+    * @param hSKitProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create(marketplaceKitProduct: MarketplaceKitProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
+    public async Create(hSKitProduct: HSKitProduct, accessToken?: string ): Promise<RequiredDeep<HSKitProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/kitproducts`, marketplaceKitProduct, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/kitproducts`, hSKitProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param id Id of the marketplace kit product.
+    * @param id Id of the hs kit product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get(id: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
+    public async Get(id: string,  accessToken?: string ): Promise<RequiredDeep<HSKitProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/kitproducts/${id}`, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param id Id of the marketplace kit product.
-    * @param marketplaceKitProduct 
+    * @param id Id of the hs kit product.
+    * @param hSKitProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save(id: string, marketplaceKitProduct: MarketplaceKitProduct, accessToken?: string ): Promise<RequiredDeep<MarketplaceKitProduct>> {
+    public async Save(id: string, hSKitProduct: HSKitProduct, accessToken?: string ): Promise<RequiredDeep<HSKitProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/kitproducts/${id}`, marketplaceKitProduct, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/kitproducts/${id}`, hSKitProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -85,7 +85,7 @@ export default class KitProducts {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListMeKits( options: ListArgs<MarketplaceKitProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceKitProduct>>> {
+    public async ListMeKits( options: ListArgs<HSKitProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSKitProduct>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/kitproducts/me`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );

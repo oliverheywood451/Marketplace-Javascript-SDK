@@ -1,7 +1,7 @@
-import { MarketplaceCatalogAssignmentRequest } from '../models/MarketplaceCatalogAssignmentRequest';
+import { HSCatalogAssignmentRequest } from '../models/HSCatalogAssignmentRequest';
 import { ListPage } from '../models/ListPage';
-import { MarketplaceCatalog } from '../models/MarketplaceCatalog';
-import { MarketplaceCatalogAssignment } from '../models/MarketplaceCatalogAssignment';
+import { HSCatalog } from '../models/HSCatalog';
+import { HSCatalogAssignment } from '../models/HSCatalogAssignment';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -28,13 +28,13 @@ export default class Catalogs {
    /**
     * @param buyerID ID of the buyer.
     * @param locationID ID of the location.
-    * @param marketplaceCatalogAssignmentRequest 
+    * @param hSCatalogAssignmentRequest 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SetAssignments(buyerID: string, locationID: string, marketplaceCatalogAssignmentRequest: MarketplaceCatalogAssignmentRequest, accessToken?: string ): Promise<void> {
+    public async SetAssignments(buyerID: string, locationID: string, hSCatalogAssignmentRequest: HSCatalogAssignmentRequest, accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/${locationID}/catalogs/assignments`, marketplaceCatalogAssignmentRequest, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyers/${buyerID}/${locationID}/catalogs/assignments`, hSCatalogAssignmentRequest, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -47,7 +47,7 @@ export default class Catalogs {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List(buyerID: string,  options: ListArgs<MarketplaceCatalog> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceCatalog>>> {
+    public async List(buyerID: string,  options: ListArgs<HSCatalog> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSCatalog>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/catalogs`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
@@ -55,13 +55,13 @@ export default class Catalogs {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param marketplaceCatalog Required fields: Name
+    * @param hSCatalog Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(buyerID: string, marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+    public async Post(buyerID: string, hSCatalog: HSCatalog, accessToken?: string ): Promise<RequiredDeep<HSCatalog>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/catalogs`, marketplaceCatalog, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyers/${buyerID}/catalogs`, hSCatalog, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -69,7 +69,7 @@ export default class Catalogs {
     * @param catalogID ID of the catalog.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get(buyerID: string, catalogID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+    public async Get(buyerID: string, catalogID: string,  accessToken?: string ): Promise<RequiredDeep<HSCatalog>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/catalogs/${catalogID}`, { params: {  accessToken, impersonating } } );
@@ -78,13 +78,13 @@ export default class Catalogs {
    /**
     * @param buyerID ID of the buyer.
     * @param catalogID ID of the catalog.
-    * @param marketplaceCatalog Required fields: Name
+    * @param hSCatalog Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Put(buyerID: string, catalogID: string, marketplaceCatalog: MarketplaceCatalog, accessToken?: string ): Promise<RequiredDeep<MarketplaceCatalog>> {
+    public async Put(buyerID: string, catalogID: string, hSCatalog: HSCatalog, accessToken?: string ): Promise<RequiredDeep<HSCatalog>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/buyers/${buyerID}/catalogs/${catalogID}`, marketplaceCatalog, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/buyers/${buyerID}/catalogs/${catalogID}`, hSCatalog, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -104,7 +104,7 @@ export default class Catalogs {
     * @param options.locationID ID of the location.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetAssignments(buyerID: string,  options: ListArgs<MarketplaceCatalogAssignment> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceCatalogAssignment>>> {
+    public async GetAssignments(buyerID: string,  options: ListArgs<HSCatalogAssignment> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSCatalogAssignment>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/catalogs/assignments`, { params: { ...options,  accessToken, impersonating } } );

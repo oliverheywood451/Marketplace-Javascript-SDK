@@ -1,5 +1,5 @@
-import { MarketplacePayment } from './MarketplacePayment';
+import { HSPayment } from './HSPayment';
 
 export interface PaymentUpdateRequest {
-    Payments?: MarketplacePayment[]
+    Payments?: HSPayment[]
 }

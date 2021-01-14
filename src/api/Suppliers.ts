@@ -1,5 +1,5 @@
-import { MarketplaceSupplier } from '../models/MarketplaceSupplier';
-import { MarketplaceSupplierOrderData } from '../models/MarketplaceSupplierOrderData';
+import { HSSupplier } from '../models/HSSupplier';
+import { HSSupplierOrderData } from '../models/HSSupplierOrderData';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -19,13 +19,13 @@ export default class Suppliers {
     }
 
    /**
-    * @param marketplaceSupplier Required fields: Name
+    * @param hSSupplier Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create(marketplaceSupplier: MarketplaceSupplier, accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {
+    public async Create(hSSupplier: HSSupplier, accessToken?: string ): Promise<RequiredDeep<HSSupplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/supplier`, marketplaceSupplier, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/supplier`, hSSupplier, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -42,7 +42,7 @@ export default class Suppliers {
     * @param supplierID ID of the supplier.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetMySupplier(supplierID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplier>> {
+    public async GetMySupplier(supplierID: string,  accessToken?: string ): Promise<RequiredDeep<HSSupplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/supplier/me/${supplierID}`, { params: {  accessToken, impersonating } } );
@@ -52,7 +52,7 @@ export default class Suppliers {
     * @param supplierOrderID ID of the supplier order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetSupplierOrder(supplierOrderID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceSupplierOrderData>> {
+    public async GetSupplierOrder(supplierOrderID: string,  accessToken?: string ): Promise<RequiredDeep<HSSupplierOrderData>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/supplier/orderdetails/${supplierOrderID}`, { params: {  accessToken, impersonating } } );

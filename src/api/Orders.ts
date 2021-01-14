@@ -1,8 +1,8 @@
 import { OrderCloudIntegrationsCreditCardPayment } from '../models/OrderCloudIntegrationsCreditCardPayment';
-import { MarketplaceOrder } from '../models/MarketplaceOrder';
+import { HSOrder } from '../models/HSOrder';
 import { LineItemStatusChanges } from '../models/LineItemStatusChanges';
 import { OrderDetails } from '../models/OrderDetails';
-import { MarketplaceLineItem } from '../models/MarketplaceLineItem';
+import { HSLineItem } from '../models/HSLineItem';
 import { Order } from '../models/Order';
 import { ListPage } from '../models/ListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
@@ -36,7 +36,7 @@ export default class Orders {
     * @param orderCloudIntegrationsCreditCardPayment Required fields: OrderID, PaymentID, Currency, MerchantID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Submit(direction: 'Incoming' | 'Outgoing', orderID: string, orderCloudIntegrationsCreditCardPayment: OrderCloudIntegrationsCreditCardPayment, accessToken?: string ): Promise<RequiredDeep<MarketplaceOrder>> {
+    public async Submit(direction: 'Incoming' | 'Outgoing', orderID: string, orderCloudIntegrationsCreditCardPayment: OrderCloudIntegrationsCreditCardPayment, accessToken?: string ): Promise<RequiredDeep<HSOrder>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/order/${direction}/${orderID}/submit`, orderCloudIntegrationsCreditCardPayment, { params: {  accessToken, impersonating } } );
@@ -58,7 +58,7 @@ export default class Orders {
     * @param orderID ID of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ApplyAutomaticPromotions(orderID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceOrder>> {
+    public async ApplyAutomaticPromotions(orderID: string,  accessToken?: string ): Promise<RequiredDeep<HSOrder>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/order/${orderID}/applypromotions`, {}, { params: {  accessToken, impersonating } } );
@@ -87,13 +87,13 @@ export default class Orders {
 
    /**
     * @param orderID ID of the order.
-    * @param marketplaceLineItem Required fields: ProductID, Quantity
+    * @param hSLineItem Required fields: ProductID, Quantity
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async UpsertLineItem(orderID: string, marketplaceLineItem: MarketplaceLineItem, accessToken?: string ): Promise<RequiredDeep<MarketplaceLineItem>> {
+    public async UpsertLineItem(orderID: string, hSLineItem: HSLineItem, accessToken?: string ): Promise<RequiredDeep<HSLineItem>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/order/${orderID}/lineitems`, marketplaceLineItem, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/order/${orderID}/lineitems`, hSLineItem, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -109,10 +109,10 @@ export default class Orders {
 
    /**
     * @param orderID ID of the order.
-    * @param promoCode Promo code of the marketplace order.
+    * @param promoCode Promo code of the hs order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async AddPromotion(orderID: string, promoCode: string,  accessToken?: string ): Promise<RequiredDeep<MarketplaceOrder>> {
+    public async AddPromotion(orderID: string, promoCode: string,  accessToken?: string ): Promise<RequiredDeep<HSOrder>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/order/${orderID}/promotions/${promoCode}`, {}, { params: {  accessToken, impersonating } } );
@@ -148,7 +148,7 @@ export default class Orders {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListLocationOrders(locationID: string,  options: ListArgs<MarketplaceOrder> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<MarketplaceOrder>>> {
+    public async ListLocationOrders(locationID: string,  options: ListArgs<HSOrder> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<HSOrder>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/order/location/${locationID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );

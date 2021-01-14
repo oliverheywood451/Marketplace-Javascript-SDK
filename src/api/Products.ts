@@ -1,6 +1,6 @@
 import { ListPage } from '../models/ListPage';
-import { SuperMarketplaceProduct } from '../models/SuperMarketplaceProduct';
-import { MarketplacePriceSchedule } from '../models/MarketplacePriceSchedule';
+import { SuperHSProduct } from '../models/SuperHSProduct';
+import { HSPriceSchedule } from '../models/HSPriceSchedule';
 import { Product } from '../models/Product';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -35,41 +35,41 @@ export default class Products {
     * @param options.filters An object whose keys match the model, and the values are the values to filter by
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List( options: ListArgs<SuperMarketplaceProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<SuperMarketplaceProduct>>> {
+    public async List( options: ListArgs<SuperHSProduct> = {}, accessToken?: string ): Promise<RequiredDeep<ListPage<SuperHSProduct>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/products`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
     }
 
    /**
-    * @param superMarketplaceProduct 
+    * @param superHSProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Post(superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+    public async Post(superHSProduct: SuperHSProduct, accessToken?: string ): Promise<RequiredDeep<SuperHSProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/products`, superMarketplaceProduct, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/products`, superHSProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param id Id of the super marketplace product.
+    * @param id Id of the super hs product.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get(id: string,  accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+    public async Get(id: string,  accessToken?: string ): Promise<RequiredDeep<SuperHSProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/products/${id}`, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param id Id of the super marketplace product.
-    * @param superMarketplaceProduct 
+    * @param id Id of the super hs product.
+    * @param superHSProduct 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Put(id: string, superMarketplaceProduct: SuperMarketplaceProduct, accessToken?: string ): Promise<RequiredDeep<SuperMarketplaceProduct>> {
+    public async Put(id: string, superHSProduct: SuperHSProduct, accessToken?: string ): Promise<RequiredDeep<SuperHSProduct>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/products/${id}`, superMarketplaceProduct, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/products/${id}`, superHSProduct, { params: {  accessToken, impersonating } } );
     }
 
    /**
@@ -83,38 +83,38 @@ export default class Products {
     }
 
    /**
-    * @param id Id of the marketplace price schedule.
+    * @param id Id of the hs price schedule.
     * @param buyerID ID of the buyer.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetPricingOverride(id: string, buyerID: string,  accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+    public async GetPricingOverride(id: string, buyerID: string,  accessToken?: string ): Promise<RequiredDeep<HSPriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/products/${id}/pricingoverride/buyer/${buyerID}`, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param id Id of the marketplace price schedule.
+    * @param id Id of the hs price schedule.
     * @param buyerID ID of the buyer.
-    * @param marketplacePriceSchedule Required fields: Name
+    * @param hSPriceSchedule Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async CreatePricingOverride(id: string, buyerID: string, marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+    public async CreatePricingOverride(id: string, buyerID: string, hSPriceSchedule: HSPriceSchedule, accessToken?: string ): Promise<RequiredDeep<HSPriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/products/${id}/pricingoverride/buyer/${buyerID}`, marketplacePriceSchedule, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/products/${id}/pricingoverride/buyer/${buyerID}`, hSPriceSchedule, { params: {  accessToken, impersonating } } );
     }
 
    /**
-    * @param id Id of the marketplace price schedule.
+    * @param id Id of the hs price schedule.
     * @param buyerID ID of the buyer.
-    * @param marketplacePriceSchedule Required fields: Name
+    * @param hSPriceSchedule Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async UpdatePricingOverride(id: string, buyerID: string, marketplacePriceSchedule: MarketplacePriceSchedule, accessToken?: string ): Promise<RequiredDeep<MarketplacePriceSchedule>> {
+    public async UpdatePricingOverride(id: string, buyerID: string, hSPriceSchedule: HSPriceSchedule, accessToken?: string ): Promise<RequiredDeep<HSPriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.put(`/products/${id}/pricingoverride/buyer/${buyerID}`, marketplacePriceSchedule, { params: {  accessToken, impersonating } } );
+        return await httpClient.put(`/products/${id}/pricingoverride/buyer/${buyerID}`, hSPriceSchedule, { params: {  accessToken, impersonating } } );
     }
 
    /**

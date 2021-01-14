@@ -6,4 +6,5 @@ export interface QuoteOrderInfo {
     Phone?: string
     Email?: string
     Comments?: string
+    ShippingAddressId?: string
 }

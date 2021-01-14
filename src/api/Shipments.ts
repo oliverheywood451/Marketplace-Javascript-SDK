@@ -1,4 +1,4 @@
-import { SuperShipment } from '../models/SuperShipment';
+import { SuperHSShipment } from '../models/SuperHSShipment';
 import { BatchProcessResult } from '../models/BatchProcessResult';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -17,13 +17,13 @@ export default class Shipments {
     }
 
    /**
-    * @param superShipment 
+    * @param superHSShipment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create(superShipment: SuperShipment, accessToken?: string ): Promise<RequiredDeep<SuperShipment>> {
+    public async Create(superHSShipment: SuperHSShipment, accessToken?: string ): Promise<RequiredDeep<SuperHSShipment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/shipment`, superShipment, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/shipment`, superHSShipment, { params: {  accessToken, impersonating } } );
     }
 
    /**
