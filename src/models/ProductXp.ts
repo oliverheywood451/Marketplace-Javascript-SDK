@@ -7,7 +7,7 @@ export interface ProductXp {
     Note?: string
     Tax?: TaxProperties
     UnitOfMeasure?: UnitOfMeasure
-    ProductType?: 'Standard' | 'Quote' | 'PurchaseOrder' | 'Kit' | 'Tester'
+    ProductType?: 'Standard' | 'Quote' | 'PurchaseOrder' | 'Kit'
     SizeTier?: 'G' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
     IsResale?: boolean
     Accessorials?: 'Freezable' | 'Hazmat' | 'KeepFromFreezing'
@@ -16,6 +16,4 @@ export interface ProductXp {
     PromotionEligible?: boolean
     FreeShipping?: boolean
     FreeShippingMessage?: string
-    TesterID?: string
-    ParentID?: string
 }

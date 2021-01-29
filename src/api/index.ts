@@ -15,6 +15,7 @@ import SupplierFilterConfigs from './SupplierFilterConfigs';
 import BuyerLocations from './BuyerLocations';
 import Mes from './Mes';
 import Reports from './Reports';
+import RmAs from './RmAs';
 import Avalaras from './Avalaras';
 import MePayments from './MePayments';
 import MeCreditCardAuthorizations from './MeCreditCardAuthorizations';
@@ -30,6 +31,7 @@ import TecraSpecs from './TecraSpecs';
 import TecraFrames from './TecraFrames';
 import TecraProofs from './TecraProofs';
 import TecraPdFs from './TecraPdFs';
+import TecraSpecForms from './TecraSpecForms';
 import Auth from './Auth';
 import Tokens from './Tokens';
 import Upload from './Upload';
@@ -54,6 +56,7 @@ const HeadStartSDK: HeadStartSDK = {
     BuyerLocations : new BuyerLocations(),
     Mes : new Mes(),
     Reports : new Reports(),
+    RmAs : new RmAs(),
     Avalaras : new Avalaras(),
     MePayments : new MePayments(),
     MeCreditCardAuthorizations : new MeCreditCardAuthorizations(),
@@ -69,6 +72,7 @@ const HeadStartSDK: HeadStartSDK = {
     TecraFrames : new TecraFrames(),
     TecraProofs : new TecraProofs(),
     TecraPdFs : new TecraPdFs(),
+    TecraSpecForms : new TecraSpecForms(),
     Auth: new Auth(),
     Tokens: new Tokens(),
     Upload: new Upload()
@@ -92,6 +96,7 @@ interface HeadStartSDK {
     BuyerLocations : BuyerLocations,
     Mes : Mes,
     Reports : Reports,
+    RmAs : RmAs,
     Avalaras : Avalaras,
     MePayments : MePayments,
     MeCreditCardAuthorizations : MeCreditCardAuthorizations,
@@ -107,6 +112,7 @@ interface HeadStartSDK {
     TecraFrames : TecraFrames,
     TecraProofs : TecraProofs,
     TecraPdFs : TecraPdFs,
+    TecraSpecForms : TecraSpecForms,
     Auth: Auth,
     Tokens: Tokens,
     Upload: Upload

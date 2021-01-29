@@ -7,4 +7,5 @@ export interface MeChiliTemplate {
     ChiliTemplateID?: string
     ChiliConfigID?: string
     Frame?: string
+    CustomSpecForm?: boolean
 }

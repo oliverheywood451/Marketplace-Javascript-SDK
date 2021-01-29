@@ -2,7 +2,7 @@
 export interface TemplateProductFlat {
     ID?: string
     Active?: boolean
-    ProductType?: 'Standard' | 'Quote' | 'PurchaseOrder' | 'Kit' | 'Tester'
+    ProductType?: 'Standard' | 'Quote' | 'PurchaseOrder' | 'Kit'
     Name?: string
     Description?: string
     QuantityMultiplier?: number

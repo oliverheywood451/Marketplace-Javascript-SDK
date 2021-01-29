@@ -12,6 +12,4 @@ export interface SuperHSMeProduct {
     Variants?: HSVariant[]
     Images?: Asset[]
     Attachments?: Asset[]
-    TesterProducts?: HSMeProduct[]
-    FullSizedProduct?: HSMeProduct
 }

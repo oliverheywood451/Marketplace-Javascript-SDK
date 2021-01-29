@@ -9,4 +9,5 @@ export interface ChiliConfig {
     BuyerID?: string
     CatalogID?: string
     ReadOnly?: boolean
+    CustomSpecForm?: boolean
 }
