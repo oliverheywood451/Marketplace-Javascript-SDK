@@ -4,11 +4,13 @@ import { RMACredit } from './RMACredit';
 
 export interface RMA {
     PartitionKey?: string
+    SourceOrderNumber?: string
     RMANumber?: string
     SupplierID?: string
     Type?: 'Cancellation' | 'Return'
     DateCreated?: string
-    Status?: 'Requested' | 'Denied' | 'Processing' | 'Complete' | 'Canceled'
+    DateComplete?: string
+    Status?: 'Requested' | 'Denied' | 'Processing' | 'Approved' | 'Complete' | 'Canceled'
     LineItems?: RMALineItem[]
     Logs?: RMALog[]
     CreditsApplied?: RMACredit[]

@@ -1,5 +1,4 @@
 import { RMA } from '../models/RMA';
-import { CosmosListOptions } from '../models/CosmosListOptions';
 import { CosmosListPage } from '../models/CosmosListPage';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
@@ -29,23 +28,23 @@ export default class RmAs {
     }
 
    /**
-    * @param cosmosListOptions 
+    * @param options.listOptions List options of the cosmos list page 1.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListBuyerRMAs(cosmosListOptions: CosmosListOptions, accessToken?: string ): Promise<RequiredDeep<CosmosListPage<RMA>>> {
+    public async ListBuyerRMAs( listOptions: any, accessToken?: string ): Promise<RequiredDeep<CosmosListPage<RMA>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/rma/list/buyer`, cosmosListOptions, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/rma/list/buyer`, {}, { params: { listOptions,  accessToken, impersonating } } );
     }
 
    /**
-    * @param cosmosListOptions 
+    * @param options.listOptions List options of the cosmos list page 1.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListMeRMAs(cosmosListOptions: CosmosListOptions, accessToken?: string ): Promise<RequiredDeep<CosmosListPage<RMA>>> {
+    public async ListMeRMAs( listOptions: any, accessToken?: string ): Promise<RequiredDeep<CosmosListPage<RMA>>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/rma/list/me`, cosmosListOptions, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/rma/list/me`, {}, { params: { listOptions,  accessToken, impersonating } } );
     }
 
     /**

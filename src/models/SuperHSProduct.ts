@@ -12,4 +12,6 @@ export interface SuperHSProduct {
     Variants?: HSVariant[]
     Images?: Asset[]
     Attachments?: Asset[]
+    TesterProducts?: HSProduct[]
+    TesterParentProducts?: HSProduct
 }

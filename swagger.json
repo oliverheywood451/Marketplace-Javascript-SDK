@@ -1285,7 +1285,9 @@
                                 "ArtworkRequired": false,
                                 "PromotionEligible": false,
                                 "FreeShipping": false,
-                                "FreeShippingMessage": ""
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
                             },
                             "OwnerID": "",
                             "DefaultPriceScheduleID": "",
@@ -1443,7 +1445,115 @@
                                     "UpdatedByUserID": ""
                                 }
                             }
-                        ]
+                        ],
+                        "TesterProducts": [
+                            {
+                                "xp": {
+                                    "Status": "Draft",
+                                    "HasVariants": false,
+                                    "Note": "",
+                                    "Tax": {
+                                        "Category": "",
+                                        "Code": "",
+                                        "Description": ""
+                                    },
+                                    "UnitOfMeasure": {
+                                        "Qty": 0,
+                                        "Unit": ""
+                                    },
+                                    "ProductType": "Standard",
+                                    "SizeTier": "G",
+                                    "IsResale": false,
+                                    "Accessorials": [
+                                        "Freezable"
+                                    ],
+                                    "Currency": "CAD",
+                                    "ArtworkRequired": false,
+                                    "PromotionEligible": false,
+                                    "FreeShipping": false,
+                                    "FreeShippingMessage": "",
+                                    "TesterID": "",
+                                    "ParentID": ""
+                                },
+                                "OwnerID": "",
+                                "DefaultPriceScheduleID": "",
+                                "AutoForward": false,
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "QuantityMultiplier": 0,
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0,
+                                "Active": false,
+                                "SpecCount": 0,
+                                "VariantCount": 0,
+                                "ShipFromAddressID": "",
+                                "Inventory": {
+                                    "Enabled": false,
+                                    "NotificationPoint": 0,
+                                    "VariantLevelTracking": false,
+                                    "OrderCanExceed": false,
+                                    "QuantityAvailable": 0,
+                                    "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                },
+                                "DefaultSupplierID": ""
+                            }
+                        ],
+                        "TesterParentProducts": {
+                            "xp": {
+                                "Status": "Draft",
+                                "HasVariants": false,
+                                "Note": "",
+                                "Tax": {
+                                    "Category": "",
+                                    "Code": "",
+                                    "Description": ""
+                                },
+                                "UnitOfMeasure": {
+                                    "Qty": 0,
+                                    "Unit": ""
+                                },
+                                "ProductType": "Standard",
+                                "SizeTier": "G",
+                                "IsResale": false,
+                                "Accessorials": [
+                                    "Freezable"
+                                ],
+                                "Currency": "CAD",
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
+                            },
+                            "OwnerID": "",
+                            "DefaultPriceScheduleID": "",
+                            "AutoForward": false,
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "QuantityMultiplier": 0,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Active": false,
+                            "SpecCount": 0,
+                            "VariantCount": 0,
+                            "ShipFromAddressID": "",
+                            "Inventory": {
+                                "Enabled": false,
+                                "NotificationPoint": 0,
+                                "VariantLevelTracking": false,
+                                "OrderCanExceed": false,
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "DefaultSupplierID": ""
+                        }
                     },
                     "TemplateSpecs": [
                         {
@@ -1570,43 +1680,6 @@
                         "type": "string"
                     },
                     "Phone": {
-                        "type": "string"
-                    }
-                }
-            },
-            "CosmosListOptions": {
-                "type": "object",
-                "example": {
-                    "PageSize": 0,
-                    "ContinuationToken": ""
-                },
-                "properties": {
-                    "PageSize": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "ContinuationToken": {
-                        "type": "string"
-                    }
-                }
-            },
-            "CosmosMeta": {
-                "type": "object",
-                "example": {
-                    "PageSize": 0,
-                    "Total": 0,
-                    "ContinuationToken": ""
-                },
-                "properties": {
-                    "PageSize": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "Total": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "ContinuationToken": {
                         "type": "string"
                     }
                 }
@@ -2244,7 +2317,9 @@
                                         "ArtworkRequired": false,
                                         "PromotionEligible": false,
                                         "FreeShipping": false,
-                                        "FreeShippingMessage": ""
+                                        "FreeShippingMessage": "",
+                                        "TesterID": "",
+                                        "ParentID": ""
                                     },
                                     "OwnerID": "",
                                     "DefaultPriceScheduleID": "",
@@ -2450,7 +2525,9 @@
                                     "ArtworkRequired": false,
                                     "PromotionEligible": false,
                                     "FreeShipping": false,
-                                    "FreeShippingMessage": ""
+                                    "FreeShippingMessage": "",
+                                    "TesterID": "",
+                                    "ParentID": ""
                                 },
                                 "OwnerID": "",
                                 "DefaultPriceScheduleID": "",
@@ -2604,7 +2681,9 @@
                             "ArtworkRequired": false,
                             "PromotionEligible": false,
                             "FreeShipping": false,
-                            "FreeShippingMessage": ""
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
                         },
                         "ID": "",
                         "Name": "",
@@ -3028,7 +3107,9 @@
                                 "ArtworkRequired": false,
                                 "PromotionEligible": false,
                                 "FreeShipping": false,
-                                "FreeShippingMessage": ""
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
                             },
                             "ID": "",
                             "Name": "",
@@ -3167,7 +3248,9 @@
                         "ArtworkRequired": false,
                         "PromotionEligible": false,
                         "FreeShipping": false,
-                        "FreeShippingMessage": ""
+                        "FreeShippingMessage": "",
+                        "TesterID": "",
+                        "ParentID": ""
                     },
                     "ID": "",
                     "Name": "",
@@ -3348,7 +3431,9 @@
                             "ArtworkRequired": false,
                             "PromotionEligible": false,
                             "FreeShipping": false,
-                            "FreeShippingMessage": ""
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -3527,7 +3612,9 @@
                                         "ArtworkRequired": false,
                                         "PromotionEligible": false,
                                         "FreeShipping": false,
-                                        "FreeShippingMessage": ""
+                                        "FreeShippingMessage": "",
+                                        "TesterID": "",
+                                        "ParentID": ""
                                     },
                                     "PriceSchedule": {
                                         "xp": {},
@@ -3747,7 +3834,9 @@
                                     "ArtworkRequired": false,
                                     "PromotionEligible": false,
                                     "FreeShipping": false,
-                                    "FreeShippingMessage": ""
+                                    "FreeShippingMessage": "",
+                                    "TesterID": "",
+                                    "ParentID": ""
                                 },
                                 "PriceSchedule": {
                                     "xp": {},
@@ -3882,7 +3971,9 @@
                         "ArtworkRequired": false,
                         "PromotionEligible": false,
                         "FreeShipping": false,
-                        "FreeShippingMessage": ""
+                        "FreeShippingMessage": "",
+                        "TesterID": "",
+                        "ParentID": ""
                     },
                     "PriceSchedule": {
                         "xp": {},
@@ -4078,7 +4169,9 @@
                             "ArtworkRequired": false,
                             "PromotionEligible": false,
                             "FreeShipping": false,
-                            "FreeShippingMessage": ""
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -4738,7 +4831,9 @@
                                     "ArtworkRequired": false,
                                     "PromotionEligible": false,
                                     "FreeShipping": false,
-                                    "FreeShippingMessage": ""
+                                    "FreeShippingMessage": "",
+                                    "TesterID": "",
+                                    "ParentID": ""
                                 },
                                 "ID": "",
                                 "Name": "",
@@ -5142,7 +5237,9 @@
                         "ArtworkRequired": false,
                         "PromotionEligible": false,
                         "FreeShipping": false,
-                        "FreeShippingMessage": ""
+                        "FreeShippingMessage": "",
+                        "TesterID": "",
+                        "ParentID": ""
                     },
                     "OwnerID": "",
                     "DefaultPriceScheduleID": "",
@@ -5395,7 +5492,9 @@
                             "ArtworkRequired": false,
                             "PromotionEligible": false,
                             "FreeShipping": false,
-                            "FreeShippingMessage": ""
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",
@@ -6621,7 +6720,9 @@
                                         "ArtworkRequired": false,
                                         "PromotionEligible": false,
                                         "FreeShipping": false,
-                                        "FreeShippingMessage": ""
+                                        "FreeShippingMessage": "",
+                                        "TesterID": "",
+                                        "ParentID": ""
                                     },
                                     "ID": "",
                                     "Name": "",
@@ -6939,7 +7040,9 @@
                                         "ArtworkRequired": false,
                                         "PromotionEligible": false,
                                         "FreeShipping": false,
-                                        "FreeShippingMessage": ""
+                                        "FreeShippingMessage": "",
+                                        "TesterID": "",
+                                        "ParentID": ""
                                     },
                                     "ID": "",
                                     "Name": "",
@@ -8348,7 +8451,9 @@
                                 "ArtworkRequired": false,
                                 "PromotionEligible": false,
                                 "FreeShipping": false,
-                                "FreeShippingMessage": ""
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
                             },
                             "PriceSchedule": {
                                 "xp": {},
@@ -8520,7 +8625,143 @@
                                     "UpdatedByUserID": ""
                                 }
                             }
-                        ]
+                        ],
+                        "TesterProducts": [
+                            {
+                                "xp": {
+                                    "Status": "Draft",
+                                    "HasVariants": false,
+                                    "Note": "",
+                                    "Tax": {
+                                        "Category": "",
+                                        "Code": "",
+                                        "Description": ""
+                                    },
+                                    "UnitOfMeasure": {
+                                        "Qty": 0,
+                                        "Unit": ""
+                                    },
+                                    "ProductType": "Standard",
+                                    "SizeTier": "G",
+                                    "IsResale": false,
+                                    "Accessorials": [
+                                        "Freezable"
+                                    ],
+                                    "Currency": "CAD",
+                                    "ArtworkRequired": false,
+                                    "PromotionEligible": false,
+                                    "FreeShipping": false,
+                                    "FreeShippingMessage": "",
+                                    "TesterID": "",
+                                    "ParentID": ""
+                                },
+                                "PriceSchedule": {
+                                    "xp": {},
+                                    "ID": "",
+                                    "Name": "",
+                                    "ApplyTax": false,
+                                    "ApplyShipping": false,
+                                    "MinQuantity": 0,
+                                    "MaxQuantity": 0,
+                                    "UseCumulativeQuantity": false,
+                                    "RestrictedQuantity": false,
+                                    "PriceBreaks": [
+                                        {
+                                            "Quantity": 0,
+                                            "Price": 0
+                                        }
+                                    ]
+                                },
+                                "ID": "",
+                                "Name": "",
+                                "Description": "",
+                                "QuantityMultiplier": 0,
+                                "ShipWeight": 0,
+                                "ShipHeight": 0,
+                                "ShipWidth": 0,
+                                "ShipLength": 0,
+                                "Active": false,
+                                "SpecCount": 0,
+                                "VariantCount": 0,
+                                "ShipFromAddressID": "",
+                                "Inventory": {
+                                    "Enabled": false,
+                                    "NotificationPoint": 0,
+                                    "VariantLevelTracking": false,
+                                    "OrderCanExceed": false,
+                                    "QuantityAvailable": 0,
+                                    "LastUpdated": "2018-01-01T00:00:00-06:00"
+                                },
+                                "DefaultSupplierID": ""
+                            }
+                        ],
+                        "TesterParentProducts": {
+                            "xp": {
+                                "Status": "Draft",
+                                "HasVariants": false,
+                                "Note": "",
+                                "Tax": {
+                                    "Category": "",
+                                    "Code": "",
+                                    "Description": ""
+                                },
+                                "UnitOfMeasure": {
+                                    "Qty": 0,
+                                    "Unit": ""
+                                },
+                                "ProductType": "Standard",
+                                "SizeTier": "G",
+                                "IsResale": false,
+                                "Accessorials": [
+                                    "Freezable"
+                                ],
+                                "Currency": "CAD",
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
+                            },
+                            "PriceSchedule": {
+                                "xp": {},
+                                "ID": "",
+                                "Name": "",
+                                "ApplyTax": false,
+                                "ApplyShipping": false,
+                                "MinQuantity": 0,
+                                "MaxQuantity": 0,
+                                "UseCumulativeQuantity": false,
+                                "RestrictedQuantity": false,
+                                "PriceBreaks": [
+                                    {
+                                        "Quantity": 0,
+                                        "Price": 0
+                                    }
+                                ]
+                            },
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "QuantityMultiplier": 0,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Active": false,
+                            "SpecCount": 0,
+                            "VariantCount": 0,
+                            "ShipFromAddressID": "",
+                            "Inventory": {
+                                "Enabled": false,
+                                "NotificationPoint": 0,
+                                "VariantLevelTracking": false,
+                                "OrderCanExceed": false,
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "DefaultSupplierID": ""
+                        }
                     },
                     "TemplateSpecs": [
                         {
@@ -10269,7 +10510,9 @@
                     "ArtworkRequired": false,
                     "PromotionEligible": false,
                     "FreeShipping": false,
-                    "FreeShippingMessage": ""
+                    "FreeShippingMessage": "",
+                    "TesterID": "",
+                    "ParentID": ""
                 },
                 "properties": {
                     "Status": {
@@ -10305,7 +10548,8 @@
                             "Standard",
                             "Quote",
                             "PurchaseOrder",
-                            "Kit"
+                            "Kit",
+                            "Tester"
                         ],
                         "type": "string"
                     },
@@ -10383,6 +10627,12 @@
                         "type": "boolean"
                     },
                     "FreeShippingMessage": {
+                        "type": "string"
+                    },
+                    "TesterID": {
+                        "type": "string"
+                    },
+                    "ParentID": {
                         "type": "string"
                     }
                 }
@@ -10614,10 +10864,12 @@
                 "type": "object",
                 "example": {
                     "PartitionKey": "",
+                    "SourceOrderNumber": "",
                     "RMANumber": "",
                     "SupplierID": "",
                     "Type": "Cancellation",
                     "DateCreated": "",
+                    "DateComplete": "",
                     "Status": "Requested",
                     "LineItems": [
                         {
@@ -10652,6 +10904,9 @@
                     "PartitionKey": {
                         "type": "string"
                     },
+                    "SourceOrderNumber": {
+                        "type": "string"
+                    },
                     "RMANumber": {
                         "type": "string"
                     },
@@ -10668,11 +10923,15 @@
                     "DateCreated": {
                         "type": "string"
                     },
+                    "DateComplete": {
+                        "type": "string"
+                    },
                     "Status": {
                         "enum": [
                             "Requested",
                             "Denied",
                             "Processing",
+                            "Approved",
                             "Complete",
                             "Canceled"
                         ],
@@ -10805,6 +11064,7 @@
                             "Requested",
                             "Denied",
                             "Processing",
+                            "Approved",
                             "Complete",
                             "Canceled"
                         ],
@@ -11328,7 +11588,9 @@
                             "ArtworkRequired": false,
                             "PromotionEligible": false,
                             "FreeShipping": false,
-                            "FreeShippingMessage": ""
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
                         },
                         "PriceSchedule": {
                             "xp": {},
@@ -11500,7 +11762,143 @@
                                 "UpdatedByUserID": ""
                             }
                         }
-                    ]
+                    ],
+                    "TesterProducts": [
+                        {
+                            "xp": {
+                                "Status": "Draft",
+                                "HasVariants": false,
+                                "Note": "",
+                                "Tax": {
+                                    "Category": "",
+                                    "Code": "",
+                                    "Description": ""
+                                },
+                                "UnitOfMeasure": {
+                                    "Qty": 0,
+                                    "Unit": ""
+                                },
+                                "ProductType": "Standard",
+                                "SizeTier": "G",
+                                "IsResale": false,
+                                "Accessorials": [
+                                    "Freezable"
+                                ],
+                                "Currency": "CAD",
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
+                            },
+                            "PriceSchedule": {
+                                "xp": {},
+                                "ID": "",
+                                "Name": "",
+                                "ApplyTax": false,
+                                "ApplyShipping": false,
+                                "MinQuantity": 0,
+                                "MaxQuantity": 0,
+                                "UseCumulativeQuantity": false,
+                                "RestrictedQuantity": false,
+                                "PriceBreaks": [
+                                    {
+                                        "Quantity": 0,
+                                        "Price": 0
+                                    }
+                                ]
+                            },
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "QuantityMultiplier": 0,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Active": false,
+                            "SpecCount": 0,
+                            "VariantCount": 0,
+                            "ShipFromAddressID": "",
+                            "Inventory": {
+                                "Enabled": false,
+                                "NotificationPoint": 0,
+                                "VariantLevelTracking": false,
+                                "OrderCanExceed": false,
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "DefaultSupplierID": ""
+                        }
+                    ],
+                    "TesterParentProducts": {
+                        "xp": {
+                            "Status": "Draft",
+                            "HasVariants": false,
+                            "Note": "",
+                            "Tax": {
+                                "Category": "",
+                                "Code": "",
+                                "Description": ""
+                            },
+                            "UnitOfMeasure": {
+                                "Qty": 0,
+                                "Unit": ""
+                            },
+                            "ProductType": "Standard",
+                            "SizeTier": "G",
+                            "IsResale": false,
+                            "Accessorials": [
+                                "Freezable"
+                            ],
+                            "Currency": "CAD",
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
+                        },
+                        "PriceSchedule": {
+                            "xp": {},
+                            "ID": "",
+                            "Name": "",
+                            "ApplyTax": false,
+                            "ApplyShipping": false,
+                            "MinQuantity": 0,
+                            "MaxQuantity": 0,
+                            "UseCumulativeQuantity": false,
+                            "RestrictedQuantity": false,
+                            "PriceBreaks": [
+                                {
+                                    "Quantity": 0,
+                                    "Price": 0
+                                }
+                            ]
+                        },
+                        "ID": "",
+                        "Name": "",
+                        "Description": "",
+                        "QuantityMultiplier": 0,
+                        "ShipWeight": 0,
+                        "ShipHeight": 0,
+                        "ShipWidth": 0,
+                        "ShipLength": 0,
+                        "Active": false,
+                        "SpecCount": 0,
+                        "VariantCount": 0,
+                        "ShipFromAddressID": "",
+                        "Inventory": {
+                            "Enabled": false,
+                            "NotificationPoint": 0,
+                            "VariantLevelTracking": false,
+                            "OrderCanExceed": false,
+                            "QuantityAvailable": 0,
+                            "LastUpdated": "2018-01-01T00:00:00-06:00"
+                        },
+                        "DefaultSupplierID": ""
+                    }
                 },
                 "properties": {
                     "ID": {
@@ -11543,6 +11941,19 @@
                         "items": {
                             "$ref": "#/components/schemas/Asset"
                         }
+                    },
+                    "TesterProducts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HSMeProduct"
+                        }
+                    },
+                    "TesterParentProducts": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HSMeProduct"
+                            }
+                        ]
                     }
                 }
             },
@@ -11574,7 +11985,9 @@
                             "ArtworkRequired": false,
                             "PromotionEligible": false,
                             "FreeShipping": false,
-                            "FreeShippingMessage": ""
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
                         },
                         "OwnerID": "",
                         "DefaultPriceScheduleID": "",
@@ -11732,7 +12145,115 @@
                                 "UpdatedByUserID": ""
                             }
                         }
-                    ]
+                    ],
+                    "TesterProducts": [
+                        {
+                            "xp": {
+                                "Status": "Draft",
+                                "HasVariants": false,
+                                "Note": "",
+                                "Tax": {
+                                    "Category": "",
+                                    "Code": "",
+                                    "Description": ""
+                                },
+                                "UnitOfMeasure": {
+                                    "Qty": 0,
+                                    "Unit": ""
+                                },
+                                "ProductType": "Standard",
+                                "SizeTier": "G",
+                                "IsResale": false,
+                                "Accessorials": [
+                                    "Freezable"
+                                ],
+                                "Currency": "CAD",
+                                "ArtworkRequired": false,
+                                "PromotionEligible": false,
+                                "FreeShipping": false,
+                                "FreeShippingMessage": "",
+                                "TesterID": "",
+                                "ParentID": ""
+                            },
+                            "OwnerID": "",
+                            "DefaultPriceScheduleID": "",
+                            "AutoForward": false,
+                            "ID": "",
+                            "Name": "",
+                            "Description": "",
+                            "QuantityMultiplier": 0,
+                            "ShipWeight": 0,
+                            "ShipHeight": 0,
+                            "ShipWidth": 0,
+                            "ShipLength": 0,
+                            "Active": false,
+                            "SpecCount": 0,
+                            "VariantCount": 0,
+                            "ShipFromAddressID": "",
+                            "Inventory": {
+                                "Enabled": false,
+                                "NotificationPoint": 0,
+                                "VariantLevelTracking": false,
+                                "OrderCanExceed": false,
+                                "QuantityAvailable": 0,
+                                "LastUpdated": "2018-01-01T00:00:00-06:00"
+                            },
+                            "DefaultSupplierID": ""
+                        }
+                    ],
+                    "TesterParentProducts": {
+                        "xp": {
+                            "Status": "Draft",
+                            "HasVariants": false,
+                            "Note": "",
+                            "Tax": {
+                                "Category": "",
+                                "Code": "",
+                                "Description": ""
+                            },
+                            "UnitOfMeasure": {
+                                "Qty": 0,
+                                "Unit": ""
+                            },
+                            "ProductType": "Standard",
+                            "SizeTier": "G",
+                            "IsResale": false,
+                            "Accessorials": [
+                                "Freezable"
+                            ],
+                            "Currency": "CAD",
+                            "ArtworkRequired": false,
+                            "PromotionEligible": false,
+                            "FreeShipping": false,
+                            "FreeShippingMessage": "",
+                            "TesterID": "",
+                            "ParentID": ""
+                        },
+                        "OwnerID": "",
+                        "DefaultPriceScheduleID": "",
+                        "AutoForward": false,
+                        "ID": "",
+                        "Name": "",
+                        "Description": "",
+                        "QuantityMultiplier": 0,
+                        "ShipWeight": 0,
+                        "ShipHeight": 0,
+                        "ShipWidth": 0,
+                        "ShipLength": 0,
+                        "Active": false,
+                        "SpecCount": 0,
+                        "VariantCount": 0,
+                        "ShipFromAddressID": "",
+                        "Inventory": {
+                            "Enabled": false,
+                            "NotificationPoint": 0,
+                            "VariantLevelTracking": false,
+                            "OrderCanExceed": false,
+                            "QuantityAvailable": 0,
+                            "LastUpdated": "2018-01-01T00:00:00-06:00"
+                        },
+                        "DefaultSupplierID": ""
+                    }
                 },
                 "properties": {
                     "ID": {
@@ -11775,6 +12296,19 @@
                         "items": {
                             "$ref": "#/components/schemas/Asset"
                         }
+                    },
+                    "TesterProducts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HSProduct"
+                        }
+                    },
+                    "TesterParentProducts": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HSProduct"
+                            }
+                        ]
                     }
                 }
             },
@@ -12120,7 +12654,8 @@
                             "Standard",
                             "Quote",
                             "PurchaseOrder",
-                            "Kit"
+                            "Kit",
+                            "Tester"
                         ],
                         "items": {
                             "type": "string"
@@ -12342,7 +12877,8 @@
                             "Standard",
                             "Quote",
                             "PurchaseOrder",
-                            "Kit"
+                            "Kit",
+                            "Tester"
                         ],
                         "type": "string"
                     },
@@ -15135,59 +15671,7 @@
                 ]
             }
         },
-        "/buyers/{buyerID}/catalogs/user/{userID}/location/{locationID}/Add": {
-            "post": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "Catalogs.SyncOnAddToLocation",
-                "tags": [
-                    "Catalogs"
-                ],
-                "parameters": [
-                    {
-                        "name": "buyerID",
-                        "in": "path",
-                        "description": "ID of the buyer.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "userID",
-                        "in": "path",
-                        "description": "ID of the user.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "locationID",
-                        "in": "path",
-                        "description": "ID of the location.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "SYNC User Location Catalogs On Add To Location",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/buyers/{buyerID}/catalogs/user/{userID}/location/{locationID}/Remove": {
+        "/buyers/{buyerID}/catalogs/user/{userID}": {
             "post": {
                 "responses": {
                     "204": {
@@ -15216,18 +15700,9 @@
                         "schema": {
                             "type": "string"
                         }
-                    },
-                    {
-                        "name": "locationID",
-                        "in": "path",
-                        "description": "ID of the location.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
                     }
                 ],
-                "summary": "SYNC User Location Catalogs On Remove From Location",
+                "summary": "SYNC User Catalogs Assignments",
                 "description": "",
                 "security": [
                     {
@@ -20666,21 +21141,17 @@
                 "tags": [
                     "RM As"
                 ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/CosmosListOptions"
-                                    }
-                                ]
-                            }
+                "parameters": [
+                    {
+                        "name": "listOptions",
+                        "in": "query",
+                        "description": "List options of the cosmos list page 1.",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
                         }
                     }
-                },
+                ],
                 "summary": "LIST Buyer Headstart RMAs",
                 "description": "",
                 "security": [
@@ -20710,21 +21181,17 @@
                 "tags": [
                     "RM As"
                 ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/CosmosListOptions"
-                                    }
-                                ]
-                            }
+                "parameters": [
+                    {
+                        "name": "listOptions",
+                        "in": "query",
+                        "description": "List options of the cosmos list page 1.",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
                         }
                     }
-                },
+                ],
                 "summary": "LIST Me Headstart RMAs",
                 "description": "",
                 "security": [

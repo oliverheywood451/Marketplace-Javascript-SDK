@@ -23,8 +23,6 @@ export * from './ChiliTemplate';
 export * from './ClaimResolutionStatuses';
 export * from './ClaimsSummary';
 export * from './Contact';
-export * from './CosmosListOptions';
-export * from './CosmosMeta';
 export * from './CostCenterXp';
 export * from './CreditCard';
 export * from './Filter';

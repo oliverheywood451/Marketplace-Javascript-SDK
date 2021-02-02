@@ -21,7 +21,6 @@ export default class Catalogs {
         this.Put = this.Put.bind(this);
         this.Delete = this.Delete.bind(this);
         this.GetAssignments = this.GetAssignments.bind(this);
-        this.SyncOnAddToLocation = this.SyncOnAddToLocation.bind(this);
         this.SyncOnRemoveFromLocation = this.SyncOnRemoveFromLocation.bind(this);
     }
 
@@ -113,25 +112,12 @@ export default class Catalogs {
    /**
     * @param buyerID ID of the buyer.
     * @param userID ID of the user.
-    * @param locationID ID of the location.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SyncOnAddToLocation(buyerID: string, userID: string, locationID: string,  accessToken?: string ): Promise<void> {
+    public async SyncOnRemoveFromLocation(buyerID: string, userID: string,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/catalogs/user/${userID}/location/${locationID}/Add`, {}, { params: {  accessToken, impersonating } } );
-    }
-
-   /**
-    * @param buyerID ID of the buyer.
-    * @param userID ID of the user.
-    * @param locationID ID of the location.
-    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
-    */
-    public async SyncOnRemoveFromLocation(buyerID: string, userID: string, locationID: string,  accessToken?: string ): Promise<void> {
-        const impersonating = this.impersonating;
-        this.impersonating = false;
-        return await httpClient.post(`/buyers/${buyerID}/catalogs/user/${userID}/location/${locationID}/Remove`, {}, { params: {  accessToken, impersonating } } );
+        return await httpClient.post(`/buyers/${buyerID}/catalogs/user/${userID}`, {}, { params: {  accessToken, impersonating } } );
     }
 
     /**
