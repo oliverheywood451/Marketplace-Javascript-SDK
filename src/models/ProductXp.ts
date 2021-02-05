@@ -17,5 +17,5 @@ export interface ProductXp {
     FreeShipping?: boolean
     FreeShippingMessage?: string
     TesterID?: string
-    ParentID?: string
+    TesterParentID?: string
 }
