@@ -1,11 +1,11 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Marketplace API",
-        "description": "Marketplace API",
+        "title": "Headstart API",
+        "description": "Headstart API",
         "version": "1.0",
         "contact": {
-            "name": "Marketplace",
+            "name": "Headstart",
             "url": "https://ordercloud.io",
             "email": "oheywood@four51.com"
         }
@@ -13,7 +13,7 @@
     "servers": [
         {
             "url": "https://middleware-api-staging.sebvendorportal.com",
-            "description": "Marketplace API"
+            "description": "Headstart API"
         }
     ],
     "tags": [
@@ -23,99 +23,84 @@
             "x-id": "Orchestration"
         },
         {
-            "name": "Orchestration Products",
-            "description": "\"Orchestration\" represents objects exposed for orchestration control",
-            "x-section-id": "Orchestration"
-        },
-        {
-            "name": "Orchestration Users",
-            "description": "\"Orchestration\" represents Organization objects exposed for orchestration control",
-            "x-section-id": "Orchestration"
-        },
-        {
-            "name": "Orchestration Logs",
-            "description": "\"Orchestration Logs\" represents logs of orchestration activities",
-            "x-section-id": "Orchestration"
-        },
-        {
-            "name": "Marketplace",
-            "description": "Marketplace resources",
-            "x-id": "Marketplace"
+            "name": "Headstart",
+            "description": "Headstart resources",
+            "x-id": "Headstart"
         },
         {
             "name": "Anytime Webhooks",
             "description": "",
-            "x-section-id": "Marketplace"
+            "x-section-id": "Headstart"
         },
         {
             "name": "Buyers",
-            "description": "\"Buyers\" represents Buyers for Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Buyers\" represents Buyers for Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "SSO Logins",
             "description": "",
-            "x-section-id": "Marketplace"
+            "x-section-id": "Headstart"
         },
         {
             "name": "Catalogs",
-            "description": "\"Marketplace Catalogs\" for product groupings and visibility in Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Headstart Catalogs\" for product groupings and visibility in Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Orders",
-            "description": "\"Marketplace Orders\" for handling order commands in Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Headstart Orders\" for handling order commands in Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Payments",
-            "description": "\"Marketplace Orders\" for handling payment commands in Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Headstart Orders\" for handling payment commands in Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Shipments",
-            "description": "\"Marketplace Shipments\" for making shipments in seller app",
-            "x-section-id": "Marketplace"
+            "description": "\"Headstart Shipments\" for making shipments in seller app",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Suppliers",
-            "description": "\"Marketplace Suppliers\" represents Supplier in Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Headstart Suppliers\" represents Supplier in Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Kit Products",
-            "description": "\"Kit Products\" represents Kit Products for Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Kit Products\" represents Kit Products for Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Products",
-            "description": "\"Products\" represents Products for Marketplace",
-            "x-section-id": "Marketplace"
+            "description": "\"Products\" represents Products for Headstart",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Supplier Filter Configs",
             "description": "\"Supplier Filter Config\" represents Supplier Category Configuration",
-            "x-section-id": "Marketplace"
+            "x-section-id": "Headstart"
         },
         {
             "name": "Buyer Locations",
-            "description": "\"Files\" represents files for Marketplace content management control",
-            "x-section-id": "Marketplace"
+            "description": "\"Files\" represents files for Headstart content management control",
+            "x-section-id": "Headstart"
         },
         {
             "name": "Mes",
             "description": "Me and my stuff",
-            "x-section-id": "Marketplace"
+            "x-section-id": "Headstart"
         },
         {
             "name": "Reports",
-            "description": "\"Marketplace Reports\" for generating and downloading reports in the Admin application",
-            "x-section-id": "Marketplace"
+            "description": "\"Headstart Reports\" for generating and downloading reports in the Admin application",
+            "x-section-id": "Headstart"
         },
         {
             "name": "RM As",
             "description": "\"Headstart RMAs\" for managing RMAs in the Headstart application",
-            "x-section-id": "Marketplace"
+            "x-section-id": "Headstart"
         },
         {
             "name": "Integration",
@@ -129,17 +114,17 @@
         },
         {
             "name": "Me Payments",
-            "description": "\"Integration\" represents ME Credit Card Payments for Marketplace",
+            "description": "\"Integration\" represents ME Credit Card Payments for Headstart",
             "x-section-id": "Integration"
         },
         {
             "name": "Me Credit Card Authorizations",
-            "description": "\"Integration\" represents ME Credit Card Tokenization for Marketplace",
+            "description": "\"Integration\" represents ME Credit Card Tokenization for Headstart",
             "x-section-id": "Integration"
         },
         {
             "name": "Credit Cards",
-            "description": "\"Integration\" represents Credit Card Tokenization for Marketplace",
+            "description": "\"Integration\" represents Credit Card Tokenization for Headstart",
             "x-section-id": "Integration"
         },
         {
@@ -438,21 +423,6 @@
                         "type": "string"
                     },
                     "AddressName": {
-                        "type": "string"
-                    }
-                }
-            },
-            "ApiError": {
-                "type": "object",
-                "example": {
-                    "ErrorCode": "",
-                    "Message": ""
-                },
-                "properties": {
-                    "ErrorCode": {
-                        "type": "string"
-                    },
-                    "Message": {
                         "type": "string"
                     }
                 }
@@ -1719,10 +1689,63 @@
                     }
                 }
             },
-            "CostCenterXp": {
+            "CosmosListOptions": {
                 "type": "object",
-                "example": {},
-                "properties": {}
+                "example": {
+                    "PageSize": 0,
+                    "ContinuationToken": "",
+                    "Filters": [
+                        {
+                            "Name": "",
+                            "Values": [
+                                {
+                                    "Term": "",
+                                    "Operator": "Equal",
+                                    "WildcardPositions": [
+                                        0
+                                    ],
+                                    "HasWildcard": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "properties": {
+                    "PageSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ContinuationToken": {
+                        "type": "string"
+                    },
+                    "Filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ListFilter"
+                        }
+                    }
+                }
+            },
+            "CosmosMeta": {
+                "type": "object",
+                "example": {
+                    "PageSize": 0,
+                    "Total": 0,
+                    "ContinuationToken": ""
+                },
+                "properties": {
+                    "PageSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "Total": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ContinuationToken": {
+                        "type": "string"
+                    }
+                }
             },
             "CreditCard": {
                 "type": "object",
@@ -1799,37 +1822,6 @@
                     },
                     "UpdatedByUserID": {
                         "type": "string"
-                    }
-                }
-            },
-            "HSAddressAssignment": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "AddressID": "",
-                    "UserID": "",
-                    "UserGroupID": "",
-                    "IsShipping": false,
-                    "IsBilling": false
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "AddressID": {
-                        "type": "string"
-                    },
-                    "UserID": {
-                        "type": "string"
-                    },
-                    "UserGroupID": {
-                        "type": "string"
-                    },
-                    "IsShipping": {
-                        "type": "boolean"
-                    },
-                    "IsBilling": {
-                        "type": "boolean"
                     }
                 }
             },
@@ -2153,33 +2145,6 @@
                         "items": {
                             "type": "string"
                         }
-                    }
-                }
-            },
-            "HSCostCenter": {
-                "type": "object",
-                "example": {
-                    "xp": {},
-                    "ID": "",
-                    "Name": "",
-                    "Description": ""
-                },
-                "properties": {
-                    "xp": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/CostCenterXp"
-                            }
-                        ]
-                    },
-                    "ID": {
-                        "type": "string"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "Description": {
-                        "type": "string"
                     }
                 }
             },
@@ -3008,7 +2973,8 @@
                                     "ShipFromAddressID": ""
                                 }
                             ],
-                            "IsResubmitting": false
+                            "IsResubmitting": false,
+                            "IsPaymentCaptured": false
                         },
                         "FromUser": {
                             "xp": {
@@ -4445,7 +4411,8 @@
                                 "ShipFromAddressID": ""
                             }
                         ],
-                        "IsResubmitting": false
+                        "IsResubmitting": false,
+                        "IsPaymentCaptured": false
                     },
                     "FromUser": {
                         "xp": {
@@ -4731,7 +4698,8 @@
                                     "ShipFromAddressID": ""
                                 }
                             ],
-                            "IsResubmitting": false
+                            "IsResubmitting": false,
+                            "IsPaymentCaptured": false
                         },
                         "FromUser": {
                             "xp": {
@@ -5373,75 +5341,6 @@
                     },
                     "DefaultSupplierID": {
                         "type": "string"
-                    }
-                }
-            },
-            "HSProductAssignment": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "ProductID": "",
-                    "BuyerID": "",
-                    "UserGroupID": "",
-                    "PriceScheduleID": ""
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "ProductID": {
-                        "type": "string"
-                    },
-                    "BuyerID": {
-                        "type": "string"
-                    },
-                    "UserGroupID": {
-                        "type": "string"
-                    },
-                    "PriceScheduleID": {
-                        "type": "string"
-                    }
-                }
-            },
-            "HSProductFacet": {
-                "type": "object",
-                "example": {
-                    "xp": {
-                        "Options": [
-                            ""
-                        ],
-                        "ParentID": ""
-                    },
-                    "ID": "",
-                    "Name": "",
-                    "XpPath": "",
-                    "ListOrder": 0,
-                    "MinCount": 0
-                },
-                "properties": {
-                    "xp": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/ProductFacetXp"
-                            }
-                        ]
-                    },
-                    "ID": {
-                        "type": "string"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "XpPath": {
-                        "type": "string"
-                    },
-                    "ListOrder": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "MinCount": {
-                        "type": "integer",
-                        "format": "int32"
                     }
                 }
             },
@@ -6310,146 +6209,6 @@
                     }
                 }
             },
-            "HSSpec": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "ListOrder": 0,
-                    "Name": "",
-                    "DefaultValue": "",
-                    "Required": false,
-                    "AllowOpenText": false,
-                    "DefaultOptionID": "",
-                    "DefinesVariant": false,
-                    "OptionCount": 0,
-                    "Options": [
-                        {
-                            "ID": "",
-                            "Value": "",
-                            "ListOrder": 0,
-                            "IsOpenText": false,
-                            "PriceMarkupType": "NoMarkup",
-                            "PriceMarkup": 0
-                        }
-                    ]
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "ListOrder": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "DefaultValue": {
-                        "type": "string"
-                    },
-                    "Required": {
-                        "type": "boolean"
-                    },
-                    "AllowOpenText": {
-                        "type": "boolean"
-                    },
-                    "DefaultOptionID": {
-                        "type": "string"
-                    },
-                    "DefinesVariant": {
-                        "type": "boolean"
-                    },
-                    "OptionCount": {
-                        "type": "integer",
-                        "format": "int32",
-                        "readOnly": true
-                    },
-                    "Options": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/SpecOption"
-                        },
-                        "readOnly": true
-                    }
-                }
-            },
-            "HSSpecOption": {
-                "type": "object",
-                "example": {
-                    "xp": {
-                        "Description": "",
-                        "SpecID": ""
-                    },
-                    "ID": "",
-                    "Value": "",
-                    "ListOrder": 0,
-                    "IsOpenText": false,
-                    "PriceMarkupType": "NoMarkup",
-                    "PriceMarkup": 0
-                },
-                "properties": {
-                    "xp": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/SpecOptionXp"
-                            }
-                        ]
-                    },
-                    "ID": {
-                        "type": "string"
-                    },
-                    "Value": {
-                        "type": "string"
-                    },
-                    "ListOrder": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "IsOpenText": {
-                        "type": "boolean"
-                    },
-                    "PriceMarkupType": {
-                        "enum": [
-                            "NoMarkup",
-                            "AmountPerQuantity",
-                            "AmountTotal",
-                            "Percentage"
-                        ],
-                        "type": "string"
-                    },
-                    "PriceMarkup": {
-                        "type": "number",
-                        "format": "float"
-                    }
-                }
-            },
-            "HSSpecProductAssignment": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "SpecID": "",
-                    "ProductID": "",
-                    "DefaultValue": "",
-                    "DefaultOptionID": ""
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "SpecID": {
-                        "type": "string"
-                    },
-                    "ProductID": {
-                        "type": "string"
-                    },
-                    "DefaultValue": {
-                        "type": "string"
-                    },
-                    "DefaultOptionID": {
-                        "type": "string"
-                    }
-                }
-            },
             "HSSpecValue": {
                 "type": "object",
                 "example": {
@@ -6620,7 +6379,8 @@
                                         "ShipFromAddressID": ""
                                     }
                                 ],
-                                "IsResubmitting": false
+                                "IsResubmitting": false,
+                                "IsPaymentCaptured": false
                             },
                             "FromUser": {
                                 "xp": {
@@ -6940,7 +6700,8 @@
                                         "ShipFromAddressID": ""
                                     }
                                 ],
-                                "IsResubmitting": false
+                                "IsResubmitting": false,
+                                "IsPaymentCaptured": false
                             },
                             "FromUser": {
                                 "xp": {
@@ -7332,55 +7093,6 @@
                         "type": "string",
                         "format": "password",
                         "readOnly": true
-                    }
-                }
-            },
-            "HSUserGroup": {
-                "type": "object",
-                "example": {
-                    "xp": {
-                        "Type": "",
-                        "Role": ""
-                    },
-                    "ID": "",
-                    "Name": "",
-                    "Description": ""
-                },
-                "properties": {
-                    "xp": {
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/UserGroupXp"
-                            }
-                        ]
-                    },
-                    "ID": {
-                        "type": "string"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "Description": {
-                        "type": "string"
-                    }
-                }
-            },
-            "HSUserGroupAssignment": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "UserGroupID": "",
-                    "UserID": ""
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "UserGroupID": {
-                        "type": "string"
-                    },
-                    "UserID": {
-                        "type": "string"
                     }
                 }
             },
@@ -8202,6 +7914,70 @@
                     }
                 }
             },
+            "ListFilter": {
+                "type": "object",
+                "example": {
+                    "Name": "",
+                    "Values": [
+                        {
+                            "Term": "",
+                            "Operator": "Equal",
+                            "WildcardPositions": [
+                                0
+                            ],
+                            "HasWildcard": false
+                        }
+                    ]
+                },
+                "properties": {
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Values": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ListFilterValue"
+                        }
+                    }
+                }
+            },
+            "ListFilterValue": {
+                "type": "object",
+                "example": {
+                    "Term": "",
+                    "Operator": "Equal",
+                    "WildcardPositions": [
+                        0
+                    ],
+                    "HasWildcard": false
+                },
+                "properties": {
+                    "Term": {
+                        "type": "string"
+                    },
+                    "Operator": {
+                        "enum": [
+                            "Equal",
+                            "GreaterThan",
+                            "LessThan",
+                            "GreaterThanOrEqual",
+                            "LessThanOrEqual",
+                            "NotEqual"
+                        ],
+                        "type": "string"
+                    },
+                    "WildcardPositions": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    "HasWildcard": {
+                        "type": "boolean"
+                    }
+                }
+            },
             "ListHSCatalog": {
                 "type": "object",
                 "properties": {
@@ -8327,20 +8103,6 @@
                                 "$ref": "#/components/schemas/Notification"
                             }
                         ]
-                    }
-                }
-            },
-            "ListOrchestrationLog": {
-                "type": "object",
-                "properties": {
-                    "Items": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/OrchestrationLog"
-                        }
-                    },
-                    "Meta": {
-                        "$ref": "#/components/schemas/Meta"
                     }
                 }
             },
@@ -8546,6 +8308,29 @@
                             ]
                         },
                         "Specs": [
+                            {
+                                "ID": "",
+                                "ListOrder": 0,
+                                "Name": "",
+                                "DefaultValue": "",
+                                "Required": false,
+                                "AllowOpenText": false,
+                                "DefaultOptionID": "",
+                                "DefinesVariant": false,
+                                "OptionCount": 0,
+                                "Options": [
+                                    {
+                                        "ID": "",
+                                        "Value": "",
+                                        "ListOrder": 0,
+                                        "IsOpenText": false,
+                                        "PriceMarkupType": "NoMarkup",
+                                        "PriceMarkup": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "TesterSpecs": [
                             {
                                 "ID": "",
                                 "ListOrder": 0,
@@ -8987,106 +8772,6 @@
                     },
                     "JsonData": {
                         "type": "string"
-                    }
-                }
-            },
-            "OrchestrationLog": {
-                "type": "object",
-                "example": {
-                    "ErrorType": "WorkItemDefinition",
-                    "Message": "",
-                    "Level": "Progress",
-                    "ResourceId": "",
-                    "RecordId": "",
-                    "RecordType": "HydratedProduct",
-                    "Action": "Ignore",
-                    "OrderCloudErrors": [
-                        {
-                            "ErrorCode": "",
-                            "Message": ""
-                        }
-                    ]
-                },
-                "properties": {
-                    "ErrorType": {
-                        "enum": [
-                            "WorkItemDefinition",
-                            "QueuedGetError",
-                            "CachedGetError",
-                            "DiffCalculationError",
-                            "ActionEvaluationError",
-                            "CacheUpdateError",
-                            "QueueCleanupError",
-                            "SyncCommandError",
-                            "CreateExistsError",
-                            "CreateGeneralError",
-                            "UpdateGeneralError",
-                            "PatchGeneralError",
-                            "GetGeneralError",
-                            "AuthenticateSupplierError",
-                            "NoRelatedOrderCloudOrderFound"
-                        ],
-                        "type": "string"
-                    },
-                    "Message": {
-                        "type": "string"
-                    },
-                    "Level": {
-                        "enum": [
-                            "Progress",
-                            "Error",
-                            "Warn",
-                            "Success"
-                        ],
-                        "type": "string"
-                    },
-                    "ResourceId": {
-                        "type": "string"
-                    },
-                    "RecordId": {
-                        "type": "string"
-                    },
-                    "RecordType": {
-                        "enum": [
-                            "HydratedProduct",
-                            "Product",
-                            "PriceSchedule",
-                            "Spec",
-                            "SpecOption",
-                            "SpecProductAssignment",
-                            "ProductFacet",
-                            "Buyer",
-                            "User",
-                            "UserGroup",
-                            "Address",
-                            "CostCenter",
-                            "UserGroupAssignment",
-                            "AddressAssignment",
-                            "CatalogAssignment",
-                            "Catalog",
-                            "Supplier",
-                            "Order",
-                            "TemplateProductFlat"
-                        ],
-                        "type": "string"
-                    },
-                    "Action": {
-                        "enum": [
-                            "Ignore",
-                            "Create",
-                            "Update",
-                            "Patch",
-                            "Delete",
-                            "Get",
-                            "SyncShipments"
-                        ],
-                        "type": "string"
-                    },
-                    "OrderCloudErrors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/ApiError"
-                        }
                     }
                 }
             },
@@ -9594,7 +9279,8 @@
                                     "ShipFromAddressID": ""
                                 }
                             ],
-                            "IsResubmitting": false
+                            "IsResubmitting": false,
+                            "IsPaymentCaptured": false
                         },
                         "FromUser": {
                             "xp": {
@@ -10025,7 +9711,8 @@
                             "ShipFromAddressID": ""
                         }
                     ],
-                    "IsResubmitting": false
+                    "IsResubmitting": false,
+                    "IsPaymentCaptured": false
                 },
                 "properties": {
                     "AvalaraTaxTransactionCode": {
@@ -10161,6 +9848,9 @@
                         }
                     },
                     "IsResubmitting": {
+                        "type": "boolean"
+                    },
+                    "IsPaymentCaptured": {
                         "type": "boolean"
                     }
                 }
@@ -10531,26 +10221,6 @@
                         ]
                     },
                     "DefaultSupplierID": {
-                        "type": "string"
-                    }
-                }
-            },
-            "ProductFacetXp": {
-                "type": "object",
-                "example": {
-                    "Options": [
-                        ""
-                    ],
-                    "ParentID": ""
-                },
-                "properties": {
-                    "Options": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "ParentID": {
                         "type": "string"
                     }
                 }
@@ -11580,21 +11250,6 @@
                     }
                 }
             },
-            "SpecOptionXp": {
-                "type": "object",
-                "example": {
-                    "Description": "",
-                    "SpecID": ""
-                },
-                "properties": {
-                    "Description": {
-                        "type": "string"
-                    },
-                    "SpecID": {
-                        "type": "string"
-                    }
-                }
-            },
             "SuperHSBuyer": {
                 "type": "object",
                 "example": {
@@ -11718,6 +11373,29 @@
                         ]
                     },
                     "Specs": [
+                        {
+                            "ID": "",
+                            "ListOrder": 0,
+                            "Name": "",
+                            "DefaultValue": "",
+                            "Required": false,
+                            "AllowOpenText": false,
+                            "DefaultOptionID": "",
+                            "DefinesVariant": false,
+                            "OptionCount": 0,
+                            "Options": [
+                                {
+                                    "ID": "",
+                                    "Value": "",
+                                    "ListOrder": 0,
+                                    "IsOpenText": false,
+                                    "PriceMarkupType": "NoMarkup",
+                                    "PriceMarkup": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "TesterSpecs": [
                         {
                             "ID": "",
                             "ListOrder": 0,
@@ -12024,6 +11702,12 @@
                         ]
                     },
                     "Specs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Spec"
+                        }
+                    },
+                    "TesterSpecs": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Spec"
@@ -12984,212 +12668,6 @@
                     }
                 }
             },
-            "TemplateProductFlat": {
-                "type": "object",
-                "example": {
-                    "ID": "",
-                    "Active": false,
-                    "ProductType": "Standard",
-                    "Name": "",
-                    "Description": "",
-                    "QuantityMultiplier": 0,
-                    "ShipFromAddressID": "",
-                    "ShipWeight": 0,
-                    "ShipHeight": 0,
-                    "ShipWidth": 0,
-                    "ShipLength": 0,
-                    "TaxCategory": "",
-                    "TaxCode": "",
-                    "TaxDescription": "",
-                    "UnitOfMeasureQuantity": 0,
-                    "UnitOfMeasure": "",
-                    "IsResale": false,
-                    "ApplyTax": false,
-                    "ApplyShipping": false,
-                    "MinQuantity": 0,
-                    "MaxQuantity": 0,
-                    "UseCumulativeQuantity": false,
-                    "RestrictedQuantity": false,
-                    "Price": 0,
-                    "Currency": "CAD",
-                    "ImageTitle": "",
-                    "Url": "",
-                    "Type": "Image",
-                    "Tags": "",
-                    "FileName": "",
-                    "SizeTier": "G"
-                },
-                "properties": {
-                    "ID": {
-                        "type": "string"
-                    },
-                    "Active": {
-                        "type": "boolean"
-                    },
-                    "ProductType": {
-                        "enum": [
-                            "Standard",
-                            "Quote",
-                            "PurchaseOrder",
-                            "Kit",
-                            "Tester"
-                        ],
-                        "type": "string"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "Description": {
-                        "type": "string"
-                    },
-                    "QuantityMultiplier": {
-                        "type": "integer",
-                        "format": "int32",
-                        "minimum": 1
-                    },
-                    "ShipFromAddressID": {
-                        "type": "string"
-                    },
-                    "ShipWeight": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "ShipHeight": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "ShipWidth": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "ShipLength": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "TaxCategory": {
-                        "type": "string"
-                    },
-                    "TaxCode": {
-                        "type": "string"
-                    },
-                    "TaxDescription": {
-                        "type": "string"
-                    },
-                    "UnitOfMeasureQuantity": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "UnitOfMeasure": {
-                        "type": "string"
-                    },
-                    "IsResale": {
-                        "type": "boolean"
-                    },
-                    "ApplyTax": {
-                        "type": "boolean"
-                    },
-                    "ApplyShipping": {
-                        "type": "boolean"
-                    },
-                    "MinQuantity": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "MaxQuantity": {
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    "UseCumulativeQuantity": {
-                        "type": "boolean"
-                    },
-                    "RestrictedQuantity": {
-                        "type": "boolean"
-                    },
-                    "Price": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "Currency": {
-                        "enum": [
-                            "CAD",
-                            "HKD",
-                            "ISK",
-                            "PHP",
-                            "DKK",
-                            "HUF",
-                            "CZK",
-                            "GBP",
-                            "RON",
-                            "SEK",
-                            "IDR",
-                            "INR",
-                            "BRL",
-                            "RUB",
-                            "HRK",
-                            "JPY",
-                            "THB",
-                            "CHF",
-                            "EUR",
-                            "MYR",
-                            "BGN",
-                            "TRY",
-                            "CNY",
-                            "NOK",
-                            "NZD",
-                            "ZAR",
-                            "USD",
-                            "MXN",
-                            "SGD",
-                            "AUD",
-                            "ILS",
-                            "KRW",
-                            "PLN"
-                        ],
-                        "type": "string"
-                    },
-                    "ImageTitle": {
-                        "type": "string"
-                    },
-                    "Url": {
-                        "type": "string"
-                    },
-                    "Type": {
-                        "enum": [
-                            "Image",
-                            "Text",
-                            "Audio",
-                            "Video",
-                            "Presentation",
-                            "SpreadSheet",
-                            "PDF",
-                            "Compressed",
-                            "Code",
-                            "JSON",
-                            "Markup",
-                            "Unknown"
-                        ],
-                        "type": "string"
-                    },
-                    "Tags": {
-                        "type": "string"
-                    },
-                    "FileName": {
-                        "type": "string"
-                    },
-                    "SizeTier": {
-                        "enum": [
-                            "G",
-                            "A",
-                            "B",
-                            "C",
-                            "D",
-                            "E",
-                            "F"
-                        ],
-                        "type": "string"
-                    }
-                }
-            },
             "TransactionXP": {
                 "type": "object",
                 "example": {
@@ -13345,21 +12823,6 @@
                         "type": "string"
                     },
                     "UserID": {
-                        "type": "string"
-                    }
-                }
-            },
-            "UserGroupXp": {
-                "type": "object",
-                "example": {
-                    "Type": "",
-                    "Role": ""
-                },
-                "properties": {
-                    "Type": {
-                        "type": "string"
-                    },
-                    "Role": {
                         "type": "string"
                     }
                 }
@@ -14169,7 +13632,7 @@
                         }
                     }
                 },
-                "summary": "POST Marketplace Buyer",
+                "summary": "POST Headstart Buyer",
                 "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
                 "security": [
                     {
@@ -14210,7 +13673,7 @@
                         }
                     }
                 ],
-                "summary": "GET Marketplace Buyer",
+                "summary": "GET Headstart Buyer",
                 "description": "",
                 "security": [
                     {
@@ -14264,7 +13727,7 @@
                         }
                     }
                 ],
-                "summary": "PUT Marketplace Buyer",
+                "summary": "PUT Headstart Buyer",
                 "description": "",
                 "security": [
                     {
@@ -17711,1043 +17174,6 @@
                 ]
             }
         },
-        "/orchestration/{buyerId}/address": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSAddressBuyer"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostAddress",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSAddressBuyer"
-                                    }
-                                ],
-                                "required": [
-                                    "Street1",
-                                    "City",
-                                    "State",
-                                    "Zip",
-                                    "Country"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "buyerId",
-                        "in": "path",
-                        "description": "Buyer id of the hs address buyer.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST Address",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/{buyerId}/addressassignment": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSAddressAssignment"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostAddressAssignment",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSAddressAssignment"
-                                    }
-                                ],
-                                "required": [
-                                    "AddressID"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "buyerId",
-                        "in": "path",
-                        "description": "Buyer id of the hs address assignment.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST AddressAssignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/{buyerId}/costcenter": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSCostCenter"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostCostCenter",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSCostCenter"
-                                    }
-                                ],
-                                "required": [
-                                    "Name"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "buyerId",
-                        "in": "path",
-                        "description": "Buyer id of the hs cost center.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST CostCenter",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/{buyerId}/user": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSUser"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostUser",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSUser"
-                                    }
-                                ],
-                                "required": [
-                                    "Username",
-                                    "FirstName",
-                                    "LastName",
-                                    "Email",
-                                    "Active"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "buyerId",
-                        "in": "path",
-                        "description": "Buyer id of the hs user.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST User",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/{buyerId}/usergroup": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSUserGroup"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostUserGroup",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSUserGroup"
-                                    }
-                                ],
-                                "required": [
-                                    "Name"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "buyerId",
-                        "in": "path",
-                        "description": "Buyer id of the hs user group.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST UserGroup",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/{buyerId}/usergroupassignment": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSUserGroupAssignment"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostUserGroupAssignment",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSUserGroupAssignment"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "buyerId",
-                        "in": "path",
-                        "description": "Buyer id of the hs user group assignment.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST UserGroupAssignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/buyer": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSBuyer"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationUsers.PostBuyer",
-                "tags": [
-                    "Orchestration Users"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSBuyer"
-                                    }
-                                ],
-                                "required": [
-                                    "Name"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Buyer",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/catalog": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSCatalog"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostCatalog",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSCatalog"
-                                    }
-                                ],
-                                "required": [
-                                    "Name"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Catalog",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "CatalogAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/catalogproductassignment": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSCatalogAssignment"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostCatalogProductAssignment",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSCatalogAssignment"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Catalog Product Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "CatalogAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/hydrated": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SuperHSProduct"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostHydratedProduct",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/SuperHSProduct"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST SuperProduct",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/logs": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ListOrchestrationLog"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationLogs.List",
-                "tags": [
-                    "Orchestration Logs"
-                ],
-                "parameters": [
-                    {
-                        "name": "search",
-                        "in": "query",
-                        "description": "Word or phrase to search for.",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "searchOn",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to search on.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ID"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "sortBy",
-                        "in": "query",
-                        "description": "Comma-delimited list of fields to sort by.",
-                        "required": false,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "enum": [
-                                    "ErrorType",
-                                    "Level",
-                                    "ResourceId",
-                                    "RecordId",
-                                    "RecordType",
-                                    "Action"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "description": "Page of results to return. Default: 1",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "pageSize",
-                        "in": "query",
-                        "description": "Number of results to return per page. Default: 20, max: 100.",
-                        "required": false,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    },
-                    {
-                        "name": "filters",
-                        "in": "query",
-                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
-                        "required": false,
-                        "schema": {
-                            "type": "object"
-                        }
-                    }
-                ],
-                "summary": "GET Orchestration Logs",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/orchestration/priceschedule": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSPriceSchedule"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostPriceSchedule",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSPriceSchedule"
-                                    }
-                                ],
-                                "required": [
-                                    "Name"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Price Schedule",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "PriceScheduleAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/product": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSProduct"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostProduct",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSProduct"
-                                    }
-                                ],
-                                "required": [
-                                    "Name",
-                                    "QuantityMultiplier"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Product",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/productassignment": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSProductAssignment"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostProductAssignment",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSProductAssignment"
-                                    }
-                                ],
-                                "required": [
-                                    "ProductID",
-                                    "BuyerID"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Product Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/productfacet": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSProductFacet"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostProductFacet",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSProductFacet"
-                                    }
-                                ],
-                                "required": [
-                                    "Name",
-                                    "MinCount"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Product Facet",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductFacetAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/spec": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSSpec"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostSpec",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSSpec"
-                                    }
-                                ],
-                                "required": [
-                                    "Name"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Spec",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/specoption": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSSpecOption"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostSpecOption",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSSpecOption"
-                                    }
-                                ],
-                                "required": [
-                                    "Value"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST Spec Option",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/specproductassignment": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/HSSpecProductAssignment"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostSpecProductAssignment",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/HSSpecProductAssignment"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "clientId",
-                        "in": "query",
-                        "description": "Client id of the hs spec product assignment.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "POST Spec Product Assignment",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/orchestration/templateproduct": {
-            "post": {
-                "responses": {
-                    "201": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/TemplateProductFlat"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "OrchestrationProducts.PostTemplateFlatProduct",
-                "tags": [
-                    "Orchestration Products"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/TemplateProductFlat"
-                                    }
-                                ],
-                                "required": [
-                                    "ID",
-                                    "Name",
-                                    "TaxCategory",
-                                    "TaxCode",
-                                    "Price"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "POST FlatProduct",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "ProductAdmin",
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
         "/order/{direction}/{orderID}/billto": {
             "put": {
                 "responses": {
@@ -21295,17 +19721,21 @@
                 "tags": [
                     "RM As"
                 ],
-                "parameters": [
-                    {
-                        "name": "listOptions",
-                        "in": "query",
-                        "description": "List options of the cosmos list page 1.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/CosmosListOptions"
+                                    }
+                                ]
+                            }
                         }
                     }
-                ],
+                },
                 "summary": "LIST Buyer Headstart RMAs",
                 "description": "",
                 "security": [
@@ -21335,17 +19765,21 @@
                 "tags": [
                     "RM As"
                 ],
-                "parameters": [
-                    {
-                        "name": "listOptions",
-                        "in": "query",
-                        "description": "List options of the cosmos list page 1.",
-                        "required": true,
-                        "schema": {
-                            "type": "object"
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/CosmosListOptions"
+                                    }
+                                ]
+                            }
                         }
                     }
-                ],
+                },
                 "summary": "LIST Me Headstart RMAs",
                 "description": "",
                 "security": [
@@ -21391,7 +19825,7 @@
                         }
                     }
                 },
-                "summary": "POST Marketplace Shipment",
+                "summary": "POST Headstart Shipment",
                 "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
                 "security": [
                     {
@@ -21480,7 +19914,7 @@
                         }
                     }
                 },
-                "summary": "POST Marketplace Supplier",
+                "summary": "POST Headstart Supplier",
                 "description": "If ID is provided and an object with that ID already exists, a 409 (conflict) error is returned.",
                 "security": [
                     {

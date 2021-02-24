@@ -9,6 +9,7 @@ export interface SuperHSMeProduct {
     Product?: HSMeProduct
     PriceSchedule?: PriceSchedule
     Specs?: Spec[]
+    TesterSpecs?: Spec[]
     Variants?: HSVariant[]
     TesterVariants?: HSVariant[]
     Images?: Asset[]

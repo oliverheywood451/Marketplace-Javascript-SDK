@@ -1,6 +1,3 @@
-import OrchestrationProducts from './OrchestrationProducts';
-import OrchestrationUsers from './OrchestrationUsers';
-import OrchestrationLogs from './OrchestrationLogs';
 import AnytimeWebhooks from './AnytimeWebhooks';
 import Buyers from './Buyers';
 import SsoLogins from './SsoLogins';
@@ -39,9 +36,6 @@ import Upload from './Upload';
 export { HeadStartSDK }
 
 const HeadStartSDK: HeadStartSDK = {
-    OrchestrationProducts : new OrchestrationProducts(),
-    OrchestrationUsers : new OrchestrationUsers(),
-    OrchestrationLogs : new OrchestrationLogs(),
     AnytimeWebhooks : new AnytimeWebhooks(),
     Buyers : new Buyers(),
     SsoLogins : new SsoLogins(),
@@ -79,9 +73,6 @@ const HeadStartSDK: HeadStartSDK = {
 }
 
 interface HeadStartSDK {
-    OrchestrationProducts : OrchestrationProducts,
-    OrchestrationUsers : OrchestrationUsers,
-    OrchestrationLogs : OrchestrationLogs,
     AnytimeWebhooks : AnytimeWebhooks,
     Buyers : Buyers,
     SsoLogins : SsoLogins,

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HSSpecOption | ordercloud-javascript-sdk</title>
+	<title>CosmosListOptions | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="hsspecoption.html">HSSpecOption</a>
+					<a href="cosmoslistoptions.html">CosmosListOptions</a>
 				</li>
 			</ul>
 		</div>
@@ -50,13 +50,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#id" class="tsd-kind-icon">ID</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#isopentext" class="tsd-kind-icon">Is<wbr>Open<wbr>Text</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#listorder" class="tsd-kind-icon">List<wbr>Order</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#pricemarkup" class="tsd-kind-icon">Price<wbr>Markup</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#pricemarkuptype" class="tsd-kind-icon">Price<wbr>Markup<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#value" class="tsd-kind-icon">Value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="hsspecoption.html#xp" class="tsd-kind-icon">xp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cosmoslistoptions.html#continuationtoken" class="tsd-kind-icon">Continuation<wbr>Token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cosmoslistoptions.html#filters" class="tsd-kind-icon">Filters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cosmoslistoptions.html#pagesize" class="tsd-kind-icon">Page<wbr>Size</a></li>
 							</ul>
 						</section>
 					</div>
@@ -65,51 +61,23 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ID</h3>
-					<div class="tsd-signature tsd-kind-icon">ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="continuationtoken" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Continuation<wbr>Token</h3>
+					<div class="tsd-signature tsd-kind-icon">Continuation<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isopentext" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Is<wbr>Open<wbr>Text</h3>
-					<div class="tsd-signature tsd-kind-icon">Is<wbr>Open<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="filters" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Filters</h3>
+					<div class="tsd-signature tsd-kind-icon">Filters<span class="tsd-signature-symbol">:</span> <a href="listfilter.html" class="tsd-signature-type">ListFilter</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="listorder" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> List<wbr>Order</h3>
-					<div class="tsd-signature tsd-kind-icon">List<wbr>Order<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="pricemarkup" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Price<wbr>Markup</h3>
-					<div class="tsd-signature tsd-kind-icon">Price<wbr>Markup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="pricemarkuptype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Price<wbr>Markup<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Price<wbr>Markup<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"NoMarkup"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AmountPerQuantity"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AmountTotal"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percentage"</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="value" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Value</h3>
-					<div class="tsd-signature tsd-kind-icon">Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="xp" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> xp</h3>
-					<div class="tsd-signature tsd-kind-icon">xp<span class="tsd-signature-symbol">:</span> <a href="specoptionxp.html" class="tsd-signature-type">SpecOptionXp</a></div>
+					<a name="pagesize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Page<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">Page<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -125,28 +93,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="hsspecoption.html" class="tsd-kind-icon">HSSpec<wbr>Option</a>
+						<a href="cosmoslistoptions.html" class="tsd-kind-icon">Cosmos<wbr>List<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#id" class="tsd-kind-icon">ID</a>
+								<a href="cosmoslistoptions.html#continuationtoken" class="tsd-kind-icon">Continuation<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#isopentext" class="tsd-kind-icon">Is<wbr>Open<wbr>Text</a>
+								<a href="cosmoslistoptions.html#filters" class="tsd-kind-icon">Filters</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#listorder" class="tsd-kind-icon">List<wbr>Order</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#pricemarkup" class="tsd-kind-icon">Price<wbr>Markup</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#pricemarkuptype" class="tsd-kind-icon">Price<wbr>Markup<wbr>Type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#value" class="tsd-kind-icon">Value</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="hsspecoption.html#xp" class="tsd-kind-icon">xp</a>
+								<a href="cosmoslistoptions.html#pagesize" class="tsd-kind-icon">Page<wbr>Size</a>
 							</li>
 						</ul>
 					</li>

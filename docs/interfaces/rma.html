@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>OrchestrationLog | ordercloud-javascript-sdk</title>
+	<title>RMA | ordercloud-javascript-sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -34,7 +34,7 @@
 					<a href="../index.html">OrderCloudSDK</a>
 				</li>
 				<li>
-					<a href="orchestrationlog.html">OrchestrationLog</a>
+					<a href="rma.html">RMA</a>
 				</li>
 			</ul>
 		</div>
@@ -50,14 +50,19 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#action" class="tsd-kind-icon">Action</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#errortype" class="tsd-kind-icon">Error<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#level" class="tsd-kind-icon">Level</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#message" class="tsd-kind-icon">Message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#orderclouderrors" class="tsd-kind-icon">Order<wbr>Cloud<wbr>Errors</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#recordid" class="tsd-kind-icon">Record<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#recordtype" class="tsd-kind-icon">Record<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="orchestrationlog.html#resourceid" class="tsd-kind-icon">Resource<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#creditsapplied" class="tsd-kind-icon">Credits<wbr>Applied</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#datecomplete" class="tsd-kind-icon">Date<wbr>Complete</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#datecreated" class="tsd-kind-icon">Date<wbr>Created</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#frombuyerid" class="tsd-kind-icon">From<wbr>BuyerID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#frombuyeruserid" class="tsd-kind-icon">From<wbr>Buyer<wbr>UserID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#lineitems" class="tsd-kind-icon">Line<wbr>Items</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#logs" class="tsd-kind-icon">Logs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#partitionkey" class="tsd-kind-icon">Partition<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#rmanumber" class="tsd-kind-icon">RMANumber</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#sourceordernumber" class="tsd-kind-icon">Source<wbr>Order<wbr>Number</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#status" class="tsd-kind-icon">Status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#supplierid" class="tsd-kind-icon">SupplierID</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="rma.html#type" class="tsd-kind-icon">Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -66,58 +71,93 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="action" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Action</h3>
-					<div class="tsd-signature tsd-kind-icon">Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Ignore"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Create"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Update"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Patch"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Delete"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Get"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SyncShipments"</span></div>
+					<a name="creditsapplied" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Credits<wbr>Applied</h3>
+					<div class="tsd-signature tsd-kind-icon">Credits<wbr>Applied<span class="tsd-signature-symbol">:</span> <a href="rmacredit.html" class="tsd-signature-type">RMACredit</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="errortype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Error<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Error<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"WorkItemDefinition"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"QueuedGetError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CachedGetError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DiffCalculationError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ActionEvaluationError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CacheUpdateError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"QueueCleanupError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SyncCommandError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateExistsError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CreateGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UpdateGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PatchGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"GetGeneralError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AuthenticateSupplierError"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NoRelatedOrderCloudOrderFound"</span></div>
+					<a name="datecomplete" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Date<wbr>Complete</h3>
+					<div class="tsd-signature tsd-kind-icon">Date<wbr>Complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="level" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Level</h3>
-					<div class="tsd-signature tsd-kind-icon">Level<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Progress"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Error"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Warn"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Success"</span></div>
+					<a name="datecreated" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Date<wbr>Created</h3>
+					<div class="tsd-signature tsd-kind-icon">Date<wbr>Created<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="message" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Message</h3>
-					<div class="tsd-signature tsd-kind-icon">Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="frombuyerid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> From<wbr>BuyerID</h3>
+					<div class="tsd-signature tsd-kind-icon">From<wbr>BuyerID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="orderclouderrors" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Order<wbr>Cloud<wbr>Errors</h3>
-					<div class="tsd-signature tsd-kind-icon">Order<wbr>Cloud<wbr>Errors<span class="tsd-signature-symbol">:</span> <a href="apierror.html" class="tsd-signature-type">ApiError</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="frombuyeruserid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> From<wbr>Buyer<wbr>UserID</h3>
+					<div class="tsd-signature tsd-kind-icon">From<wbr>Buyer<wbr>UserID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="recordid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Record<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Record<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="lineitems" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Line<wbr>Items</h3>
+					<div class="tsd-signature tsd-kind-icon">Line<wbr>Items<span class="tsd-signature-symbol">:</span> <a href="rmalineitem.html" class="tsd-signature-type">RMALineItem</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="recordtype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Record<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Record<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"HydratedProduct"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Product"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PriceSchedule"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Spec"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpecOption"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SpecProductAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProductFacet"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Buyer"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"User"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroup"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Address"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CostCenter"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"UserGroupAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"AddressAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"CatalogAssignment"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Catalog"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Supplier"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Order"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"TemplateProductFlat"</span></div>
+					<a name="logs" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Logs</h3>
+					<div class="tsd-signature tsd-kind-icon">Logs<span class="tsd-signature-symbol">:</span> <a href="rmalog.html" class="tsd-signature-type">RMALog</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="resourceid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Resource<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">Resource<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="partitionkey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Partition<wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">Partition<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="rmanumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> RMANumber</h3>
+					<div class="tsd-signature tsd-kind-icon">RMANumber<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sourceordernumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Source<wbr>Order<wbr>Number</h3>
+					<div class="tsd-signature tsd-kind-icon">Source<wbr>Order<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="status" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Status</h3>
+					<div class="tsd-signature tsd-kind-icon">Status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Requested"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Denied"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Processing"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Approved"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Complete"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Canceled"</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="supplierid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> SupplierID</h3>
+					<div class="tsd-signature tsd-kind-icon">SupplierID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Cancellation"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Return"</span></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -133,31 +173,46 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="orchestrationlog.html" class="tsd-kind-icon">Orchestration<wbr>Log</a>
+						<a href="rma.html" class="tsd-kind-icon">RMA</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#action" class="tsd-kind-icon">Action</a>
+								<a href="rma.html#creditsapplied" class="tsd-kind-icon">Credits<wbr>Applied</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#errortype" class="tsd-kind-icon">Error<wbr>Type</a>
+								<a href="rma.html#datecomplete" class="tsd-kind-icon">Date<wbr>Complete</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#level" class="tsd-kind-icon">Level</a>
+								<a href="rma.html#datecreated" class="tsd-kind-icon">Date<wbr>Created</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#message" class="tsd-kind-icon">Message</a>
+								<a href="rma.html#frombuyerid" class="tsd-kind-icon">From<wbr>BuyerID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#orderclouderrors" class="tsd-kind-icon">Order<wbr>Cloud<wbr>Errors</a>
+								<a href="rma.html#frombuyeruserid" class="tsd-kind-icon">From<wbr>Buyer<wbr>UserID</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#recordid" class="tsd-kind-icon">Record<wbr>Id</a>
+								<a href="rma.html#lineitems" class="tsd-kind-icon">Line<wbr>Items</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#recordtype" class="tsd-kind-icon">Record<wbr>Type</a>
+								<a href="rma.html#logs" class="tsd-kind-icon">Logs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="orchestrationlog.html#resourceid" class="tsd-kind-icon">Resource<wbr>Id</a>
+								<a href="rma.html#partitionkey" class="tsd-kind-icon">Partition<wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="rma.html#rmanumber" class="tsd-kind-icon">RMANumber</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="rma.html#sourceordernumber" class="tsd-kind-icon">Source<wbr>Order<wbr>Number</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="rma.html#status" class="tsd-kind-icon">Status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="rma.html#supplierid" class="tsd-kind-icon">SupplierID</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="rma.html#type" class="tsd-kind-icon">Type</a>
 							</li>
 						</ul>
 					</li>
