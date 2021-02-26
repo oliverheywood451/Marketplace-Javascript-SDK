@@ -1,5 +1,6 @@
 import { Contact } from './Contact';
 import { SupplierCategory } from './SupplierCategory';
+import { ShippingCostSchedule } from './ShippingCostSchedule';
 
 export interface SupplierXp {
     Description?: string
@@ -13,4 +14,5 @@ export interface SupplierXp {
     Categories?: SupplierCategory[]
     NotificationRcpts?: string[]
     FreeShippingThreshold?: number
+    ShippingCostSchedule?: ShippingCostSchedule
 }

@@ -191,6 +191,11 @@
             "name": "Tecra Spec Forms",
             "description": "\"Integration\" represents a Custom Spec Form",
             "x-section-id": "Content"
+        },
+        {
+            "name": "Chili Publish Assets",
+            "description": "\"Integration\" represents a Chili Publish Asset",
+            "x-section-id": "Content"
         }
     ],
     "components": {
@@ -973,6 +978,25 @@
                     }
                 }
             },
+            "ChiliAPIUploadRequest": {
+                "type": "object",
+                "example": {
+                    "filename": "",
+                    "filepath": "",
+                    "base64file": ""
+                },
+                "properties": {
+                    "filename": {
+                        "type": "string"
+                    },
+                    "filepath": {
+                        "type": "string"
+                    },
+                    "base64file": {
+                        "type": "string"
+                    }
+                }
+            },
             "ChiliConfig": {
                 "type": "object",
                 "example": {
@@ -1744,6 +1768,32 @@
                     },
                     "ContinuationToken": {
                         "type": "string"
+                    }
+                }
+            },
+            "CostBreak": {
+                "type": "object",
+                "example": {
+                    "ValidCountries": [
+                        ""
+                    ],
+                    "Cost": 0,
+                    "OrderSubTotal": 0
+                },
+                "properties": {
+                    "ValidCountries": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "Cost": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "OrderSubTotal": {
+                        "type": "integer",
+                        "format": "int32"
                     }
                 }
             },
@@ -5580,6 +5630,8 @@
                                     "OriginalCost": 0,
                                     "FreeShippingApplied": false,
                                     "FreeShippingThreshold": 0,
+                                    "ShippingCostScheduleApplied": false,
+                                    "ShippingCostScheduleOrderSubTotalThreshold": 0,
                                     "OriginalCurrency": "CAD",
                                     "OrderCurrency": "CAD",
                                     "ExchangeRate": 0
@@ -5603,6 +5655,8 @@
                                 "OriginalCost": 0,
                                 "FreeShippingApplied": false,
                                 "FreeShippingThreshold": 0,
+                                "ShippingCostScheduleApplied": false,
+                                "ShippingCostScheduleOrderSubTotalThreshold": 0,
                                 "OriginalCurrency": "CAD",
                                 "OrderCurrency": "CAD",
                                 "ExchangeRate": 0
@@ -6176,6 +6230,8 @@
                         "OriginalCost": 0,
                         "FreeShippingApplied": false,
                         "FreeShippingThreshold": 0,
+                        "ShippingCostScheduleApplied": false,
+                        "ShippingCostScheduleOrderSubTotalThreshold": 0,
                         "OriginalCurrency": "CAD",
                         "OrderCurrency": "CAD",
                         "ExchangeRate": 0
@@ -6259,7 +6315,18 @@
                         "NotificationRcpts": [
                             ""
                         ],
-                        "FreeShippingThreshold": 0
+                        "FreeShippingThreshold": 0,
+                        "ShippingCostSchedule": {
+                            "CostBreaks": [
+                                {
+                                    "ValidCountries": [
+                                        ""
+                                    ],
+                                    "Cost": 0,
+                                    "OrderSubTotal": 0
+                                }
+                            ]
+                        }
                     },
                     "ID": "",
                     "Name": "",
@@ -6947,6 +7014,8 @@
                                         "OriginalCost": 0,
                                         "FreeShippingApplied": false,
                                         "FreeShippingThreshold": 0,
+                                        "ShippingCostScheduleApplied": false,
+                                        "ShippingCostScheduleOrderSubTotalThreshold": 0,
                                         "OriginalCurrency": "CAD",
                                         "OrderCurrency": "CAD",
                                         "ExchangeRate": 0
@@ -6970,6 +7039,8 @@
                                     "OriginalCost": 0,
                                     "FreeShippingApplied": false,
                                     "FreeShippingThreshold": 0,
+                                    "ShippingCostScheduleApplied": false,
+                                    "ShippingCostScheduleOrderSubTotalThreshold": 0,
                                     "OriginalCurrency": "CAD",
                                     "OrderCurrency": "CAD",
                                     "ExchangeRate": 0
@@ -10850,6 +10921,8 @@
                                 "OriginalCost": 0,
                                 "FreeShippingApplied": false,
                                 "FreeShippingThreshold": 0,
+                                "ShippingCostScheduleApplied": false,
+                                "ShippingCostScheduleOrderSubTotalThreshold": 0,
                                 "OriginalCurrency": "CAD",
                                 "OrderCurrency": "CAD",
                                 "ExchangeRate": 0
@@ -11037,6 +11110,8 @@
                     "OriginalCost": 0,
                     "FreeShippingApplied": false,
                     "FreeShippingThreshold": 0,
+                    "ShippingCostScheduleApplied": false,
+                    "ShippingCostScheduleOrderSubTotalThreshold": 0,
                     "OriginalCurrency": "CAD",
                     "OrderCurrency": "CAD",
                     "ExchangeRate": 0
@@ -11063,6 +11138,13 @@
                         "type": "boolean"
                     },
                     "FreeShippingThreshold": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ShippingCostScheduleApplied": {
+                        "type": "boolean"
+                    },
+                    "ShippingCostScheduleOrderSubTotalThreshold": {
                         "type": "integer",
                         "format": "int32"
                     },
@@ -11145,6 +11227,28 @@
                     "ExchangeRate": {
                         "type": "number",
                         "format": "double"
+                    }
+                }
+            },
+            "ShippingCostSchedule": {
+                "type": "object",
+                "example": {
+                    "CostBreaks": [
+                        {
+                            "ValidCountries": [
+                                ""
+                            ],
+                            "Cost": 0,
+                            "OrderSubTotal": 0
+                        }
+                    ]
+                },
+                "properties": {
+                    "CostBreaks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CostBreak"
+                        }
                     }
                 }
             },
@@ -12429,7 +12533,18 @@
                     "NotificationRcpts": [
                         ""
                     ],
-                    "FreeShippingThreshold": 0
+                    "FreeShippingThreshold": 0,
+                    "ShippingCostSchedule": {
+                        "CostBreaks": [
+                            {
+                                "ValidCountries": [
+                                    ""
+                                ],
+                                "Cost": 0,
+                                "OrderSubTotal": 0
+                            }
+                        ]
+                    }
                 },
                 "properties": {
                     "Description": {
@@ -12526,6 +12641,13 @@
                     "FreeShippingThreshold": {
                         "type": "integer",
                         "format": "int32"
+                    },
+                    "ShippingCostSchedule": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/ShippingCostSchedule"
+                            }
+                        ]
                     }
                 }
             },
@@ -16161,6 +16283,48 @@
                         "OAuth2": [
                             "FullAccess"
                         ]
+                    }
+                ]
+            }
+        },
+        "/chilipublish/asset": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "If an object with the same ID already exists, it will be overwritten.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliPublishAssets.Save",
+                "tags": [
+                    "Chili Publish Assets"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/ChiliAPIUploadRequest"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "summary": "Upload an Asset",
+                "description": "If an object with the same ID already exists, it will be overwritten.",
+                "security": [
+                    {
+                        "OAuth2": []
                     }
                 ]
             }
