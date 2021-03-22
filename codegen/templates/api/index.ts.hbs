@@ -3,7 +3,6 @@ import {{this.id}} from './{{this.id}}';
 {{/resources}}
 import Auth from './Auth';
 import Tokens from './Tokens';
-import Upload from './Upload';
 
 export { HeadStartSDK }
 
@@ -12,8 +11,7 @@ const HeadStartSDK: HeadStartSDK = {
     {{this.id}} : new {{this.id}}(),
     {{/resources}}
     Auth: new Auth(),
-    Tokens: new Tokens(),
-    Upload: new Upload()
+    Tokens: new Tokens()
 }
 
 interface HeadStartSDK {
@@ -21,6 +19,5 @@ interface HeadStartSDK {
     {{this.id}} : {{this.id}},
     {{/resources}}
     Auth: Auth,
-    Tokens: Tokens,
-    Upload: Upload
+    Tokens: Tokens
 }
