@@ -1,6 +1,6 @@
 import { LineItemXp } from './LineItemXp';
 import { HSLineItemProduct } from './HSLineItemProduct';
-import { LineItemVariant } from './LineItemVariant';
+import { HSLineItemVariant } from './HSLineItemVariant';
 import { HSAddressBuyer } from './HSAddressBuyer';
 import { HSAddressSupplier } from './HSAddressSupplier';
 import { LineItemSpec } from './LineItemSpec';
@@ -8,7 +8,7 @@ import { LineItemSpec } from './LineItemSpec';
 export interface HSLineItem {
     xp?: LineItemXp
     readonly Product?: HSLineItemProduct
-    readonly Variant?: LineItemVariant
+    readonly Variant?: HSLineItemVariant
     readonly ShippingAddress?: HSAddressBuyer
     readonly ShipFromAddress?: HSAddressSupplier
     ID?: string

@@ -8,4 +8,5 @@ export interface MeChiliTemplate {
     ChiliConfigID?: string
     Frame?: string
     CustomSpecForm?: boolean
+    CustomSpecFormID?: string
 }

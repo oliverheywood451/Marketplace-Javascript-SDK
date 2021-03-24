@@ -1,7 +1,7 @@
 
 export interface RMALog {
-    Status?: 'Requested' | 'Denied' | 'Processing' | 'Approved' | 'Complete' | 'Canceled'
+    Status?: 'Requested' | 'Denied' | 'Processing' | 'Approved' | 'Complete'
     Date?: string
-    Comment?: string
+    AmountRefunded?: number
     FromUserID?: string
 }

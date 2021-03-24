@@ -4,4 +4,6 @@ export interface LineItemStatusChange {
     Quantity?: number
     Reason?: string
     Comment?: string
+    Refund?: number
+    QuantityRequestedForRefund?: number
 }

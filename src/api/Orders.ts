@@ -5,6 +5,8 @@ import { OrderDetails } from '../models/OrderDetails';
 import { HSLineItem } from '../models/HSLineItem';
 import { Order } from '../models/Order';
 import { ListPage } from '../models/ListPage';
+import { CosmosListPage } from '../models/CosmosListPage';
+import { RMA } from '../models/RMA';
 import { RequiredDeep } from '../models/RequiredDeep';
 import { ListArgs } from '../models/ListArgs'
 import httpClient from '../utils/HttpClient';
@@ -28,6 +30,7 @@ export default class Orders {
         this.ListShipmentsWithItems = this.ListShipmentsWithItems.bind(this);
         this.AcknowledgeQuoteOrder = this.AcknowledgeQuoteOrder.bind(this);
         this.ListLocationOrders = this.ListLocationOrders.bind(this);
+        this.ListRMAsForOrder = this.ListRMAsForOrder.bind(this);
     }
 
    /**
@@ -152,6 +155,16 @@ export default class Orders {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/order/location/${locationID}`, { params: { ...options,  filters: options.filters, accessToken, impersonating } } );
+    }
+
+   /**
+    * @param orderID ID of the order.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async ListRMAsForOrder(orderID: string,  accessToken?: string ): Promise<RequiredDeep<CosmosListPage<RMA>>> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/order/rma/list/${orderID}`, { params: {  accessToken, impersonating } } );
     }
 
     /**

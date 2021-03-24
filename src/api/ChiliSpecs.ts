@@ -16,6 +16,7 @@ export default class ChiliSpecs {
         this.Get = this.Get.bind(this);
         this.Update = this.Update.bind(this);
         this.Delete = this.Delete.bind(this);
+        this.GetChiliPublishSpecs = this.GetChiliPublishSpecs.bind(this);
     }
 
    /**
@@ -62,6 +63,16 @@ export default class ChiliSpecs {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/chili/specs/${specID}`, { params: {  accessToken, impersonating } } );
+    }
+
+   /**
+    * @param options.id Id of the chili api spec.
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async GetChiliPublishSpecs( id: string, accessToken?: string ): Promise<void> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        return await httpClient.get(`/chilipublish/specs`, { params: { id,  accessToken, impersonating } } );
     }
 
     /**

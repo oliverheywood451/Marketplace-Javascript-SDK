@@ -1,4 +1,4 @@
 
 export interface ChiliSpecUI {
-    ControlType?: 'Text' | 'DropDown' | 'Checkbox' | 'Range'
+    ControlType?: 'Text' | 'DropDown' | 'Checkbox' | 'Range' | 'File'
 }

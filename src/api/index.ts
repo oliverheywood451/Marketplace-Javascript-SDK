@@ -23,16 +23,14 @@ import ChiliConfigs from './ChiliConfigs';
 import ChiliSpecOptions from './ChiliSpecOptions';
 import ChiliSpecs from './ChiliSpecs';
 import ChiliTemplates from './ChiliTemplates';
-import TecraDocuments from './TecraDocuments';
-import TecraSpecs from './TecraSpecs';
-import TecraFrames from './TecraFrames';
-import TecraProofs from './TecraProofs';
-import TecraPdFs from './TecraPdFs';
-import TecraSpecForms from './TecraSpecForms';
+import ChiliDocuments from './ChiliDocuments';
+import ChiliFrames from './ChiliFrames';
+import ChiliProofs from './ChiliProofs';
+import ChiliPdFs from './ChiliPdFs';
+import ChiliSpecForms from './ChiliSpecForms';
 import ChiliPublishAssets from './ChiliPublishAssets';
 import Auth from './Auth';
 import Tokens from './Tokens';
-import Upload from './Upload';
 
 export { HeadStartSDK }
 
@@ -62,16 +60,14 @@ const HeadStartSDK: HeadStartSDK = {
     ChiliSpecOptions : new ChiliSpecOptions(),
     ChiliSpecs : new ChiliSpecs(),
     ChiliTemplates : new ChiliTemplates(),
-    TecraDocuments : new TecraDocuments(),
-    TecraSpecs : new TecraSpecs(),
-    TecraFrames : new TecraFrames(),
-    TecraProofs : new TecraProofs(),
-    TecraPdFs : new TecraPdFs(),
-    TecraSpecForms : new TecraSpecForms(),
+    ChiliDocuments : new ChiliDocuments(),
+    ChiliFrames : new ChiliFrames(),
+    ChiliProofs : new ChiliProofs(),
+    ChiliPdFs : new ChiliPdFs(),
+    ChiliSpecForms : new ChiliSpecForms(),
     ChiliPublishAssets : new ChiliPublishAssets(),
     Auth: new Auth(),
-    Tokens: new Tokens(),
-    Upload: new Upload()
+    Tokens: new Tokens()
 }
 
 interface HeadStartSDK {
@@ -100,14 +96,12 @@ interface HeadStartSDK {
     ChiliSpecOptions : ChiliSpecOptions,
     ChiliSpecs : ChiliSpecs,
     ChiliTemplates : ChiliTemplates,
-    TecraDocuments : TecraDocuments,
-    TecraSpecs : TecraSpecs,
-    TecraFrames : TecraFrames,
-    TecraProofs : TecraProofs,
-    TecraPdFs : TecraPdFs,
-    TecraSpecForms : TecraSpecForms,
+    ChiliDocuments : ChiliDocuments,
+    ChiliFrames : ChiliFrames,
+    ChiliProofs : ChiliProofs,
+    ChiliPdFs : ChiliPdFs,
+    ChiliSpecForms : ChiliSpecForms,
     ChiliPublishAssets : ChiliPublishAssets,
     Auth: Auth,
-    Tokens: Tokens,
-    Upload: Upload
+    Tokens: Tokens
 }

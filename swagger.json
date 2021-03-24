@@ -163,32 +163,32 @@
             "x-section-id": "Content"
         },
         {
-            "name": "Tecra Documents",
-            "description": "\"Integration\" represents an array of Tecra Documents",
+            "name": "Chili Documents",
+            "description": "\"Integration\" represents an array of Chili Documents",
             "x-section-id": "Content"
         },
         {
-            "name": "Tecra Specs",
-            "description": "\"Integration\" represents an array of Tecra Specs",
+            "name": "Chili Specs",
+            "description": "\"Integration\" represents an array of Chili Specs",
             "x-section-id": "Content"
         },
         {
-            "name": "Tecra Frames",
-            "description": "\"Integration\" represents a URL to a Tecra Frame",
+            "name": "Chili Frames",
+            "description": "\"Integration\" represents a URL to a Chili Editor Frame",
             "x-section-id": "Content"
         },
         {
-            "name": "Tecra Proofs",
-            "description": "\"Integration\" represents a URL to a Tecra Proof",
+            "name": "Chili Proofs",
+            "description": "\"Integration\" represents a URL to a Chili Proof",
             "x-section-id": "Content"
         },
         {
-            "name": "Tecra PD Fs",
-            "description": "\"Integration\" represents a URL to a Tecra PDF",
+            "name": "Chili PD Fs",
+            "description": "\"Integration\" represents a URL to a Chili PDF",
             "x-section-id": "Content"
         },
         {
-            "name": "Tecra Spec Forms",
+            "name": "Chili Spec Forms",
             "description": "\"Integration\" represents a Custom Spec Form",
             "x-section-id": "Content"
         },
@@ -978,21 +978,57 @@
                     }
                 }
             },
-            "ChiliAPIUploadRequest": {
+            "ChiliAPIDocument": {
                 "type": "object",
                 "example": {
-                    "filename": "",
-                    "filepath": "",
-                    "base64file": ""
+                    "id": "",
+                    "name": "",
+                    "pages": 0
                 },
                 "properties": {
-                    "filename": {
+                    "id": {
                         "type": "string"
                     },
-                    "filepath": {
+                    "name": {
                         "type": "string"
                     },
-                    "base64file": {
+                    "pages": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "ChiliAPISpec": {
+                "type": "object",
+                "example": {
+                    "name": "",
+                    "dataType": "",
+                    "displayName": "",
+                    "displayValue": "",
+                    "required": "",
+                    "value": "",
+                    "visible": ""
+                },
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "dataType": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "displayValue": {
+                        "type": "string"
+                    },
+                    "required": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    },
+                    "visible": {
                         "type": "string"
                     }
                 }
@@ -1218,7 +1254,8 @@
                             "Text",
                             "DropDown",
                             "Checkbox",
-                            "Range"
+                            "Range",
+                            "File"
                         ],
                         "type": "string"
                     }
@@ -1617,7 +1654,8 @@
                     "ChiliTemplateID": "",
                     "ChiliConfigID": "",
                     "Frame": "",
-                    "CustomSpecForm": false
+                    "CustomSpecForm": false,
+                    "CustomSpecFormID": ""
                 },
                 "properties": {
                     "Product": {
@@ -1644,6 +1682,9 @@
                     },
                     "CustomSpecForm": {
                         "type": "boolean"
+                    },
+                    "CustomSpecFormID": {
+                        "type": "string"
                     }
                 }
             },
@@ -1732,7 +1773,11 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "Sort": "",
+                    "SortDirection": "ASC",
+                    "Search": "",
+                    "SearchOn": ""
                 },
                 "properties": {
                     "PageSize": {
@@ -1747,6 +1792,22 @@
                         "items": {
                             "$ref": "#/components/schemas/ListFilter"
                         }
+                    },
+                    "Sort": {
+                        "type": "string"
+                    },
+                    "SortDirection": {
+                        "enum": [
+                            "ASC",
+                            "DESC"
+                        ],
+                        "type": "string"
+                    },
+                    "Search": {
+                        "type": "string"
+                    },
+                    "SearchOn": {
+                        "type": "string"
                     }
                 }
             },
@@ -1792,8 +1853,8 @@
                         "format": "float"
                     },
                     "OrderSubTotal": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "number",
+                        "format": "float"
                     }
                 }
             },
@@ -2745,6 +2806,17 @@
                         "ShipLength": 0
                     },
                     "Variant": {
+                        "xp": {
+                            "SpecCombo": "",
+                            "SpecValues": [
+                                {
+                                    "SpecName": "",
+                                    "SpecOptionValue": "",
+                                    "PriceMarkup": ""
+                                }
+                            ],
+                            "NewID": ""
+                        },
                         "ID": "",
                         "Name": "",
                         "Description": "",
@@ -2847,7 +2919,7 @@
                     "Variant": {
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/LineItemVariant"
+                                "$ref": "#/components/schemas/HSLineItemVariant"
                             }
                         ],
                         "readOnly": true
@@ -3094,6 +3166,7 @@
                         "DateDeclined": "2018-01-01T00:00:00-06:00",
                         "DateCanceled": "2018-01-01T00:00:00-06:00",
                         "DateCompleted": "2018-01-01T00:00:00-06:00",
+                        "LastUpdated": "2018-01-01T00:00:00-06:00",
                         "Subtotal": 0,
                         "ShippingCost": 0,
                         "TaxCost": 0,
@@ -3172,6 +3245,17 @@
                             "ShipLength": 0
                         },
                         "Variant": {
+                            "xp": {
+                                "SpecCombo": "",
+                                "SpecValues": [
+                                    {
+                                        "SpecName": "",
+                                        "SpecOptionValue": "",
+                                        "PriceMarkup": ""
+                                    }
+                                ],
+                                "NewID": ""
+                            },
                             "ID": "",
                             "Name": "",
                             "Description": "",
@@ -3332,6 +3416,63 @@
                     "QuantityMultiplier": {
                         "type": "integer",
                         "format": "int32"
+                    },
+                    "ShipWeight": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipHeight": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipWidth": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ShipLength": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "HSLineItemVariant": {
+                "type": "object",
+                "example": {
+                    "xp": {
+                        "SpecCombo": "",
+                        "SpecValues": [
+                            {
+                                "SpecName": "",
+                                "SpecOptionValue": "",
+                                "PriceMarkup": ""
+                            }
+                        ],
+                        "NewID": ""
+                    },
+                    "ID": "",
+                    "Name": "",
+                    "Description": "",
+                    "ShipWeight": 0,
+                    "ShipHeight": 0,
+                    "ShipWidth": 0,
+                    "ShipLength": 0
+                },
+                "properties": {
+                    "xp": {
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/HSVariantXp"
+                            }
+                        ]
+                    },
+                    "ID": {
+                        "type": "string"
+                    },
+                    "Name": {
+                        "type": "string"
+                    },
+                    "Description": {
+                        "type": "string"
                     },
                     "ShipWeight": {
                         "type": "number",
@@ -4532,6 +4673,7 @@
                     "DateDeclined": "2018-01-01T00:00:00-06:00",
                     "DateCanceled": "2018-01-01T00:00:00-06:00",
                     "DateCompleted": "2018-01-01T00:00:00-06:00",
+                    "LastUpdated": "2018-01-01T00:00:00-06:00",
                     "Subtotal": 0,
                     "ShippingCost": 0,
                     "TaxCost": 0,
@@ -4627,6 +4769,11 @@
                         "readOnly": true
                     },
                     "DateCompleted": {
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true
+                    },
+                    "LastUpdated": {
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true
@@ -4819,6 +4966,7 @@
                         "DateDeclined": "2018-01-01T00:00:00-06:00",
                         "DateCanceled": "2018-01-01T00:00:00-06:00",
                         "DateCompleted": "2018-01-01T00:00:00-06:00",
+                        "LastUpdated": "2018-01-01T00:00:00-06:00",
                         "Subtotal": 0,
                         "ShippingCost": 0,
                         "TaxCost": 0,
@@ -4898,6 +5046,17 @@
                                 "ShipLength": 0
                             },
                             "Variant": {
+                                "xp": {
+                                    "SpecCombo": "",
+                                    "SpecValues": [
+                                        {
+                                            "SpecName": "",
+                                            "SpecOptionValue": "",
+                                            "PriceMarkup": ""
+                                        }
+                                    ],
+                                    "NewID": ""
+                                },
                                 "ID": "",
                                 "Name": "",
                                 "Description": "",
@@ -6517,6 +6676,7 @@
                             "DateDeclined": "2018-01-01T00:00:00-06:00",
                             "DateCanceled": "2018-01-01T00:00:00-06:00",
                             "DateCompleted": "2018-01-01T00:00:00-06:00",
+                            "LastUpdated": "2018-01-01T00:00:00-06:00",
                             "Subtotal": 0,
                             "ShippingCost": 0,
                             "TaxCost": 0,
@@ -6596,6 +6756,17 @@
                                     "ShipLength": 0
                                 },
                                 "Variant": {
+                                    "xp": {
+                                        "SpecCombo": "",
+                                        "SpecValues": [
+                                            {
+                                                "SpecName": "",
+                                                "SpecOptionValue": "",
+                                                "PriceMarkup": ""
+                                            }
+                                        ],
+                                        "NewID": ""
+                                    },
                                     "ID": "",
                                     "Name": "",
                                     "Description": "",
@@ -6838,6 +7009,7 @@
                             "DateDeclined": "2018-01-01T00:00:00-06:00",
                             "DateCanceled": "2018-01-01T00:00:00-06:00",
                             "DateCompleted": "2018-01-01T00:00:00-06:00",
+                            "LastUpdated": "2018-01-01T00:00:00-06:00",
                             "Subtotal": 0,
                             "ShippingCost": 0,
                             "TaxCost": 0,
@@ -6917,6 +7089,17 @@
                                     "ShipLength": 0
                                 },
                                 "Variant": {
+                                    "xp": {
+                                        "SpecCombo": "",
+                                        "SpecValues": [
+                                            {
+                                                "SpecName": "",
+                                                "SpecOptionValue": "",
+                                                "PriceMarkup": ""
+                                            }
+                                        ],
+                                        "NewID": ""
+                                    },
                                     "ID": "",
                                     "Name": "",
                                     "Description": "",
@@ -7614,7 +7797,9 @@
                     "ID": "",
                     "Quantity": 0,
                     "Reason": "",
-                    "Comment": ""
+                    "Comment": "",
+                    "Refund": 0,
+                    "QuantityRequestedForRefund": 0
                 },
                 "properties": {
                     "ID": {
@@ -7629,6 +7814,14 @@
                     },
                     "Comment": {
                         "type": "string"
+                    },
+                    "Refund": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "QuantityRequestedForRefund": {
+                        "type": "integer",
+                        "format": "int32"
                     }
                 }
             },
@@ -7641,7 +7834,9 @@
                             "ID": "",
                             "Quantity": 0,
                             "Reason": "",
-                            "Comment": ""
+                            "Comment": "",
+                            "Refund": 0,
+                            "QuantityRequestedForRefund": 0
                         }
                     ],
                     "SuperShipment": {
@@ -7760,8 +7955,10 @@
                             "Backordered",
                             "Canceled",
                             "CancelRequested",
+                            "CancelDenied",
                             "Returned",
-                            "ReturnRequested"
+                            "ReturnRequested",
+                            "ReturnDenied"
                         ],
                         "type": "string"
                     },
@@ -7863,8 +8060,10 @@
                             "Backordered",
                             "Canceled",
                             "CancelRequested",
+                            "CancelDenied",
                             "Returned",
-                            "ReturnRequested"
+                            "ReturnRequested",
+                            "ReturnDenied"
                         ],
                         "items": {
                             "type": "string"
@@ -8722,7 +8921,8 @@
                     "ChiliTemplateID": "",
                     "ChiliConfigID": "",
                     "Frame": "",
-                    "CustomSpecForm": false
+                    "CustomSpecForm": false,
+                    "CustomSpecFormID": ""
                 },
                 "properties": {
                     "Product": {
@@ -8749,6 +8949,9 @@
                     },
                     "CustomSpecForm": {
                         "type": "boolean"
+                    },
+                    "CustomSpecFormID": {
+                        "type": "string"
                     }
                 }
             },
@@ -8895,6 +9098,7 @@
                     "DateDeclined": "2018-01-01T00:00:00-06:00",
                     "DateCanceled": "2018-01-01T00:00:00-06:00",
                     "DateCompleted": "2018-01-01T00:00:00-06:00",
+                    "LastUpdated": "2018-01-01T00:00:00-06:00",
                     "Subtotal": 0,
                     "ShippingCost": 0,
                     "TaxCost": 0,
@@ -8983,6 +9187,11 @@
                         "readOnly": true
                     },
                     "DateCompleted": {
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": true
+                    },
+                    "LastUpdated": {
                         "type": "string",
                         "format": "date-time",
                         "readOnly": true
@@ -9421,6 +9630,7 @@
                         "DateDeclined": "2018-01-01T00:00:00-06:00",
                         "DateCanceled": "2018-01-01T00:00:00-06:00",
                         "DateCompleted": "2018-01-01T00:00:00-06:00",
+                        "LastUpdated": "2018-01-01T00:00:00-06:00",
                         "Subtotal": 0,
                         "ShippingCost": 0,
                         "TaxCost": 0,
@@ -10675,7 +10885,8 @@
                 "type": "object",
                 "example": {
                     "PartitionKey": "",
-                    "SourceOrderNumber": "",
+                    "SourceOrderID": "",
+                    "TotalCredited": 0,
                     "RMANumber": "",
                     "SupplierID": "",
                     "Type": "Cancellation",
@@ -10685,27 +10896,24 @@
                     "LineItems": [
                         {
                             "ID": "",
+                            "QuantityRequested": 0,
+                            "QuantityProcessed": 0,
                             "Status": "Requested",
                             "Reason": "",
                             "Comment": "",
-                            "IsResolved": false
+                            "PercentToRefund": 0,
+                            "RefundableViaCreditCard": false,
+                            "IsResolved": false,
+                            "IsRefunded": false,
+                            "LineTotalRefund": 0
                         }
                     ],
                     "Logs": [
                         {
                             "Status": "Requested",
                             "Date": "",
-                            "Comment": "",
+                            "AmountRefunded": 0,
                             "FromUserID": ""
-                        }
-                    ],
-                    "CreditsApplied": [
-                        {
-                            "PaymentID": "",
-                            "TransactionID": "",
-                            "TransactionDate": "",
-                            "SupplierCredit": 0,
-                            "TotalRefunded": 0
                         }
                     ],
                     "FromBuyerID": "",
@@ -10715,8 +10923,12 @@
                     "PartitionKey": {
                         "type": "string"
                     },
-                    "SourceOrderNumber": {
+                    "SourceOrderID": {
                         "type": "string"
+                    },
+                    "TotalCredited": {
+                        "type": "number",
+                        "format": "float"
                     },
                     "RMANumber": {
                         "type": "string"
@@ -10743,8 +10955,7 @@
                             "Denied",
                             "Processing",
                             "Approved",
-                            "Complete",
-                            "Canceled"
+                            "Complete"
                         ],
                         "type": "string"
                     },
@@ -10760,46 +10971,11 @@
                             "$ref": "#/components/schemas/RMALog"
                         }
                     },
-                    "CreditsApplied": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/RMACredit"
-                        }
-                    },
                     "FromBuyerID": {
                         "type": "string"
                     },
                     "FromBuyerUserID": {
                         "type": "string"
-                    }
-                }
-            },
-            "RMACredit": {
-                "type": "object",
-                "example": {
-                    "PaymentID": "",
-                    "TransactionID": "",
-                    "TransactionDate": "",
-                    "SupplierCredit": 0,
-                    "TotalRefunded": 0
-                },
-                "properties": {
-                    "PaymentID": {
-                        "type": "string"
-                    },
-                    "TransactionID": {
-                        "type": "string"
-                    },
-                    "TransactionDate": {
-                        "type": "string"
-                    },
-                    "SupplierCredit": {
-                        "type": "number",
-                        "format": "float"
-                    },
-                    "TotalRefunded": {
-                        "type": "number",
-                        "format": "float"
                     }
                 }
             },
@@ -10830,23 +11006,38 @@
                 "type": "object",
                 "example": {
                     "ID": "",
+                    "QuantityRequested": 0,
+                    "QuantityProcessed": 0,
                     "Status": "Requested",
                     "Reason": "",
                     "Comment": "",
-                    "IsResolved": false
+                    "PercentToRefund": 0,
+                    "RefundableViaCreditCard": false,
+                    "IsResolved": false,
+                    "IsRefunded": false,
+                    "LineTotalRefund": 0
                 },
                 "properties": {
                     "ID": {
                         "type": "string"
                     },
+                    "QuantityRequested": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "QuantityProcessed": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
                     "Status": {
                         "enum": [
                             "Requested",
                             "Processing",
-                            "RequestCanceled",
                             "Approved",
+                            "Complete",
                             "Denied",
-                            "PartialQtyApproved"
+                            "PartialQtyApproved",
+                            "PartialQtyComplete"
                         ],
                         "type": "string"
                     },
@@ -10856,8 +11047,22 @@
                     "Comment": {
                         "type": "string"
                     },
+                    "PercentToRefund": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "RefundableViaCreditCard": {
+                        "type": "boolean"
+                    },
                     "IsResolved": {
                         "type": "boolean"
+                    },
+                    "IsRefunded": {
+                        "type": "boolean"
+                    },
+                    "LineTotalRefund": {
+                        "type": "number",
+                        "format": "float"
                     }
                 }
             },
@@ -10866,7 +11071,7 @@
                 "example": {
                     "Status": "Requested",
                     "Date": "",
-                    "Comment": "",
+                    "AmountRefunded": 0,
                     "FromUserID": ""
                 },
                 "properties": {
@@ -10876,16 +11081,16 @@
                             "Denied",
                             "Processing",
                             "Approved",
-                            "Complete",
-                            "Canceled"
+                            "Complete"
                         ],
                         "type": "string"
                     },
                     "Date": {
                         "type": "string"
                     },
-                    "Comment": {
-                        "type": "string"
+                    "AmountRefunded": {
+                        "type": "number",
+                        "format": "float"
                     },
                     "FromUserID": {
                         "type": "string"
@@ -11138,15 +11343,15 @@
                         "type": "boolean"
                     },
                     "FreeShippingThreshold": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "number",
+                        "format": "float"
                     },
                     "ShippingCostScheduleApplied": {
                         "type": "boolean"
                     },
                     "ShippingCostScheduleOrderSubTotalThreshold": {
-                        "type": "integer",
-                        "format": "int32"
+                        "type": "number",
+                        "format": "float"
                     },
                     "OriginalCurrency": {
                         "enum": [
@@ -12732,61 +12937,6 @@
                     "Description": {
                         "type": "string",
                         "maxLength": 200
-                    }
-                }
-            },
-            "TecraDocument": {
-                "type": "object",
-                "example": {
-                    "id": "",
-                    "name": "",
-                    "pages": 0
-                },
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "pages": {
-                        "type": "integer",
-                        "format": "int32"
-                    }
-                }
-            },
-            "TecraSpec": {
-                "type": "object",
-                "example": {
-                    "name": "",
-                    "dataType": "",
-                    "displayName": "",
-                    "displayValue": "",
-                    "required": "",
-                    "value": "",
-                    "visible": ""
-                },
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "dataType": {
-                        "type": "string"
-                    },
-                    "displayName": {
-                        "type": "string"
-                    },
-                    "displayValue": {
-                        "type": "string"
-                    },
-                    "required": {
-                        "type": "string"
-                    },
-                    "value": {
-                        "type": "string"
-                    },
-                    "visible": {
-                        "type": "string"
                     }
                 }
             },
@@ -16305,6 +16455,201 @@
                 "tags": [
                     "Chili Publish Assets"
                 ],
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Data of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "summary": "Upload an Asset",
+                "description": "If an object with the same ID already exists, it will be overwritten.",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/chilipublish/documents": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ChiliAPIDocument"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliDocuments.Get",
+                "tags": [
+                    "Chili Documents"
+                ],
+                "parameters": [
+                    {
+                        "name": "folder",
+                        "in": "query",
+                        "description": "Folder of the chili api document.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Chili Documents",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/chilipublish/frame": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliFrames.Get",
+                "tags": [
+                    "Chili Frames"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Chili Editor Frame URL",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/chilipublish/pdf/{id}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliPDFs.Get",
+                "tags": [
+                    "Chili PD Fs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Chili PDF",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/chilipublish/proof": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliProofs.Get",
+                "tags": [
+                    "Chili Proofs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the string.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Chili Proof",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": []
+                    }
+                ]
+            }
+        },
+        "/chilipublish/specform": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "If an object with the same ID already exists, it will be overwritten.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliSpecForms.Save",
+                "tags": [
+                    "Chili Spec Forms"
+                ],
                 "requestBody": {
                     "required": true,
                     "description": "",
@@ -16313,15 +16658,91 @@
                             "schema": {
                                 "allOf": [
                                     {
-                                        "$ref": "#/components/schemas/ChiliAPIUploadRequest"
+                                        "$ref": "#/components/schemas/ChiliSpecForm"
                                     }
                                 ]
                             }
                         }
                     }
                 },
-                "summary": "Upload an Asset",
+                "summary": "Save a Custom Spec Form",
                 "description": "If an object with the same ID already exists, it will be overwritten.",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/chilipublish/specform/{formID}": {
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "operationId": "ChiliSpecForms.Delete",
+                "tags": [
+                    "Chili Spec Forms"
+                ],
+                "parameters": [
+                    {
+                        "name": "formID",
+                        "in": "path",
+                        "description": "ID of the form.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Delete a Custom Spec Form",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/chilipublish/specs": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ChiliAPISpec"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "ChiliSpecs.GetChiliPublishSpecs",
+                "tags": [
+                    "Chili Specs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of the chili api spec.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "Get Chili Specs",
+                "description": "",
                 "security": [
                     {
                         "OAuth2": []
@@ -18119,6 +18540,47 @@
                 ]
             }
         },
+        "/order/rma/list/{orderID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CosmosListPage<RMA>"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "Orders.ListRMAsForOrder",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderID",
+                        "in": "path",
+                        "description": "ID of the order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "LIST RMAs for Order, ensures user has access to location orders or created the order themselves",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
         "/payments/{orderID}/update": {
             "put": {
                 "responses": {
@@ -19823,6 +20285,101 @@
             }
         },
         "/rma": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RMA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "RMAs.Get",
+                "tags": [
+                    "RM As"
+                ],
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Word or phrase to search for.",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "searchOn",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to search on.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Comma-delimited list of fields to sort by.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "ID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page of results to return. Default: 1",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "Number of results to return per page. Default: 20, max: 100.",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "filters",
+                        "in": "query",
+                        "description": "Any additional key/value pairs passed in the query string are interpreted as filters. Valid keys are top-level properties of the returned model or 'xp.???'",
+                        "required": false,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "summary": "GET a single RMA",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            },
             "post": {
                 "responses": {
                     "200": {
@@ -19836,7 +20393,7 @@
                         }
                     }
                 },
-                "operationId": "RMAs.GenerateRMA",
+                "operationId": "RMAs.PostRMA",
                 "tags": [
                     "RM As"
                 ],
@@ -19861,6 +20418,90 @@
                     {
                         "OAuth2": [
                             "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/rma/{orderID}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CosmosListPage<RMA>"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "RMAs.ListRMAsByOrderID",
+                "tags": [
+                    "RM As"
+                ],
+                "parameters": [
+                    {
+                        "name": "orderID",
+                        "in": "path",
+                        "description": "ID of the order.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "LIST RMAs by Order ID",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/rma/list": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CosmosListPage<RMA>"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "RMAs.ListRMAs",
+                "tags": [
+                    "RM As"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/CosmosListOptions"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "summary": "LIST Seller/Supplier Headstart RMAs",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
                             "FullAccess"
                         ]
                     }
@@ -19950,6 +20591,92 @@
                     {
                         "OAuth2": [
                             "Shopper",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/rma/process-rma": {
+            "put": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RMA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "RMAs.ProcessRMA",
+                "tags": [
+                    "RM As"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/RMA"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "summary": "PUT Supplier Headstart RMA",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "ShipmentAdmin",
+                            "FullAccess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/rma/refund/{rmaNumber}": {
+            "post": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RMA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "RMAs.ProcessRefund",
+                "tags": [
+                    "RM As"
+                ],
+                "parameters": [
+                    {
+                        "name": "rmaNumber",
+                        "in": "path",
+                        "description": "Rma number of the rma.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "summary": "POST RMA Refund",
+                "description": "",
+                "security": [
+                    {
+                        "OAuth2": [
+                            "ShipmentAdmin",
                             "FullAccess"
                         ]
                     }
@@ -20438,309 +21165,6 @@
                             "SupplierAddressAdmin",
                             "FullAccess"
                         ]
-                    }
-                ]
-            }
-        },
-        "/tecra/documents": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TecraDocument"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraDocuments.Get",
-                "tags": [
-                    "Tecra Documents"
-                ],
-                "summary": "Get Tecra Documents",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/tecra/documents/byfolder/{folder}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TecraDocument"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraDocuments.GetByFolder",
-                "tags": [
-                    "Tecra Documents"
-                ],
-                "parameters": [
-                    {
-                        "name": "folder",
-                        "in": "path",
-                        "description": "Folder of the tecra document.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get Tecra Documents By Folder",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/tecra/frame": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraFrames.Get",
-                "tags": [
-                    "Tecra Frames"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id of the string.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get Tecra Frame",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/tecra/pdf/{id}": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraPDFs.Get",
-                "tags": [
-                    "Tecra PD Fs"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Id of the string.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get Tecra PDF",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/tecra/proof": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraProofs.Get",
-                "tags": [
-                    "Tecra Proofs"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id of the string.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get Tecra Proof",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
-                    }
-                ]
-            }
-        },
-        "/tecra/specform": {
-            "post": {
-                "responses": {
-                    "200": {
-                        "description": "If an object with the same ID already exists, it will be overwritten.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraSpecForms.Save",
-                "tags": [
-                    "Tecra Spec Forms"
-                ],
-                "requestBody": {
-                    "required": true,
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "allOf": [
-                                    {
-                                        "$ref": "#/components/schemas/ChiliSpecForm"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                "summary": "Save a Custom Spec Form",
-                "description": "If an object with the same ID already exists, it will be overwritten.",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/tecra/specform/{formID}": {
-            "delete": {
-                "responses": {
-                    "204": {
-                        "description": ""
-                    }
-                },
-                "operationId": "TecraSpecForms.Delete",
-                "tags": [
-                    "Tecra Spec Forms"
-                ],
-                "parameters": [
-                    {
-                        "name": "formID",
-                        "in": "path",
-                        "description": "ID of the form.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Delete a Custom Spec Form",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": [
-                            "FullAccess"
-                        ]
-                    }
-                ]
-            }
-        },
-        "/tecra/specs": {
-            "get": {
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TecraSpec"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "operationId": "TecraSpecs.Get",
-                "tags": [
-                    "Tecra Specs"
-                ],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "query",
-                        "description": "Id of the tecra spec.",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "summary": "Get Tecra Specs",
-                "description": "",
-                "security": [
-                    {
-                        "OAuth2": []
                     }
                 ]
             }
