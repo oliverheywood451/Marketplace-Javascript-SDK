@@ -13,6 +13,7 @@ export * from './CardConnectAuthorizationResponse';
 export * from './CatalogXp';
 export * from './ChiliAPIDocument';
 export * from './ChiliAPISpec';
+export * from './ChiliAPIUploadRequest';
 export * from './ChiliConfig';
 export * from './ChiliSpec';
 export * from './ChiliSpecForm';
