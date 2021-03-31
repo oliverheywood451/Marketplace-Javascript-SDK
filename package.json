@@ -2,7 +2,7 @@
   "name": "@ordercloud/headstart-sdk",
   "description": "Javasript SDK for the Ordercloud HeadStart API",
   "author": "Oliver Heywood",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
